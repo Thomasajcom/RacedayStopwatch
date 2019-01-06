@@ -10,6 +10,8 @@ import UIKit
 
 class AddDriverTableViewController: UITableViewController {
     
+    @IBOutlet weak var driverName: UITextField!
+    @IBOutlet weak var driverNumber: UITextField!
     var helmets: [UIImage] = [
         UIImage(named: "helmet_red")!,
         UIImage(named: "helmet_blue")!,
@@ -21,6 +23,7 @@ class AddDriverTableViewController: UITableViewController {
     @IBOutlet weak var helmetPickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        driverNumber.keyboardType = .numberPad
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,6 +41,8 @@ class AddDriverTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
+
+    
 }
 
 extension AddDriverTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
