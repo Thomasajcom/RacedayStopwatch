@@ -25,6 +25,7 @@
 		E960608D2194BD6C00D37631 /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060872194BD6B00D37631 /* Track+CoreDataProperties.swift */; };
 		E960608E2194BD6C00D37631 /* Driver+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060882194BD6B00D37631 /* Driver+CoreDataClass.swift */; };
 		E960608F2194BD6C00D37631 /* Driver+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060892194BD6B00D37631 /* Driver+CoreDataProperties.swift */; };
+		E96CB1A321E29F0E0096AEE0 /* AddDriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */; };
 		E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D02196040B00F9B4CF /* LapTableViewCell.swift */; };
 		E97143D3219ACC7500F9B4CF /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D2219ACC7500F9B4CF /* TrackTableViewCell.swift */; };
 		E97F11BD2195D74F0090C336 /* AddDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BC2195D74F0090C336 /* AddDriverViewController.swift */; };
@@ -75,6 +76,7 @@
 		E96060872194BD6B00D37631 /* Track+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E96060882194BD6B00D37631 /* Driver+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E96060892194BD6B00D37631 /* Driver+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverTableViewController.swift; sourceTree = "<group>"; };
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		E97143D2219ACC7500F9B4CF /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		E97F11BC2195D74F0090C336 /* AddDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */,
 				E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */,
 				E97F11BC2195D74F0090C336 /* AddDriverViewController.swift */,
+				E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */,
 			);
 			name = Drivers;
 			path = RacedayStopwatch/Drivers;
@@ -361,6 +364,7 @@
 				E97F11BD2195D74F0090C336 /* AddDriverViewController.swift in Sources */,
 				E960608F2194BD6C00D37631 /* Driver+CoreDataProperties.swift in Sources */,
 				E93E2182219ACE3E00F39575 /* TrackSelectorViewController.swift in Sources */,
+				E96CB1A321E29F0E0096AEE0 /* AddDriverTableViewController.swift in Sources */,
 				E960607C219366A300D37631 /* CoreDataService.swift in Sources */,
 				E97143D3219ACC7500F9B4CF /* TrackTableViewCell.swift in Sources */,
 				E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */,

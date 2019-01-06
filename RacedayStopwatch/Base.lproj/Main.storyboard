@@ -420,16 +420,16 @@
         <scene sceneID="fFj-Wb-xSj">
             <objects>
                 <tableViewController id="hhM-5N-gwH" customClass="DriversTableViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="caC-1o-CPZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="caC-1o-CPZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="135" id="4kz-Wy-AUR" customClass="DriverTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="135"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4kz-Wy-AUR" id="wHS-YG-mUe">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="134.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbN-fD-bWD">
@@ -487,25 +487,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="539-he-O7k">
-                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                                <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvw-Of-TnG">
-                                        <rect key="frame" x="8" y="8" width="234" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYs-la-fim">
-                                        <rect key="frame" x="8" y="38" width="234" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-ha-8Cq">
-                                        <rect key="frame" x="8" y="212" width="234" height="30"/>
+                                        <rect key="frame" x="8" y="412" width="284" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-VY-NEk" userLabel="Cancel">
-                                                <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" red="0.98388844730000002" green="0.0001891547547" blue="0.1856153643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -514,7 +502,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-uL-z6Z" userLabel="Add">
-                                                <rect key="frame" x="121" y="0.0" width="113" height="30"/>
+                                                <rect key="frame" x="146" y="0.0" width="138" height="30"/>
                                                 <state key="normal" title="Add Driver"/>
                                                 <connections>
                                                     <action selector="addDriver:" destination="I6J-6J-Met" eventType="touchUpInside" id="HwB-qF-9Xi"/>
@@ -522,20 +510,24 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-ei-Vu4">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="412"/>
+                                        <connections>
+                                            <segue destination="G99-qa-0Tc" kind="embed" id="HRP-2q-pAz"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="tvw-Of-TnG" firstAttribute="leading" secondItem="539-he-O7k" secondAttribute="leadingMargin" id="5X7-EG-Efc"/>
+                                    <constraint firstItem="ILm-ha-8Cq" firstAttribute="top" secondItem="dTT-ei-Vu4" secondAttribute="bottom" id="2X4-EO-Hyf"/>
                                     <constraint firstItem="ILm-ha-8Cq" firstAttribute="leading" secondItem="539-he-O7k" secondAttribute="leadingMargin" id="6cM-jx-cZE"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="ILm-ha-8Cq" secondAttribute="trailing" id="Chx-cE-qi7"/>
-                                    <constraint firstAttribute="width" constant="250" id="Kk2-YR-4kM"/>
-                                    <constraint firstItem="eYs-la-fim" firstAttribute="top" secondItem="tvw-Of-TnG" secondAttribute="bottom" id="MTS-eX-Km6"/>
+                                    <constraint firstAttribute="width" constant="300" id="Kk2-YR-4kM"/>
+                                    <constraint firstItem="dTT-ei-Vu4" firstAttribute="leading" secondItem="539-he-O7k" secondAttribute="leading" id="OEf-oD-xbr"/>
+                                    <constraint firstAttribute="trailing" secondItem="dTT-ei-Vu4" secondAttribute="trailing" id="Qy3-4s-XNT"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="ILm-ha-8Cq" secondAttribute="bottom" id="Xr3-si-yKj"/>
-                                    <constraint firstItem="tvw-Of-TnG" firstAttribute="top" secondItem="539-he-O7k" secondAttribute="topMargin" id="YvB-CR-qHZ"/>
-                                    <constraint firstAttribute="height" constant="250" id="hVs-oe-Png"/>
-                                    <constraint firstItem="eYs-la-fim" firstAttribute="leading" secondItem="539-he-O7k" secondAttribute="leadingMargin" id="i33-LU-2cq"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="tvw-Of-TnG" secondAttribute="trailing" id="kn4-Mn-uVv"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="eYs-la-fim" secondAttribute="trailing" id="lDk-Mf-JGk"/>
+                                    <constraint firstItem="dTT-ei-Vu4" firstAttribute="top" secondItem="539-he-O7k" secondAttribute="top" id="edq-lH-GT8"/>
+                                    <constraint firstAttribute="height" constant="450" id="hVs-oe-Png"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -547,13 +539,106 @@
                         <viewLayoutGuide key="safeArea" id="0aJ-UY-bJm"/>
                     </view>
                     <connections>
-                        <outlet property="driverName" destination="eYs-la-fim" id="e6U-gU-dg5"/>
                         <outlet property="popupView" destination="539-he-O7k" id="4uE-Pw-oH8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiZ-4W-GPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1298.4000000000001" y="250.52473763118442"/>
+        </scene>
+        <!--Add Driver Table View Controller-->
+        <scene sceneID="KaJ-Fc-0XE">
+            <objects>
+                <tableViewController id="G99-qa-0Tc" customClass="AddDriverTableViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yRw-Fl-Cy7">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="412"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="N0V-lC-753">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EV3-K9-2QY">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EV3-K9-2QY" id="IZa-QG-7bo">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7j3-0Z-mz1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="7j3-0Z-mz1" secondAttribute="trailing" id="4XC-hj-K8C"/>
+                                                <constraint firstItem="7j3-0Z-mz1" firstAttribute="leading" secondItem="IZa-QG-7bo" secondAttribute="leading" id="UhE-ND-UTh"/>
+                                                <constraint firstItem="7j3-0Z-mz1" firstAttribute="top" secondItem="IZa-QG-7bo" secondAttribute="top" id="Ztv-Tx-7bQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="7j3-0Z-mz1" secondAttribute="bottom" id="cAy-Uj-SqY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qbi-aU-w9m">
+                                        <rect key="frame" x="0.0" y="44" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qbi-aU-w9m" id="i6u-lh-b6H">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAe-b2-0MN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ZAe-b2-0MN" secondAttribute="trailing" id="1yB-3P-kwC"/>
+                                                <constraint firstItem="ZAe-b2-0MN" firstAttribute="leading" secondItem="i6u-lh-b6H" secondAttribute="leading" id="IOc-Uc-Y4g"/>
+                                                <constraint firstItem="ZAe-b2-0MN" firstAttribute="top" secondItem="i6u-lh-b6H" secondAttribute="top" id="VbS-Vq-fC3"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZAe-b2-0MN" secondAttribute="bottom" id="sYO-A0-v3j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="148" id="aF6-Jq-fat">
+                                        <rect key="frame" x="0.0" y="88" width="300" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aF6-Jq-fat" id="9Qa-l0-QX9">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="147.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-h6-Om4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="147.5"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="G99-qa-0Tc" id="mJh-fb-qNL"/>
+                                                        <outlet property="delegate" destination="G99-qa-0Tc" id="QJC-qm-t7g"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Qmq-h6-Om4" secondAttribute="trailing" id="Q89-w0-CgW"/>
+                                                <constraint firstItem="Qmq-h6-Om4" firstAttribute="top" secondItem="9Qa-l0-QX9" secondAttribute="top" id="WAV-ah-g95"/>
+                                                <constraint firstItem="Qmq-h6-Om4" firstAttribute="leading" secondItem="9Qa-l0-QX9" secondAttribute="leading" id="Z4e-Tz-FuT"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qmq-h6-Om4" secondAttribute="bottom" id="iy5-kB-1OU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="G99-qa-0Tc" id="S1t-iV-dXa"/>
+                            <outlet property="delegate" destination="G99-qa-0Tc" id="1VY-Ek-RPH"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="helmetPickerView" destination="Qmq-h6-Om4" id="j3U-rx-kcD"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7um-1f-G4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2040" y="250.9745127436282"/>
         </scene>
         <!--Drivers-->
         <scene sceneID="jBc-kK-hdv">
