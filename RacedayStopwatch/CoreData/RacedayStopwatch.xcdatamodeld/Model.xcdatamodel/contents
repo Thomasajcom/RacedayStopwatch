@@ -5,6 +5,7 @@
         <attribute name="favoriteTrack" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="holdsRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Track" inverseName="trackRecordHolder" inverseEntity="Track" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="drivers" inverseEntity="Session" syncable="YES"/>
     </entity>
@@ -23,8 +24,8 @@
         <relationship name="trackRecordHolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="holdsRecords" inverseEntity="Driver" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Driver" positionX="-3607.37890625" positionY="-3651.92578125" width="128" height="135"/>
+        <element name="Driver" positionX="-3607.37890625" positionY="-3651.92578125" width="128" height="148"/>
         <element name="Session" positionX="-3668.703125" positionY="-3447.01953125" width="128" height="120"/>
-        <element name="Track" positionX="-3766.04296875" positionY="-3656.67578125" width="128" height="120"/>
+        <element name="Track" positionX="-3863.921875" positionY="-3670.84375" width="128" height="120"/>
     </elements>
 </model>

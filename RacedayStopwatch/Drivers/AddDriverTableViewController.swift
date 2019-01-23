@@ -42,7 +42,30 @@ class AddDriverTableViewController: UITableViewController {
         return 3
     }
 
+    @IBAction func addDriver(_ sender: Any) {
+        let driver = Driver(context: CoreDataService.context)
+        if let newDriverName = driverName.text, !newDriverName.isEmpty, newDriverName != ""{
+            driver.name = newDriverName
+        }else {
+            driverName.attributedPlaceholder = NSAttributedString(string: "ENTER DRIVER'S NAME HERE",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        }
+        if let newDriverNumber = driverNumber.text, !newDriverNumber.isEmpty, newDriverNumber != ""{
+            driver.number = newDriverNumber
+        }else{
+            driverNumber.attributedPlaceholder = NSAttributedString(string: "ENTER DRIVER'S CAR NUMBER HERE",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        }
+        if (driver.name.count > 0 && driver.number.count > 0){
+            print("\(driver.name) - \(driver.name.count) && \(driver.number) - \(driver.number.count)")
+            CoreDataService.saveContext()
+            dismiss(animated: true, completion: nil)
+        }else{
+            CoreDataService.context.delete(driver)
+        }
+    }
     
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AddDriverTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {

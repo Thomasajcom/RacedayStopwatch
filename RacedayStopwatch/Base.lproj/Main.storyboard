@@ -529,12 +529,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Tyk-mG-qz6" userLabel="HeaderView">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="Tyk-mG-qz6" userLabel="HeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ao-eR-Gbv">
-                                    <rect key="frame" x="3" y="3" width="294" height="38"/>
+                                    <rect key="frame" x="3" y="3" width="294" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -548,27 +548,27 @@
                                 <constraint firstAttribute="trailing" secondItem="1ao-eR-Gbv" secondAttribute="trailing" constant="3" id="tIW-dM-gOW"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Or1-5x-xmf" userLabel="FooterView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Or1-5x-xmf" userLabel="FooterView">
                             <rect key="frame" x="0.0" y="280" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-ha-8Cq">
-                                    <rect key="frame" x="5" y="5" width="290" height="34"/>
+                                    <rect key="frame" x="5" y="5" width="290" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-VY-NEk" userLabel="Cancel">
-                                            <rect key="frame" x="0.0" y="0.0" width="141" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="141" height="30"/>
                                             <state key="normal" title="Cancel">
                                                 <color key="titleColor" red="0.98388844730000002" green="0.0001891547547" blue="0.1856153643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="cancelAddDriver:" destination="I6J-6J-Met" eventType="touchUpInside" id="spO-PJ-f0O"/>
+                                                <action selector="cancel:" destination="G99-qa-0Tc" eventType="touchUpInside" id="O6i-yR-k5t"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-uL-z6Z" userLabel="Add">
-                                            <rect key="frame" x="149" y="0.0" width="141" height="34"/>
+                                            <rect key="frame" x="149" y="0.0" width="141" height="30"/>
                                             <state key="normal" title="Add Driver"/>
                                             <connections>
-                                                <action selector="addDriver:" destination="I6J-6J-Met" eventType="touchUpInside" id="HwB-qF-9Xi"/>
+                                                <action selector="addDriver:" destination="G99-qa-0Tc" eventType="touchUpInside" id="WlM-Qf-1Bv"/>
                                             </connections>
                                         </button>
                                     </subviews>
