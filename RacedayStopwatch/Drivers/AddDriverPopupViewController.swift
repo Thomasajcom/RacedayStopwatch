@@ -1,5 +1,5 @@
 //
-//  AddDriverViewController.swift
+//  AddDriverPopupViewController.swift
 //  RacedayStopwatch
 //
 //  Created by Thomas Andre Johansen on 09/11/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddDriverViewController: UIViewController {
+class AddDriverPopupViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     
     override func viewDidLoad() {

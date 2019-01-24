@@ -56,6 +56,7 @@ class AddDriverTableViewController: UITableViewController {
         }
         if (driver.name.count > 0 && driver.number.count > 0){
             print("\(driver.name) - \(driver.name.count) && \(driver.number) - \(driver.number.count)")
+            driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()! as NSData
             CoreDataService.saveContext()
             dismiss(animated: true, completion: nil)
         }else{

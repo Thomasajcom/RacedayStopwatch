@@ -11,6 +11,8 @@ import CoreData
 
 class DriversTableViewController: UITableViewController {
     
+    @IBOutlet weak var footerView: UIView!
+    
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
         // Create Fetch Request
         let fetchRequest: NSFetchRequest<Driver> = Driver.fetchRequest()
@@ -52,7 +54,9 @@ class DriversTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
+        cell.driverImage.image = UIImage(data: fetchedResultsController.object(at: indexPath).image! as Data)
         cell.nameLabel.text = fetchedResultsController.object(at: indexPath).name
+        cell.numberLabel.text = "#\(fetchedResultsController.object(at: indexPath).number)"
         
         return cell
     }

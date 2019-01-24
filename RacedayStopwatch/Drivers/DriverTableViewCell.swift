@@ -11,7 +11,10 @@ import UIKit
 class DriverTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "DriverCell"
+    
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var driverImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
