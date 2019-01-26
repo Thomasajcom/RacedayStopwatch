@@ -23,8 +23,12 @@ class DriverTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
+    
+    func setup(with driver: Driver){
+        nameLabel.text = driver.name
+        numberLabel.text = driver.number
+        driverImage.image = UIImage(data: driver.image as Data)
+    }
 }

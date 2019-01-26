@@ -9,11 +9,18 @@
 import UIKit
 
 class AddDriverPopupViewController: UIViewController {
+
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
+    }
+    
+    func edit(_ driver: Driver){
+        print(driver.name)
+        //containerView must set driver for use in child view
     }
 }

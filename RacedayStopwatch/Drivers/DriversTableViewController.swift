@@ -12,6 +12,7 @@ import CoreData
 class DriversTableViewController: UITableViewController {
     
     @IBOutlet weak var footerView: UIView!
+    var drivers: [Driver] = []
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
         // Create Fetch Request
@@ -33,9 +34,10 @@ class DriversTableViewController: UITableViewController {
         super.viewDidLoad()
         do {
             try fetchedResultsController.performFetch()
+            drivers = fetchedResultsController.fetchedObjects!
         } catch  {
             let error = error as NSError
-            print("Unable to fetch tracks")
+            print("Unable to fetch drivers")
         }
     }
 
@@ -47,19 +49,24 @@ class DriversTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let drivers = fetchedResultsController.fetchedObjects else { return 0 }
+        //guard let drivers = fetchedResultsController.fetchedObjects else { return 0 }
         return drivers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
-        cell.driverImage.image = UIImage(data: fetchedResultsController.object(at: indexPath).image! as Data)
-        cell.nameLabel.text = fetchedResultsController.object(at: indexPath).name
-        cell.numberLabel.text = "#\(fetchedResultsController.object(at: indexPath).number)"
-        
+        cell.setup(with: drivers[indexPath.row])
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "editDriver"){
+            let editDriverVC = segue.destination as! AddDriverPopupViewController
+            editDriverVC.edit(drivers[(tableView.indexPathForSelectedRow?.row)!])
+        }
+    }
+
 
 
     /*

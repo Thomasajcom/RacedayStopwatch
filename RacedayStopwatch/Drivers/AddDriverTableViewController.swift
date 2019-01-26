@@ -10,8 +10,10 @@ import UIKit
 
 class AddDriverTableViewController: UITableViewController {
     
+
     @IBOutlet weak var driverName: UITextField!
     @IBOutlet weak var driverNumber: UITextField!
+    @IBOutlet weak var helmetPickerView: UIPickerView!
     var helmets: [UIImage] = [
         UIImage(named: "helmet_red")!,
         UIImage(named: "helmet_blue")!,
@@ -19,11 +21,12 @@ class AddDriverTableViewController: UITableViewController {
         UIImage(named: "helmet_purple")!,
         UIImage(named: "helmet_green")!,
         ]
+    var driver: Driver?
 
-    @IBOutlet weak var helmetPickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         driverNumber.keyboardType = .numberPad
+        print("i container\(driver!.name)")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

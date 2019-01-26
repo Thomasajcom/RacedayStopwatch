@@ -502,7 +502,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-Rg-b3O" userLabel="Laps Stack View">
                                             <rect key="frame" x="116" y="71" width="217" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="TotalLaps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
                                                     <rect key="frame" x="0.0" y="0.0" width="175.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -538,7 +538,7 @@
                                     <outlet property="driverImage" destination="bbN-fD-bWD" id="CVY-CT-xZd"/>
                                     <outlet property="nameLabel" destination="Phd-A6-tqU" id="uun-lq-p3n"/>
                                     <outlet property="numberLabel" destination="ZJz-5p-37L" id="lTJ-mS-73u"/>
-                                    <segue destination="I6J-6J-Met" kind="presentation" modalTransitionStyle="coverVertical" id="hnc-D5-Qgu"/>
+                                    <segue destination="I6J-6J-Met" kind="presentation" identifier="editDriver" modalTransitionStyle="coverVertical" id="hnc-D5-Qgu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -599,6 +599,7 @@
                         <viewLayoutGuide key="safeArea" id="0aJ-UY-bJm"/>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="dTT-ei-Vu4" id="Nrr-3G-gfm"/>
                         <outlet property="popupView" destination="539-he-O7k" id="4uE-Pw-oH8"/>
                     </connections>
                 </viewController>
@@ -614,12 +615,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Tyk-mG-qz6" userLabel="HeaderView">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="Tyk-mG-qz6" userLabel="HeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ao-eR-Gbv">
-                                    <rect key="frame" x="8" y="8" width="284" height="28"/>
+                                    <rect key="frame" x="8" y="8" width="284" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -633,15 +634,15 @@
                                 <constraint firstAttribute="trailingMargin" secondItem="1ao-eR-Gbv" secondAttribute="trailing" id="ehw-gI-eqE"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Or1-5x-xmf" userLabel="FooterView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Or1-5x-xmf" userLabel="FooterView">
                             <rect key="frame" x="0.0" y="280" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-ha-8Cq">
-                                    <rect key="frame" x="8" y="8" width="284" height="28"/>
+                                    <rect key="frame" x="8" y="8" width="284" height="36"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6G-VY-NEk" userLabel="Cancel">
-                                            <rect key="frame" x="0.0" y="0.0" width="138" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="138" height="36"/>
                                             <color key="backgroundColor" red="0.98388844730000002" green="0.0001891547547" blue="0.1856153643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Cancel">
@@ -652,7 +653,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-uL-z6Z" userLabel="Add">
-                                            <rect key="frame" x="146" y="0.0" width="138" height="28"/>
+                                            <rect key="frame" x="146" y="0.0" width="138" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Add Driver"/>
                                             <connections>

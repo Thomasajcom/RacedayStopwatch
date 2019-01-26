@@ -20,7 +20,7 @@ extension Driver {
     @NSManaged public var name: String
     @NSManaged public var number: String
     @NSManaged public var color: String?
-    @NSManaged public var image: NSData?
+    @NSManaged public var image: NSData
     @NSManaged public var favoriteTrack: String?
     @NSManaged public var holdsRecords: NSSet?
     @NSManaged public var sessions: NSSet?
