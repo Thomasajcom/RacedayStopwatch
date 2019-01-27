@@ -11,10 +11,13 @@ import UIKit
 class AddDriverTableViewController: UITableViewController {
     
     
+    @IBOutlet weak var headerViewTitle: UILabel!
     @IBOutlet weak var driverName: UITextField!
     @IBOutlet weak var driverNumber: UITextField!
     @IBOutlet weak var helmetPickerView: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+
     
     var helmets: [UIImage] = [
         UIImage(named: "helmet_red")!,
@@ -32,18 +35,16 @@ class AddDriverTableViewController: UITableViewController {
             driverName.text = driver.name
             driverNumber.text = driver.number
             
+            headerViewTitle.text = "Edit Driver"
             saveButton.setTitle("Save", for: .normal)
         }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        saveButton.layer.cornerRadius = 10
+        saveButton.layer.masksToBounds = true
+        cancelButton.layer.cornerRadius = 10
+        cancelButton.layer.masksToBounds = true
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -52,9 +53,9 @@ class AddDriverTableViewController: UITableViewController {
         return 3
     }
     
+    // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
         if let driver = driver{
-            print("trying to save an edited driver")
             driver.name = driverName.text!
             driver.number = driverNumber.text!
             driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()! as NSData
@@ -73,7 +74,6 @@ class AddDriverTableViewController: UITableViewController {
                 driverNumber.attributedPlaceholder = NSAttributedString(string: "ENTER CAR NUMBER",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             }
             if (driver.name.count > 0 && driver.number.count > 0){
-                print("\(driver.name) - \(driver.name.count) && \(driver.number) - \(driver.number.count)")
                 driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()! as NSData
                 CoreDataService.saveContext()
                 dismiss(animated: true, completion: nil)

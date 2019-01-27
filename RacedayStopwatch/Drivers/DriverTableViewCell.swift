@@ -19,6 +19,9 @@ class DriverTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        numberLabel.layer.cornerRadius = 10
+        numberLabel.layer.masksToBounds = true
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +31,9 @@ class DriverTableViewCell: UITableViewCell {
     
     func setup(with driver: Driver){
         nameLabel.text = driver.name
-        numberLabel.text = driver.number
+        numberLabel.text = "#\(driver.number)"
         driverImage.image = UIImage(data: driver.image as Data)
+        
+        self.selectionStyle = .none
     }
 }

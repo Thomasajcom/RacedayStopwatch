@@ -134,11 +134,10 @@ extension DriversTableViewController: NSFetchedResultsControllerDelegate{
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
-        case .update://update is not working, cell is not being updated
+        case .update:
             print("i controller update")
-            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath){
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DriverTableViewCell{
                 print("i controller update IF LET")
-                              let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
                 cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
             }
             break;

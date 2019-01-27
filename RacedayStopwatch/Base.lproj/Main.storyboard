@@ -455,11 +455,11 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="135" id="4kz-Wy-AUR" customClass="DriverTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="135" id="4kz-Wy-AUR" customClass="DriverTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4kz-Wy-AUR" id="wHS-YG-mUe">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="135"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbN-fD-bWD">
@@ -470,29 +470,29 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phd-A6-tqU">
-                                            <rect key="frame" x="116" y="11" width="217" height="36"/>
+                                            <rect key="frame" x="116" y="11" width="243" height="36"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-5p-37L">
                                             <rect key="frame" x="40" y="87" width="52" height="24"/>
-                                            <color key="backgroundColor" red="0.85896310779593898" green="0.83079647207921414" blue="0.65510727241446065" alpha="0.4002033390410959" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.98732897701439981" blue="0.84576017167373796" alpha="0.30219927226027399" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uA-2B-Dbp" userLabel="Trackdays Stack View">
-                                            <rect key="frame" x="116" y="50" width="217" height="18"/>
+                                            <rect key="frame" x="116" y="50" width="243" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Trackdays: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-4Q-cvY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175.5" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-bY-kq8">
-                                                    <rect key="frame" x="175.5" y="0.0" width="41.5" height="18"/>
+                                                    <rect key="frame" x="201.5" y="0.0" width="41.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -500,16 +500,16 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-Rg-b3O" userLabel="Laps Stack View">
-                                            <rect key="frame" x="116" y="71" width="217" height="18"/>
+                                            <rect key="frame" x="116" y="71" width="243" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175.5" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzl-WA-rly">
-                                                    <rect key="frame" x="175.5" y="0.0" width="41.5" height="18"/>
+                                                    <rect key="frame" x="201.5" y="0.0" width="41.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -611,11 +611,11 @@
         <scene sceneID="KaJ-Fc-0XE">
             <objects>
                 <tableViewController id="G99-qa-0Tc" customClass="AddDriverTableViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yRw-Fl-Cy7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yRw-Fl-Cy7">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="Tyk-mG-qz6" userLabel="HeaderView">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Tyk-mG-qz6" userLabel="HeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -628,13 +628,12 @@
                             </subviews>
                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="bottomMargin" secondItem="1ao-eR-Gbv" secondAttribute="bottom" id="6V1-om-vKp"/>
                                 <constraint firstItem="1ao-eR-Gbv" firstAttribute="leading" secondItem="Tyk-mG-qz6" secondAttribute="leadingMargin" id="RkJ-Cr-AkW"/>
                                 <constraint firstItem="1ao-eR-Gbv" firstAttribute="top" secondItem="Tyk-mG-qz6" secondAttribute="topMargin" id="eXb-bz-wJm"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="1ao-eR-Gbv" secondAttribute="trailing" id="ehw-gI-eqE"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Or1-5x-xmf" userLabel="FooterView">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Or1-5x-xmf" userLabel="FooterView">
                             <rect key="frame" x="0.0" y="280" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -654,6 +653,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-uL-z6Z" userLabel="Add">
                                             <rect key="frame" x="146" y="0.0" width="138" height="36"/>
+                                            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Add Driver"/>
                                             <connections>
@@ -668,7 +668,6 @@
                                 <constraint firstItem="ILm-ha-8Cq" firstAttribute="leading" secondItem="Or1-5x-xmf" secondAttribute="leadingMargin" id="1nF-R8-W00"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="ILm-ha-8Cq" secondAttribute="trailing" id="Nnx-8c-W58"/>
                                 <constraint firstItem="ILm-ha-8Cq" firstAttribute="top" secondItem="Or1-5x-xmf" secondAttribute="topMargin" id="iOd-a5-Eob"/>
-                                <constraint firstAttribute="bottomMargin" secondItem="ILm-ha-8Cq" secondAttribute="bottom" id="tKw-nA-sGv"/>
                             </constraints>
                         </view>
                         <sections>
@@ -750,8 +749,10 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="cancelButton" destination="o6G-VY-NEk" id="wqU-vx-KTk"/>
                         <outlet property="driverName" destination="7j3-0Z-mz1" id="VfU-cg-sjS"/>
                         <outlet property="driverNumber" destination="ZAe-b2-0MN" id="grc-5E-fIC"/>
+                        <outlet property="headerViewTitle" destination="1ao-eR-Gbv" id="ObO-W1-N56"/>
                         <outlet property="helmetPickerView" destination="Qmq-h6-Om4" id="j3U-rx-kcD"/>
                         <outlet property="saveButton" destination="hQ9-uL-z6Z" id="krA-vd-NTS"/>
                     </connections>
