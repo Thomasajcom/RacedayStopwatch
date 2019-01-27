@@ -12,6 +12,7 @@ class AddDriverPopupViewController: UIViewController {
 
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var containerView: UIView!
+    weak var driverToEdit: Driver?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +20,10 @@ class AddDriverPopupViewController: UIViewController {
         popupView.layer.masksToBounds = true
     }
     
-    func edit(_ driver: Driver){
-        print(driver.name)
-        //containerView must set driver for use in child view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "embedAddDriverPopup"){
+            let editDriverPopupVC = segue.destination as! AddDriverTableViewController
+            editDriverPopupVC.driver = driverToEdit
+        }
     }
 }

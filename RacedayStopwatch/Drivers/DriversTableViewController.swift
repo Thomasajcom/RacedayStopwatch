@@ -49,21 +49,21 @@ class DriversTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //guard let drivers = fetchedResultsController.fetchedObjects else { return 0 }
+        guard let drivers = fetchedResultsController.fetchedObjects else { return 0 }
         return drivers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
-        cell.setup(with: drivers[indexPath.row])
+        cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editDriver"){
             let editDriverVC = segue.destination as! AddDriverPopupViewController
-            editDriverVC.edit(drivers[(tableView.indexPathForSelectedRow?.row)!])
+            editDriverVC.driverToEdit =  fetchedResultsController.fetchedObjects![(tableView.indexPathForSelectedRow?.row)!]
         }
     }
 
@@ -118,23 +118,28 @@ class DriversTableViewController: UITableViewController {
 
 extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("i controllerwillchange")
         tableView.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("i controllerdidchange")
         tableView.endUpdates()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        print("i controller")
         switch (type) {
         case .insert:
+            print("i controller insert")
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
-        case .update:
+        case .update://update is not working, cell is not being updated
             print("i controller update")
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath){
                 print("i controller update IF LET")
-//                setup(cell, at: indexPath)
+                              let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
+                cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
             }
             break;
         default:

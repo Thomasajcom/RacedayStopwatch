@@ -577,7 +577,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-ei-Vu4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                                         <connections>
-                                            <segue destination="G99-qa-0Tc" kind="embed" id="HRP-2q-pAz"/>
+                                            <segue destination="G99-qa-0Tc" kind="embed" identifier="embedAddDriverPopup" id="HRP-2q-pAz"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -657,7 +657,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Add Driver"/>
                                             <connections>
-                                                <action selector="addDriver:" destination="G99-qa-0Tc" eventType="touchUpInside" id="WlM-Qf-1Bv"/>
+                                                <action selector="save:" destination="G99-qa-0Tc" eventType="touchUpInside" id="WlM-Qf-1Bv"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -753,6 +753,7 @@
                         <outlet property="driverName" destination="7j3-0Z-mz1" id="VfU-cg-sjS"/>
                         <outlet property="driverNumber" destination="ZAe-b2-0MN" id="grc-5E-fIC"/>
                         <outlet property="helmetPickerView" destination="Qmq-h6-Om4" id="j3U-rx-kcD"/>
+                        <outlet property="saveButton" destination="hQ9-uL-z6Z" id="krA-vd-NTS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7um-1f-G4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
