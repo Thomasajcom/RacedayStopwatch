@@ -18,7 +18,6 @@
 		E9606018219359DB00D37631 /* RacedayStopwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606017219359DB00D37631 /* RacedayStopwatchTests.swift */; };
 		E9606023219359DC00D37631 /* RacedayStopwatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606022219359DC00D37631 /* RacedayStopwatchUITests.swift */; };
 		E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960603521935D4300D37631 /* SessionsTableViewController.swift */; };
-		E960603921935D9A00D37631 /* TracksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960603821935D9A00D37631 /* TracksTableViewController.swift */; };
 		E960607A2193662100D37631 /* RacedayStopwatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E96060782193662100D37631 /* RacedayStopwatch.xcdatamodeld */; };
 		E960607C219366A300D37631 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960607B219366A300D37631 /* CoreDataService.swift */; };
 		E960608A2194BD6B00D37631 /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96060842194BD6B00D37631 /* Session+CoreDataClass.swift */; };
@@ -71,7 +70,6 @@
 		E9606022219359DC00D37631 /* RacedayStopwatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacedayStopwatchUITests.swift; sourceTree = "<group>"; };
 		E9606024219359DC00D37631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E960603521935D4300D37631 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
-		E960603821935D9A00D37631 /* TracksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksTableViewController.swift; sourceTree = "<group>"; };
 		E96060792193662100D37631 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E960607B219366A300D37631 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		E96060842194BD6B00D37631 /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		E960603A21935DA100D37631 /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
-				E960603821935D9A00D37631 /* TracksTableViewController.swift */,
 				E92E963222005B9D004E6E20 /* TracksCollectionViewController.swift */,
 				E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */,
 			);
@@ -362,7 +359,6 @@
 				E960608D2194BD6C00D37631 /* Track+CoreDataProperties.swift in Sources */,
 				E9606001219359DA00D37631 /* AppDelegate.swift in Sources */,
 				E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */,
-				E960603921935D9A00D37631 /* TracksTableViewController.swift in Sources */,
 				E960607A2193662100D37631 /* RacedayStopwatch.xcdatamodeld in Sources */,
 				E960608C2194BD6C00D37631 /* Track+CoreDataClass.swift in Sources */,
 				E97F11C32195F9B60090C336 /* StopwatchTableViewCell.swift in Sources */,

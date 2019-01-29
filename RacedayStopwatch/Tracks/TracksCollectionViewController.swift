@@ -148,6 +148,7 @@ extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
         case .insert:
             if let indexPath = newIndexPath {
                 collectionView.insertItems(at: [indexPath])
+                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             }
         case .update:
             print("i controller update")
@@ -155,10 +156,9 @@ extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
                 print("i controller update IF LET")
                 //setup(cell, at: indexPath)
             }
-            break;
         case .delete:
             if let indexPath = indexPath {
-//                tableView.deleteRows(at: [indexPath], with: .fade)
+                collectionView.deleteItems(at: [indexPath])
             }
         default:
             print("...")
