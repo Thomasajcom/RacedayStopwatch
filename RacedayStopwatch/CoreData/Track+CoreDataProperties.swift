@@ -19,6 +19,7 @@ extension Track {
 
     @NSManaged public var name: String
     @NSManaged public var length: Int16
+    @NSManaged public var image: NSData?
     @NSManaged public var trackRecord: String?
     @NSManaged public var trackRecordHolder: Driver?
     @NSManaged public var sessions: NSSet?

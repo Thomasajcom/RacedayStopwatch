@@ -24,6 +24,7 @@ class AddDriverPopupViewController: UIViewController {
         if (segue.identifier == "embedAddDriverPopup"){
             let editDriverPopupVC = segue.destination as! AddDriverTableViewController
             editDriverPopupVC.driver = driverToEdit
+            editDriverPopupVC.view.translatesAutoresizingMaskIntoConstraints = false
         }
     }
 }

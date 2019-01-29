@@ -31,46 +31,13 @@ class TracksTableViewController: UITableViewController {
     
     
 
-    @IBAction func addTrack(_ sender: Any) {
-        let alertController = UIAlertController(title: "Add New Track", message: "Enter name and length to add a new track", preferredStyle: .alert)
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Track name"
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Length in meters"
-        }
-        let addAction = UIAlertAction(title: "Add Track", style: .default) {[unowned self] action in
-            guard let firstField = alertController.textFields?.first,
-                let trackName = firstField.text else {return}
-            guard let secondField = alertController.textFields?[1],
-                let length = secondField.text else {return}
-            
-            self.addToCoreData(trackName: trackName, length: length)
-        }//thisll add to db
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-    }
     
-    func addToCoreData(trackName: String, length: String){
-        print("i addToCoreData \(trackName) lengde: \(length)")
-        guard let intLength = Int16(length) else{return}
-        let track = Track(context: CoreDataService.context)
-        track.name = trackName
-        track.length = intLength
-        CoreDataService.saveContext()
-    }
     
     func updateTrack(track: Track, newTrackName: String, newLength: String, indexPath: IndexPath){
         guard let intLength = Int16(newLength) else{return}
         print("i updateTrack \(newTrackName) : \(intLength)")
         track.name = newTrackName
         track.length = intLength
-        //finn ut av hvordan dette skal fungere med updates
-//        CoreDataService.saveContext()
-        //setup(tableView.cellForRow(at: indexPath)!, at: indexPath)
-        
     }
     
     func setup(_ cell: UITableViewCell, at indexPath: IndexPath){

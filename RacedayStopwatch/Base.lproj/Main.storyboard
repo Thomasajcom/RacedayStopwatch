@@ -79,7 +79,114 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEy-l5-jfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="250.52473763118442"/>
+            <point key="canvasLocation" x="767" y="914"/>
+        </scene>
+        <!--Tracks-->
+        <scene sceneID="jo9-9a-O3P">
+            <objects>
+                <collectionViewController id="XAK-hJ-74C" customClass="TracksCollectionViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZjZ-Y0-zTx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ue0-tS-sce">
+                            <size key="itemSize" width="354" height="470"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trackCell" id="SwM-38-s9f" customClass="TrackCollectionViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="16" width="354" height="470"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="354" height="470"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PE2-1y-2A8">
+                                            <rect key="frame" x="8" y="160" width="338" height="302"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-gq-Tz8">
+                                            <rect key="frame" x="8" y="28" width="338" height="36"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTj-cl-391">
+                                            <rect key="frame" x="8" y="64" width="338" height="31.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-CS-Ucf">
+                                            <rect key="frame" x="8" y="105.5" width="338" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-SS-mm9" userLabel="LapRecord Stack View">
+                                            <rect key="frame" x="8" y="126" width="338" height="24"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-C9-ebq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF0-U8-WW5">
+                                                    <rect key="frame" x="239" y="0.0" width="99" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="qoF-gq-Tz8" firstAttribute="top" secondItem="SwM-38-s9f" secondAttribute="topMargin" id="0k3-kj-94D"/>
+                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="top" secondItem="bGn-SS-mm9" secondAttribute="bottom" constant="10" id="B5E-zz-oYZ"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="qoF-gq-Tz8" secondAttribute="trailing" id="CMu-zt-Z8i"/>
+                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="Ix9-nD-P4O"/>
+                                    <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="Sfu-6e-IwL"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="bTj-cl-391" secondAttribute="trailing" id="SmS-Nd-vPz"/>
+                                    <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="YJy-Hy-nu5"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" id="doL-RX-saK"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="PE2-1y-2A8" secondAttribute="trailing" id="e0Q-25-SzB"/>
+                                    <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="gC1-5G-81s"/>
+                                    <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="bTj-cl-391" secondAttribute="bottom" constant="10" id="jCz-rb-Qvj"/>
+                                    <constraint firstItem="bTj-cl-391" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="k4X-IE-eFU"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="PE2-1y-2A8" secondAttribute="bottom" id="kml-hS-y1a"/>
+                                    <constraint firstItem="bTj-cl-391" firstAttribute="top" secondItem="qoF-gq-Tz8" secondAttribute="bottom" id="nPA-O7-Lig"/>
+                                    <constraint firstItem="qoF-gq-Tz8" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="rJb-Va-mFE"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="xFu-CS-Ucf" secondAttribute="trailing" id="tXn-z0-P9c"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="lapRecordHolder" destination="OeX-C9-ebq" id="rXY-Gp-Q6U"/>
+                                    <outlet property="lapRecordLabel" destination="xFu-CS-Ucf" id="bIN-zU-dOb"/>
+                                    <outlet property="lapRecordTime" destination="QF0-U8-WW5" id="1xp-Gh-daS"/>
+                                    <outlet property="trackImage" destination="PE2-1y-2A8" id="a6c-Ad-wsU"/>
+                                    <outlet property="trackLength" destination="bTj-cl-391" id="Brb-R3-YQE"/>
+                                    <outlet property="trackName" destination="qoF-gq-Tz8" id="UkY-6y-bAb"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="XAK-hJ-74C" id="2jW-Ax-vOw"/>
+                            <outlet property="delegate" destination="XAK-hJ-74C" id="Uhy-vc-biP"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Tracks" id="XWm-SJ-fRZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BrJ-SG-rdU">
+                            <connections>
+                                <action selector="addTrack:" destination="XAK-hJ-74C" id="MPV-PF-Yln"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MIM-vz-YsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="914.392803598201"/>
         </scene>
         <!--Sessions-->
         <scene sceneID="5jM-hl-fOK">
@@ -351,7 +458,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxl-LK-nHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-607.20000000000005" y="948.57571214392806"/>
+            <point key="canvasLocation" x="-1402" y="474"/>
         </scene>
         <!--Track Selector View Controller-->
         <scene sceneID="gH5-J0-Jgu">
@@ -414,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76A-tp-R02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165.59999999999999" y="948.57571214392806"/>
+            <point key="canvasLocation" x="-1402" y="1243"/>
         </scene>
         <!--Drivers-->
         <scene sceneID="fFj-Wb-xSj">
@@ -574,20 +681,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="539-he-O7k">
                                 <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-ei-Vu4">
+                                    <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-ei-Vu4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <segue destination="G99-qa-0Tc" kind="embed" identifier="embedAddDriverPopup" id="HRP-2q-pAz"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="dTT-ei-Vu4" firstAttribute="leading" secondItem="539-he-O7k" secondAttribute="leading" id="1zj-rL-N0J"/>
-                                    <constraint firstAttribute="bottom" secondItem="dTT-ei-Vu4" secondAttribute="bottom" id="GQx-Es-bvy"/>
                                     <constraint firstAttribute="width" constant="300" id="Kk2-YR-4kM"/>
-                                    <constraint firstAttribute="trailing" secondItem="dTT-ei-Vu4" secondAttribute="trailing" id="Yzt-pQ-BcC"/>
                                     <constraint firstAttribute="height" constant="450" id="hVs-oe-Png"/>
-                                    <constraint firstItem="dTT-ei-Vu4" firstAttribute="top" secondItem="539-he-O7k" secondAttribute="top" id="reX-dS-Ac4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -615,7 +719,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Tyk-mG-qz6" userLabel="HeaderView">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="Tyk-mG-qz6" userLabel="HeaderView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -633,7 +737,7 @@
                                 <constraint firstAttribute="trailingMargin" secondItem="1ao-eR-Gbv" secondAttribute="trailing" id="ehw-gI-eqE"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Or1-5x-xmf" userLabel="FooterView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Or1-5x-xmf" userLabel="FooterView">
                             <rect key="frame" x="0.0" y="280" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -792,7 +896,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="S4B-EZ-NAW" kind="relationship" relationship="rootViewController" id="HDJ-7S-Fav"/>
+                        <segue destination="XAK-hJ-74C" kind="relationship" relationship="rootViewController" id="umN-9v-QN1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLq-wX-4Ec" userLabel="First Responder" sceneMemberID="firstResponder"/>

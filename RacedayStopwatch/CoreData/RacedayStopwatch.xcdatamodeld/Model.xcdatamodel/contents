@@ -17,6 +17,7 @@
         <relationship name="onTrack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="sessions" inverseEntity="Track" syncable="YES"/>
     </entity>
     <entity name="Track" representedClassName="Track" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackRecord" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,6 +27,6 @@
     <elements>
         <element name="Driver" positionX="-3607.37890625" positionY="-3651.92578125" width="128" height="148"/>
         <element name="Session" positionX="-3668.703125" positionY="-3447.01953125" width="128" height="120"/>
-        <element name="Track" positionX="-3863.921875" positionY="-3670.84375" width="128" height="120"/>
+        <element name="Track" positionX="-3863.921875" positionY="-3670.84375" width="128" height="135"/>
     </elements>
 </model>
