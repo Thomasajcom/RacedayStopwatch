@@ -23,6 +23,8 @@ class TrackCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         print("awakeFromNib i cell")
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = false
         //setup radius etc
 //        trackImage.layer.cornerRadius = 10
 //        trackImage.layer.masksToBounds = false
@@ -37,6 +39,11 @@ class TrackCollectionViewCell: UICollectionViewCell {
         }else{
             lapRecordTime.isHidden = true
             lapRecordHolder.text = "No lap record set. Get out there!"
+        }
+        if let mapImage = track.image{
+            trackImage.image = UIImage(data: mapImage as Data)
+        }else{
+            trackImage.image = UIImage(named: "defaultTrack")
         }
     }
 }

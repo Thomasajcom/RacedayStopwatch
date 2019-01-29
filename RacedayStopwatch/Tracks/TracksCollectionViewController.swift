@@ -37,6 +37,8 @@ class TracksCollectionViewController: UICollectionViewController {
             let error = error as NSError
             print("Unable to fetch tracks: \(error)")
         }
+        #warning("This must be changed to something better looking")
+        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "checkeredFlag2")!)
     }
 
     /*
@@ -132,17 +134,30 @@ class TracksCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Delete Track", message: "Do you want to delete track? This can not be undone.", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Delete Track!", style: .destructive) {[unowned self] action in
+            self.deleteTrack(self.fetchedResultsController.object(at: indexPath))
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    func deleteTrack(_ track: Track){
+        print("In deleteTrack")
+        CoreDataService.context.delete(track)
+        CoreDataService.saveContext()
+    }
 
 }
 
 //NSFetchedResultsControllerDelegate extension
 extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
 
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    }
-
+    #warning("Known Bug: adding tracks sometimes failes to show changes")
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .insert:
@@ -158,6 +173,8 @@ extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
             }
         case .delete:
             if let indexPath = indexPath {
+                print("i controller delete IF LET")
+
                 collectionView.deleteItems(at: [indexPath])
             }
         default:
