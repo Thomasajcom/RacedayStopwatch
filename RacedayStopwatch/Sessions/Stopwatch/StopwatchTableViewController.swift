@@ -72,17 +72,16 @@ class StopwatchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
+            #warning("Consider turning case 0 into the table header/footer")
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseIdentifier, for: indexPath) as! TrackTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedTrackTableViewCell.reuseIdentifier, for: indexPath) as! SelectedTrackTableViewCell
             //flips the cell content to fit with the flipped tableview
             cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
 
             if let selectedTrack = selectedTrack{
-                cell.tracknameLabel.text = selectedTrack.name
-                cell.trackLengthLabel.text = "\(selectedTrack.length) meters"
+                cell.setup(selectedTrack)
             }else{
-                cell.tracknameLabel.text = "No Track Selected"
-                cell.trackLengthLabel.text = ""
+                cell.trackTitle.text = "No Track Selected"
             }
             return cell
         case 1:

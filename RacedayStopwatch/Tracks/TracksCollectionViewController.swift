@@ -78,6 +78,8 @@ class TracksCollectionViewController: UICollectionViewController {
         let track = Track(context: CoreDataService.context)
         track.name = trackName
         track.length = intLength
+        #warning("this must be changed - add image selector in app, set that image here, or default if no photo selected")
+        track.image = UIImage(named: "defaultTrack")!.pngData() as! NSData
         CoreDataService.saveContext()
     }
 
@@ -136,7 +138,7 @@ class TracksCollectionViewController: UICollectionViewController {
     */
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Delete Track", message: "Do you want to delete track? This can not be undone.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Delete Track", message: "Do you want to delete this track? This can not be undone.", preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Delete Track!", style: .destructive) {[unowned self] action in
             self.deleteTrack(self.fetchedResultsController.object(at: indexPath))
         }
@@ -174,7 +176,6 @@ extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
         case .delete:
             if let indexPath = indexPath {
                 print("i controller delete IF LET")
-
                 collectionView.deleteItems(at: [indexPath])
             }
         default:
