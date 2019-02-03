@@ -9,13 +9,13 @@
 import UIKit
 
 class StopwatchTableViewController: UITableViewController {
-    
+
+    @IBOutlet weak var footerView: UIView!
     var participants: [Participant] = []
     var laps: [String] = []
     var lastDriver: Int = 0
     var selectedTrack: Track? = nil
     var selectedDriver: Driver? = nil
-    var numberOfDrivers = 0
     
     weak var timer: Timer?
     var timerEnabled: Bool = false
@@ -28,9 +28,7 @@ class StopwatchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
+    self.navigationController?.navigationBar.prefersLargeTitles = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -59,11 +57,11 @@ class StopwatchTableViewController: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 1
-        case 2:
-            return numberOfDrivers
-        case 3:
             return laps.count
+        case 2:
+            return 1
+        case 3:
+            return 1
         default:
             return 0
         }
@@ -72,12 +70,9 @@ class StopwatchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-            #warning("Consider turning case 0 into the table header/footer")
         case 0:
+            // TRACK Section
             let cell = tableView.dequeueReusableCell(withIdentifier: SelectedTrackTableViewCell.reuseIdentifier, for: indexPath) as! SelectedTrackTableViewCell
-            //flips the cell content to fit with the flipped tableview
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
             if let selectedTrack = selectedTrack{
                 cell.setup(selectedTrack)
             }else{
@@ -85,9 +80,21 @@ class StopwatchTableViewController: UITableViewController {
             }
             return cell
         case 1:
+            // LAPS Section
+            let cell = tableView.dequeueReusableCell(withIdentifier: LapTableViewCell.reuseIdentifier, for: indexPath) as! LapTableViewCell
+            
+            cell.lapLabel.text = "Lap \(participants[lastDriver].lapTime.count-1) - \(participants[lastDriver].name)"
+            
+            cell.timeLabel.text = String(format: "%02d : %02d : %03d", arguments: [minutes, seconds, miliseconds])
+            cell.speedLabel.text = "25 km/t"
+            return cell
+        case 2:
+            // DRIVER Section
+            return UITableViewCell.init(style: .default, reuseIdentifier: "")
+        case 3:
+            // TIMER Section should be the FOOTER of DRIVER SECTION perhaps
             let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.reuseIdentifier, for: indexPath) as! StopwatchTableViewCell
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
+            
             cell.stopwatchDelegate = self
             cell.startButton.layer.cornerRadius = 10
             cell.startButton.layer.masksToBounds = true
@@ -105,25 +112,6 @@ class StopwatchTableViewController: UITableViewController {
             cell.minutesLabel.text = String(format: "%02d", minutes)
             cell.secondsLabel.text = String(format: "%02d", seconds)
             cell.milisecondsLabel.text = String(format: "%03d", miliseconds)//change to numberformatter
-            
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DriverTableViewCell.reuseIdentifier, for: indexPath) as! DriverTableViewCell
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
-            if let selectedDriver = selectedDriver{
-                cell.nameLabel.text = selectedDriver.name
-            }
-            return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: LapTableViewCell.reuseIdentifier, for: indexPath) as! LapTableViewCell
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
-            
-            cell.lapLabel.text = "Lap \(participants[lastDriver].lapTime.count-1) - \(participants[lastDriver].name)"
-            
-            cell.timeLabel.text = String(format: "%02d : %02d : %03d", arguments: [minutes, seconds, miliseconds])
-            cell.speedLabel.text = "25 km/t"
             return cell
         default:
             return UITableViewCell.init(style: .default, reuseIdentifier: "")
@@ -131,11 +119,13 @@ class StopwatchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 2){
+        if(indexPath.section == 1){
             let cell = tableView.cellForRow(at: indexPath) as? DriverTableViewCell
             lapTimer(by: cell!.nameLabel.text!)
         }
     }
+
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -170,6 +160,13 @@ class StopwatchTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 3{
+            return footerView
+        }
+        return nil
+    }
 
     
     // MARK: - Navigation
@@ -217,7 +214,7 @@ class StopwatchTableViewController: UITableViewController {
         laps.append("\(laps.count+1)")
         print("LAPPED TIMER")
         tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: 0, section: 3)], with: .fade)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .fade)
         tableView.endUpdates()
     }
     
@@ -236,7 +233,7 @@ class StopwatchTableViewController: UITableViewController {
         // Calculate milliseconds
         miliseconds = UInt64(time * 1000)
         
-        tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .none)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 3)], with: .none)
     }
 }
 
@@ -265,17 +262,14 @@ extension StopwatchTableViewController: TrackSelectorViewControllerDelegate{
             tableView.insertRows(at: [IndexPath(row:0, section:0)], with: .right)
             tableView.endUpdates()
         }else{
-            let driver = item as? Driver
-            selectedDriver = driver
-            numberOfDrivers += 1
-            #warning("Don't bang stuff!")
-            //participants.append(Participant(name: (driver?.name)!, lapTime: [""]))
-            tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row:numberOfDrivers-1, section:2)], with: .right)
-            tableView.endUpdates()
+//            let driver = item as? Driver
+//            selectedDriver = driver
+//            #warning("Don't bang stuff!")
+//            //participants.append(Participant(name: (driver?.name)!, lapTime: [""]))
+//            tableView.beginUpdates()
+//            tableView.insertRows(at: [IndexPath(row:numberOfDrivers-1, section:2)], with: .right)
+//            tableView.endUpdates()
         }
-        
-        
     }
     
     
@@ -283,7 +277,6 @@ extension StopwatchTableViewController: TrackSelectorViewControllerDelegate{
 
 //Det neste som må gjøres: lag et array som holder styr på alle rader som legges til slik at celler ikke reuses??
 //sjekk ut PREPAREFORREUSE
-
 struct Participant {
     var name: String
     var lapTime: [String]

@@ -21,7 +21,6 @@ class DriverTableViewCell: UITableViewCell {
         // Initialization code
         numberLabel.layer.cornerRadius = 10
         numberLabel.layer.masksToBounds = true
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
