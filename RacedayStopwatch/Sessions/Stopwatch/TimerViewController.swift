@@ -22,6 +22,8 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var lapButton: UIButton!
     
+    var participatingDrivers = 0
+    
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
         didSet{
@@ -44,6 +46,8 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        driverCollectionView.delegate = self
+        driverCollectionView.dataSource = self
 
         startButton.layer.cornerRadius = 10
         startButton.layer.masksToBounds = true
@@ -77,4 +81,20 @@ extension TimerViewController: TrackSelectorViewControllerDelegate{
     func selected(track: Track) {
         selectedTrack = track
     }
+}
+
+extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return participatingDrivers
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if (indexPath.row == 1){
+            //the first cell, insert Add Driver Cell here
+        }else{
+            //insert cells with driver and timer
+        }
+    }
+    
+    
 }
