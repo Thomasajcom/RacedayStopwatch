@@ -22,7 +22,6 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var lapButton: UIButton!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +44,6 @@ class TimerViewController: UIViewController {
         if segue.identifier == "SelectTrackSegue" {
             if let vc = segue.destination as? TrackSelectorViewController{
                 vc.trackSelectorDelegate = self
-                vc.getTracks = true
             }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
