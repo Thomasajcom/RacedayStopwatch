@@ -29,6 +29,7 @@ class StopwatchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.tableView.tableFooterView = footerView
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -161,29 +162,11 @@ class StopwatchTableViewController: UITableViewController {
     }
     */
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 3{
-            return footerView
-        }
-        return nil
-    }
-
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "SelectTrackSegue" {
-            if let vc = segue.destination as? TrackSelectorViewController{
-                vc.trackSelectorDelegate = self
-                vc.getTracks = true
-            }
-        }else if segue.identifier == "SelectDriverSegue"{
-            if let vc = segue.destination as? TrackSelectorViewController{
-                vc.trackSelectorDelegate = self
-                vc.getTracks = false
-            }
-        }
+        
     }
 
     @IBAction func save(_ sender: Any) {
@@ -251,29 +234,29 @@ extension StopwatchTableViewController: StopwatchTableViewCellDelegate{
         lapTimer(by: "Default")
     }
 }
-
-extension StopwatchTableViewController: TrackSelectorViewControllerDelegate{
-    func selected(item: Any, isTrack: Bool) {
-        if(isTrack){
-            let track = item as? Track
-            selectedTrack = track
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .left)
-            tableView.insertRows(at: [IndexPath(row:0, section:0)], with: .right)
-            tableView.endUpdates()
-        }else{
-//            let driver = item as? Driver
-//            selectedDriver = driver
-//            #warning("Don't bang stuff!")
-//            //participants.append(Participant(name: (driver?.name)!, lapTime: [""]))
+//
+//extension StopwatchTableViewController: TrackSelectorViewControllerDelegate{
+//    func selected(item: Any, isTrack: Bool) {
+//        if(isTrack){
+//            let track = item as? Track
+//            selectedTrack = track
 //            tableView.beginUpdates()
-//            tableView.insertRows(at: [IndexPath(row:numberOfDrivers-1, section:2)], with: .right)
+//            tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .left)
+//            tableView.insertRows(at: [IndexPath(row:0, section:0)], with: .right)
 //            tableView.endUpdates()
-        }
-    }
-    
-    
-}
+//        }else{
+////            let driver = item as? Driver
+////            selectedDriver = driver
+////            #warning("Don't bang stuff!")
+////            //participants.append(Participant(name: (driver?.name)!, lapTime: [""]))
+////            tableView.beginUpdates()
+////            tableView.insertRows(at: [IndexPath(row:numberOfDrivers-1, section:2)], with: .right)
+////            tableView.endUpdates()
+//        }
+//    }
+//    
+//    
+//}
 
 //Det neste som må gjøres: lag et array som holder styr på alle rader som legges til slik at celler ikke reuses??
 //sjekk ut PREPAREFORREUSE

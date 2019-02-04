@@ -241,7 +241,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="M4z-ey-Pvs">
                                 <connections>
-                                    <segue destination="rFb-6z-ak0" kind="show" identifier="newTimer" id="Hqp-3U-v7D"/>
+                                    <segue destination="V1s-dB-giF" kind="show" identifier="timerSegue" id="xga-PD-qlQ"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Dev" id="zTM-hv-bVP">
@@ -255,6 +255,179 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goe-t7-kzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607.20000000000005" y="250.52473763118442"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="dC4-Hx-ee2">
+            <objects>
+                <viewController id="V1s-dB-giF" customClass="TimerViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BL4-Yh-sgy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-Z1-rpg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCJ-yL-uXW">
+                                <rect key="frame" x="0.0" y="100" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="NeH-Mu-DHZ" userLabel="Lap Record Stack View">
+                                <rect key="frame" x="0.0" y="120.5" width="375" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ple-eU-11C">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0q-e9-2XM">
+                                        <rect key="frame" x="200" y="0.0" width="175" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8UA-5e-Bxy">
+                                <rect key="frame" x="0.0" y="200" width="375" height="243"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="irP-Mv-rJW" userLabel="Add Drivers Collection View">
+                                <rect key="frame" x="0.0" y="451" width="375" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="do8-xg-9NQ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NYV-pq-vEx">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-Bt-8OG" userLabel="Timer Stack View">
+                                <rect key="frame" x="0.0" y="601" width="375" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mu-yw-dC3" userLabel="Minutes Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="68.5" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0m-Bi-Z8e" userLabel="M:S Label">
+                                        <rect key="frame" x="76.5" y="0.0" width="68.5" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88t-8K-okM" userLabel="Seconds Label">
+                                        <rect key="frame" x="153" y="0.0" width="69" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-o4-L7x" userLabel="S:MS Label">
+                                        <rect key="frame" x="230" y="0.0" width="68.5" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNz-R2-fKQ" userLabel="Miliseconds Label">
+                                        <rect key="frame" x="306.5" y="0.0" width="68.5" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8m6-bk-qO7" userLabel="ButtonStack View">
+                                <rect key="frame" x="10" y="637" width="355" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW8-H6-RFR">
+                                        <rect key="frame" x="0.0" y="0.0" width="173.5" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Lap">
+                                            <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lapButton:" destination="wEe-kc-a1b" eventType="touchUpInside" id="xga-NV-jRm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-V5-K9d">
+                                        <rect key="frame" x="181.5" y="0.0" width="173.5" height="30"/>
+                                        <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startTimer:" destination="wEe-kc-a1b" eventType="touchUpInside" id="1Zj-6V-zAQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jY-QJ-IHf">
+                                <rect key="frame" x="305" y="64" width="70" height="30"/>
+                                <state key="normal" title="Add Track"/>
+                                <connections>
+                                    <segue destination="3Zm-aq-7Ax" kind="presentation" identifier="SelectTrackSegue" id="sOC-IX-092"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5jY-QJ-IHf" firstAttribute="top" secondItem="gp6-R6-c8d" secondAttribute="top" id="6P1-39-j1p"/>
+                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="Cj2-SR-ght"/>
+                            <constraint firstItem="lCJ-yL-uXW" firstAttribute="top" secondItem="ILm-Z1-rpg" secondAttribute="bottom" id="E1U-ea-wlW"/>
+                            <constraint firstItem="8m6-bk-qO7" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="10" id="NOo-bR-fwc"/>
+                            <constraint firstItem="NeH-Mu-DHZ" firstAttribute="top" secondItem="lCJ-yL-uXW" secondAttribute="bottom" id="Om9-0a-js4"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="NeH-Mu-DHZ" secondAttribute="trailing" id="Rp0-5i-bqu"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="bottom" secondItem="8m6-bk-qO7" secondAttribute="bottom" id="TOo-rd-rcd"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="8m6-bk-qO7" secondAttribute="trailing" constant="10" id="VIP-QY-HCv"/>
+                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="top" secondItem="gp6-R6-c8d" secondAttribute="top" id="YRh-dY-FDs"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="5jY-QJ-IHf" secondAttribute="trailing" id="abN-IJ-IuJ"/>
+                            <constraint firstItem="NeH-Mu-DHZ" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="bLf-Kl-shK"/>
+                            <constraint firstItem="8m6-bk-qO7" firstAttribute="top" secondItem="Y3b-Bt-8OG" secondAttribute="bottom" id="cot-So-QmR"/>
+                            <constraint firstItem="lCJ-yL-uXW" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="gUd-Nv-bll"/>
+                            <constraint firstItem="lCJ-yL-uXW" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="jtz-KA-Una"/>
+                            <constraint firstItem="Y3b-Bt-8OG" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="pB1-Ua-bzE"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="Y3b-Bt-8OG" secondAttribute="trailing" id="x6C-Ra-cKp"/>
+                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="zzA-My-2KU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gp6-R6-c8d"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Timer" largeTitleDisplayMode="never" id="ed9-XF-tv5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ew7-PK-Zfi"/>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="LapRecordLabel" destination="lCJ-yL-uXW" id="92U-2f-6jD"/>
+                        <outlet property="driverCollectionView" destination="irP-Mv-rJW" id="0kf-ix-j3T"/>
+                        <outlet property="lapButton" destination="bW8-H6-RFR" id="g8C-Wk-28y"/>
+                        <outlet property="lapRecordHolder" destination="ple-eU-11C" id="8gI-b5-bK2"/>
+                        <outlet property="lapRecordTime" destination="n0q-e9-2XM" id="tHh-JV-4dA"/>
+                        <outlet property="lapTableview" destination="8UA-5e-Bxy" id="Gow-qH-jUV"/>
+                        <outlet property="startButton" destination="S2a-V5-K9d" id="nVW-qf-54L"/>
+                        <outlet property="trackNameLabel" destination="ILm-Z1-rpg" id="QrK-c7-9kr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-8c-1HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wEe-kc-a1b" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-607.20000000000005" y="975.56221889055485"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="tJS-rX-jSf">
@@ -330,7 +503,6 @@
                                     <outlet property="trackImage" destination="9GE-gA-jww" id="7hB-K3-FoG"/>
                                     <outlet property="trackLength" destination="JzE-JT-glF" id="Jrt-hB-ZSK"/>
                                     <outlet property="trackTitle" destination="jAm-VV-3oA" id="VRo-3G-lcw"/>
-                                    <segue destination="3Zm-aq-7Ax" kind="presentation" identifier="SelectTrackSegue" id="CpQ-tY-QE2"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" id="iZI-2S-bIv" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
@@ -394,92 +566,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8m6-bk-qO7" userLabel="ButtonStack View">
-                                            <rect key="frame" x="16" y="119" width="343" height="32"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW8-H6-RFR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="32"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Lap">
-                                                        <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="lap:" destination="PhE-j8-fnh" eventType="touchUpInside" id="Q7E-o0-PXU"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-V5-K9d">
-                                                    <rect key="frame" x="175.5" y="0.0" width="167.5" height="32"/>
-                                                    <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Start">
-                                                        <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="startButton:" destination="PhE-j8-fnh" eventType="touchUpInside" id="e2F-zN-mml"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yN-QI-wdf">
-                                            <rect key="frame" x="270" y="11" width="89" height="32"/>
+                                            <rect key="frame" x="270" y="11" width="89" height="30"/>
                                             <state key="normal" title="Select Driver"/>
-                                            <connections>
-                                                <segue destination="3Zm-aq-7Ax" kind="presentation" identifier="SelectDriverSegue" id="bQh-Hp-b09"/>
-                                            </connections>
                                         </button>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-Bt-8OG">
-                                            <rect key="frame" x="114" y="63" width="147" height="36"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mu-yw-dC3" userLabel="Minutes Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="37.5" height="36"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0m-Bi-Z8e" userLabel="M:S Label">
-                                                    <rect key="frame" x="37.5" y="0.0" width="8" height="36"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88t-8K-okM" userLabel="Seconds Label">
-                                                    <rect key="frame" x="45.5" y="0.0" width="37.5" height="36"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-o4-L7x" userLabel="S:MS Label">
-                                                    <rect key="frame" x="83" y="0.0" width="8" height="36"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNz-R2-fKQ" userLabel="Miliseconds Label">
-                                                    <rect key="frame" x="91" y="0.0" width="56" height="36"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="9yN-QI-wdf" secondAttribute="trailing" id="1G1-Pv-WU6"/>
-                                        <constraint firstItem="Y3b-Bt-8OG" firstAttribute="top" secondItem="9yN-QI-wdf" secondAttribute="bottom" constant="20" id="AxJ-eo-GZL"/>
-                                        <constraint firstItem="Y3b-Bt-8OG" firstAttribute="centerX" secondItem="DgN-6M-xKy" secondAttribute="centerX" id="BJS-t2-r4a"/>
                                         <constraint firstItem="9yN-QI-wdf" firstAttribute="top" secondItem="DgN-6M-xKy" secondAttribute="topMargin" id="JW8-lI-4Z6"/>
-                                        <constraint firstItem="8m6-bk-qO7" firstAttribute="leading" secondItem="DgN-6M-xKy" secondAttribute="leadingMargin" id="L4Y-gn-whh"/>
-                                        <constraint firstItem="8m6-bk-qO7" firstAttribute="top" secondItem="Y3b-Bt-8OG" secondAttribute="bottom" constant="20" id="YUo-Vk-NIy"/>
-                                        <constraint firstItem="8m6-bk-qO7" firstAttribute="bottom" secondItem="DgN-6M-xKy" secondAttribute="bottomMargin" id="bNJ-1R-kna"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8m6-bk-qO7" secondAttribute="trailing" id="fLE-NP-c5A"/>
-                                        <constraint firstItem="Y3b-Bt-8OG" firstAttribute="centerY" secondItem="DgN-6M-xKy" secondAttribute="centerY" id="fnw-jJ-uDN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="lapButton" destination="bW8-H6-RFR" id="zaB-8C-BF9"/>
                                     <outlet property="milisecondsLabel" destination="yNz-R2-fKQ" id="J7i-bz-vdg"/>
                                     <outlet property="minutesLabel" destination="6mu-yw-dC3" id="LI1-QW-c7h"/>
                                     <outlet property="secondsLabel" destination="88t-8K-okM" id="YWg-IN-jdA"/>
-                                    <outlet property="startButton" destination="S2a-V5-K9d" id="uvZ-lQ-dnl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -974,6 +1074,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hnc-D5-Qgu"/>
-        <segue reference="bQh-Hp-b09"/>
     </inferredMetricsTieBreakers>
 </document>

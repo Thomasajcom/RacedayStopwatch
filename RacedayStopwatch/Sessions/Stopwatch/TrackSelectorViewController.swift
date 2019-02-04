@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol TrackSelectorViewControllerDelegate {
-    func selected(item: Any, isTrack: Bool)
+    func selected(track: Track)
 }
 
 class TrackSelectorViewController: UIViewController {
@@ -51,14 +51,14 @@ class TrackSelectorViewController: UIViewController {
         
     }
     
-    @IBAction func dismiss(_ sender: UIButton) {
-        if(getTracks){
-            trackSelectorDelegate.selected(item: tracks![trackPicker.selectedRow(inComponent: 0)], isTrack: true)
-        }else{
-            trackSelectorDelegate.selected(item: drivers![trackPicker.selectedRow(inComponent: 0)], isTrack: false)
-        }
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func dismiss(_ sender: UIButton) {
+//        if(getTracks){
+//            trackSelectorDelegate.selected(item: tracks![trackPicker.selectedRow(inComponent: 0)], isTrack: true)
+//        }else{
+//            trackSelectorDelegate.selected(item: drivers![trackPicker.selectedRow(inComponent: 0)], isTrack: false)
+//        }
+//        dismiss(animated: true, completion: nil)
+//    }
 }
 
 extension TrackSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSource{

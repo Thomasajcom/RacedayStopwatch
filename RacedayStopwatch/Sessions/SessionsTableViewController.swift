@@ -118,8 +118,8 @@ class SessionsTableViewController: UITableViewController {
     
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "newTimer"){
-            let newTimer = segue.destination as! StopwatchTableViewController
+        if (segue.identifier == "timerSegue"){
+            let newTimer = segue.destination as! TimerViewController
             newTimer.hidesBottomBarWhenPushed = true
         }
     }
