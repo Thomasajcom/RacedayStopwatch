@@ -20,10 +20,7 @@ class TrackSelectorViewController: UIViewController {
     var trackSelectorDelegate: TrackSelectorViewControllerDelegate!
     @IBOutlet weak var trackPicker: UIPickerView!
     var tracks: [Track]? = []
-    var drivers: [Driver]? = []
     let trackFetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
-    let driverFetchRequest: NSFetchRequest<Driver> = Driver.fetchRequest()
-    var getTracks: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +30,12 @@ class TrackSelectorViewController: UIViewController {
         trackPicker.delegate = self
         trackPicker.dataSource = self
         
-        if(getTracks){
-            titleLabel.text = "Select Track"
-            do {
-                tracks = try CoreDataService.context.fetch(trackFetchRequest)
-            } catch let error as NSError {
-                print("\(error)")
-            }
-        }else{
-            titleLabel.text = "Select Driver"
-            do {
-                drivers = try CoreDataService.context.fetch(driverFetchRequest)
-            } catch let error as NSError {
-                print("\(error)")
-            }
+        titleLabel.text = "Select Track"
+        do {
+            tracks = try CoreDataService.context.fetch(trackFetchRequest)
+        } catch let error as NSError {
+            print("\(error)")
         }
-        
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -64,19 +51,12 @@ extension TrackSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let tracks = tracks else {return 0}
-        guard let drivers = drivers else {return 0}
-        return (getTracks ? tracks.count : drivers.count)
+        return tracks.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if getTracks{
             if let tracks = tracks{
                 return "\(tracks[row].name) - \(tracks[row].length)"
             }else{ return "Error getting track name" }
-        }else{
-            if let drivers = drivers{
-                return "\(drivers[row].name)"
-            }else{ return "Error getting driver name" }
-        }
     }
 }
