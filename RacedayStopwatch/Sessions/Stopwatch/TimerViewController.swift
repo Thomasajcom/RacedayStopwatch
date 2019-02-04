@@ -11,7 +11,8 @@ import UIKit
 class TimerViewController: UIViewController {
 
     @IBOutlet weak var trackNameLabel: UILabel!
-    @IBOutlet weak var LapRecordLabel: UILabel!
+    @IBOutlet weak var trackLengthLabel: UILabel!
+    @IBOutlet weak var lapRecordLabel: UILabel!
     @IBOutlet weak var lapRecordHolder: UILabel!
     @IBOutlet weak var lapRecordTime: UILabel!
     
@@ -21,24 +22,38 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var lapButton: UIButton!
     
+    // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
+    var selectedTrack: Track?{
+        didSet{
+            trackNameLabel.text = selectedTrack!.name
+            trackLengthLabel.text = String(selectedTrack!.length)+" meters"
+            
+            // TODO: - Internationalize this
+            lapRecordLabel.text = "Lap Record"
+            if let recordHolderName = selectedTrack!.trackRecordHolder?.name, let trackRecord = selectedTrack!.trackRecord{
+                lapRecordHolder.text = recordHolderName
+                lapRecordTime.text = trackRecord
+            }else{
+                lapRecordLabel.isHidden = true
+                lapRecordHolder.isHidden = true
+                lapRecordTime.isHidden = true
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         startButton.layer.cornerRadius = 10
         startButton.layer.masksToBounds = true
-        
         lapButton.layer.cornerRadius = 10
         lapButton.layer.masksToBounds = true
-        
-        
+ 
         // Do any additional setup after loading the view.
     }
     
-
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectTrackSegue" {
@@ -60,6 +75,6 @@ class TimerViewController: UIViewController {
 
 extension TimerViewController: TrackSelectorViewControllerDelegate{
     func selected(track: Track) {
-        trackNameLabel.text = track.name
+        selectedTrack = track
     }
 }

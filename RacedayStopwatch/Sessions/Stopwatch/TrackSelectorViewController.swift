@@ -19,7 +19,7 @@ class TrackSelectorViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     var trackSelectorDelegate: TrackSelectorViewControllerDelegate!
     @IBOutlet weak var trackPicker: UIPickerView!
-    var tracks: [Track]? = []
+    var tracks: [Track]?
     let trackFetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class TrackSelectorViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
-            trackSelectorDelegate.selected(track: tracks![trackPicker.selectedRow(inComponent: 0)])
+        trackSelectorDelegate.selected(track: tracks![trackPicker.selectedRow(inComponent: 0)])
         dismiss(animated: true, completion: nil)
     }
 }
@@ -55,8 +55,8 @@ extension TrackSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            if let tracks = tracks{
-                return "\(tracks[row].name) - \(tracks[row].length)"
-            }else{ return "Error getting track name" }
+        if let tracks = tracks{
+            return "\(tracks[row].name) - \(tracks[row].length)"
+        }else{ return "Error getting track name" }
     }
 }

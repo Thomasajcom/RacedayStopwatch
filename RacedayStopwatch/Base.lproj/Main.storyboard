@@ -319,35 +319,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-Bt-8OG" userLabel="Timer Stack View">
-                                <rect key="frame" x="0.0" y="601" width="375" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-Bt-8OG" userLabel="Timer Stack View">
+                                <rect key="frame" x="98" y="601" width="179" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mu-yw-dC3" userLabel="Minutes Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="68.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0m-Bi-Z8e" userLabel="M:S Label">
-                                        <rect key="frame" x="76.5" y="0.0" width="68.5" height="36"/>
+                                        <rect key="frame" x="45.5" y="0.0" width="8" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88t-8K-okM" userLabel="Seconds Label">
-                                        <rect key="frame" x="153" y="0.0" width="69" height="36"/>
+                                        <rect key="frame" x="61.5" y="0.0" width="37.5" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-o4-L7x" userLabel="S:MS Label">
-                                        <rect key="frame" x="230" y="0.0" width="68.5" height="36"/>
+                                        <rect key="frame" x="107" y="0.0" width="8" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNz-R2-fKQ" userLabel="Miliseconds Label">
-                                        <rect key="frame" x="306.5" y="0.0" width="68.5" height="36"/>
+                                        <rect key="frame" x="123" y="0.0" width="56" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -380,31 +380,38 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jY-QJ-IHf">
-                                <rect key="frame" x="305" y="64" width="70" height="30"/>
+                                <rect key="frame" x="289" y="95.5" width="70" height="30"/>
                                 <state key="normal" title="Add Track"/>
                                 <connections>
                                     <segue destination="3Zm-aq-7Ax" kind="presentation" identifier="SelectTrackSegue" id="sOC-IX-092"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackLength Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPa-XW-0Hy">
+                                <rect key="frame" x="0.0" y="141" width="141.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5jY-QJ-IHf" firstAttribute="top" secondItem="gp6-R6-c8d" secondAttribute="top" id="6P1-39-j1p"/>
                             <constraint firstItem="ILm-Z1-rpg" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="Cj2-SR-ght"/>
                             <constraint firstItem="lCJ-yL-uXW" firstAttribute="top" secondItem="ILm-Z1-rpg" secondAttribute="bottom" id="E1U-ea-wlW"/>
+                            <constraint firstItem="5jY-QJ-IHf" firstAttribute="centerY" secondItem="lCJ-yL-uXW" secondAttribute="centerY" id="FCR-lS-BEO"/>
                             <constraint firstItem="8m6-bk-qO7" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="10" id="NOo-bR-fwc"/>
                             <constraint firstItem="NeH-Mu-DHZ" firstAttribute="top" secondItem="lCJ-yL-uXW" secondAttribute="bottom" id="Om9-0a-js4"/>
                             <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="NeH-Mu-DHZ" secondAttribute="trailing" id="Rp0-5i-bqu"/>
                             <constraint firstItem="gp6-R6-c8d" firstAttribute="bottom" secondItem="8m6-bk-qO7" secondAttribute="bottom" id="TOo-rd-rcd"/>
+                            <constraint firstItem="dPa-XW-0Hy" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="UXx-ze-6UE"/>
+                            <constraint firstItem="8m6-bk-qO7" firstAttribute="top" secondItem="Y3b-Bt-8OG" secondAttribute="bottom" id="Uas-Sv-dHh"/>
                             <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="8m6-bk-qO7" secondAttribute="trailing" constant="10" id="VIP-QY-HCv"/>
                             <constraint firstItem="ILm-Z1-rpg" firstAttribute="top" secondItem="gp6-R6-c8d" secondAttribute="top" id="YRh-dY-FDs"/>
-                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="5jY-QJ-IHf" secondAttribute="trailing" id="abN-IJ-IuJ"/>
                             <constraint firstItem="NeH-Mu-DHZ" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="bLf-Kl-shK"/>
-                            <constraint firstItem="8m6-bk-qO7" firstAttribute="top" secondItem="Y3b-Bt-8OG" secondAttribute="bottom" id="cot-So-QmR"/>
                             <constraint firstItem="lCJ-yL-uXW" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="gUd-Nv-bll"/>
+                            <constraint firstItem="dPa-XW-0Hy" firstAttribute="top" secondItem="NeH-Mu-DHZ" secondAttribute="bottom" id="gu7-9Y-Gx1"/>
                             <constraint firstItem="lCJ-yL-uXW" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="jtz-KA-Una"/>
-                            <constraint firstItem="Y3b-Bt-8OG" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="pB1-Ua-bzE"/>
-                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="Y3b-Bt-8OG" secondAttribute="trailing" id="x6C-Ra-cKp"/>
+                            <constraint firstItem="Y3b-Bt-8OG" firstAttribute="centerX" secondItem="gp6-R6-c8d" secondAttribute="centerX" id="m9R-I6-cEn"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="5jY-QJ-IHf" secondAttribute="trailing" constant="16" id="t3C-QC-6Vr"/>
                             <constraint firstItem="ILm-Z1-rpg" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="zzA-My-2KU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gp6-R6-c8d"/>
@@ -414,13 +421,14 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="LapRecordLabel" destination="lCJ-yL-uXW" id="92U-2f-6jD"/>
                         <outlet property="driverCollectionView" destination="irP-Mv-rJW" id="0kf-ix-j3T"/>
                         <outlet property="lapButton" destination="bW8-H6-RFR" id="g8C-Wk-28y"/>
                         <outlet property="lapRecordHolder" destination="ple-eU-11C" id="8gI-b5-bK2"/>
+                        <outlet property="lapRecordLabel" destination="lCJ-yL-uXW" id="92U-2f-6jD"/>
                         <outlet property="lapRecordTime" destination="n0q-e9-2XM" id="tHh-JV-4dA"/>
                         <outlet property="lapTableview" destination="8UA-5e-Bxy" id="Gow-qH-jUV"/>
                         <outlet property="startButton" destination="S2a-V5-K9d" id="nVW-qf-54L"/>
+                        <outlet property="trackLengthLabel" destination="dPa-XW-0Hy" id="wuT-3s-FAO"/>
                         <outlet property="trackNameLabel" destination="ILm-Z1-rpg" id="QrK-c7-9kr"/>
                     </connections>
                 </viewController>
@@ -665,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76A-tp-R02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1402" y="1243"/>
+            <point key="canvasLocation" x="-607" y="1710"/>
         </scene>
         <!--Drivers-->
         <scene sceneID="fFj-Wb-xSj">
