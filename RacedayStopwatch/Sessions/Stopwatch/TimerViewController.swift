@@ -9,7 +9,7 @@
 import UIKit
 
 class TimerViewController: UIViewController {
-
+    
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var trackLengthLabel: UILabel!
     @IBOutlet weak var lapRecordLabel: UILabel!
@@ -22,7 +22,10 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var lapButton: UIButton!
     
-    var participatingDrivers = 0
+    @IBOutlet weak var addDriverButton: UIButton!
+    
+    //participatingDrivers will always be atleast 1 - the first "add driver" cell.
+    var participatingDrivers = [Driver]()
     
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
@@ -48,12 +51,12 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         driverCollectionView.delegate = self
         driverCollectionView.dataSource = self
-
+        
         startButton.layer.cornerRadius = 10
         startButton.layer.masksToBounds = true
         lapButton.layer.cornerRadius = 10
         lapButton.layer.masksToBounds = true
- 
+        
         // Do any additional setup after loading the view.
     }
     
@@ -64,16 +67,21 @@ class TimerViewController: UIViewController {
             if let vc = segue.destination as? TrackSelectorViewController{
                 vc.trackSelectorDelegate = self
             }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }else if segue.identifier == "SelectDriverSegue" {
+            if let vc = segue.destination as? DriverSelectorViewController{
+                vc.driverSelectorDelegate = self
+            }
         }
     }
- 
     
+    // MARK: - Add Driver / Track
+    @IBAction func addDriver(_ sender: UIButton) {
+        
+    }
     // MARK: - TIMER
     @IBAction func startTimer(_ sender: UIButton) {
     }
-    @IBAction func lapTimer(_ sender: Any) {
+    @IBAction func lapTimer(_ sender: UIButton) {
     }
 }
 
@@ -83,18 +91,21 @@ extension TimerViewController: TrackSelectorViewControllerDelegate{
     }
 }
 
+extension TimerViewController: DriverSelectorViewControllerDelegate{
+    func selected(driver: Driver) {
+        participatingDrivers.append(driver)
+        driverCollectionView.reloadData()
+    }
+}
+
 extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return participatingDrivers
+        return participatingDrivers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (indexPath.row == 1){
-            //the first cell, insert Add Driver Cell here
-        }else{
-            //insert cells with driver and timer
-        }
+        let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
+        cell.setup(title: participatingDrivers[indexPath.row].name, image: UIImage(data: participatingDrivers[indexPath.row].image as Data)! )
+        return cell
     }
-    
-    
 }
