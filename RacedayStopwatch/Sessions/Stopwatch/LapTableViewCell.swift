@@ -12,7 +12,7 @@ class LapTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "LapCell"
 
-    @IBOutlet weak var lapLabel: UILabel!
+    @IBOutlet weak var driverNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     

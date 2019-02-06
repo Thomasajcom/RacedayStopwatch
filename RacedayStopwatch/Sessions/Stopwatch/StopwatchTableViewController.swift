@@ -71,20 +71,11 @@ class StopwatchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-        case 0:
-            // TRACK Section
-            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedTrackTableViewCell.reuseIdentifier, for: indexPath) as! SelectedTrackTableViewCell
-            if let selectedTrack = selectedTrack{
-                cell.setup(selectedTrack)
-            }else{
-                cell.trackTitle.text = "No Track Selected"
-            }
-            return cell
         case 1:
             // LAPS Section
             let cell = tableView.dequeueReusableCell(withIdentifier: LapTableViewCell.reuseIdentifier, for: indexPath) as! LapTableViewCell
             
-            cell.lapLabel.text = "Lap \(participants[lastDriver].lapTime.count-1) - \(participants[lastDriver].name)"
+            cell.driverNameLabel.text = "Lap \(participants[lastDriver].lapTime.count-1) - \(participants[lastDriver].name)"
             
             cell.timeLabel.text = String(format: "%02d : %02d : %03d", arguments: [minutes, seconds, miliseconds])
             cell.speedLabel.text = "25 km/t"

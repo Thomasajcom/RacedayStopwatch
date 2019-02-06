@@ -25,7 +25,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var addDriverButton: UIButton!
     
     //participatingDrivers will always be atleast 1 - the first "add driver" cell.
-    var participatingDrivers = [Driver]()
+    var participatingDrivers =  [Driver]()
     
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
@@ -57,6 +57,8 @@ class TimerViewController: UIViewController {
         lapButton.layer.cornerRadius = 10
         lapButton.layer.masksToBounds = true
         
+        lapTableview.delegate = self
+        lapTableview.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -98,6 +100,22 @@ extension TimerViewController: DriverSelectorViewControllerDelegate{
     }
 }
 
+//MARK: - TableView
+extension TimerViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: LapTableViewCell.reuseIdentifier, for: indexPath) as! LapTableViewCell
+        cell.driverNameLabel.text = "lol"
+        cell.speedLabel.text = "speed"
+        cell.timeLabel.text = "time"
+        return cell
+    }
+}
+
+//MARK: - CollectionView
 extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return participatingDrivers.count
@@ -107,5 +125,9 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
         cell.setup(title: participatingDrivers[indexPath.row].name, image: UIImage(data: participatingDrivers[indexPath.row].image as Data)! )
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected: \(participatingDrivers[indexPath.row].name)")
     }
 }
