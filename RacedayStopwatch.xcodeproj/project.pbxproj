@@ -33,8 +33,6 @@
 		E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D02196040B00F9B4CF /* LapTableViewCell.swift */; };
 		E97F11BD2195D74F0090C336 /* AddDriverPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */; };
 		E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */; };
-		E97F11C12195F7D40090C336 /* StopwatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11C02195F7D40090C336 /* StopwatchTableViewController.swift */; };
-		E97F11C32195F9B60090C336 /* StopwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11C22195F9B60090C336 /* StopwatchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +85,6 @@
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverPopupViewController.swift; sourceTree = "<group>"; };
 		E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
-		E97F11C02195F7D40090C336 /* StopwatchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTableViewController.swift; sourceTree = "<group>"; };
-		E97F11C22195F9B60090C336 /* StopwatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +226,6 @@
 				E93E2181219ACE3E00F39575 /* TrackSelectorViewController.swift */,
 				E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */,
 				E97143D02196040B00F9B4CF /* LapTableViewCell.swift */,
-				E97F11C22195F9B60090C336 /* StopwatchTableViewCell.swift */,
-				E97F11C02195F7D40090C336 /* StopwatchTableViewController.swift */,
 				E92E963A2207B604004E6E20 /* TimerViewController.swift */,
 			);
 			path = Stopwatch;
@@ -369,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92E963522005F9F004E6E20 /* TrackCollectionViewCell.swift in Sources */,
-				E97F11C12195F7D40090C336 /* StopwatchTableViewController.swift in Sources */,
 				E960608D2194BD6C00D37631 /* Track+CoreDataProperties.swift in Sources */,
 				E9606001219359DA00D37631 /* AppDelegate.swift in Sources */,
 				E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */,
@@ -377,7 +370,6 @@
 				E960607A2193662100D37631 /* RacedayStopwatch.xcdatamodeld in Sources */,
 				E960608C2194BD6C00D37631 /* Track+CoreDataClass.swift in Sources */,
 				E92E963E22098653004E6E20 /* DriverCollectionViewCell.swift in Sources */,
-				E97F11C32195F9B60090C336 /* StopwatchTableViewCell.swift in Sources */,
 				E960608E2194BD6C00D37631 /* Driver+CoreDataClass.swift in Sources */,
 				E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */,
 				E97F11BD2195D74F0090C336 /* AddDriverPopupViewController.swift in Sources */,

@@ -87,8 +87,6 @@ class TracksCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        print("numberOfSections")
-
         return 1
     }
 

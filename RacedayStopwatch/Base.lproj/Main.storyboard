@@ -310,15 +310,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08h-t2-BYo">
-                                                    <rect key="frame" x="164" y="11" width="116" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lap Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-Fw-PFU">
+                                                    <rect key="frame" x="268" y="4" width="92" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lapnumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD7-Lc-zTY">
+                                                    <rect key="frame" x="15" y="33" width="88" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lap Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-Fw-PFU">
-                                                    <rect key="frame" x="289" y="11" width="71" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08h-t2-BYo">
+                                                    <rect key="frame" x="129" y="11" width="116" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -332,6 +339,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="driverNameLabel" destination="egH-kt-kVl" id="csx-fb-y7F"/>
+                                            <outlet property="lapNumberLabel" destination="CD7-Lc-zTY" id="EE6-O8-aUZ"/>
                                             <outlet property="speedLabel" destination="08h-t2-BYo" id="VYm-Z3-aDe"/>
                                             <outlet property="timeLabel" destination="W8R-Fw-PFU" id="xqa-VQ-GjK"/>
                                         </connections>
@@ -383,7 +391,7 @@
                                             <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="lapButton:" destination="wEe-kc-a1b" eventType="touchUpInside" id="xga-NV-jRm"/>
+                                            <action selector="lapTimer:" destination="V1s-dB-giF" eventType="touchUpInside" id="XKz-Da-Kx3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-V5-K9d">
@@ -393,7 +401,7 @@
                                             <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="startTimer:" destination="wEe-kc-a1b" eventType="touchUpInside" id="1Zj-6V-zAQ"/>
+                                            <action selector="startTimer:" destination="V1s-dB-giF" eventType="touchUpInside" id="WnL-W3-NaS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -515,13 +523,15 @@
                         <outlet property="lapRecordLabel" destination="lCJ-yL-uXW" id="92U-2f-6jD"/>
                         <outlet property="lapRecordTime" destination="n0q-e9-2XM" id="tHh-JV-4dA"/>
                         <outlet property="lapTableview" destination="8UA-5e-Bxy" id="Gow-qH-jUV"/>
+                        <outlet property="milisecondsLabel" destination="yNz-R2-fKQ" id="VVJ-6J-66v"/>
+                        <outlet property="minutesLabel" destination="6mu-yw-dC3" id="rhv-Qa-dab"/>
+                        <outlet property="secondsLabel" destination="88t-8K-okM" id="U5P-gS-wvm"/>
                         <outlet property="startButton" destination="S2a-V5-K9d" id="nVW-qf-54L"/>
                         <outlet property="trackLengthLabel" destination="dPa-XW-0Hy" id="wuT-3s-FAO"/>
                         <outlet property="trackNameLabel" destination="ILm-Z1-rpg" id="QrK-c7-9kr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-8c-1HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wEe-kc-a1b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-607.20000000000005" y="975.56221889055485"/>
         </scene>

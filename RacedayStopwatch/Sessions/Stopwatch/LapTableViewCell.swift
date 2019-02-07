@@ -15,6 +15,7 @@ class LapTableViewCell: UITableViewCell {
     @IBOutlet weak var driverNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var lapNumberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
