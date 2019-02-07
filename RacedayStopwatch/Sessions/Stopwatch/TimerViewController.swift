@@ -32,6 +32,7 @@ class TimerViewController: UIViewController {
     var participatingDrivers =  [Driver]()
     
     var laps = [Lap]()
+    var session = Session()
     
     weak var timer: Timer?
     var timerEnabled: Bool = false
@@ -44,6 +45,8 @@ class TimerViewController: UIViewController {
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
         didSet{
+            session.onTrack = selectedTrack
+
             trackNameLabel.text = selectedTrack!.name
             trackLengthLabel.text = String(selectedTrack!.length)+" meters"
             
@@ -63,6 +66,9 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        session = Session(context: CoreDataService.context)
+        session.sessionDateAndTime = Date() as NSDate
+
         driverCollectionView.delegate = self
         driverCollectionView.dataSource = self
         
@@ -73,6 +79,15 @@ class TimerViewController: UIViewController {
         
         lapTableview.delegate = self
         lapTableview.dataSource = self
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        //TODO: - Internationalize this
+        formatter.dateFormat = "dd.MM.yyyy"
+        let todayString = formatter.string(from: date)
+//        self.navigationController?.title = todayString
+
+
         // Do any additional setup after loading the view.
     }
     
@@ -89,10 +104,15 @@ class TimerViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Add Driver / Track
-    @IBAction func addDriver(_ sender: UIButton) {
-        
+
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        //going home
+        //needs checks for a lot of stuff:
+        // - timer still running? is there somthing to save?
+        print("Trying to save?")
+//                    CoreDataService.saveContext()
+        //        self.navigationController?.popToRootViewController(animated: true)
+//        performSegue(withIdentifier: "UnwindToSessionsSegue", sender: self)
     }
     // MARK: - TIMER
     @IBAction func startTimer(_ sender: UIButton) {

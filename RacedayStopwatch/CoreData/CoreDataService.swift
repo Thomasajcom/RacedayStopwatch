@@ -65,6 +65,7 @@ class CoreDataService: NSPersistentContainer {
     // MARK: - Core Data Saving support
     
     static func saveContext () {
+        print("TRYING TO SAVE TO CORE DATA!")
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

@@ -12,14 +12,37 @@ import CoreData
 
 class SessionsTableViewController: UITableViewController {
 
+    var sessions: [Session] = []
+    
+    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        
+        // Configure Fetch Request
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
+        
+        // Create Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataService.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            try fetchedResultsController.performFetch()
+            sessions = fetchedResultsController.fetchedObjects!
+        } catch  {
+            let error = error as NSError
+            print("Unable to fetch drivers")
+        }
         self.navigationController?.navigationBar.prefersLargeTitles = true
-
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -67,7 +90,8 @@ class SessionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 0 //sessions.count
+        TODO: create the cell for populating the sessions tableview
     }
 
     /*
@@ -121,6 +145,44 @@ class SessionsTableViewController: UITableViewController {
         if (segue.identifier == "timerSegue"){
             let newTimer = segue.destination as! TimerViewController
             newTimer.hidesBottomBarWhenPushed = true
+        }
+    }
+    
+    @IBAction func unwindToSessions(segue: UIStoryboardSegue){
+        print("Im home!")
+        let dest = segue.source as! TimerViewController
+        let lol = dest.session
+        CoreDataService.saveContext()
+    }
+}
+
+extension SessionsTableViewController: NSFetchedResultsControllerDelegate{
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("i controllerwillchange")
+        tableView.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("i controllerdidchange")
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        print("i controller")
+        switch (type) {
+        case .insert:
+            print("i controller insert")
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+//            print("i controller update")
+//            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? SessionTableViewCell{
+//                print("i controller update IF LET")
+//                cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
+//            }
+            break;
+        default:
+            print("...")
         }
     }
     

@@ -17,10 +17,11 @@ extension Session {
         return NSFetchRequest<Session>(entityName: "Session")
     }
 
-    @NSManaged public var sessionDateAndTime: NSDate?
+    @NSManaged public var sessionDateAndTime: NSDate
     @NSManaged public var weatherInfo: String?
-    @NSManaged public var onTrack: Track
-    @NSManaged public var drivers: NSSet
+    @NSManaged public var onTrack: Track?
+    @NSManaged public var drivers: NSSet?
+    @NSManaged public var fastestDriver: Driver?
 
 }
 
