@@ -32,7 +32,7 @@ class TimerViewController: UIViewController {
     var participatingDrivers =  [Driver]()
     
     var laps = [Lap]()
-    var session = Session()
+    var session = Session(context: CoreDataService.context)
     
     weak var timer: Timer?
     var timerEnabled: Bool = false
@@ -66,7 +66,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        session = Session(context: CoreDataService.context)
         session.sessionDateAndTime = Date() as NSDate
 
         driverCollectionView.delegate = self
@@ -94,6 +93,7 @@ class TimerViewController: UIViewController {
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("i prepare for segue")
         if segue.identifier == "SelectTrackSegue" {
             if let vc = segue.destination as? TrackSelectorViewController{
                 vc.trackSelectorDelegate = self
@@ -102,6 +102,15 @@ class TimerViewController: UIViewController {
             if let vc = segue.destination as? DriverSelectorViewController{
                 vc.driverSelectorDelegate = self
             }
+        }else if segue.identifier == "UnwindToSessionsSegue"{
+            print("i UnwindToSessionsSegue")
+            
+//            session.drivers?.addingObjects(from: participatingDrivers)
+//            session.fastestDriver   = laps[0].driver!
+//            session.fastestLapTime  = laps[0].lapTime
+//            session.fastestLapSpeed = "250"
+//            session.numberOfLaps    = Int16(laps.count)
+//            CoreDataService.saveContext()
         }
     }
 
@@ -110,13 +119,30 @@ class TimerViewController: UIViewController {
         //needs checks for a lot of stuff:
         // - timer still running? is there somthing to save?
         print("Trying to save?")
+        
+        session.drivers?.addingObjects(from: participatingDrivers)
+        session.fastestDriver   = laps[0].driver!
+        session.fastestLapTime  = laps[0].lapTime
+        session.fastestLapSpeed = "250"
+        session.numberOfLaps    = Int16(laps.count)
+        CoreDataService.saveContext()
 //                    CoreDataService.saveContext()
-        //        self.navigationController?.popToRootViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
 //        performSegue(withIdentifier: "UnwindToSessionsSegue", sender: self)
     }
+    
     // MARK: - TIMER
     @IBAction func startTimer(_ sender: UIButton) {
         print("Starting the timer, button should be changed to STOP")
+        print("banen: \(session.onTrack)")
+        if session.onTrack == nil{
+            print("banen var nil den!")
+            let alertController = UIAlertController(title: "NO TRACK SELECTED", message: "", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
+        }
+        //the above must take a response to know whether it should start anyway or not
         timerEnabled.toggle()
         
         if(timerEnabled){

@@ -13,6 +13,7 @@
 		E92E963522005F9F004E6E20 /* TrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */; };
 		E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963A2207B604004E6E20 /* TimerViewController.swift */; };
 		E92E963E22098653004E6E20 /* DriverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963D22098653004E6E20 /* DriverCollectionViewCell.swift */; };
+		E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92F342C22117EA5003ECAB4 /* SessionTableViewCell.swift */; };
 		E93E2182219ACE3E00F39575 /* TrackSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E2181219ACE3E00F39575 /* TrackSelectorViewController.swift */; };
 		E9606001219359DA00D37631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9606000219359DA00D37631 /* AppDelegate.swift */; };
 		E9606008219359DA00D37631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9606006219359DA00D37631 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionViewCell.swift; sourceTree = "<group>"; };
 		E92E963A2207B604004E6E20 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E92E963D22098653004E6E20 /* DriverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCollectionViewCell.swift; sourceTree = "<group>"; };
+		E92F342C22117EA5003ECAB4 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		E93E2181219ACE3E00F39575 /* TrackSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSelectorViewController.swift; sourceTree = "<group>"; };
 		E9605FFD219359DA00D37631 /* RacedayStopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RacedayStopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9606000219359DA00D37631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,10 +137,10 @@
 		E9605FF4219359DA00D37631 = {
 			isa = PBXGroup;
 			children = (
+				E9605FFE219359DA00D37631 /* Products */,
 				E9605FFF219359DA00D37631 /* RacedayStopwatch */,
 				E9606016219359DB00D37631 /* RacedayStopwatchTests */,
 				E9606021219359DC00D37631 /* RacedayStopwatchUITests */,
-				E9605FFE219359DA00D37631 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,15 +157,15 @@
 		E9605FFF219359DA00D37631 /* RacedayStopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				E960603721935D6800D37631 /* Sessions */,
-				E92111A72194BE0A00D5D67F /* Drivers */,
-				E960603A21935DA100D37631 /* Tracks */,
-				E9606000219359DA00D37631 /* AppDelegate.swift */,
-				E9606006219359DA00D37631 /* Main.storyboard */,
-				E9606009219359DB00D37631 /* Assets.xcassets */,
-				E960600B219359DB00D37631 /* LaunchScreen.storyboard */,
 				E960600E219359DB00D37631 /* Info.plist */,
+				E9606000219359DA00D37631 /* AppDelegate.swift */,
+				E9606009219359DB00D37631 /* Assets.xcassets */,
 				E960608321936EC500D37631 /* CoreData */,
+				E92111A72194BE0A00D5D67F /* Drivers */,
+				E960600B219359DB00D37631 /* LaunchScreen.storyboard */,
+				E9606006219359DA00D37631 /* Main.storyboard */,
+				E960603721935D6800D37631 /* Sessions */,
+				E960603A21935DA100D37631 /* Tracks */,
 			);
 			path = RacedayStopwatch;
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 			children = (
 				E97143D4219ACC7B00F9B4CF /* Stopwatch */,
 				E960603521935D4300D37631 /* SessionsTableViewController.swift */,
+				E92F342C22117EA5003ECAB4 /* SessionTableViewCell.swift */,
 			);
 			path = Sessions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				E960607C219366A300D37631 /* CoreDataService.swift in Sources */,
 				E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */,
 				E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */,
+				E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */,
 				E960608A2194BD6B00D37631 /* Session+CoreDataClass.swift in Sources */,
 				E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */,
 				E960608B2194BD6C00D37631 /* Session+CoreDataProperties.swift in Sources */,

@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SessionCell" rowHeight="188" id="xRX-QS-4MG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SessionCell" rowHeight="188" id="xRX-QS-4MG" customClass="SessionTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="188"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xRX-QS-4MG" id="2SF-9u-pjG">
@@ -230,6 +230,16 @@
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="za2-iV-lId"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bestLapSpeedLabel" destination="cB0-CM-HaS" id="7xf-b6-xLP"/>
+                                    <outlet property="bestLapTimeLabel" destination="yUD-DB-E64" id="0hj-h0-uhi"/>
+                                    <outlet property="dateLabel" destination="tMJ-os-qFJ" id="TTa-gR-dfx"/>
+                                    <outlet property="driverImage" destination="Egq-TC-aui" id="Rd6-Q0-CyB"/>
+                                    <outlet property="fastestDriverNameLabel" destination="hRg-12-4ng" id="w4J-EO-EYl"/>
+                                    <outlet property="numberOfLapsLabel" destination="8l1-oi-I8e" id="RZP-Gl-Gmg"/>
+                                    <outlet property="timeOnTrackLabel" destination="ANF-9u-tIc" id="clo-bC-mTw"/>
+                                    <outlet property="trackNameLabel" destination="HGw-zx-gll" id="GEL-9c-oBq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -514,7 +524,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ew7-PK-Zfi">
                             <connections>
                                 <action selector="save:" destination="V1s-dB-giF" id="qd0-Bx-lW9"/>
-                                <segue destination="wEe-kc-a1b" kind="unwind" identifier="UnwindToSessionsSegue" unwindAction="unwindToSessionsWithSegue:" id="oJ1-7M-eEE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -536,7 +545,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-8c-1HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wEe-kc-a1b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-607.20000000000005" y="975.56221889055485"/>
         </scene>

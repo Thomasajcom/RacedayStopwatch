@@ -22,6 +22,10 @@ extension Session {
     @NSManaged public var onTrack: Track?
     @NSManaged public var drivers: NSSet?
     @NSManaged public var fastestDriver: Driver?
+    @NSManaged public var fastestLapTime: String?
+    @NSManaged public var fastestLapSpeed: String?
+    @NSManaged public var numberOfLaps: Int16
+    @NSManaged public var timeOnTrack: Int16
 
 }
 

@@ -9,44 +9,35 @@
 import UIKit
 import CoreData
 
-
 class SessionsTableViewController: UITableViewController {
 
     var sessions: [Session] = []
-    
-    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
-        // Create Fetch Request
-        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
-        
-        // Configure Fetch Request
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
-        
-        // Create Fetched Results Controller
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataService.context, sectionNameKeyPath: nil, cacheName: nil)
-        
-        // Configure Fetched Results Controller
-        fetchedResultsController.delegate = self
-        
-        return fetchedResultsController
-    }()
+    let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            try fetchedResultsController.performFetch()
-            sessions = fetchedResultsController.fetchedObjects!
-        } catch  {
-            let error = error as NSError
-            print("Unable to fetch drivers")
-        }
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //empty footer to remove tableview lines
+        self.tableView.tableFooterView = UIView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
+        do {
+            sessions = try CoreDataService.context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
+    // MARK: - Developer Options Core Data
     func drop(table: String){
         print("Going to drop table: \(table)")
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: table)
@@ -60,7 +51,6 @@ class SessionsTableViewController: UITableViewController {
         {
             print ("There was an error")
         }
-
     }
     @IBAction func devButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Dev Menu", message: "Drop selected table!", preferredStyle: .actionSheet)
@@ -81,28 +71,24 @@ class SessionsTableViewController: UITableViewController {
         present(alertController,animated: true)
         
     }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0 //sessions.count
-        TODO: create the cell for populating the sessions tableview
+        return sessions.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let session = sessions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.reuseIdentifier, for: indexPath) as! SessionTableViewCell
+        cell.setup(with: session)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -138,8 +124,12 @@ class SessionsTableViewController: UITableViewController {
         return true
     }
     */
+    //MARK: - Tableview Delegate Methods
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        #warning("temp implementation")
+        return 150
+    }
 
-    
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "timerSegue"){
@@ -147,43 +137,4 @@ class SessionsTableViewController: UITableViewController {
             newTimer.hidesBottomBarWhenPushed = true
         }
     }
-    
-    @IBAction func unwindToSessions(segue: UIStoryboardSegue){
-        print("Im home!")
-        let dest = segue.source as! TimerViewController
-        let lol = dest.session
-        CoreDataService.saveContext()
-    }
-}
-
-extension SessionsTableViewController: NSFetchedResultsControllerDelegate{
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("i controllerwillchange")
-        tableView.beginUpdates()
-    }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("i controllerdidchange")
-        tableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        print("i controller")
-        switch (type) {
-        case .insert:
-            print("i controller insert")
-            if let indexPath = newIndexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
-        case .update:
-//            print("i controller update")
-//            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? SessionTableViewCell{
-//                print("i controller update IF LET")
-//                cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
-//            }
-            break;
-        default:
-            print("...")
-        }
-    }
-    
 }

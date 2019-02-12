@@ -157,7 +157,7 @@ class TracksCollectionViewController: UICollectionViewController {
 //NSFetchedResultsControllerDelegate extension
 extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
 
-    #warning("Known Bug: adding tracks sometimes failes to show changes")
+    #warning("Known Bug: adding tracks sometimes fails to show changes")
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .insert:
