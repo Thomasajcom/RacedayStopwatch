@@ -127,7 +127,7 @@ class SessionsTableViewController: UITableViewController {
     //MARK: - Tableview Delegate Methods
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         #warning("temp implementation")
-        return 150
+        return 200
     }
 
      // MARK: - Navigation
