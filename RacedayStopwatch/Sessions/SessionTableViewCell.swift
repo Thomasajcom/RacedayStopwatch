@@ -41,6 +41,7 @@ class SessionTableViewCell: UITableViewCell {
     
     //setup a session cell
     func setup(with session: Session) {
+        print("i cell-setup:\(session.sessionDateAndTime.description(with: Locale.current))")
         //consider turning this into an extension of DateFormatter()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -58,7 +59,10 @@ class SessionTableViewCell: UITableViewCell {
             date.isHidden = true
         }
         //if the session does not have  a fastest driver, it will not have a best lap time / speed either
+        print("fastestDriver er:\(session.fastestDriver)")
+
         if let fastestDriver = session.fastestDriver {
+            print("fastestDriver er:\(fastestDriver)")
             driverImage.image = UIImage(data: (fastestDriver.image as! Data))
             #warning("internationalize this")
             fastestDriverLabel.attributedText = NSAttributedString(string: "Fastest Driver", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
@@ -73,6 +77,7 @@ class SessionTableViewCell: UITableViewCell {
             numberOfLaps.text = "\(session.numberOfLaps) laps"
             distanceDriven.text = "\(session.numberOfLaps*trackLength  ) meters"
         }else {
+            print("else hide everything tableviewcell sESSION")
             //hides all info related to the fastest driver in the session
             fastestDriverLabel.isHidden = true
             fastestDriverName.isHidden  = true

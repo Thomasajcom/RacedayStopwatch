@@ -168,7 +168,7 @@ extension TracksCollectionViewController: NSFetchedResultsControllerDelegate {
         case .update:
             print("i controller update")
             if let indexPath = indexPath, let cell = collectionView.cellForItem(at: indexPath){
-                print("i controller update IF LET")
+                print("i TRACKScontroller update IF LET")
                 //setup(cell, at: indexPath)
             }
         case .delete:

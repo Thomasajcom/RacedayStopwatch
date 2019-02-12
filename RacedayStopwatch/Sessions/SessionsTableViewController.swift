@@ -26,14 +26,16 @@ class SessionsTableViewController: UITableViewController {
         //empty footer to remove tableview lines
         self.tableView.tableFooterView = UIView()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
         do {
             sessions = try CoreDataService.context.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        super.viewWillAppear(animated)
+       
         tableView.reloadData()
     }
 
@@ -78,14 +80,16 @@ class SessionsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("number of sessions: \(sessions.count)")
         return sessions.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let session = sessions[indexPath.row]
+        print("in CellForRowAt hvor session er: \(session.sessionDateAndTime.description) og indexpath er: \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.reuseIdentifier, for: indexPath) as! SessionTableViewCell
-        cell.setup(with: session)
+        cell.setup(with: sessions[indexPath.row])
         return cell
     }
     
@@ -129,6 +133,22 @@ class SessionsTableViewController: UITableViewController {
         #warning("temp implementation")
         return 200
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .destructive, title: "Delete Session") { (action, view, completionHandler) in
+            CoreDataService.context.delete(self.sessions[indexPath.row])
+            CoreDataService.saveContext()
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let moreInfoAction = UIContextualAction.init(style: .normal, title: "More Info") { _,_,_  in
+            print("lol????")
+            return
+        }
+        return UISwipeActionsConfiguration(actions: [moreInfoAction])    }
 
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

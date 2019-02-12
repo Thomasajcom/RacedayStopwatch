@@ -32,7 +32,7 @@ class TimerViewController: UIViewController {
     var participatingDrivers =  [Driver]()
     
     var laps = [Lap]()
-    var session = Session(context: CoreDataService.context)
+    //var session = Session(context: CoreDataService.context)
     
     weak var timer: Timer?
     var timerEnabled: Bool = false
@@ -45,7 +45,7 @@ class TimerViewController: UIViewController {
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
         didSet{
-            session.onTrack = selectedTrack
+//            session.onTrack = selectedTrack
 
             trackNameLabel.text = selectedTrack!.name
             trackLengthLabel.text = String(selectedTrack!.length)+" meters"
@@ -66,7 +66,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        session.sessionDateAndTime = Date() as NSDate
+        //session.sessionDateAndTime = Date() as NSDate
 
         driverCollectionView.delegate = self
         driverCollectionView.dataSource = self
@@ -102,15 +102,6 @@ class TimerViewController: UIViewController {
             if let vc = segue.destination as? DriverSelectorViewController{
                 vc.driverSelectorDelegate = self
             }
-        }else if segue.identifier == "UnwindToSessionsSegue"{
-            print("i UnwindToSessionsSegue")
-            
-//            session.drivers?.addingObjects(from: participatingDrivers)
-//            session.fastestDriver   = laps[0].driver!
-//            session.fastestLapTime  = laps[0].lapTime
-//            session.fastestLapSpeed = "250"
-//            session.numberOfLaps    = Int16(laps.count)
-//            CoreDataService.saveContext()
         }
     }
 
@@ -118,24 +109,24 @@ class TimerViewController: UIViewController {
         //going home
         //needs checks for a lot of stuff:
         // - timer still running? is there somthing to save?
-        print("Trying to save?")
-        
+        let session = Session(context: CoreDataService.context)
+        session.sessionDateAndTime = Date() as NSDate
+        session.onTrack = selectedTrack
         session.drivers?.addingObjects(from: participatingDrivers)
+        print("FASTEST DRIVER????? \(laps[0].driver!)")
         session.fastestDriver   = laps[0].driver!
         session.fastestLapTime  = laps[0].lapTime
         session.fastestLapSpeed = "250"
         session.numberOfLaps    = Int16(laps.count)
+        print("Trying to save?")
         CoreDataService.saveContext()
-//                    CoreDataService.saveContext()
-                self.navigationController?.popToRootViewController(animated: true)
-//        performSegue(withIdentifier: "UnwindToSessionsSegue", sender: self)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - TIMER
     @IBAction func startTimer(_ sender: UIButton) {
         print("Starting the timer, button should be changed to STOP")
-        print("banen: \(session.onTrack)")
-        if session.onTrack == nil{
+        if selectedTrack == nil{
             print("banen var nil den!")
             let alertController = UIAlertController(title: "NO TRACK SELECTED", message: "", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

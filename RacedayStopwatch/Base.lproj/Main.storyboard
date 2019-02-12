@@ -160,14 +160,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Egq-TC-aui">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Egq-TC-aui">
                                             <rect key="frame" x="13" y="67" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="HNC-aN-HGN"/>
                                                 <constraint firstAttribute="height" constant="100" id="tEO-LY-sUr"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b37-ZA-0O3" userLabel="Best Lap Stack View">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b37-ZA-0O3" userLabel="Best Lap Stack View">
                                             <rect key="frame" x="113" y="111" width="243" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="BestLap Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUD-DB-E64">
@@ -184,7 +184,7 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-Oj-ddS" userLabel="Total Lap Info Stack View">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-Oj-ddS" userLabel="Total Lap Info Stack View">
                                             <rect key="frame" x="113" y="174" width="243" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="# Laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-oi-I8e">
@@ -201,25 +201,25 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time On Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-9u-tIc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time On Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-9u-tIc">
                                             <rect key="frame" x="113" y="154" width="243" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fastest Driver Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnb-zL-p9Q">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fastest Driver Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnb-zL-p9Q">
                                             <rect key="frame" x="113" y="64" width="243" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DriverName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRg-12-4ng">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DriverName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRg-12-4ng">
                                             <rect key="frame" x="113" y="87" width="259" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time On Track Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQV-ao-gcE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time On Track Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQV-ao-gcE">
                                             <rect key="frame" x="113" y="134" width="243" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
@@ -234,28 +234,28 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fnb-zL-p9Q" firstAttribute="top" secondItem="tMJ-os-qFJ" secondAttribute="bottom" constant="-1" id="0lf-TV-c64"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="uQe-Oj-ddS" secondAttribute="trailing" id="1CP-gx-5yg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uQe-Oj-ddS" secondAttribute="trailing" constant="3" id="1CP-gx-5yg"/>
                                         <constraint firstItem="fnb-zL-p9Q" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="4JD-as-ds1"/>
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="5Fv-bm-0aN"/>
-                                        <constraint firstAttribute="trailing" secondItem="hRg-12-4ng" secondAttribute="trailing" id="7xC-LR-UsZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="hRg-12-4ng" secondAttribute="trailing" constant="3" id="7xC-LR-UsZ"/>
                                         <constraint firstItem="HGw-zx-gll" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="AqE-qs-fWt"/>
                                         <constraint firstItem="HGw-zx-gll" firstAttribute="top" secondItem="2SF-9u-pjG" secondAttribute="topMargin" id="FgU-nP-Uk8"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="top" secondItem="wQV-ao-gcE" secondAttribute="bottom" id="KWR-Ze-u4P"/>
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="top" secondItem="b37-ZA-0O3" secondAttribute="bottom" constant="5" id="KcZ-m1-yVG"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HGw-zx-gll" secondAttribute="trailing" id="NNT-5O-fiZ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="wQV-ao-gcE" secondAttribute="trailing" id="Ymh-2C-7p2"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="fnb-zL-p9Q" secondAttribute="trailing" id="YwU-7a-5bl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wQV-ao-gcE" secondAttribute="trailing" constant="3" id="Ymh-2C-7p2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fnb-zL-p9Q" secondAttribute="trailing" constant="3" id="YwU-7a-5bl"/>
                                         <constraint firstItem="Egq-TC-aui" firstAttribute="top" secondItem="tMJ-os-qFJ" secondAttribute="bottom" constant="2" id="bxx-FW-4lM"/>
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="top" secondItem="ANF-9u-tIc" secondAttribute="bottom" constant="2" id="byN-oZ-qOf"/>
-                                        <constraint firstItem="Egq-TC-aui" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="ecf-dW-Phr"/>
+                                        <constraint firstItem="Egq-TC-aui" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" constant="-3" id="ecf-dW-Phr"/>
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="top" secondItem="HGw-zx-gll" secondAttribute="bottom" id="hSr-4x-QpK"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ANF-9u-tIc" secondAttribute="trailing" id="i0J-9Q-6pa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ANF-9u-tIc" secondAttribute="trailing" constant="3" id="i0J-9Q-6pa"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="top" secondItem="hRg-12-4ng" secondAttribute="bottom" constant="3" id="iAV-uk-o44"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="joj-k0-KXQ"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="top" secondItem="fnb-zL-p9Q" secondAttribute="bottom" constant="3" id="oJ9-KH-dcc"/>
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="ocj-8d-3ac"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="qNS-UE-Pvw"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="b37-ZA-0O3" secondAttribute="trailing" id="upT-qP-5dt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="b37-ZA-0O3" secondAttribute="trailing" constant="3" id="upT-qP-5dt"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="z0c-lW-3H7"/>
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="zbq-Sb-jjP"/>
                                     </constraints>

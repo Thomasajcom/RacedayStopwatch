@@ -127,17 +127,17 @@ extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        print("i controller")
+        print("i controller DriversTable")
         switch (type) {
         case .insert:
-            print("i controller insert")
+            print("i controller insert DriversTable")
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
         case .update:
-            print("i controller update")
+            print("i controller update DriversTable")
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DriverTableViewCell{
-                print("i controller update IF LET")
+                print("i controller update IF LET DriversTable")
                 cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
             }
             break;
