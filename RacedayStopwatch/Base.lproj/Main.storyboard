@@ -185,7 +185,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-Oj-ddS" userLabel="Total Lap Info Stack View">
-                                            <rect key="frame" x="113" y="174" width="243" height="18"/>
+                                            <rect key="frame" x="113" y="174.5" width="243" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="# Laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-oi-I8e">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="18"/>
@@ -202,7 +202,7 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time On Track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-9u-tIc">
-                                            <rect key="frame" x="113" y="154" width="243" height="18"/>
+                                            <rect key="frame" x="113" y="154.5" width="243" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DriverName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRg-12-4ng">
-                                            <rect key="frame" x="113" y="87" width="259" height="20.5"/>
+                                            <rect key="frame" x="113" y="87.5" width="259" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -252,6 +252,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="ANF-9u-tIc" secondAttribute="trailing" constant="3" id="i0J-9Q-6pa"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="top" secondItem="hRg-12-4ng" secondAttribute="bottom" constant="3" id="iAV-uk-o44"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="joj-k0-KXQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="uQe-Oj-ddS" secondAttribute="bottom" id="mUd-XO-QOK"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="top" secondItem="fnb-zL-p9Q" secondAttribute="bottom" constant="3" id="oJ9-KH-dcc"/>
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="ocj-8d-3ac"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" id="qNS-UE-Pvw"/>

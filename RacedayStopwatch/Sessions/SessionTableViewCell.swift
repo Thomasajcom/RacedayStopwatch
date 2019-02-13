@@ -43,6 +43,13 @@ class SessionTableViewCell: UITableViewCell {
         distanceDriven.isHidden     = false
     }
     
+    //setup a session cell
+    func setup(with session: Session) {
+        setupDate(for: session.sessionDateAndTime!)
+        setupTrack(track: session.onTrack)
+        setupFastestDriver(with: session.fastestDriver, in: session)
+    }
+    
     func setupDate(for sessionDate: Date){
         print("Setting up date!")
         //consider turning this into an extension of DateFormatter()
@@ -99,12 +106,5 @@ class SessionTableViewCell: UITableViewCell {
             distanceDriven.isHidden     = true
             bestLapSpeed.isHidden       = true
         }
-    }
-    
-    //setup a session cell
-    func setup(with session: Session) {
-        setupDate(for: session.sessionDateAndTime!)
-        setupTrack(track: session.onTrack)
-        setupFastestDriver(with: session.fastestDriver, in: session)
     }
 }
