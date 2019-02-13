@@ -58,7 +58,7 @@ class AddDriverTableViewController: UITableViewController {
         if let driver = driver{
             driver.name = driverName.text!
             driver.number = driverNumber.text!
-            driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()! as NSData
+            driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()!
             CoreDataService.saveContext()
             dismiss(animated: true, completion: nil)
         }else {
@@ -73,8 +73,8 @@ class AddDriverTableViewController: UITableViewController {
             }else{
                 driverNumber.attributedPlaceholder = NSAttributedString(string: "ENTER CAR NUMBER",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             }
-            if (driver.name.count > 0 && driver.number.count > 0){
-                driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()! as NSData
+            if (driver.name!.count > 0 && driver.number!.count > 0){
+                driver.image = helmets[helmetPickerView.selectedRow(inComponent: 0)].pngData()
                 CoreDataService.saveContext()
                 dismiss(animated: true, completion: nil)
             }else{

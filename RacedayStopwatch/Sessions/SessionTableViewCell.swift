@@ -27,58 +27,47 @@ class SessionTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfLaps: UILabel!
     @IBOutlet weak var distanceDriven: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    var sessionWithTrack = true
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        print("i prepare for reuse")
+        date.isHidden               = false
+        driverImage.isHidden        = false
+        fastestDriverLabel.isHidden = false
+        fastestDriverName.isHidden  = false
+        bestLapTime.isHidden        = false
+        bestLapSpeed.isHidden       = false
+        timeOnTrackLabel.isHidden   = false
+        timeOnTrack.isHidden        = false
+        numberOfLaps.isHidden       = false
+        distanceDriven.isHidden     = false
     }
     
-    //setup a session cell
-    func setup(with session: Session) {
-        print("i cell-setup:\(session.sessionDateAndTime.description(with: Locale.current))")
+    func setupDate(for sessionDate: Date){
+        print("Setting up date!")
         //consider turning this into an extension of DateFormatter()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale.current
-        var trackLength:Int16 = 0
-        if let track = session.onTrack {
-            trackLength = track.length
+        date.text = dateFormatter.string(from: sessionDate)
+    }
+    
+    func setupTrack(track: Track?){
+        print("Setting up Track!")
+        if let track = track {
             trackName.text = track.name
-            timeOnTrackLabel.text = String(session.timeOnTrack)
-            date.text = dateFormatter.string(from: session.sessionDateAndTime as Date)
         }else {
-            trackName.text = dateFormatter.string(from: session.sessionDateAndTime as Date)
-            timeOnTrackLabel.isHidden = true
+            sessionWithTrack = false
+            trackName.text = date.text!
             date.isHidden = true
         }
-        //if the session does not have  a fastest driver, it will not have a best lap time / speed either
-        print("fastestDriver er:\(session.fastestDriver)")
-
-        if let fastestDriver = session.fastestDriver {
-            print("fastestDriver er:\(fastestDriver)")
-            driverImage.image = UIImage(data: (fastestDriver.image as! Data))
-            #warning("internationalize this")
-            fastestDriverLabel.attributedText = NSAttributedString(string: "Fastest Driver", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            fastestDriverName.text = fastestDriver.name
-            bestLapTime.text = session.fastestLapTime
-            #warning("create extension ToMilesPrHour // From MilesPrHour and save everything in km/t, then check what userPref wants here and calculate accordingly")
-            bestLapSpeed.text = "\(session.fastestLapSpeed) km/t"
-            #warning("internationalize this")
-            timeOnTrackLabel.attributedText = NSAttributedString(string: "Track Time", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            #warning("fetch the correct data for these")
-            timeOnTrack.text = "58 minutes"
-            numberOfLaps.text = "\(session.numberOfLaps) laps"
-            distanceDriven.text = "\(session.numberOfLaps*trackLength  ) meters"
-        }else {
-            print("else hide everything tableviewcell sESSION")
-            //hides all info related to the fastest driver in the session
+    }
+    
+    func setupFastestDriver(with driver: Driver?, in session: Session){
+        guard let fastestDriver = driver else {
+            driverImage.image           = nil
+            driverImage.isHidden        = true
             fastestDriverLabel.isHidden = true
             fastestDriverName.isHidden  = true
             bestLapTime.isHidden        = true
@@ -87,7 +76,35 @@ class SessionTableViewCell: UITableViewCell {
             timeOnTrack.isHidden        = true
             numberOfLaps.isHidden       = true
             distanceDriven.isHidden     = true
-        
+            return
         }
+        driverImage.image = UIImage(data: fastestDriver.image!)
+        #warning("internationalize this")
+        fastestDriverLabel.attributedText = NSAttributedString(string: "Fastest Driver", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        fastestDriverName.text = fastestDriver.name
+        bestLapTime.text = session.fastestLapTime
+        numberOfLaps.text = "\(session.numberOfLaps) laps"
+
+        
+        if sessionWithTrack {
+              #warning("create extension ToMilesPrHour // From MilesPrHour and save everything in km/t, then check what userPref wants here and calculate accordingly")
+            bestLapSpeed.text = "\(session.fastestLapSpeed!) km/t"
+            #warning("internationalize this")
+            timeOnTrackLabel.attributedText = NSAttributedString(string: "Time on Track", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            timeOnTrack.text = "\(session.numberOfLaps * session.onTrack!.length)"
+            distanceDriven.text = "\(session.numberOfLaps * session.onTrack!.length) meters"
+        }else{
+            timeOnTrackLabel.isHidden   = true
+            timeOnTrack.isHidden        = true
+            distanceDriven.isHidden     = true
+            bestLapSpeed.isHidden       = true
+        }
+    }
+    
+    //setup a session cell
+    func setup(with session: Session) {
+        setupDate(for: session.sessionDateAndTime!)
+        setupTrack(track: session.onTrack)
+        setupFastestDriver(with: session.fastestDriver, in: session)
     }
 }

@@ -79,7 +79,7 @@ class TracksCollectionViewController: UICollectionViewController {
         track.name = trackName
         track.length = intLength
         #warning("this must be changed - add image selector in app, set that image here, or default if no photo selected")
-        track.image = UIImage(named: "defaultTrack")!.pngData() as! NSData
+        track.image = UIImage(named: "defaultTrack")!.pngData()
         CoreDataService.saveContext()
     }
 

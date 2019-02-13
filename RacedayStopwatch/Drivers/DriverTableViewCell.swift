@@ -31,7 +31,7 @@ class DriverTableViewCell: UITableViewCell {
     func setup(with driver: Driver){
         nameLabel.text = driver.name
         numberLabel.text = "#\(driver.number)"
-        driverImage.image = UIImage(data: driver.image as Data)
+        driverImage.image = UIImage(data: driver.image as! Data)
         
         self.selectionStyle = .none
     }

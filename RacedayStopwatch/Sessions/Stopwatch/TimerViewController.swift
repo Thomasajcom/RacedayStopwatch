@@ -110,11 +110,12 @@ class TimerViewController: UIViewController {
         //needs checks for a lot of stuff:
         // - timer still running? is there somthing to save?
         let session = Session(context: CoreDataService.context)
-        session.sessionDateAndTime = Date() as NSDate
+        session.sessionDateAndTime = Date()
         session.onTrack = selectedTrack
         session.drivers?.addingObjects(from: participatingDrivers)
         print("FASTEST DRIVER????? \(laps[0].driver!)")
         session.fastestDriver   = laps[0].driver!
+//        laps[0].driver?.wasFastestOnSession = session
         session.fastestLapTime  = laps[0].lapTime
         session.fastestLapSpeed = "250"
         session.numberOfLaps    = Int16(laps.count)
@@ -226,7 +227,7 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
-        cell.setup(title: participatingDrivers[indexPath.row].name, image: UIImage(data: participatingDrivers[indexPath.row].image as Data)! )
+        cell.setup(title: participatingDrivers[indexPath.row].name!, image: UIImage(data: participatingDrivers[indexPath.row].image as! Data)! )
         return cell
     }
     

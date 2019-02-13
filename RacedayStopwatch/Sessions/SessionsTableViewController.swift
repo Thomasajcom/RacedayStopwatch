@@ -87,8 +87,8 @@ class SessionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let session = sessions[indexPath.row]
-        print("in CellForRowAt hvor session er: \(session.sessionDateAndTime.description) og indexpath er: \(indexPath.row)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.reuseIdentifier, for: indexPath) as! SessionTableViewCell
+        print("in CellForRowAt hvor session er: \(session.sessionDateAndTime!.description) og indexpath er: \(indexPath.row)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.reuseIdentifier) as! SessionTableViewCell
         cell.setup(with: sessions[indexPath.row])
         return cell
     }
@@ -148,7 +148,13 @@ class SessionsTableViewController: UITableViewController {
             print("lol????")
             return
         }
-        return UISwipeActionsConfiguration(actions: [moreInfoAction])    }
+        return UISwipeActionsConfiguration(actions: [moreInfoAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Did Select Row: \(indexPath.row)")
+        print("Session:\(sessions[indexPath.row])")
+    }
 
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
