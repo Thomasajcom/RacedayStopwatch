@@ -22,8 +22,8 @@ class SessionTableViewCell: UITableViewCell {
     @IBOutlet weak var driverImage: UIImageView!
     @IBOutlet weak var fastestDriverLabel: UILabel!
     
-    @IBOutlet weak var timeOnTrackLabel: UILabel!
-    @IBOutlet weak var timeOnTrack: UILabel!
+    @IBOutlet weak var totalSessionTimeLabel: UILabel!
+    @IBOutlet weak var totalSessionTime: UILabel!
     @IBOutlet weak var numberOfLaps: UILabel!
     @IBOutlet weak var distanceDriven: UILabel!
     
@@ -37,8 +37,8 @@ class SessionTableViewCell: UITableViewCell {
         fastestDriverName.isHidden  = false
         bestLapTime.isHidden        = false
         bestLapSpeed.isHidden       = false
-        timeOnTrackLabel.isHidden   = false
-        timeOnTrack.isHidden        = false
+        totalSessionTimeLabel.isHidden   = false
+        totalSessionTime.isHidden        = false
         numberOfLaps.isHidden       = false
         distanceDriven.isHidden     = false
     }
@@ -79,8 +79,8 @@ class SessionTableViewCell: UITableViewCell {
             fastestDriverName.isHidden  = true
             bestLapTime.isHidden        = true
             bestLapSpeed.isHidden       = true
-            timeOnTrackLabel.isHidden   = true
-            timeOnTrack.isHidden        = true
+            totalSessionTimeLabel.isHidden   = true
+            totalSessionTime.isHidden        = true
             numberOfLaps.isHidden       = true
             distanceDriven.isHidden     = true
             return
@@ -97,12 +97,12 @@ class SessionTableViewCell: UITableViewCell {
               #warning("create extension ToMilesPrHour // From MilesPrHour and save everything in km/t, then check what userPref wants here and calculate accordingly")
             bestLapSpeed.text = "\(session.fastestLapSpeed!) km/t"
             #warning("internationalize this")
-            timeOnTrackLabel.attributedText = NSAttributedString(string: "Time on Track", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            timeOnTrack.text = "\(session.numberOfLaps * session.onTrack!.length)"
+            totalSessionTimeLabel.attributedText = NSAttributedString(string: "Time on Track", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            totalSessionTime.text = "\(session.numberOfLaps * session.onTrack!.length)"
             distanceDriven.text = "\(session.numberOfLaps * session.onTrack!.length) meters"
         }else{
-            timeOnTrackLabel.isHidden   = true
-            timeOnTrack.isHidden        = true
+            totalSessionTimeLabel.isHidden   = true
+            totalSessionTime.isHidden        = true
             distanceDriven.isHidden     = true
             bestLapSpeed.isHidden       = true
         }

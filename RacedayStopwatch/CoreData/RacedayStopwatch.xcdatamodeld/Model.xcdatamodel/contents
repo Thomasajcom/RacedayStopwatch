@@ -16,7 +16,7 @@
         <attribute name="lapTimes" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="numberOfLaps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sessionDateAndTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="timeOnTrack" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weatherInfo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="drivers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Driver" inverseName="sessions" inverseEntity="Driver" syncable="YES"/>
         <relationship name="fastestDriver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="wasFastestOnSession" inverseEntity="Driver" syncable="YES"/>
