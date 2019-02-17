@@ -127,6 +127,9 @@ class SessionsTableViewController: UITableViewController {
         if (segue.identifier == "timerSegue"){
             let newTimer = segue.destination as! TimerViewController
             newTimer.hidesBottomBarWhenPushed = true
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            
+
         }
     }
 }

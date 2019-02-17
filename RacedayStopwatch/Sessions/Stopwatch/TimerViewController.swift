@@ -172,7 +172,6 @@ class TimerViewController: UIViewController {
         updateTimerLabels()
         
         for indexPath in self.driverCollectionView!.indexPathsForVisibleItems{
-            print("indexpath: \(indexPath) med participant: \(participatingDrivers[indexPath.row])")
             let time = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
 //            participatingDrivers[indexPath.row].1.isRunning = true
             calculateTime(from: time)
@@ -193,22 +192,23 @@ class TimerViewController: UIViewController {
         miliseconds = UInt64(newTime * 1000)
     }
     
+    //temp to calculate string from date
+    func calcTimeToString(from time: Double) -> String{
+        var newTime = Date().timeIntervalSinceReferenceDate - time
+        var minutes = UInt8(newTime / 60.0)
+        newTime -= (TimeInterval(minutes) * 60)
+        var seconds = UInt8(newTime)
+         newTime -= TimeInterval(seconds)
+        var miliseconds = UInt64(newTime * 1000)
+        return "\(minutes):\(seconds):\(miliseconds)"
+    }
+    
     func updateTimerLabels(){
         mainTimerMinutesLabel.text = String(format: "%02d", minutes)
         mainTimerSecondsLabel.text = String(format: "%02d", seconds)
         mainTimerMilisecondsLabel.text = String(format: "%03d", miliseconds)//change to numberformatter
     }
-    
-    fileprivate func lap(by driver: Driver?, time: String) {
-        //find the lapnumber for the current driver based on occurences in the Laps array
-        let lapNumber = laps.filter {$0.driver == driver}
-        //create a new instance of the Lap struct and add it to the array of Laps
-        let newLap = Lap(driver: driver, lapNumber: lapNumber.count+1, lapTime: time, speed: 0) //add 1 to lapNumber as there is no "lap 0"
-        
-        laps.append(newLap)
-        lapTableview.reloadSections([0], with: .automatic)
-        lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-    }
+
     
 }
 
@@ -255,12 +255,19 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    #warning("this needs a serious rework")
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
-        let driver  = participatingDrivers[indexPath.row].0
-        var timer   = participatingDrivers[indexPath.row].1
-        lap(by: driver, time: "\(minutes):\(seconds):\(miliseconds)")
-        timer.startTime = Date().timeIntervalSinceReferenceDate
+        //find the lapnumber for the current driver based on occurences in the Laps array
+        let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
+        //create a new instance of the Lap struct and add it to the array of Laps
+        let lapTimeString = calcTimeToString(from: participatingDrivers[indexPath.row].1.startTime!)
+        let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTimeString, speed: 0) //add 1 to lapNumber as there is no "lap 0"
+        
+        laps.append(newLap)
+        participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
+        lapTableview.reloadSections([0], with: .automatic)
+        lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
