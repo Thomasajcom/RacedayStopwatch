@@ -11,6 +11,6 @@ import Foundation
 struct Lap{
     var driver: Driver?
     var lapNumber: Int
-    var lapTime: String
+    var lapTime: Double
     var speed: Int
 }

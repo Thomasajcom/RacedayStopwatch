@@ -19,6 +19,7 @@ class TrackSelectorViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     var trackSelectorDelegate: TrackSelectorViewControllerDelegate!
     @IBOutlet weak var trackPicker: UIPickerView!
+    @IBOutlet weak var dismissButton: UIButton!
     var tracks: [Track]?
     let trackFetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
     
@@ -30,8 +31,8 @@ class TrackSelectorViewController: UIViewController {
         trackPicker.delegate = self
         trackPicker.dataSource = self
         
-        // TODO: - Internationalize this
-        titleLabel.text = "Select Track"
+        titleLabel.text = Constants.TRACK_SELECT_TITLE
+        dismissButton.setTitle(Constants.TRACK_SELECT_DISMISS_BUTTON, for: .normal)
         do {
             tracks = try CoreDataService.context.fetch(trackFetchRequest)
         } catch let error as NSError {
@@ -57,7 +58,7 @@ extension TrackSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let tracks = tracks{
-            return "\(tracks[row].name) - \(tracks[row].length)"
+            return tracks[row].name
         }else{ return "Error getting track name" }
     }
 }

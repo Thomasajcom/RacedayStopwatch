@@ -13,9 +13,7 @@ class DriverCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "DriverCell"
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
-    @IBOutlet weak var minutesLabel: UILabel!
-    @IBOutlet weak var secondsLabel: UILabel!
-    @IBOutlet weak var milisecondsLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
 
     func setup(title: String, image: UIImage){
@@ -23,12 +21,10 @@ class DriverCollectionViewCell: UICollectionViewCell {
         cellImage.layer.cornerRadius = 10
         cellImage.layer.masksToBounds = true
         cellImage.image = image
+        timerLabel.text = "00:00:000"
     }
     
-    func updateLabels(minutes: String, seconds: String, miliseconds: String){
-        minutesLabel.text = minutes
-        secondsLabel.text = seconds
-        milisecondsLabel.text = miliseconds//change to numberformatter
+    func updateLabels(lapTime: Double){
+        timerLabel.text = lapTime.fromTimeToString()
     }
-
 }
