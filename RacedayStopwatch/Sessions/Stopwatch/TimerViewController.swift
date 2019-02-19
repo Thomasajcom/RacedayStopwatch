@@ -32,24 +32,20 @@ class TimerViewController: UIViewController {
     weak var mainTimer: Timer?
     var mainTimerEnabled: Bool = false
     var mainTimerStartTime: Double = 0
-    var time: Double = 0
-    var minutes: UInt8 = 00
-    var seconds: UInt8 = 00
-    var miliseconds: UInt64 = 000
+
     
     // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
     var selectedTrack: Track?{
         didSet{
             trackNameLabel.text     = selectedTrack!.name
             trackLengthLabel.text   = String(selectedTrack!.length)+" "+Constants.LENGTH_UNIT
-            
             lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
+            
             if let recordHolderName     = selectedTrack!.trackRecordHolder?.name, let trackRecord = selectedTrack!.trackRecord{
                 lapRecordHolder.text    = recordHolderName
                 lapRecordTime.text      = trackRecord
             }else{
                 lapRecordHolder.text    = Constants.LAP_RECORD_HOLDER_NONE
-                print(Constants.LAP_RECORD_HOLDER_NONE)
                 lapRecordTime.isHidden  = true
             }
         }
@@ -60,18 +56,18 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         
         
-        mainTimerLabel.text = "00:00:00"
+        mainTimerLabel.text = Constants.LAPTIME_NOT_STARTED
         //session.sessionDateAndTime = Date() as NSDate
 
-        driverCollectionView.delegate = self
+        driverCollectionView.delegate   = self
         driverCollectionView.dataSource = self
         
-        startButton.layer.cornerRadius = 10
+        startButton.layer.cornerRadius  = 10
         startButton.layer.masksToBounds = true
         
-        lapTableview.delegate = self
-        lapTableview.dataSource = self
-        lapTableview.tableFooterView = UIView()
+        lapTableview.delegate           = self
+        lapTableview.dataSource         = self
+        lapTableview.tableFooterView    = UIView()
         
         let date = Date()
         let formatter = DateFormatter()
@@ -80,14 +76,13 @@ class TimerViewController: UIViewController {
         let todayString = formatter.string(from: date)
 //        self.navigationController?.title = todayString
 
+        //present the track selector view, as there should not be a session without a track
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let trackSelector = storyboard.instantiateViewController(withIdentifier: "TrackSelector") as! TrackSelectorViewController
         self.present(trackSelector, animated: false, completion: nil)
         trackSelector.trackSelectorDelegate = self
-
     }
 
-    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,8 +103,8 @@ class TimerViewController: UIViewController {
         }
         
         let session = Session(context: CoreDataService.context)
-        session.sessionDateAndTime = Date()
-        session.onTrack = selectedTrack
+        session.sessionDateAndTime  = Date()
+        session.onTrack             = selectedTrack
         session.drivers?.addingObjects(from: participatingDrivers)
         session.fastestDriver   = laps[0].driver!
         session.fastestLapTime  = laps[0].lapTime.fromTimeToString()
@@ -243,4 +238,7 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 
-
+//TODO:
+//Fix lap cells UI in the UITableView
+//fix lap cells DATA in the UITableView
+//fix saving

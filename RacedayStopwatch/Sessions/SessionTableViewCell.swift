@@ -31,16 +31,16 @@ class SessionTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         print("i prepare for reuse")
-        date.isHidden               = false
-        driverImage.isHidden        = false
-        fastestDriverLabel.isHidden = false
-        fastestDriverName.isHidden  = false
-        bestLapTime.isHidden        = false
-        bestLapSpeed.isHidden       = false
-        totalSessionTimeLabel.isHidden   = false
-        totalSessionTime.isHidden        = false
-        numberOfLaps.isHidden       = false
-        distanceDriven.isHidden     = false
+        date.isHidden                   = false
+        driverImage.isHidden            = false
+        fastestDriverLabel.isHidden     = false
+        fastestDriverName.isHidden      = false
+        bestLapTime.isHidden            = false
+        bestLapSpeed.isHidden           = false
+        totalSessionTimeLabel.isHidden  = false
+        totalSessionTime.isHidden       = false
+        numberOfLaps.isHidden           = false
+        distanceDriven.isHidden         = false
     }
     
     //setup a session cell
@@ -56,7 +56,7 @@ class SessionTableViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale    = Locale.current
         date.text = dateFormatter.string(from: sessionDate)
     }
     

@@ -9,6 +9,8 @@
 import Foundation
 
 struct Constants{
+    static let decimalSeparator = NSLocale.current.decimalSeparator ?? "."
+    //MARK: - Strings
     //MARK: - Timer
     #warning("internationalize this")
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
@@ -24,6 +26,8 @@ struct Constants{
     static let BUTTON_START     = "START"
     static let BUTTON_STOP      = "STOP"
     static let BUTTON_LAP       = "LAP"
+    
+    static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
     
     //MARK: - Track Select
     static let TRACK_SELECT_TITLE           = "Select Track"

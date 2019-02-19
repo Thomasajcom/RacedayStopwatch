@@ -21,7 +21,7 @@ class DriverCollectionViewCell: UICollectionViewCell {
         cellImage.layer.cornerRadius = 10
         cellImage.layer.masksToBounds = true
         cellImage.image = image
-        timerLabel.text = "00:00:000"
+        timerLabel.text = Constants.LAPTIME_NOT_STARTED
     }
     
     func updateLabels(lapTime: Double){
