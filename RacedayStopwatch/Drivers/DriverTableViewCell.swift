@@ -17,10 +17,14 @@ class DriverTableViewCell: UITableViewCell {
     @IBOutlet weak var driverImage: UIImageView!
     
     func setup(with driver: Driver){
-        numberLabel.layer.cornerRadius = 10
+        numberLabel.layer.cornerRadius  = 10
         numberLabel.layer.masksToBounds = true
-        nameLabel.text = driver.name
-        numberLabel.text = driver.number
+        nameLabel.text                  = driver.name
+        if let driverNumber = driver.number{
+            numberLabel.text        = "#\(driverNumber)"
+        }else{
+            numberLabel.isHidden    = true
+        }
         driverImage.image = UIImage(data: driver.image!)
         
         self.selectionStyle = .none
