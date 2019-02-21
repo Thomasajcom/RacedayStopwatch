@@ -13,20 +13,26 @@ class LapTableViewCell: UITableViewCell {
     static let reuseIdentifier = "LapCell"
 
     @IBOutlet weak var driverNameLabel: UILabel!
+    @IBOutlet weak var driverImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var lapNumberLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        // Initialization code
+    override func prepareForReuse() {
+        driverNameLabel.text    = nil
+        driverImage.image       = nil
+        timeLabel.text          = nil
+        speedLabel.text         = nil
+        lapNumberLabel.text     = nil
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setup(with lapInfo: Lap){
+        print("SETUP I CELLELELELE")
+        driverNameLabel.text = lapInfo.driver.name
+        driverImage.image = UIImage(data: (lapInfo.driver.image)!)
+        speedLabel.text = String(lapInfo.speed) + " " + Constants.SPEED_UNIT
+        timeLabel.text = lapInfo.lapTime.fromTimeToString()
+        lapNumberLabel.text = Constants.LAP + " " + String(lapInfo.lapNumber)
     }
 
 }

@@ -95,7 +95,7 @@ class SessionTableViewCell: UITableViewCell {
         
         if sessionWithTrack {
               #warning("create extension ToMilesPrHour // From MilesPrHour and save everything in km/t, then check what userPref wants here and calculate accordingly")
-            bestLapSpeed.text = "\(session.fastestLapSpeed!) km/t"
+            bestLapSpeed.text = "\(session.fastestLapSpeed) km/t"
             #warning("internationalize this")
             totalSessionTimeLabel.attributedText = NSAttributedString(string: "Time on Track", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             totalSessionTime.text = "\(session.numberOfLaps * session.onTrack!.length)"

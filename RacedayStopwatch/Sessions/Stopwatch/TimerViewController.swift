@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO: - Rewrite this to a more effiecient, cleaner solution. participatingDrivers and laps is unnecessarily complicated
 class TimerViewController: UIViewController {
     
     @IBOutlet weak var trackNameLabel: UILabel!
@@ -28,6 +29,7 @@ class TimerViewController: UIViewController {
     
     var participatingDrivers =  [(Driver,RaceDayTimer)]()
     var laps = [Lap]()
+    var fastestLap: Lap?
     
     weak var mainTimer: Timer?
     var mainTimerEnabled: Bool = false
@@ -94,6 +96,7 @@ class TimerViewController: UIViewController {
         }
     }
 
+    #warning("this doesnt work, make it work")
     @IBAction func save(_ sender: UIBarButtonItem) {
         //going home
         //needs checks for a lot of stuff:
@@ -106,9 +109,9 @@ class TimerViewController: UIViewController {
         session.sessionDateAndTime  = Date()
         session.onTrack             = selectedTrack
         session.drivers?.addingObjects(from: participatingDrivers)
-        session.fastestDriver   = laps[0].driver!
+        session.fastestDriver   = laps[0].driver
         session.fastestLapTime  = laps[0].lapTime.fromTimeToString()
-        session.fastestLapSpeed = "250"
+        session.fastestLapSpeed = Int16(laps[0].speed)
         session.numberOfLaps    = Int16(laps.count)
         print("Trying to save?")
         CoreDataService.saveContext()
@@ -130,7 +133,7 @@ class TimerViewController: UIViewController {
         return (true,nil,nil)
     }
     
-    @IBAction func startTimer(_ sender: UIButton) {
+    @IBAction func toggleTimer(_ sender: UIButton) {
         guard isItSafeToStartTimer().0 else{
             let alertController = UIAlertController(title: isItSafeToStartTimer().1, message: isItSafeToStartTimer().2, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .cancel, handler: nil)
@@ -140,15 +143,13 @@ class TimerViewController: UIViewController {
         }
         //Check's done, it's now safe to start the timer
         mainTimerEnabled.toggle()
+        
         if(mainTimerEnabled){
             sender.setTitle(Constants.BUTTON_STOP, for: .normal)
             sender.backgroundColor = .red
             
             //starting all timers
             mainTimerStartTime = Date().timeIntervalSinceReferenceDate
-            for (index, _) in participatingDrivers.enumerated(){
-                participatingDrivers[index].1.isRunning = true
-            }
             mainTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             RunLoop.current.add(mainTimer!, forMode: .common) //to make sure that user interaction with the screen does not interferes with the timer
             
@@ -157,19 +158,19 @@ class TimerViewController: UIViewController {
             sender.backgroundColor = UIColor(red: (79.0/255.0), green: (143.0/255.0), blue: (0.0/255.0), alpha: 1)
             //stopping all timers
             mainTimer!.invalidate()
-            for (index, _) in participatingDrivers.enumerated(){
-                participatingDrivers[index].1.isRunning = false
-            }
+        }
+        for (index, _) in participatingDrivers.enumerated(){
+            participatingDrivers[index].1.isRunning.toggle()
         }
     }
     
     @objc func updateTimer(){
-        mainTimerLabel.text = mainTimerStartTime.fromTimeToString()
-        
+        mainTimerLabel.text = (Date().timeIntervalSinceReferenceDate - mainTimerStartTime).fromTimeToString()
         //updates timer labels for all the visible driver cells
         for indexPath in self.driverCollectionView!.indexPathsForVisibleItems{
             let cell = self.driverCollectionView!.cellForItem(at: indexPath) as! DriverCollectionViewCell
-            cell.updateLabels(lapTime: participatingDrivers[indexPath.row].1.startTime!)
+            let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
+            cell.updateLabels(lapTime: lapTime)
         }
     }
 }
@@ -196,10 +197,7 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LapTableViewCell.reuseIdentifier, for: indexPath) as! LapTableViewCell
-        cell.driverNameLabel.text = laps[indexPath.row].driver?.name ?? "Default"
-        cell.speedLabel.text = "\(laps[indexPath.row].speed) km/t"
-        cell.timeLabel.text = laps[indexPath.row].lapTime.fromTimeToString() 
-        cell.lapNumberLabel.text = "\(laps[indexPath.row].lapNumber)"
+        cell.setup(with: laps[indexPath.row])
         return cell
     }
 }
@@ -217,17 +215,34 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    func calculateSpeed(distance: Int, time: Double) -> Int{
+        var speed = 0.0
+        #warning("this needs to check userdefaults for miles or meters")
+        if (true){//check if metric
+            let metersBySecond = Double(distance) / time
+            speed = metersBySecond * 3.6
+        }else if (false){//if not, then imperialc
+            
+        }
+        return Int(speed)
+    }
+    
     #warning("this needs a serious rework")
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
         //find the lapnumber for the current driver based on occurences in the Laps array
         let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
+        let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
+        let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
         //create a new instance of the Lap struct and add it to the array of Laps
-        let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: participatingDrivers[indexPath.row].1.startTime!, speed: 0) //add 1 to lapNumber as there is no "lap 0"
+        let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
         laps.append(newLap)
         //starts a new lap
         participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
-        lapTableview.reloadSections([0], with: .automatic)
+        
+        lapTableview.beginUpdates()
+        lapTableview.insertRows(at: [IndexPath(row: laps.count-1, section: 0)], with: .bottom)
+        lapTableview.endUpdates()
         lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
     
@@ -239,6 +254,5 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 
 //TODO:
-//Fix lap cells UI in the UITableView
-//fix lap cells DATA in the UITableView
 //fix saving
+//drivers array, only add one driver

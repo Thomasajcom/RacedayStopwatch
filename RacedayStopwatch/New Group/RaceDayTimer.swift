@@ -15,16 +15,10 @@ struct RaceDayTimer{
         didSet{
             if isRunning{
                 self.startTime = Date().timeIntervalSinceReferenceDate
-                self.laps = 0
             }else{
                 self.startTime = nil
             }
         }
     }
-    
-    var laps: Int?{
-        didSet{
-            self.startTime = Date().timeIntervalSinceReferenceDate
-        }
-    }
+
 }

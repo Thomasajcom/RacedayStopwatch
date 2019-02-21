@@ -19,7 +19,7 @@ public extension Double{
         formatter.numberStyle           = .none
         formatter.minimumIntegerDigits  = 2
         
-        var newTime     = Date().timeIntervalSinceReferenceDate - self
+        var newTime     = self//Date().timeIntervalSinceReferenceDate - self
         let minutes     =  UInt8(newTime / 60.0)
         newTime         -= (TimeInterval(minutes) * 60)
         let seconds     = UInt8(newTime)

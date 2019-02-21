@@ -10,6 +10,7 @@ import Foundation
 
 struct Constants{
     static let decimalSeparator = NSLocale.current.decimalSeparator ?? "."
+    
     //MARK: - Strings
     //MARK: - Timer
     #warning("internationalize this")
@@ -28,6 +29,10 @@ struct Constants{
     static let BUTTON_LAP       = "LAP"
     
     static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
+    //check userDefaults, return metric or imperial based on that
+
+    static let SPEED_UNIT   = "km/h"
+    static let LAP          = "Lap"
     
     //MARK: - Track Select
     static let TRACK_SELECT_TITLE           = "Select Track"
