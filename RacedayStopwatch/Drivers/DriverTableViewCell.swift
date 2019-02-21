@@ -16,22 +16,12 @@ class DriverTableViewCell: UITableViewCell {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var driverImage: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setup(with driver: Driver){
         numberLabel.layer.cornerRadius = 10
         numberLabel.layer.masksToBounds = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
-    func setup(with driver: Driver){
         nameLabel.text = driver.name
-        numberLabel.text = "#\(driver.number)"
-        driverImage.image = UIImage(data: driver.image as! Data)
+        numberLabel.text = driver.number
+        driverImage.image = UIImage(data: driver.image!)
         
         self.selectionStyle = .none
     }

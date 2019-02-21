@@ -96,7 +96,18 @@ class SessionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .destructive, title: "Delete Session") { (action, view, completionHandler) in
+        let moreInfoAction = UIContextualAction.init(style: .normal, title: "More Info") { _,_,_  in
+            print("lol????")
+            return
+        }
+        moreInfoAction.image = UIImage(named: "delete-50")
+        moreInfoAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [moreInfoAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .destructive, title: nil) { (action, view, completionHandler) in
             CoreDataService.context.delete(self.sessions[indexPath.row])
             CoreDataService.saveContext()
             completionHandler(true)
@@ -104,17 +115,6 @@ class SessionsTableViewController: UITableViewController {
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let moreInfoAction = UIContextualAction.init(style: .normal, title: "More Info") { _,_,_  in
-            print("lol????")
-            return
-        }
-        moreInfoAction.image = UIImage(named: "delete-50")
-        moreInfoAction.backgroundColor = .red
-
-        return UISwipeActionsConfiguration(actions: [moreInfoAction])
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
