@@ -25,8 +25,7 @@ class DriverTableViewCell: UITableViewCell {
         }else{
             numberLabel.isHidden    = true
         }
-        driverImage.image = UIImage(data: driver.image!)
-        
+        driverImage.image   = UIImage(data: driver.image!)
         self.selectionStyle = .none
     }
 }

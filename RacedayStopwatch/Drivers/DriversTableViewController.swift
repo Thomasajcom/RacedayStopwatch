@@ -12,7 +12,6 @@ import CoreData
 class DriversTableViewController: UITableViewController {
     
     @IBOutlet weak var footerView: UIView!
-    var drivers = [Driver]()
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
         // Create Fetch Request
@@ -34,7 +33,6 @@ class DriversTableViewController: UITableViewController {
         super.viewDidLoad()
         do {
             try fetchedResultsController.performFetch()
-            drivers = fetchedResultsController.fetchedObjects!
         } catch  {
             let error = error as NSError
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
@@ -44,13 +42,12 @@ class DriversTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let drivers = fetchedResultsController.fetchedObjects else { return 0 }
-        return drivers.count
+        print("driver count: \(fetchedResultsController.fetchedObjects!.count)")
+        return fetchedResultsController.fetchedObjects!.count
     }
 
     
@@ -70,8 +67,11 @@ class DriversTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
             completionHandler(true)
-            CoreDataService.context.delete(self.drivers[indexPath.row])
+            let deleteObject = self.fetchedResultsController.object(at: indexPath)
+            CoreDataService.context.delete(deleteObject)
             CoreDataService.saveContext()
+
+            print("completion true for: \(indexPath.row)")
         }
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red
@@ -86,12 +86,13 @@ class DriversTableViewController: UITableViewController {
 
 extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
         print("nye updates!")
+
+        tableView.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("ended updates!")
         tableView.endUpdates()
-         print("ended updates!")
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -102,10 +103,12 @@ extension DriversTableViewController: NSFetchedResultsControllerDelegate{
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         case .insert:
-            if let indexPath = newIndexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
+             print("case insert")
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         case .update:
+             print("case update")
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DriverTableViewCell{
                 cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
             }
