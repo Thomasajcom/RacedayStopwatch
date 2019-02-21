@@ -12,7 +12,7 @@ import CoreData
 class DriversTableViewController: UITableViewController {
     
     @IBOutlet weak var footerView: UIView!
-    var drivers: [Driver] = []
+    var drivers = [Driver]()
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
         // Create Fetch Request
@@ -68,28 +68,36 @@ class DriversTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .destructive, title: nil) { (action, view, completionHandler) in
+        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+            completionHandler(true)
             CoreDataService.context.delete(self.drivers[indexPath.row])
             CoreDataService.saveContext()
-            completionHandler(true)
         }
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction.init(style: .normal, title: "EDIT") { (action, view, completionHandler) in
+            //perform segue to edit
+        }
+        editAction.backgroundColor  = .blue
+        editAction.image            = UIImage(named: "delete-50-filled")
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
 
 extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
+        print("nye updates!")
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+         print("ended updates!")
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .delete:
+            print("case delete")
             if let indexPath = indexPath{
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
