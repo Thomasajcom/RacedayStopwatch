@@ -25,6 +25,6 @@ class DriverCollectionViewCell: UICollectionViewCell {
     }
     
     func updateLabels(lapTime: Double){
-        timerLabel.text = lapTime.fromTimeToString()
+        timerLabel.text = lapTime.laptimeToString()
     }
 }

@@ -14,7 +14,7 @@ public extension Double{
     ///
     /// - Parameter self: Time since reference date
     /// - Returns: A formatted string showing minutes, seconds and miliseconds
-    func fromTimeToString() -> String{
+    func laptimeToString() -> String{
         let formatter                   = NumberFormatter()
         formatter.numberStyle           = .none
         formatter.minimumIntegerDigits  = 2

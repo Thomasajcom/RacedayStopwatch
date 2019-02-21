@@ -20,9 +20,9 @@ struct Constants{
     static let LENGTH_UNIT      = "Meters"
     
     static let NO_TRACK_TITLE   = "No Track Selected"
-    static let NO_TRACK         = "No track selected, unable to start timer. You must select a track for the session."
+    static let NO_TRACK_BODY    = "No track selected, unable to start timer. You must select a track for the session."
     static let NO_DRIVER_TITLE  = "No Driver Selected"
-    static let NO_DRIVER        = "There are no participating drivers, unable to start timer. You need atleast one driver."
+    static let NO_DRIVER_BODY   = "There are no participating drivers, unable to start timer. You need atleast one driver."
     
     static let BUTTON_START     = "START"
     static let BUTTON_STOP      = "STOP"
@@ -34,10 +34,17 @@ struct Constants{
     static let SPEED_UNIT   = "km/h"
     static let LAP          = "Lap"
     
+    //saving a session
+    static let TIMER_RUNNING_TITLE  = "Timer still running"
+    static let TIMER_RUNNING_BODY   = "You have to stop the timer before trying to save."
+    static let NO_LAPS_TITLE        = "No laps recorded"
+    static let NO_LAPS_BODY         = "There is nothing to save."
+    
     //MARK: - Track Select
     static let TRACK_SELECT_TITLE           = "Select Track"
     static let TRACK_SELECT_DISMISS_BUTTON  = "OKAY"
     
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"
+    static let ALERT_SAVED      = "Ok"
 }

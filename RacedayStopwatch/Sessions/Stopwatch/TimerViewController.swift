@@ -27,8 +27,9 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var addDriverButton: UIButton!
     
-    var participatingDrivers =  [(Driver,RaceDayTimer)]()
-    var laps = [Lap]()
+    var participatingDrivers    = [(Driver,RaceDayTimer)]()
+    var drivers                 = [Driver]()
+    var laps                    = [Lap]()
     var fastestLap: Lap?
     
     weak var mainTimer: Timer?
@@ -95,27 +96,37 @@ class TimerViewController: UIViewController {
             }
         }
     }
-
-    #warning("this doesnt work, make it work")
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        //going home
-        //needs checks for a lot of stuff:
-        // - timer still running? is there somthing to save?
-        if mainTimerEnabled {
-            print("Timer is still running. End timer before saving.")
+    
+    fileprivate func isItSafeToSave() -> (Bool,String?,String?){
+        guard !mainTimerEnabled else{
+            print("mainTimerEnabled cant save!")
+            return (false,Constants.TIMER_RUNNING_TITLE,Constants.TIMER_RUNNING_BODY)
         }
-        
+        guard fastestLap != nil else{
+            print("fastestlap !=nil cant save")
+            return (false,Constants.NO_LAPS_TITLE,Constants.NO_LAPS_BODY)
+        }
+        return (true, "ok", "ok")
+    }
+
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        //check if saving should be allowed
+        guard isItSafeToSave().0 else{
+            presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_CANCEL,.cancel))
+            print("It is not safe to save.")
+            return
+        }
         let session = Session(context: CoreDataService.context)
         session.sessionDateAndTime  = Date()
         session.onTrack             = selectedTrack
-        session.drivers?.addingObjects(from: participatingDrivers)
-        session.fastestDriver   = laps[0].driver
-        session.fastestLapTime  = laps[0].lapTime.fromTimeToString()
-        session.fastestLapSpeed = Int16(laps[0].speed)
-        session.numberOfLaps    = Int16(laps.count)
-        print("Trying to save?")
+        session.drivers             = NSSet(array: drivers)
+        session.fastestDriver       = fastestLap!.driver
+        session.fastestLapTime      = fastestLap!.lapTime.laptimeToString()
+        session.fastestLapSpeed     = Int16(fastestLap!.speed)
+        session.numberOfLaps        = Int16(laps.count)
         CoreDataService.saveContext()
-        self.navigationController?.popToRootViewController(animated: true)
+        presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
+        
     }
     
     // MARK: - TIMER
@@ -123,22 +134,38 @@ class TimerViewController: UIViewController {
     ///
     /// - Returns: Bool: result of evaluation, String?: title of error message, String? body of error message
     /// - Returns: Strings are nil if evaluation is true
-    func isItSafeToStartTimer() -> (Bool,String?,String?) {
+    fileprivate func isItSafeToStartTimer() -> (Bool,String?,String?) {
         guard selectedTrack != nil else{
-            return (false,Constants.NO_TRACK_TITLE,Constants.NO_TRACK)
+            return (false,Constants.NO_TRACK_TITLE,Constants.NO_TRACK_BODY)
         }
         guard participatingDrivers.count > 0 else{
-            return (false,Constants.NO_DRIVER_TITLE,Constants.NO_DRIVER)
+            return (false,Constants.NO_DRIVER_TITLE,Constants.NO_DRIVER_BODY)
         }
         return (true,nil,nil)
     }
     
+    fileprivate func presentAlertController(title: String, body: String, actionButton: (String,UIAlertAction.Style)) {
+        let actionString = actionButton.0
+        let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
+            (alert: UIAlertAction!) in
+            if (actionString == Constants.ALERT_SAVED){
+                print("i presentAlertController soin handler TRUE")
+                self.navigationController?.popToRootViewController(animated: true)
+            }else{
+                print("i presentAlertController soin handler FALSE")
+
+            }
+            
+        }
+//        let action = UIAlertAction(title: actionButton, style: .cancel, handler: nil)
+        alertController.addAction(action)
+        present(alertController, animated: true)
+    }
+    
     @IBAction func toggleTimer(_ sender: UIButton) {
         guard isItSafeToStartTimer().0 else{
-            let alertController = UIAlertController(title: isItSafeToStartTimer().1, message: isItSafeToStartTimer().2, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true)
+            presentAlertController(title: isItSafeToStartTimer().1!, body: isItSafeToStartTimer().2!, actionButton: (Constants.ALERT_CANCEL,.cancel) )
             return
         }
         //Check's done, it's now safe to start the timer
@@ -165,7 +192,7 @@ class TimerViewController: UIViewController {
     }
     
     @objc func updateTimer(){
-        mainTimerLabel.text = (Date().timeIntervalSinceReferenceDate - mainTimerStartTime).fromTimeToString()
+        mainTimerLabel.text = (Date().timeIntervalSinceReferenceDate - mainTimerStartTime).laptimeToString()
         //updates timer labels for all the visible driver cells
         for indexPath in self.driverCollectionView!.indexPathsForVisibleItems{
             let cell = self.driverCollectionView!.cellForItem(at: indexPath) as! DriverCollectionViewCell
@@ -185,6 +212,7 @@ extension TimerViewController: TrackSelectorViewControllerDelegate{
 extension TimerViewController: DriverSelectorViewControllerDelegate{
     func selected(driver: Driver) {
         participatingDrivers.append( (driver,RaceDayTimer()) )
+        drivers.append(driver)
         driverCollectionView.reloadData()
     }
 }
@@ -237,6 +265,13 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         //create a new instance of the Lap struct and add it to the array of Laps
         let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
         laps.append(newLap)
+        
+        //check if this lap was the fastest lap
+        if fastestLap == nil{
+            fastestLap = newLap
+        }else if newLap.lapTime < fastestLap!.lapTime{
+            fastestLap = newLap
+        }
         //starts a new lap
         participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
         
