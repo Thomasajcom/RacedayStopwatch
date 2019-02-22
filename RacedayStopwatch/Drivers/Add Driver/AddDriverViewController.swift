@@ -32,11 +32,11 @@ class AddDriverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popupView.layer.cornerRadius            = 10
+        popupView.layer.cornerRadius            = Constants.cornerRadius
         popupView.layer.masksToBounds           = true
-        addDriverButton.layer.cornerRadius      = 10
+        addDriverButton.layer.cornerRadius      = Constants.cornerRadius
         addDriverButton.layer.masksToBounds     = true
-        cancelButton.layer.cornerRadius         = 10
+        cancelButton.layer.cornerRadius         = Constants.cornerRadius
         cancelButton.layer.masksToBounds        = true
         
         driverName.delegate     = self
@@ -45,13 +45,15 @@ class AddDriverViewController: UIViewController {
         helmetContainerView.isHidden            = true
         
         pictureOrHelmetControl.addTarget(self, action: #selector(changeContainerView), for: .valueChanged)
-        
+        addDriverLabel.text = Constants.ADD_DRIVER_LABEL
+        driverNameLabel.text = Constants.DRIVER_NAME_PLACEHOLDER
+        driverNumberLabel.text = Constants.DRIVER_NUMBER_PLACEHOLDER
         if let driver = driver {
             driverName.text     = driver.name
             driverNumber.text   = driver.number
             
-            addDriverLabel.text = "Edit Driver"
-            addDriverButton.setTitle("Save", for: .normal)
+            addDriverLabel.text = Constants.EDIT_DRIVER_LABEL
+            addDriverButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
         }
     }
     
@@ -68,11 +70,9 @@ class AddDriverViewController: UIViewController {
     @objc func changeContainerView(){
         switch pictureOrHelmetControl.selectedSegmentIndex{
         case 0:
-            print("i picture view")
             pictureContainerView.isHidden.toggle()
             helmetContainerView.isHidden.toggle()
         case 1:
-            print("i helmet view")
             helmetContainerView.isHidden.toggle()
             pictureContainerView.isHidden.toggle()
         default:
@@ -82,21 +82,17 @@ class AddDriverViewController: UIViewController {
     
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
-        guard let name = driverName.text, name.count > 0 else {
-            driverName.placeholder = "A Driver Must Have A Name"
-            print("noname")
+        guard let name = driverName.text, name.count > 0 else {                            driverName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
         guard let number = driverNumber.text, number.count > 0 else {
-            driverNumber.placeholder = "A Driver Must Have A Number"
-            print("nonumber")
+            driverNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
         if pictureContainerView.isHidden{
             driverImage = helmetImage
         }
         guard let image = driverImage else {
-            print("no image found")
             return
         }
         
@@ -114,17 +110,6 @@ class AddDriverViewController: UIViewController {
             driver.name = name
             driver.number = number
             driver.image    = image.pngData()
-//            let driver = Driver(context: CoreDataService.context)
-//            if let newDriverName = driverName.text, !newDriverName.isEmpty, newDriverName != ""{
-//                driver.name = newDriverName
-//            }else {
-//                driverName.attributedPlaceholder = NSAttributedString(string: "ENTER NAME",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//            }
-//            if let newDriverNumber = driverNumber.text, !newDriverNumber.isEmpty, newDriverNumber != ""{
-//                driver.number = newDriverNumber
-//            }else{
-//                driverNumber.attributedPlaceholder = NSAttributedString(string: "ENTER CAR NUMBER",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//            }
             if (driver.name!.count > 0 && driver.number!.count > 0){
                 CoreDataService.saveContext()
                 dismiss(animated: true, completion: nil)
@@ -146,13 +131,11 @@ extension AddDriverViewController: UITextFieldDelegate{
 }
 extension AddDriverViewController: HelmetPickerProtocol{
     func selectedHelmet(image: UIImage) {
-        print("selectehelmetpiicture!!")
         helmetImage = image
     }
 }
 extension AddDriverViewController: DriverPictureProtocol{
     func selectedDriverPicture(_ image: UIImage) {
-        print("selectedriverpiicture!!")
         driverImage = image
     }
 }

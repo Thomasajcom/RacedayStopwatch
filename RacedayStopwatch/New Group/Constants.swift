@@ -7,11 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants{
+    //GUI
+    static let cornerRadius: CGFloat = 10
     static let decimalSeparator = NSLocale.current.decimalSeparator ?? "."
     
     //MARK: - Strings
+    //MARK: - Driver
+    //Add Driver
+    static let ADD_DRIVER_LABEL     = "Add Driver"
+    static let EDIT_DRIVER_LABEL    = "Edit Driver"
+    static let SAVE_BUTTON_TITLE    = "Save"
+    static let DRIVER_NAME_PLACEHOLDER = "Enter a Name"
+static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
+    static let DRIVER_NUMBER_PLACEHOLDER = "Enter a Number"
+    static let DRIVER_NUMBER_PLACEHOLDER_ERROR = "ENTER NUMBER!"
     //MARK: - Timer
     #warning("internationalize this")
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
