@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */; };
+		E9241A6D222002CE003B6C11 /* AddDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */; };
+		E9241A7122201A7B003B6C11 /* HelmetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */; };
+		E9241A7322202431003B6C11 /* DriverPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A7222202431003B6C11 /* DriverPictureViewController.swift */; };
 		E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */; };
 		E92E963322005B9D004E6E20 /* TracksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963222005B9D004E6E20 /* TracksCollectionViewController.swift */; };
 		E92E963522005F9F004E6E20 /* TrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */; };
@@ -25,7 +28,6 @@
 		E960607A2193662100D37631 /* RacedayStopwatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E96060782193662100D37631 /* RacedayStopwatch.xcdatamodeld */; };
 		E960607C219366A300D37631 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960607B219366A300D37631 /* CoreDataService.swift */; };
 		E969EA98221AB7A400E6D174 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969EA97221AB7A400E6D174 /* Double.swift */; };
-		E96CB1A321E29F0E0096AEE0 /* AddDriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */; };
 		E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D02196040B00F9B4CF /* LapTableViewCell.swift */; };
 		E97F11BD2195D74F0090C336 /* AddDriverPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */; };
 		E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */; };
@@ -56,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriversTableViewController.swift; sourceTree = "<group>"; };
+		E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverViewController.swift; sourceTree = "<group>"; };
+		E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelmetPickerViewController.swift; sourceTree = "<group>"; };
+		E9241A7222202431003B6C11 /* DriverPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPictureViewController.swift; sourceTree = "<group>"; };
 		E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSelectorViewController.swift; sourceTree = "<group>"; };
 		E92E963222005B9D004E6E20 /* TracksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksCollectionViewController.swift; sourceTree = "<group>"; };
 		E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -79,7 +84,6 @@
 		E96060792193662100D37631 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E960607B219366A300D37631 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		E969EA97221AB7A400E6D174 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverTableViewController.swift; sourceTree = "<group>"; };
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverPopupViewController.swift; sourceTree = "<group>"; };
 		E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,14 +123,24 @@
 		E92111A72194BE0A00D5D67F /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
+				E9241A74222025C3003B6C11 /* Add Driver */,
 				E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */,
 				E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */,
 				E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */,
-				E96CB1A221E29F0E0096AEE0 /* AddDriverTableViewController.swift */,
 			);
 			name = Drivers;
 			path = RacedayStopwatch/Drivers;
 			sourceTree = SOURCE_ROOT;
+		};
+		E9241A74222025C3003B6C11 /* Add Driver */ = {
+			isa = PBXGroup;
+			children = (
+				E9241A7222202431003B6C11 /* DriverPictureViewController.swift */,
+				E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */,
+				E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */,
+			);
+			path = "Add Driver";
+			sourceTree = "<group>";
 		};
 		E92E963C22098634004E6E20 /* DriverCollectionView */ = {
 			isa = PBXGroup;
@@ -380,9 +394,11 @@
 				E92E963522005F9F004E6E20 /* TrackCollectionViewCell.swift in Sources */,
 				E9606001219359DA00D37631 /* AppDelegate.swift in Sources */,
 				E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */,
+				E9241A7122201A7B003B6C11 /* HelmetPickerViewController.swift in Sources */,
 				E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */,
 				E9EE5D0622140F7700E2F57D /* Track.swift in Sources */,
 				E960607A2193662100D37631 /* RacedayStopwatch.xcdatamodeld in Sources */,
+				E9241A7322202431003B6C11 /* DriverPictureViewController.swift in Sources */,
 				E9EE5D0D22156D2D00E2F57D /* Lap.swift in Sources */,
 				E92E963E22098653004E6E20 /* DriverCollectionViewCell.swift in Sources */,
 				E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */,
@@ -392,11 +408,11 @@
 				E93E2182219ACE3E00F39575 /* TrackSelectorViewController.swift in Sources */,
 				E92E963322005B9D004E6E20 /* TracksCollectionViewController.swift in Sources */,
 				E9EE5D0222140F4F00E2F57D /* Driver.swift in Sources */,
-				E96CB1A321E29F0E0096AEE0 /* AddDriverTableViewController.swift in Sources */,
 				E960607C219366A300D37631 /* CoreDataService.swift in Sources */,
 				E9EE5D082215674100E2F57D /* Constants.swift in Sources */,
 				E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */,
 				E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */,
+				E9241A6D222002CE003B6C11 /* AddDriverViewController.swift in Sources */,
 				E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */,
 				E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */,
 				E9EE5D112215E3AF00E2F57D /* RaceDayTimer.swift in Sources */,

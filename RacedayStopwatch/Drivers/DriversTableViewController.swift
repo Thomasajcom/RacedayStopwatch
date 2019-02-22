@@ -38,9 +38,14 @@ class DriversTableViewController: UITableViewController {
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "editDriver"){
+            let editDriverVC = segue.destination as! AddDriverViewController
+            editDriverVC.driver =  fetchedResultsController.fetchedObjects![(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -56,13 +61,7 @@ class DriversTableViewController: UITableViewController {
         cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "editDriver"){
-            let editDriverVC = segue.destination as! AddDriverPopupViewController
-            editDriverVC.driverToEdit =  fetchedResultsController.fetchedObjects![(tableView.indexPathForSelectedRow?.row)!]
-        }
-    }
+
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
