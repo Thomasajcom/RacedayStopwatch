@@ -74,7 +74,7 @@ class DriversTableViewController: UITableViewController {
         }
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red
-        let editAction = UIContextualAction.init(style: .normal, title: "EDIT") { (action, view, completionHandler) in
+        let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
         }
         editAction.backgroundColor  = .blue
@@ -85,29 +85,23 @@ class DriversTableViewController: UITableViewController {
 
 extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("nye updates!")
-
         tableView.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("ended updates!")
         tableView.endUpdates()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .delete:
-            print("case delete")
             if let indexPath = indexPath{
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         case .insert:
-             print("case insert")
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
         case .update:
-             print("case update")
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DriverTableViewCell{
                 cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
             }
@@ -116,5 +110,4 @@ extension DriversTableViewController: NSFetchedResultsControllerDelegate{
             print("...")
         }
     }
-    
 }
