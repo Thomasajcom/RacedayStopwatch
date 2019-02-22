@@ -28,6 +28,7 @@ class AddDriverViewController: UIViewController {
     
     var driver: Driver?
     var driverImage: UIImage?
+    var helmetImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,9 @@ class AddDriverViewController: UIViewController {
         if (segue.identifier == "embedHelmetPickerView"){
             let selectHelmet = segue.destination as! HelmetPickerViewController
             selectHelmet.delegate = self
+        }else if (segue.identifier == "embedPicturePickerView"){
+            let selectPicture = segue.destination as! DriverPictureViewController
+            selectPicture.delegate = self
         }
     }
     
@@ -75,15 +79,18 @@ class AddDriverViewController: UIViewController {
     
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
-        guard let name = driverName.text else {
+        guard let name = driverName.text, name.count > 0 else {
             driverName.placeholder = "A Driver Must Have A Name"
             print("noname")
             return
         }
-        guard let number = driverNumber.text else {
+        guard let number = driverNumber.text, number.count > 0 else {
             driverNumber.placeholder = "A Driver Must Have A Number"
             print("nonumber")
             return
+        }
+        if pictureContainerView.isHidden{
+            driverImage = helmetImage
         }
         guard let image = driverImage else {
             print("no image found")
@@ -103,7 +110,7 @@ class AddDriverViewController: UIViewController {
             let driver = Driver(context: CoreDataService.context)
             driver.name = name
             driver.number = number
-            driver.image = image.pngData()
+            driver.image    = image.pngData()
 //            let driver = Driver(context: CoreDataService.context)
 //            if let newDriverName = driverName.text, !newDriverName.isEmpty, newDriverName != ""{
 //                driver.name = newDriverName
@@ -131,6 +138,13 @@ class AddDriverViewController: UIViewController {
 
 extension AddDriverViewController: HelmetPickerProtocol{
     func selectedHelmet(image: UIImage) {
+        print("selectehelmetpiicture!!")
+        helmetImage = image
+    }
+}
+extension AddDriverViewController: DriverPictureProtocol{
+    func selectedDriverPicture(_ image: UIImage) {
+        print("selectedriverpiicture!!")
         driverImage = image
     }
 }

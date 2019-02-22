@@ -882,7 +882,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gI4-CD-RO4" userLabel="Picture Container View">
                                                     <rect key="frame" x="30" y="203" width="240" height="130"/>
                                                     <connections>
-                                                        <segue destination="8h3-RP-NNo" kind="embed" id="I00-xJ-njr"/>
+                                                        <segue destination="8h3-RP-NNo" kind="embed" identifier="embedPicturePickerView" id="I00-xJ-njr"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -1117,12 +1117,52 @@
                     <view key="view" contentMode="scaleToFill" id="vxy-bv-3yA">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-Uc-d5l">
+                                <rect key="frame" x="21" y="15" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="diC-Np-t6h"/>
+                                    <constraint firstAttribute="width" constant="100" id="rlc-M6-6IP"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="22s-6X-7T0" userLabel="Button Stack View">
+                                <rect key="frame" x="126" y="15" width="46" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm4-d4-QlH">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="8h3-RP-NNo" eventType="touchUpInside" id="wLV-PJ-UW2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-FQ-OfX">
+                                        <rect key="frame" x="0.0" y="54" width="46" height="46"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="selectFromGallery:" destination="8h3-RP-NNo" eventType="touchUpInside" id="vrx-61-GRd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FQa-Uc-d5l" firstAttribute="centerY" secondItem="vxy-bv-3yA" secondAttribute="centerY" id="Co1-33-lIe"/>
+                            <constraint firstItem="FQa-Uc-d5l" firstAttribute="leading" secondItem="vxy-bv-3yA" secondAttribute="leadingMargin" constant="5" id="RIb-kB-qnK"/>
+                            <constraint firstItem="22s-6X-7T0" firstAttribute="height" secondItem="FQa-Uc-d5l" secondAttribute="height" id="aUT-Ct-6Ui"/>
+                            <constraint firstItem="22s-6X-7T0" firstAttribute="centerY" secondItem="FQa-Uc-d5l" secondAttribute="centerY" id="izi-g0-eBL"/>
+                            <constraint firstItem="22s-6X-7T0" firstAttribute="leading" secondItem="FQa-Uc-d5l" secondAttribute="trailing" constant="5" id="vZq-Yt-LBm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="driverImage" destination="FQa-Uc-d5l" id="hia-9D-S0T"/>
+                        <outlet property="galleryButton" destination="SBp-FQ-OfX" id="2Ug-FF-ofy"/>
+                        <outlet property="newPhotoButton" destination="Gm4-d4-QlH" id="eb9-wS-ZXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgt-zB-zAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="85"/>
+            <point key="canvasLocation" x="1956.8" y="84.557721139430285"/>
         </scene>
     </scenes>
     <resources>
