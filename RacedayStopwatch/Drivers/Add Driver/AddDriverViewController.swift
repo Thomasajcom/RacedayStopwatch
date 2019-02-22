@@ -48,6 +48,9 @@ class AddDriverViewController: UIViewController {
         addDriverLabel.text = Constants.ADD_DRIVER_LABEL
         driverNameLabel.text = Constants.DRIVER_NAME_PLACEHOLDER
         driverNumberLabel.text = Constants.DRIVER_NUMBER_PLACEHOLDER
+        pictureOrHelmetLabel.text = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
+        pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_PICTURE_SEGMENT, forSegmentAt: 0)
+        pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_HELMET_SEGMENT, forSegmentAt: 1)
         if let driver = driver {
             driverName.text     = driver.name
             driverNumber.text   = driver.number

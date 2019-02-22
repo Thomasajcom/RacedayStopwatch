@@ -19,11 +19,17 @@ struct Constants{
     //Add Driver
     static let ADD_DRIVER_LABEL     = "Add Driver"
     static let EDIT_DRIVER_LABEL    = "Edit Driver"
+static let ADD_DRIVER_PICTURE_OR_HELMET_LABEL = "Driver Picture or Helmet"
+    static let ADD_DRIVER_PICTURE_SEGMENT = "Picture"
+    static let ADD_DRIVER_HELMET_SEGMENT = "Helmet"
     static let SAVE_BUTTON_TITLE    = "Save"
     static let DRIVER_NAME_PLACEHOLDER = "Enter a Name"
 static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let DRIVER_NUMBER_PLACEHOLDER = "Enter a Number"
     static let DRIVER_NUMBER_PLACEHOLDER_ERROR = "ENTER NUMBER!"
+    
+    static let CAMERA_TITLE = "Camera"
+    static let GALLERY_TITLE = "Gallery"
     //MARK: - Timer
     #warning("internationalize this")
     static let LAP_RECORD_LABEL         = "Lap Record Holder"

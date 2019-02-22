@@ -23,9 +23,8 @@ class DriverPictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         driverImage.image = UIImage(named: "driverImage_placeholder")
-        newPhotoButton.setTitle("Camera", for: .normal)
-        galleryButton.setTitle("Gallery", for: .normal)
-        // Do any additional setup after loading the view.
+        newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
+        galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
     }
     
     @IBAction func takePhoto(_ sender: UIButton) {
@@ -42,27 +41,15 @@ class DriverPictureViewController: UIViewController {
         cameraController.delegate = self
         present(cameraController, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension DriverPictureViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
-        
         guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
             return
         }
-        print(image.size)
         driverImage.image = image
         delegate?.selectedDriverPicture(image)
     }
