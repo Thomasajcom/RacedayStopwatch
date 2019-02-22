@@ -6,6 +6,10 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Raceday Stopwatch</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To select a photo from your library you must grant the app access.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To take a photo with the camera you must grant the app access.</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

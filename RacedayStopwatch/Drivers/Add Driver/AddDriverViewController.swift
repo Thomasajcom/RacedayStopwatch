@@ -39,6 +39,9 @@ class AddDriverViewController: UIViewController {
         cancelButton.layer.cornerRadius         = 10
         cancelButton.layer.masksToBounds        = true
         
+        driverName.delegate     = self
+        driverNumber.delegate   = self
+        
         helmetContainerView.isHidden            = true
         
         pictureOrHelmetControl.addTarget(self, action: #selector(changeContainerView), for: .valueChanged)
@@ -135,7 +138,12 @@ class AddDriverViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-
+extension AddDriverViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 extension AddDriverViewController: HelmetPickerProtocol{
     func selectedHelmet(image: UIImage) {
         print("selectehelmetpiicture!!")
