@@ -19,6 +19,4 @@ class AddDriverPopupViewController: UIViewController {
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
     }
-    
-    
 }

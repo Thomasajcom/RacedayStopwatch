@@ -11,6 +11,7 @@ import CoreData
 
 class DriversTableViewController: UITableViewController {
     
+    #warning("Future patch: add this footer view with different stats from db, load on viewdidload, show different stat on viewwillappear")
     @IBOutlet weak var footerView: UIView!
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
@@ -31,6 +32,7 @@ class DriversTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        footerView.isHidden = true
         do {
             try fetchedResultsController.performFetch()
         } catch  {
@@ -38,13 +40,7 @@ class DriversTableViewController: UITableViewController {
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "editDriver"){
-            let editDriverVC = segue.destination as! AddDriverViewController
-            editDriverVC.driver =  fetchedResultsController.fetchedObjects![(tableView.indexPathForSelectedRow?.row)!]
-        }
-    }
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -76,6 +72,11 @@ class DriversTableViewController: UITableViewController {
         deleteAction.backgroundColor = .red
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editDriver = storyboard.instantiateViewController(withIdentifier: "editDriver") as! AddDriverViewController
+            editDriver.driver =  self.fetchedResultsController.fetchedObjects![indexPath.row]
+            self.present(editDriver, animated: true, completion: nil)
+            completionHandler(true)
         }
         editAction.backgroundColor  = .blue
         editAction.image            = UIImage(named: "delete-50-filled")

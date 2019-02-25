@@ -433,7 +433,7 @@
                                 <rect key="frame" x="0.0" y="166.5" width="375" height="324.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2u-AB-wtN" id="eZh-9E-zVa">
@@ -646,21 +646,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="xbL-ba-2rz">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="xbL-ba-2rz">
                             <rect key="frame" x="0.0" y="163" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-L1-fOd">
-                                    <rect key="frame" x="5" y="5" width="365" height="101"/>
+                                    <rect key="frame" x="5" y="5" width="365" height="34"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Distance: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5N-OS-VEi">
-                                            <rect key="frame" x="0.0" y="0.0" width="268" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="268" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-jp-wdS">
-                                            <rect key="frame" x="276" y="0.0" width="89" height="101"/>
+                                            <rect key="frame" x="276" y="0.0" width="89" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -707,7 +707,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uA-2B-Dbp" userLabel="Trackdays Stack View">
                                             <rect key="frame" x="116" y="50" width="243" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Trackdays: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-4Q-cvY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sessions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-4Q-cvY">
                                                     <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -724,7 +724,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-Rg-b3O" userLabel="Laps Stack View">
                                             <rect key="frame" x="116" y="71" width="243" height="18"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Fastest Driver:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
                                                     <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -758,9 +758,12 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="driverImage" destination="bbN-fD-bWD" id="CVY-CT-xZd"/>
+                                    <outlet property="fastestDriverLabel" destination="Md2-eP-Qq9" id="lIM-Cz-TLF"/>
                                     <outlet property="nameLabel" destination="Phd-A6-tqU" id="uun-lq-p3n"/>
                                     <outlet property="numberLabel" destination="ZJz-5p-37L" id="lTJ-mS-73u"/>
-                                    <segue destination="egn-cB-DnE" kind="presentation" identifier="editDriver" id="KMz-4N-p3i"/>
+                                    <outlet property="numberOfSessions" destination="Lx1-bY-kq8" id="aYj-fK-RSd"/>
+                                    <outlet property="numberOfTimesFastestDriver" destination="dzl-WA-rly" id="4OH-73-QHo"/>
+                                    <outlet property="sessionsLabel" destination="fub-4Q-cvY" id="XtL-YV-Lxr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -788,7 +791,7 @@
         <!--Add Driver View Controller-->
         <scene sceneID="fmG-b0-Gv8">
             <objects>
-                <viewController id="egn-cB-DnE" customClass="AddDriverViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editDriver" id="egn-cB-DnE" customClass="AddDriverViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="49s-aK-go4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1101,6 +1104,7 @@
                             <constraint firstItem="Qmq-h6-Om4" firstAttribute="top" secondItem="WOu-nS-yXp" secondAttribute="top" id="pdS-PA-YLH"/>
                             <constraint firstItem="Qmq-h6-Om4" firstAttribute="leading" secondItem="WOu-nS-yXp" secondAttribute="leading" id="tcQ-om-Hyw"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="fQg-7U-5bX"/>
                     </view>
                     <connections>
                         <outlet property="helmetPicker" destination="Qmq-h6-Om4" id="4MU-IM-bwR"/>
@@ -1153,6 +1157,7 @@
                             <constraint firstItem="22s-6X-7T0" firstAttribute="centerY" secondItem="FQa-Uc-d5l" secondAttribute="centerY" id="izi-g0-eBL"/>
                             <constraint firstItem="22s-6X-7T0" firstAttribute="leading" secondItem="FQa-Uc-d5l" secondAttribute="trailing" constant="5" id="vZq-Yt-LBm"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="AzV-Xl-nqa"/>
                     </view>
                     <connections>
                         <outlet property="driverImage" destination="FQa-Uc-d5l" id="hia-9D-S0T"/>
@@ -1170,7 +1175,4 @@
         <image name="session" width="75" height="75"/>
         <image name="track" width="75" height="75"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="KMz-4N-p3i"/>
-    </inferredMetricsTieBreakers>
 </document>

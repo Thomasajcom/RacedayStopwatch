@@ -262,6 +262,8 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
         let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
         let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
+        #warning("error with speed")
+        print("speed")
         //create a new instance of the Lap struct and add it to the array of Laps
         let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
         laps.append(newLap)

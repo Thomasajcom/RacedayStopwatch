@@ -30,6 +30,11 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     
     static let CAMERA_TITLE = "Camera"
     static let GALLERY_TITLE = "Gallery"
+    
+    //MARK: - Driver Cell
+    static let DRIVER_SESSIONS = "Sessions:"
+    static let DRIVER_FASTEST_DRIVER = "Number of times fastest driver: "
+    static let DRIVER_FASTEST_DRIVER_TIMER = " times."
     //MARK: - Timer
     #warning("internationalize this")
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
