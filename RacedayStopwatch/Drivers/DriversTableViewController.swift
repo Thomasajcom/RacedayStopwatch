@@ -11,7 +11,7 @@ import CoreData
 
 class DriversTableViewController: UITableViewController {
     
-    #warning("Future patch: add this footer view with different stats from db, load on viewdidload, show different stat on viewwillappear")
+    //TODO: - "Future patch: add this footer view with different stats from db, load on viewdidload, show different stat on viewwillappear")
     @IBOutlet weak var footerView: UIView!
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
@@ -65,8 +65,7 @@ class DriversTableViewController: UITableViewController {
             let deleteObject = self.fetchedResultsController.object(at: indexPath)
             CoreDataService.context.delete(deleteObject)
             CoreDataService.saveContext()
-
-            print("completion true for: \(indexPath.row)")
+            completionHandler(true)
         }
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red

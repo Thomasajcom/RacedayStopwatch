@@ -11,6 +11,7 @@ import UIKit
 
 struct Constants{
     //GUI
+    //consider drawing this for performance increase
     static let cornerRadius: CGFloat = 10
     static let decimalSeparator = NSLocale.current.decimalSeparator ?? "."
     
@@ -33,7 +34,7 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     
     //MARK: - Driver Cell
     static let DRIVER_SESSIONS = "Sessions:"
-    static let DRIVER_FASTEST_DRIVER = "Number of times fastest driver: "
+    static let DRIVER_FASTEST_DRIVER = "Fastest driver:"
     static let DRIVER_FASTEST_DRIVER_TIMER = " times."
     //MARK: - Timer
     #warning("internationalize this")

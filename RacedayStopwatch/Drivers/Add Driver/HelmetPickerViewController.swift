@@ -12,6 +12,7 @@ protocol HelmetPickerProtocol {
     func selectedHelmet(image: UIImage)
 }
 
+//TODO: - Fix error with selecting first helmet even when editing a driver with another helmet set
 class HelmetPickerViewController: UIViewController {
     
     var helmets: [UIImage] = [

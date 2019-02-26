@@ -45,10 +45,11 @@ class AddDriverViewController: UIViewController {
         helmetContainerView.isHidden            = true
         
         pictureOrHelmetControl.addTarget(self, action: #selector(changeContainerView), for: .valueChanged)
-        addDriverLabel.text = Constants.ADD_DRIVER_LABEL
-        driverNameLabel.text = Constants.DRIVER_NAME_PLACEHOLDER
-        driverNumberLabel.text = Constants.DRIVER_NUMBER_PLACEHOLDER
-        pictureOrHelmetLabel.text = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
+        addDriverLabel.text             = Constants.ADD_DRIVER_LABEL
+        driverNameLabel.text            = Constants.DRIVER_NAME_PLACEHOLDER
+        driverNumberLabel.text          = Constants.DRIVER_NUMBER_PLACEHOLDER
+        pictureOrHelmetLabel.text       = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
+        pictureOrHelmetLabel.isHidden   = true
         pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_PICTURE_SEGMENT, forSegmentAt: 0)
         pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_HELMET_SEGMENT, forSegmentAt: 1)
         if let driver = driver {
@@ -63,10 +64,11 @@ class AddDriverViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "embedHelmetPickerView"){
             let selectHelmet = segue.destination as! HelmetPickerViewController
-            selectHelmet.delegate = self
+            selectHelmet.delegate   = self
         }else if (segue.identifier == "embedPicturePickerView"){
             let selectPicture = segue.destination as! DriverPictureViewController
-            selectPicture.delegate = self
+            selectPicture.delegate  = self
+            selectPicture.driver    = driver
         }
     }
     
@@ -110,8 +112,8 @@ class AddDriverViewController: UIViewController {
         //save a new driver
         else {
             let driver = Driver(context: CoreDataService.context)
-            driver.name = name
-            driver.number = number
+            driver.name     = name
+            driver.number   = number
             driver.image    = image.pngData()
             if (driver.name!.count > 0 && driver.number!.count > 0){
                 CoreDataService.saveContext()
@@ -132,6 +134,8 @@ extension AddDriverViewController: UITextFieldDelegate{
         return true
     }
 }
+
+//TODO: - rework these to one variable and automatically understanding which one the user wants
 extension AddDriverViewController: HelmetPickerProtocol{
     func selectedHelmet(image: UIImage) {
         helmetImage = image

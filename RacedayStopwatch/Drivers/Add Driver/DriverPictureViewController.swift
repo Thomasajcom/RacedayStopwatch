@@ -19,10 +19,15 @@ class DriverPictureViewController: UIViewController {
     @IBOutlet weak var galleryButton: UIButton!
     
     var delegate: DriverPictureProtocol? = nil
+    var driver: Driver?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        driverImage.image = UIImage(named: "driverImage_placeholder")
+        if let driver = driver {
+            driverImage.image = UIImage(data: driver.image!)
+        }else{
+            driverImage.image = UIImage(named: "driverImage_placeholder")
+        }
         newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
         galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
     }
