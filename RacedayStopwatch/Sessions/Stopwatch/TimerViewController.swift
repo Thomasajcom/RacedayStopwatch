@@ -284,12 +284,10 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        #warning("work on this, picture size? 75x75?")
         return CGSize(width: 100, height: 100)
     }
 }
 
 
 //TODO:
-//fix saving
 //drivers array, only add one driver

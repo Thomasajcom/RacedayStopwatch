@@ -36,8 +36,24 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let DRIVER_SESSIONS = "Sessions:"
     static let DRIVER_FASTEST_DRIVER = "Fastest driver:"
     static let DRIVER_FASTEST_DRIVER_TIMER = " times."
+    
+    //MARK: - Tracks
+    static let TRACK_NAME_PLACEHOLDER = "Enter Track Name"
+    static let TRACK_LENGTH_PLACEHOLDER = "Length in "
+    //check userDefaults for metric or imperial
+    static let TRACK_LENGTH_UNIT = "meters"
+    
+    static let TRACK_ALERT_ADD_TRACK_TITLE = "Add Track"
+    static let TRACK_ALERT_DELETE_TITLE = "Delete Track"
+    static let TRACK_ALERT_DELETE_BODY = "Do you want to delete this track? This can not be undone."
+    
+    //MARK: - Session
+    static let SESSION_FASTEST_DRIVER   = "Fastest Driver"
+    static let SESSION_LAP              = " laps"
+    static let SESSION_TIME_ON_TRACK    = "Time on Track"
     //MARK: - Timer
     #warning("internationalize this")
+    static let TIMER_SELECT_DRIVER      = "Select Driver"
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
     static let LAP_RECORD_HOLDER_NONE   = "No lap record found."
     //check userDefaults, return metric or imperial based on that
@@ -54,8 +70,8 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     
     static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
     //check userDefaults, return metric or imperial based on that
-
     static let SPEED_UNIT   = "km/h"
+    
     static let LAP          = "Lap"
     
     //saving a session

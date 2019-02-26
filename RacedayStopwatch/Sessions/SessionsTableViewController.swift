@@ -16,7 +16,7 @@ class SessionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.tableFooterView = UIView()
     }
     
@@ -128,8 +128,6 @@ class SessionsTableViewController: UITableViewController {
             let newTimer = segue.destination as! TimerViewController
             newTimer.hidesBottomBarWhenPushed = true
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-            
-
         }
     }
 }

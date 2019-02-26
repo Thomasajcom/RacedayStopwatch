@@ -24,14 +24,12 @@ class DriverSelectorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popupView.layer.cornerRadius = 10
-        popupView.layer.masksToBounds = true
+        popupView.layer.cornerRadius    = Constants.cornerRadius
+        popupView.layer.masksToBounds   = true
         
-        driverPicker.delegate = self
+        driverPicker.delegate   = self
         driverPicker.dataSource = self
-        
-        // TODO: - Internationalize this
-        titleLabel.text = "Select Driver"
+        titleLabel.text = Constants.TIMER_SELECT_DRIVER
         do {
             drivers = try CoreDataService.context.fetch(driverFetchRequest)
         } catch let error as NSError {
@@ -40,9 +38,6 @@ class DriverSelectorViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
-        print("Selected driver:\(driverPicker.selectedRow(inComponent: 0))")
-        print("driver array: \(drivers!.count)")
-        print("driver array: \(drivers![driverPicker.selectedRow(inComponent: 0)])")
         driverSelectorDelegate.selected(driver: drivers![driverPicker.selectedRow(inComponent: 0)])
         dismiss(animated: true, completion: nil)
     }

@@ -22,17 +22,16 @@ class TrackCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("awakeFromNib i cell")
-        self.layer.cornerRadius = 10
-        self.layer.masksToBounds = false
+        self.layer.cornerRadius     = Constants.cornerRadius
+        self.layer.masksToBounds    = false
         //setup radius etc
-//        trackImage.layer.cornerRadius = 10
-//        trackImage.layer.masksToBounds = false
+        trackImage.layer.cornerRadius   = Constants.cornerRadius
+        trackImage.layer.masksToBounds  = false
     }
     
     func setup(_ track: Track){
         trackName.text = track.name
-        trackLength.text = "\(track.length)"
+        trackLength.text = String(track.length)
         if let trackRecord = track.trackRecord{
             lapRecordTime.text = trackRecord
             lapRecordHolder.text = track.trackRecordHolder?.name
@@ -41,7 +40,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
             lapRecordHolder.text = "No lap record set. Get out there!"
         }
         if let mapImage = track.image{
-            trackImage.image = UIImage(data: mapImage as Data)
+            trackImage.image = UIImage(data: mapImage)
         }else{
             trackImage.image = UIImage(named: "defaultTrack")
         }

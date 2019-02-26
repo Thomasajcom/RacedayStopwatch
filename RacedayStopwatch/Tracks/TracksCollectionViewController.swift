@@ -37,8 +37,16 @@ class TracksCollectionViewController: UICollectionViewController {
             let error = error as NSError
             print("Unable to fetch tracks: \(error)")
         }
-        #warning("This must be changed to something better looking")
-        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "checkeredFlag2")!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch  {
+            let error = error as NSError
+            print("Unable to fetch tracks: \(error)")
+        }
     }
 
     /*
@@ -53,12 +61,13 @@ class TracksCollectionViewController: UICollectionViewController {
     @IBAction func addTrack(_ sender: Any) {
         let alertController = UIAlertController(title: "Add New Track", message: "Enter name and length to add a new track", preferredStyle: .alert)
         alertController.addTextField { (textField) in
-            textField.placeholder = "Track name"
+            textField.placeholder = Constants.TRACK_NAME_PLACEHOLDER
         }
         alertController.addTextField { (textField) in
-            textField.placeholder = "Length in meters"
+            textField.placeholder   = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.TRACK_LENGTH_UNIT
+            textField.keyboardType  = UIKeyboardType.numberPad
         }
-        let addAction = UIAlertAction(title: "Add Track", style: .default) {[unowned self] action in
+        let addAction = UIAlertAction(title: Constants.TRACK_ALERT_ADD_TRACK_TITLE, style: .default) {[unowned self] action in
             guard let firstField = alertController.textFields?.first,
                 let trackName = firstField.text else {return}
             guard let secondField = alertController.textFields?[1],
@@ -66,14 +75,13 @@ class TracksCollectionViewController: UICollectionViewController {
             
             self.addToCoreData(trackName: trackName, length: length)
         }//thisll add to db
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .cancel, handler: nil)
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
     
     func addToCoreData(trackName: String, length: String){
-        print("i addToCoreData \(trackName) lengde: \(length)")
         guard let intLength = Int16(length) else{return}
         let track = Track(context: CoreDataService.context)
         track.name = trackName
@@ -103,51 +111,24 @@ class TracksCollectionViewController: UICollectionViewController {
         cell.setup(track)
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
+    
 
     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
     }
-    */
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Delete Track", message: "Do you want to delete this track? This can not be undone.", preferredStyle: .alert)
-        let addAction = UIAlertAction(title: "Delete Track!", style: .destructive) {[unowned self] action in
+        let alertController = UIAlertController(title: Constants.TRACK_ALERT_DELETE_TITLE, message: Constants.TRACK_ALERT_DELETE_BODY, preferredStyle: .alert)
+        let addAction = UIAlertAction(title: Constants.TRACK_ALERT_DELETE_TITLE, style: .destructive) {[unowned self] action in
             self.deleteTrack(self.fetchedResultsController.object(at: indexPath))
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .cancel, handler: nil)
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
     
     func deleteTrack(_ track: Track){
-        print("In deleteTrack")
         CoreDataService.context.delete(track)
         CoreDataService.saveContext()
     }
