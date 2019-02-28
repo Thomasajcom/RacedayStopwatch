@@ -122,12 +122,5 @@ class SessionsTableViewController: UITableViewController {
         print("Session:\(sessions[indexPath.row])")
     }
 
-     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "timerSegue"){
-            let newTimer = segue.destination as! TimerViewController
-            newTimer.hidesBottomBarWhenPushed = true
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        }
-    }
+    
 }

@@ -48,9 +48,14 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let TRACK_ALERT_DELETE_BODY = "Do you want to delete this track? This can not be undone."
     
     //MARK: - Session
-    static let SESSION_FASTEST_DRIVER   = "Fastest Driver"
-    static let SESSION_LAP              = " laps"
-    static let SESSION_TIME_ON_TRACK    = "Time on Track"
+    //NEW SESSION
+    static let SESSION_DRIVER_SELECT_TITLE      = "Select Driver"
+    static let SESSION_WITHOUT_TRACK            = "Session Without Track"
+    static let SESSION_CUSTOM_LENGTH            = "Enter Custom Length (optional)"
+    
+    static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
+    static let SESSION_LAP                      = " laps"
+    static let SESSION_TIME_ON_TRACK            = "Time on Track"
     //MARK: - Timer
     #warning("internationalize this")
     static let TIMER_SELECT_DRIVER      = "Select Driver"

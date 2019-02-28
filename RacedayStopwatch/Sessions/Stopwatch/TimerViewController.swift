@@ -53,6 +53,14 @@ class TimerViewController: UIViewController {
             }
         }
     }
+    var customLength: Int?{
+        didSet{
+            trackNameLabel.text         = String(customLength!)+" "+Constants.LENGTH_UNIT
+            trackLengthLabel.isHidden   = true
+            lapRecordHolder.isHidden    = true
+            lapRecordTime.isHidden      = true
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -79,11 +87,6 @@ class TimerViewController: UIViewController {
         let todayString = formatter.string(from: date)
 //        self.navigationController?.title = todayString
 
-        //present the track selector view, as there should not be a session without a track
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let trackSelector = storyboard.instantiateViewController(withIdentifier: "TrackSelector") as! TrackSelectorViewController
-        self.present(trackSelector, animated: false, completion: nil)
-        trackSelector.trackSelectorDelegate = self
     }
 
     // MARK: - Navigation
@@ -118,17 +121,20 @@ class TimerViewController: UIViewController {
         }
         let session = Session(context: CoreDataService.context)
         session.sessionDateAndTime  = Date()
-        session.onTrack             = selectedTrack
         session.drivers             = NSSet(array: drivers)
         session.fastestDriver       = fastestLap!.driver
         session.fastestLapTime      = fastestLap!.lapTime
         session.fastestLapSpeed     = Int16(fastestLap!.speed)
         session.numberOfLaps        = Int16(laps.count)
         session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
-        if fastestLap!.lapTime < selectedTrack!.trackRecord || selectedTrack!.trackRecord == 0{
-            session.onTrack?.trackRecord = session.fastestLapTime
-            session.onTrack?.trackRecordHolder = session.fastestDriver
+        session.onTrack             = selectedTrack
+        if let track = selectedTrack {
+            if fastestLap!.lapTime < track.trackRecord || track.trackRecord == 0{
+                session.onTrack?.trackRecord = session.fastestLapTime
+                session.onTrack?.trackRecordHolder = session.fastestDriver
+            }
         }
+        
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
     }
@@ -139,9 +145,6 @@ class TimerViewController: UIViewController {
     /// - Returns: Bool: result of evaluation, String?: title of error message, String? body of error message
     /// - Returns: Strings are nil if evaluation is true
     fileprivate func isItSafeToStartTimer() -> (Bool,String?,String?) {
-        guard selectedTrack != nil else{
-            return (false,Constants.NO_TRACK_TITLE,Constants.NO_TRACK_BODY)
-        }
         guard participatingDrivers.count > 0 else{
             return (false,Constants.NO_DRIVER_TITLE,Constants.NO_DRIVER_BODY)
         }
@@ -203,12 +206,7 @@ class TimerViewController: UIViewController {
     }
 }
 
-// MARK: - extensions track/driver delegates
-extension TimerViewController: TrackSelectorViewControllerDelegate{
-    func selected(track: Track) {
-        selectedTrack = track
-    }
-}
+
 
 extension TimerViewController: DriverSelectorViewControllerDelegate{
     func selected(driver: Driver) {
