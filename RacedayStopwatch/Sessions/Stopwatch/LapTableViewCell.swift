@@ -29,9 +29,13 @@ class LapTableViewCell: UITableViewCell {
     func setup(with lapInfo: Lap){
         driverNameLabel.text    = lapInfo.driver.name
         driverImage.image       = UIImage(data: (lapInfo.driver.image)!)
-        speedLabel.text         = String(lapInfo.speed) + " " + Constants.SPEED_UNIT
         timeLabel.text          = lapInfo.lapTime.laptimeToString()
         lapNumberLabel.text     = Constants.LAP + " " + String(lapInfo.lapNumber)
+        if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+            speedLabel.text         = String(lapInfo.speed) + " " + Constants.SPEED_UNIT_KMH
+        }else{
+            speedLabel.text         = String(Double(lapInfo.speed).kmhToMph()) + " " + Constants.SPEED_UNIT_MPH
+        }
     }
 
 }

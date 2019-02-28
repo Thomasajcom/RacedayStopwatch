@@ -12,40 +12,48 @@ import UIKit
 struct Constants{
     //GUI
     //consider drawing this for performance increase
-    static let cornerRadius: CGFloat = 10
-    static let decimalSeparator = NSLocale.current.decimalSeparator ?? "."
+    static let cornerRadius: CGFloat    = 10
+    static let decimalSeparator         = NSLocale.current.decimalSeparator ?? "."
+    
+    //UserDefaults
+    static let defaults = UserDefaults.standard
+    static let defaults_metric_key = "Metric"
     
     //MARK: - Strings
     //MARK: - Driver
     //Add Driver
-    static let ADD_DRIVER_LABEL     = "Add Driver"
-    static let EDIT_DRIVER_LABEL    = "Edit Driver"
-static let ADD_DRIVER_PICTURE_OR_HELMET_LABEL = "Driver Picture or Helmet"
-    static let ADD_DRIVER_PICTURE_SEGMENT = "Picture"
-    static let ADD_DRIVER_HELMET_SEGMENT = "Helmet"
-    static let SAVE_BUTTON_TITLE    = "Save"
-    static let DRIVER_NAME_PLACEHOLDER = "Enter a Name"
-static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
-    static let DRIVER_NUMBER_PLACEHOLDER = "Enter a Number"
-    static let DRIVER_NUMBER_PLACEHOLDER_ERROR = "ENTER NUMBER!"
+    static let ADD_DRIVER_LABEL                     = "Add Driver"
+    static let EDIT_DRIVER_LABEL                    = "Edit Driver"
+    static let ADD_DRIVER_PICTURE_OR_HELMET_LABEL   = "Driver Picture or Helmet"
+    static let ADD_DRIVER_PICTURE_SEGMENT           = "Picture"
+    static let ADD_DRIVER_HELMET_SEGMENT            = "Helmet"
+    static let SAVE_BUTTON_TITLE                    = "Save"
+    static let DRIVER_NAME_PLACEHOLDER              = "Enter a Name"
+    static let DRIVER_NAME_PLACEHOLDER_ERROR        = "ENTER NAME!"
+    static let DRIVER_NUMBER_PLACEHOLDER            = "Enter a Number"
+    static let DRIVER_NUMBER_PLACEHOLDER_ERROR      = "ENTER NUMBER!"
+    static let ADD_DRIVER_IMAGE_ERROR_TITLE         = "Driver Image Error"
+    static let ADD_DRIVER_IMAGE_ERROR_BODY          = "Either take a picture of the driver, or select a helmet."
     
-    static let CAMERA_TITLE = "Camera"
-    static let GALLERY_TITLE = "Gallery"
+    static let CAMERA_TITLE     = "Camera"
+    static let GALLERY_TITLE    = "Gallery"
     
     //MARK: - Driver Cell
-    static let DRIVER_SESSIONS = "Sessions:"
-    static let DRIVER_FASTEST_DRIVER = "Fastest driver:"
-    static let DRIVER_FASTEST_DRIVER_TIMER = " times."
+    static let DRIVER_SESSIONS              = "Sessions:"
+    static let DRIVER_FASTEST_DRIVER        = "Fastest driver:"
+    static let DRIVER_FASTEST_DRIVER_TIMER  = " times."
     
     //MARK: - Tracks
-    static let TRACK_NAME_PLACEHOLDER = "Enter Track Name"
-    static let TRACK_LENGTH_PLACEHOLDER = "Length in "
+    static let TRACK_NAME_PLACEHOLDER       = "Enter Track Name"
+    static let TRACK_LENGTH_PLACEHOLDER     = "Length in "
     //check userDefaults for metric or imperial
-    static let TRACK_LENGTH_UNIT = "meters"
+    static let TRACK_LENGTH_UNIT_METERS     = "meters"
+    static let TRACK_LENGTH_UNIT_MILES      = "miles"
     
-    static let TRACK_ALERT_ADD_TRACK_TITLE = "Add Track"
-    static let TRACK_ALERT_DELETE_TITLE = "Delete Track"
-    static let TRACK_ALERT_DELETE_BODY = "Do you want to delete this track? This can not be undone."
+    
+    static let TRACK_ALERT_ADD_TRACK_TITLE  = "Add Track"
+    static let TRACK_ALERT_DELETE_TITLE     = "Delete Track"
+    static let TRACK_ALERT_DELETE_BODY      = "Do you want to delete this track? This can not be undone."
     
     //MARK: - Session
     //NEW SESSION
@@ -53,8 +61,8 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let SESSION_WITHOUT_TRACK            = "Session Without Track"
     static let SESSION_CUSTOM_LENGTH            = "Enter Custom Length (optional)"
     static let SESSION_WITHOUT_DRIVER           = "Session Without Driver"
-    static let SESSION_TRACK_ERROR_TITLE       = "Error With Track"
-    static let SESSION_TRACK_ERROR_BODY        = "Either select a track, or turn on the No Track Switch."
+    static let SESSION_TRACK_ERROR_TITLE        = "Error With Track"
+    static let SESSION_TRACK_ERROR_BODY         = "Either select a track, or turn on the No Track Switch."
     static let SESSION_DRIVER_ERROR_TITLE       = "Error With Driver"
     static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
     
@@ -63,12 +71,15 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let SESSION_TIME_ON_TRACK            = "Time on Track"
     static let DRIVER_IS_SELECTED               = "Selected!"
     //MARK: - Timer
+    //add driver to session
+    static let TIMER_ADD_DRIVER_OKBUTTON = "Add"
     #warning("internationalize this")
     static let TIMER_SELECT_DRIVER      = "Select Driver"
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
     static let LAP_RECORD_HOLDER_NONE   = "No lap record found."
     //check userDefaults, return metric or imperial based on that
-    static let LENGTH_UNIT      = "Meters"
+    static let LENGTH_UNIT_METERS       = "Meters"
+    static let LENGTH_UNIT_MILES        = "Miles"
     
     static let NO_TRACK_TITLE   = "No Track Selected"
     static let NO_TRACK_BODY    = "No track selected, unable to start timer. You must select a track for the session."
@@ -80,8 +91,8 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let BUTTON_LAP       = "LAP"
     
     static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
-    //check userDefaults, return metric or imperial based on that
-    static let SPEED_UNIT   = "km/h"
+    static let SPEED_UNIT_KMH   = "km/h"
+    static let SPEED_UNIT_MPH   = "mp/h"
     
     static let LAP          = "Lap"
     
@@ -103,6 +114,13 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"
     static let ALERT_SAVED      = "Ok"
+    
+    //MARK: - SETTINGS
+    static let SETTINGS_DEFAULT_HEADER      = "Defaults"
+    static let SETTINGS_IAP_HEADER          = "In-App Purchases"
+    static let SETTINGS_IMP_OR_METRIC_LABEL = "Measurement Units"
+    static let SETTINGS_IMPERIAL_LABEL      = "Imperial"
+    static let SETTINGS_METRIC_LABEL        = "Metric"
     
     
 }

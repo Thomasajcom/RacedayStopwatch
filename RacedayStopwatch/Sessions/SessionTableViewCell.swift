@@ -87,19 +87,23 @@ class SessionTableViewCell: UITableViewCell {
         driverImage.image = UIImage(data: fastestDriver.image!)
         driverImage.layer.cornerRadius  = Constants.cornerRadius
         driverImage.layer.masksToBounds = true
-        #warning("internationalize this")
         fastestDriverLabel.attributedText = NSAttributedString(string: Constants.SESSION_FASTEST_DRIVER, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
         fastestDriverName.text = fastestDriver.name
         bestLapTime.text = session.fastestLapTime.laptimeToString()
         numberOfLaps.text = String(session.numberOfLaps) + Constants.SESSION_LAP
 
-        
-        if sessionWithTrack {
-              #warning("create extension ToMilesPrHour // From MilesPrHour and save everything in km/t, then check what userPref wants here and calculate accordingly")
-            bestLapSpeed.text = String(session.fastestLapSpeed) + Constants.SPEED_UNIT
+        var calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
+        if sessionWithTrack {            
+            if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                bestLapSpeed.text = String(Double(session.fastestLapSpeed).twoDecimals) + Constants.SPEED_UNIT_KMH
+                distanceDriven.text = String(calculatedDistanceDriven.noDecimals) + Constants.LENGTH_UNIT_METERS
+            }else{
+                bestLapSpeed.text = String(Double(session.fastestLapSpeed).kmhToMph().twoDecimals) + Constants.SPEED_UNIT_MPH
+                distanceDriven.text = String(Double(calculatedDistanceDriven).fromMetersToMiles().fourDecimals) + Constants.LENGTH_UNIT_MILES
+            }
             totalSessionTimeLabel.attributedText = NSAttributedString(string: Constants.SESSION_TIME_ON_TRACK, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             totalSessionTime.text = Double(session.totalSessionTime).laptimeToString()
-            distanceDriven.text = String(session.numberOfLaps * session.onTrack!.length) + Constants.LENGTH_UNIT
+            
         }else{
             totalSessionTimeLabel.isHidden   = true
             totalSessionTime.isHidden        = true

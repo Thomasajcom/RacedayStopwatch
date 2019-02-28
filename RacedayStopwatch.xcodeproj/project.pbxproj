@@ -13,6 +13,7 @@
 		E9241A7322202431003B6C11 /* DriverPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A7222202431003B6C11 /* DriverPictureViewController.swift */; };
 		E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */; };
 		E925B5062227CE0900E67365 /* NewSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E925B5052227CE0900E67365 /* NewSessionTableViewController.swift */; };
+		E925B50B2228548600E67365 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E925B50A2228548600E67365 /* SettingsTableViewController.swift */; };
 		E92E963322005B9D004E6E20 /* TracksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963222005B9D004E6E20 /* TracksCollectionViewController.swift */; };
 		E92E963522005F9F004E6E20 /* TrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */; };
 		E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E963A2207B604004E6E20 /* TimerViewController.swift */; };
@@ -29,7 +30,6 @@
 		E960607C219366A300D37631 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960607B219366A300D37631 /* CoreDataService.swift */; };
 		E969EA98221AB7A400E6D174 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969EA97221AB7A400E6D174 /* Double.swift */; };
 		E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D02196040B00F9B4CF /* LapTableViewCell.swift */; };
-		E97F11BD2195D74F0090C336 /* AddDriverPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */; };
 		E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */; };
 		E9EE5D0222140F4F00E2F57D /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0122140F4F00E2F57D /* Driver.swift */; };
 		E9EE5D0422140F6500E2F57D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0322140F6500E2F57D /* Session.swift */; };
@@ -63,6 +63,7 @@
 		E9241A7222202431003B6C11 /* DriverPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPictureViewController.swift; sourceTree = "<group>"; };
 		E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSelectorViewController.swift; sourceTree = "<group>"; };
 		E925B5052227CE0900E67365 /* NewSessionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionTableViewController.swift; sourceTree = "<group>"; };
+		E925B50A2228548600E67365 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E92E963222005B9D004E6E20 /* TracksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksCollectionViewController.swift; sourceTree = "<group>"; };
 		E92E963422005F9F004E6E20 /* TrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionViewCell.swift; sourceTree = "<group>"; };
 		E92E963A2207B604004E6E20 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		E960607B219366A300D37631 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		E969EA97221AB7A400E6D174 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
-		E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverPopupViewController.swift; sourceTree = "<group>"; };
 		E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
 		E9EE5D0122140F4F00E2F57D /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		E9EE5D0322140F6500E2F57D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 				E9241A74222025C3003B6C11 /* Add Driver */,
 				E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */,
 				E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */,
-				E97F11BC2195D74F0090C336 /* AddDriverPopupViewController.swift */,
 			);
 			name = Drivers;
 			path = RacedayStopwatch/Drivers;
@@ -140,6 +139,14 @@
 				E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */,
 			);
 			path = "Add Driver";
+			sourceTree = "<group>";
+		};
+		E925B5092228546D00E67365 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E925B50A2228548600E67365 /* SettingsTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		E92E963C22098634004E6E20 /* DriverCollectionView */ = {
@@ -173,6 +180,7 @@
 		E9605FFF219359DA00D37631 /* RacedayStopwatch */ = {
 			isa = PBXGroup;
 			children = (
+				E925B5092228546D00E67365 /* Settings */,
 				E9EE5D092215674B00E2F57D /* Helpers */,
 				E960600E219359DB00D37631 /* Info.plist */,
 				E9606000219359DA00D37631 /* AppDelegate.swift */,
@@ -402,8 +410,8 @@
 				E9241A7322202431003B6C11 /* DriverPictureViewController.swift in Sources */,
 				E9EE5D0D22156D2D00E2F57D /* Lap.swift in Sources */,
 				E92E963E22098653004E6E20 /* DriverCollectionViewCell.swift in Sources */,
+				E925B50B2228548600E67365 /* SettingsTableViewController.swift in Sources */,
 				E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */,
-				E97F11BD2195D74F0090C336 /* AddDriverPopupViewController.swift in Sources */,
 				E9EE5D0422140F6500E2F57D /* Session.swift in Sources */,
 				E969EA98221AB7A400E6D174 /* Double.swift in Sources */,
 				E92E963322005B9D004E6E20 /* TracksCollectionViewController.swift in Sources */,

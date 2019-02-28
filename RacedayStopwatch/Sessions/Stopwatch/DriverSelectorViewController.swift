@@ -22,6 +22,8 @@ class DriverSelectorViewController: UIViewController {
     var drivers = [Driver]()
     var notSelectedDrivers = [Driver]()
     let driverFetchRequest: NSFetchRequest<Driver> = Driver.fetchRequest()
+    @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var OKButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +33,19 @@ class DriverSelectorViewController: UIViewController {
         driverPicker.delegate   = self
         driverPicker.dataSource = self
         titleLabel.text = Constants.TIMER_SELECT_DRIVER
-//        do {
-//            drivers = try CoreDataService.context.fetch(driverFetchRequest)
-//        } catch let error as NSError {
-//            print("\(error)")
-//        }
+        OKButton.setTitle(Constants.TIMER_ADD_DRIVER_OKBUTTON, for: .normal)
+        dismissButton.setTitle(Constants.ALERT_CANCEL, for: .normal)
+
     }
     
     //add ADD button
-    @IBAction func dismiss(_ sender: UIButton) {
+    @IBAction func addDriver(_ sender: UIButton) {
         if notSelectedDrivers.count > 0{
             driverSelectorDelegate.selected(driver: notSelectedDrivers[driverPicker.selectedRow(inComponent: 0)])
         }
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }

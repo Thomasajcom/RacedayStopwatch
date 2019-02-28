@@ -9,7 +9,6 @@
 import Foundation
 
 public extension Double{
-    
     /// Function to display time elapsed since reference date in a string with minutes, seconds and miliseconds
     ///
     /// - Parameter self: Time since reference date
@@ -32,11 +31,19 @@ public extension Double{
         return returnString
     }
     
+    func fromMilesToMeters() -> Double{
+        return self*1609.344
+    }
+    
+    func fromMetersToMiles() -> Double{
+        return self/1609.344
+    }
+    
     func mphToKmh() -> Double{
-        return 0.0
+        return self*1.609344
     }
     func kmhToMph() -> Double{
-        return 0.0
+        return self/1.609344
     }
     func milesToKm() -> Double{
         return 0.0
@@ -44,5 +51,14 @@ public extension Double{
     func kmToMiles() -> Double{
         return 0.0
     }
-    
+    var noDecimals:String {
+        return String(format: "%.0f", self)
+    }
+    var twoDecimals:String {
+        return String(format: "%.2f", self)
+    }
+    var fourDecimals:String {
+        return String(format: "%.4f", self)
+    }
 }
+

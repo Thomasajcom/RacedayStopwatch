@@ -30,7 +30,12 @@ class TrackCollectionViewCell: UICollectionViewCell {
         trackImage.layer.cornerRadius   = Constants.cornerRadius
         trackImage.layer.masksToBounds  = false
         trackName.text                  = track.name
-        trackLength.text                = String(track.length)
+        
+        if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+            trackLength.text                = String(track.length.noDecimals) + " " + Constants.LENGTH_UNIT_METERS
+        }else{
+            trackLength.text                = String(Double(track.length).fromMetersToMiles().fourDecimals ) + " " + Constants.LENGTH_UNIT_MILES
+        }
         if track.trackRecord > 0{
             lapRecordTime.isHidden  = false
             lapRecordTime.text      = track.trackRecord.laptimeToString()
@@ -42,6 +47,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
         if let mapImage = track.image{
             trackImage.image = UIImage(data: mapImage)
         }else{
+            #warning("fixTHIS")
             trackImage.image = UIImage(named: "defaultTrack")
         }
     }

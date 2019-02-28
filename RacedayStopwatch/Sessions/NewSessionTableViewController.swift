@@ -29,6 +29,8 @@ class NewSessionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = UITableView.automaticDimension;
+        self.tableView.estimatedRowHeight = 50.0;
         trackPicker.delegate        = self
         trackPicker.dataSource      = self
         noTrackLabel.text           = Constants.SESSION_WITHOUT_TRACK
@@ -108,7 +110,6 @@ class NewSessionTableViewController: UITableViewController {
                     newTimer.customTrackLength = Int(length)
                 }
             }else{
-                print("INGEN TRACK OG SWITCH OFF D: D: D: PRESENT NOE")
                 let alertController = UIAlertController(title: Constants.SESSION_TRACK_ERROR_TITLE, message: Constants.SESSION_TRACK_ERROR_BODY, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(action)
@@ -130,7 +131,6 @@ class NewSessionTableViewController: UITableViewController {
                 newTimer.drivers = selectedDrivers
                 newTimer.notSelectedDrivers = notSelectedDrivers
             }else{
-                print("ingen drivers og switch off D: D: D: D: PRESENT NOE!")
                 let alertController = UIAlertController(title: Constants.SESSION_DRIVER_ERROR_TITLE, message: Constants.SESSION_DRIVER_ERROR_BODY, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(action)

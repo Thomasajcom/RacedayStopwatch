@@ -59,7 +59,7 @@ class TracksCollectionViewController: UICollectionViewController {
             textField.placeholder = Constants.TRACK_NAME_PLACEHOLDER
         }
         alertController.addTextField { (textField) in
-            textField.placeholder   = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.TRACK_LENGTH_UNIT
+            textField.placeholder   = Constants.TRACK_LENGTH_PLACEHOLDER + (Constants.defaults.bool(forKey: Constants.defaults_metric_key) ? Constants.TRACK_LENGTH_UNIT_METERS : Constants.TRACK_LENGTH_UNIT_MILES)
             textField.keyboardType  = UIKeyboardType.numberPad
         }
         let addAction = UIAlertAction(title: Constants.TRACK_ALERT_ADD_TRACK_TITLE, style: .default) {[unowned self] action in
@@ -77,10 +77,16 @@ class TracksCollectionViewController: UICollectionViewController {
     }
     
     func addToCoreData(trackName: String, length: String){
-        guard let intLength = Int16(length) else{return}
+        guard let doubleLength = Double(length) else{return}
+        print("banens double lenght er: \(doubleLength)")
         let track = Track(context: CoreDataService.context)
         track.name = trackName
-        track.length = intLength
+        if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+            track.length = doubleLength
+        }else{
+            track.length = doubleLength.fromMilesToMeters()
+        }
+        
         #warning("this must be changed - add image selector in app, set that image here, or default if no photo selected")
         track.image = UIImage(named: "defaultTrack")!.pngData()
         track.trackRecord = 0

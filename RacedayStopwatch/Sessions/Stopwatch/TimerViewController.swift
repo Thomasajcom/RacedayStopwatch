@@ -67,7 +67,11 @@ class TimerViewController: UIViewController {
 //        self.navigationController?.title = todayString
         if let track = selectedTrack{
             trackNameLabel.text     = track.name
-            trackLengthLabel.text   = String(track.length)+" "+Constants.LENGTH_UNIT
+            if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                trackLengthLabel.text   = String(track.length.noDecimals)+" "+Constants.LENGTH_UNIT_METERS
+            }else{
+                trackLengthLabel.text   = String(Double(track.length).fromMetersToMiles().fourDecimals)+" "+Constants.LENGTH_UNIT_MILES
+            }
             lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
             
             if let recordHolderName     = track.trackRecordHolder?.name{
@@ -77,13 +81,24 @@ class TimerViewController: UIViewController {
                 lapRecordHolder.text    = Constants.LAP_RECORD_HOLDER_NONE
                 lapRecordTime.isHidden  = true
             }
-        }
-        if let length = customTrackLength{
-            trackNameLabel.text         = String(length)+" "+Constants.LENGTH_UNIT
+        }else if let length = customTrackLength{
+            if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                trackNameLabel.text         = String(length)+" "+Constants.LENGTH_UNIT_METERS
+            }else{
+                trackNameLabel.text         = String(length)+" "+Constants.LENGTH_UNIT_MILES
+            }
+            
             trackLengthLabel.isHidden   = true
             lapRecordLabel.isHidden     = true
             lapRecordHolder.isHidden    = true
             lapRecordTime.isHidden      = true
+        }else {
+            trackNameLabel.isHidden     = true
+            trackLengthLabel.isHidden   = true
+            lapRecordLabel.isHidden     = true
+            lapRecordHolder.isHidden    = true
+            lapRecordTime.isHidden      = true
+            
         }
         
         for driver in drivers{
@@ -268,7 +283,6 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
             let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
             #warning("error with speed")
-            print("speed")
             //create a new instance of the Lap struct and add it to the array of Laps
             let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
             laps.append(newLap)
@@ -296,7 +310,3 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: 100, height: 100)
     }
 }
-
-
-//TODO:
-//drivers array, only add one driver

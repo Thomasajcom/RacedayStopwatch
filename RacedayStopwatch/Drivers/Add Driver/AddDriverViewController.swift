@@ -108,6 +108,10 @@ class AddDriverViewController: UIViewController {
             driverImage = helmetImage
         }
         guard let image = driverImage else {
+            let alertController = UIAlertController(title: Constants.ADD_DRIVER_IMAGE_ERROR_TITLE, message: Constants.ADD_DRIVER_IMAGE_ERROR_BODY, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(action)
+            present(alertController, animated: true)
             return
         }
         
