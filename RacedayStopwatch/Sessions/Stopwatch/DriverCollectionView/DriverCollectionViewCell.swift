@@ -17,11 +17,11 @@ class DriverCollectionViewCell: UICollectionViewCell {
     
 
     func setup(title: String, image: UIImage){
-        cellTitle.text = title
-        cellImage.layer.cornerRadius = 10
-        cellImage.layer.masksToBounds = true
-        cellImage.image = image
-        timerLabel.text = Constants.LAPTIME_NOT_STARTED
+        cellTitle.text                  = title
+        cellImage.layer.cornerRadius    = Constants.cornerRadius
+        cellImage.layer.masksToBounds   = true
+        cellImage.image                 = image
+        timerLabel.text                 = Constants.LAPTIME_NOT_STARTED
     }
     
     func updateLabels(lapTime: Double){

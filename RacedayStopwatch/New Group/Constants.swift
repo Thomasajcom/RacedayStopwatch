@@ -74,15 +74,20 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     
     static let LAP          = "Lap"
     
+    static let TIMER_NOT_RUNNING_TITLE  = "Timer Not Active"
+    static let TIMER_NOT_RUNNING_BODY   = "Unable to lap when the timer isn't running."
+    
     //saving a session
-    static let TIMER_RUNNING_TITLE  = "Timer still running"
-    static let TIMER_RUNNING_BODY   = "You have to stop the timer before trying to save."
-    static let NO_LAPS_TITLE        = "No laps recorded"
-    static let NO_LAPS_BODY         = "There is nothing to save."
+    static let TIMER_RUNNING_TITLE          = "Timer still running"
+    static let TIMER_RUNNING_BODY           = "You have to stop the timer before trying to save."
+    static let NO_LAPS_TITLE                = "No laps recorded"
+    static let NO_LAPS_BODY                 = "There is nothing to save."
+    static let TIMER_SESSION_SAVED_TITLE    = "Session Saved!"
+    static let TIMER_SESSION_SAVED_BODY     = "The session was successfully saved"
     
     //MARK: - Track Select
     static let TRACK_SELECT_TITLE           = "Select Track"
-    static let TRACK_SELECT_DISMISS_BUTTON  = "OKAY"
+    static let TRACK_SELECT_DISMISS_BUTTON  = "Done"
     
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"

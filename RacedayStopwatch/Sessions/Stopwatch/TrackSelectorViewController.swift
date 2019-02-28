@@ -25,11 +25,11 @@ class TrackSelectorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popupView.layer.cornerRadius = 10
-        popupView.layer.masksToBounds = true
+        popupView.layer.cornerRadius    = Constants.cornerRadius
+        popupView.layer.masksToBounds   = true
         
-        trackPicker.delegate = self
-        trackPicker.dataSource = self
+        trackPicker.delegate    = self
+        trackPicker.dataSource  = self
         
         titleLabel.text = Constants.TRACK_SELECT_TITLE
         dismissButton.setTitle(Constants.TRACK_SELECT_DISMISS_BUTTON, for: .normal)

@@ -44,9 +44,9 @@ class TimerViewController: UIViewController {
             trackLengthLabel.text   = String(selectedTrack!.length)+" "+Constants.LENGTH_UNIT
             lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
             
-            if let recordHolderName     = selectedTrack!.trackRecordHolder?.name, let trackRecord = selectedTrack!.trackRecord{
+            if let recordHolderName     = selectedTrack!.trackRecordHolder?.name, let trackRecord = selectedTrack?.trackRecord{
                 lapRecordHolder.text    = recordHolderName
-                lapRecordTime.text      = trackRecord
+                lapRecordTime.text      = trackRecord.laptimeToString()
             }else{
                 lapRecordHolder.text    = Constants.LAP_RECORD_HOLDER_NONE
                 lapRecordTime.isHidden  = true
@@ -106,7 +106,7 @@ class TimerViewController: UIViewController {
             print("fastestlap !=nil cant save")
             return (false,Constants.NO_LAPS_TITLE,Constants.NO_LAPS_BODY)
         }
-        return (true, "ok", "ok")
+        return (true, Constants.TIMER_SESSION_SAVED_TITLE, Constants.TIMER_SESSION_SAVED_BODY)
     }
 
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -121,12 +121,16 @@ class TimerViewController: UIViewController {
         session.onTrack             = selectedTrack
         session.drivers             = NSSet(array: drivers)
         session.fastestDriver       = fastestLap!.driver
-        session.fastestLapTime      = fastestLap!.lapTime.laptimeToString()
+        session.fastestLapTime      = fastestLap!.lapTime
         session.fastestLapSpeed     = Int16(fastestLap!.speed)
         session.numberOfLaps        = Int16(laps.count)
+        session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+        if fastestLap!.lapTime < selectedTrack!.trackRecord || selectedTrack!.trackRecord == 0{
+            session.onTrack?.trackRecord = session.fastestLapTime
+            session.onTrack?.trackRecordHolder = session.fastestDriver
+        }
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
-        
     }
     
     // MARK: - TIMER
@@ -150,11 +154,8 @@ class TimerViewController: UIViewController {
         let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
             (alert: UIAlertAction!) in
             if (actionString == Constants.ALERT_SAVED){
-                print("i presentAlertController soin handler TRUE")
                 self.navigationController?.popToRootViewController(animated: true)
             }else{
-                print("i presentAlertController soin handler FALSE")
-
             }
             
         }
@@ -252,35 +253,40 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }else if (false){//if not, then imperialc
             
         }
-        return Int(speed)
+        return Int(speed.rounded(.down))
     }
     
     #warning("this needs a serious rework")
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
-        //find the lapnumber for the current driver based on occurences in the Laps array
-        let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
-        let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
-        let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
-        #warning("error with speed")
-        print("speed")
-        //create a new instance of the Lap struct and add it to the array of Laps
-        let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
-        laps.append(newLap)
-        
-        //check if this lap was the fastest lap
-        if fastestLap == nil{
-            fastestLap = newLap
-        }else if newLap.lapTime < fastestLap!.lapTime{
-            fastestLap = newLap
+        if mainTimerEnabled {
+            let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
+            //find the lapnumber for the current driver based on occurences in the Laps array
+            let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
+            let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
+            let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
+            #warning("error with speed")
+            print("speed")
+            //create a new instance of the Lap struct and add it to the array of Laps
+            let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
+            laps.append(newLap)
+            
+            //check if this lap was the fastest lap
+            if fastestLap == nil{
+                fastestLap = newLap
+            }else if newLap.lapTime < fastestLap!.lapTime{
+                fastestLap = newLap
+            }
+            //starts a new lap
+            participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
+            
+            lapTableview.beginUpdates()
+            lapTableview.insertRows(at: [IndexPath(row: laps.count-1, section: 0)], with: .bottom)
+            lapTableview.endUpdates()
+            lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+        }else {
+            presentAlertController(title: Constants.TIMER_NOT_RUNNING_TITLE, body: Constants.TIMER_NOT_RUNNING_BODY, actionButton: (Constants.ALERT_CANCEL,.cancel))
         }
-        //starts a new lap
-        participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
         
-        lapTableview.beginUpdates()
-        lapTableview.insertRows(at: [IndexPath(row: laps.count-1, section: 0)], with: .bottom)
-        lapTableview.endUpdates()
-        lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

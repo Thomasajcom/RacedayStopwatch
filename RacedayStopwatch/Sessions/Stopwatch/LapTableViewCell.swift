@@ -27,12 +27,11 @@ class LapTableViewCell: UITableViewCell {
     }
     
     func setup(with lapInfo: Lap){
-        print("SETUP I CELLELELELE")
-        driverNameLabel.text = lapInfo.driver.name
-        driverImage.image = UIImage(data: (lapInfo.driver.image)!)
-        speedLabel.text = String(lapInfo.speed) + " " + Constants.SPEED_UNIT
-        timeLabel.text = lapInfo.lapTime.laptimeToString()
-        lapNumberLabel.text = Constants.LAP + " " + String(lapInfo.lapNumber)
+        driverNameLabel.text    = lapInfo.driver.name
+        driverImage.image       = UIImage(data: (lapInfo.driver.image)!)
+        speedLabel.text         = String(lapInfo.speed) + " " + Constants.SPEED_UNIT
+        timeLabel.text          = lapInfo.lapTime.laptimeToString()
+        lapNumberLabel.text     = Constants.LAP + " " + String(lapInfo.lapNumber)
     }
 
 }

@@ -55,7 +55,7 @@ extension DriverSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let drivers = drivers{
-            return "\(drivers[row].name) - \(drivers[row].number)"
+            return drivers[row].name! + " #" + drivers[row].number!
         }else{ return "Error getting Driver name" }
     }
 }

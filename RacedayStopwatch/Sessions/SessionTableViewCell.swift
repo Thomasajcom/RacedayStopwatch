@@ -44,6 +44,7 @@ class SessionTableViewCell: UITableViewCell {
     
     //setup a session cell
     func setup(with session: Session) {
+        
         setupDate(for: session.sessionDateAndTime!)
         setupTrack(track: session.onTrack)
         setupFastestDriver(with: session.fastestDriver, in: session)
@@ -69,6 +70,7 @@ class SessionTableViewCell: UITableViewCell {
     }
     
     func setupFastestDriver(with driver: Driver?, in session: Session){
+        
         guard let fastestDriver = driver else {
             driverImage.image           = nil
             driverImage.isHidden        = true
@@ -83,10 +85,12 @@ class SessionTableViewCell: UITableViewCell {
             return
         }
         driverImage.image = UIImage(data: fastestDriver.image!)
+        driverImage.layer.cornerRadius  = Constants.cornerRadius
+        driverImage.layer.masksToBounds = true
         #warning("internationalize this")
         fastestDriverLabel.attributedText = NSAttributedString(string: Constants.SESSION_FASTEST_DRIVER, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
         fastestDriverName.text = fastestDriver.name
-        bestLapTime.text = session.fastestLapTime
+        bestLapTime.text = session.fastestLapTime.laptimeToString()
         numberOfLaps.text = String(session.numberOfLaps) + Constants.SESSION_LAP
 
         

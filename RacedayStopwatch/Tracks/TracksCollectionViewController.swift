@@ -41,12 +41,7 @@ class TracksCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do {
-            try fetchedResultsController.performFetch()
-        } catch  {
-            let error = error as NSError
-            print("Unable to fetch tracks: \(error)")
-        }
+        collectionView.reloadData()
     }
 
     /*
@@ -88,6 +83,7 @@ class TracksCollectionViewController: UICollectionViewController {
         track.length = intLength
         #warning("this must be changed - add image selector in app, set that image here, or default if no photo selected")
         track.image = UIImage(named: "defaultTrack")!.pngData()
+        track.trackRecord = 0
         CoreDataService.saveContext()
     }
 

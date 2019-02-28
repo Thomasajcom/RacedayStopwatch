@@ -23,6 +23,8 @@ class DriverPictureViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        driverImage.layer.cornerRadius  = Constants.cornerRadius
+        driverImage.layer.masksToBounds = true
         if let driver = driver {
             driverImage.image = UIImage(data: driver.image!)
         }else{

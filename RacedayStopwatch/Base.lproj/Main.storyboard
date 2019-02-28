@@ -53,28 +53,32 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PE2-1y-2A8">
-                                            <rect key="frame" x="8" y="160" width="325" height="309"/>
+                                            <rect key="frame" x="20.5" y="169" width="300" height="300"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="Fvo-Ty-FiJ"/>
+                                                <constraint firstAttribute="height" constant="300" id="fQn-5v-1Nt"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-gq-Tz8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-gq-Tz8">
                                             <rect key="frame" x="8" y="28" width="325" height="36"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTj-cl-391">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTj-cl-391">
                                             <rect key="frame" x="8" y="64" width="325" height="31.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-CS-Ucf">
-                                            <rect key="frame" x="8" y="105.5" width="325" height="20.5"/>
+                                            <rect key="frame" x="8" y="105.5" width="325" height="29.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-SS-mm9" userLabel="LapRecord Stack View">
-                                            <rect key="frame" x="8" y="126" width="325" height="24"/>
+                                            <rect key="frame" x="8" y="135" width="325" height="24"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-C9-ebq">
                                                     <rect key="frame" x="0.0" y="0.0" width="186" height="24"/>
@@ -97,12 +101,11 @@
                                     <constraint firstItem="qoF-gq-Tz8" firstAttribute="top" secondItem="SwM-38-s9f" secondAttribute="topMargin" id="0k3-kj-94D"/>
                                     <constraint firstItem="PE2-1y-2A8" firstAttribute="top" secondItem="bGn-SS-mm9" secondAttribute="bottom" constant="10" id="B5E-zz-oYZ"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="qoF-gq-Tz8" secondAttribute="trailing" id="CMu-zt-Z8i"/>
-                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="Ix9-nD-P4O"/>
                                     <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="Sfu-6e-IwL"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="bTj-cl-391" secondAttribute="trailing" id="SmS-Nd-vPz"/>
                                     <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="YJy-Hy-nu5"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" id="doL-RX-saK"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="PE2-1y-2A8" secondAttribute="trailing" id="e0Q-25-SzB"/>
+                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="centerX" secondItem="SwM-38-s9f" secondAttribute="centerX" id="f4x-MA-gpe"/>
                                     <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="gC1-5G-81s"/>
                                     <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="bTj-cl-391" secondAttribute="bottom" constant="10" id="jCz-rb-Qvj"/>
                                     <constraint firstItem="bTj-cl-391" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="k4X-IE-eFU"/>
