@@ -52,10 +52,16 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     static let SESSION_DRIVER_SELECT_TITLE      = "Select Driver"
     static let SESSION_WITHOUT_TRACK            = "Session Without Track"
     static let SESSION_CUSTOM_LENGTH            = "Enter Custom Length (optional)"
+    static let SESSION_WITHOUT_DRIVER           = "Session Without Driver"
+    static let SESSION_TRACK_ERROR_TITLE       = "Error With Track"
+    static let SESSION_TRACK_ERROR_BODY        = "Either select a track, or turn on the No Track Switch."
+    static let SESSION_DRIVER_ERROR_TITLE       = "Error With Driver"
+    static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
     
     static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
     static let SESSION_LAP                      = " laps"
     static let SESSION_TIME_ON_TRACK            = "Time on Track"
+    static let DRIVER_IS_SELECTED               = "Selected!"
     //MARK: - Timer
     #warning("internationalize this")
     static let TIMER_SELECT_DRIVER      = "Select Driver"
@@ -97,4 +103,6 @@ static let DRIVER_NAME_PLACEHOLDER_ERROR = "ENTER NAME!"
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"
     static let ALERT_SAVED      = "Ok"
+    
+    
 }

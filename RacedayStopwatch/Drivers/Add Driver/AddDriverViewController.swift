@@ -48,6 +48,7 @@ class AddDriverViewController: UIViewController {
         addDriverLabel.text             = Constants.ADD_DRIVER_LABEL
         driverNameLabel.text            = Constants.DRIVER_NAME_PLACEHOLDER
         driverNumberLabel.text          = Constants.DRIVER_NUMBER_PLACEHOLDER
+        addDoneButton()
         pictureOrHelmetLabel.text       = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
         pictureOrHelmetLabel.isHidden   = true
         pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_PICTURE_SEGMENT, forSegmentAt: 0)
@@ -59,6 +60,15 @@ class AddDriverViewController: UIViewController {
             addDriverLabel.text = Constants.EDIT_DRIVER_LABEL
             addDriverButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
         }
+    }
+    //refactor to an extension as it's being used multiple places
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexSpace, doneBarButton]
+        driverNumber.inputAccessoryView = keyboardToolbar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

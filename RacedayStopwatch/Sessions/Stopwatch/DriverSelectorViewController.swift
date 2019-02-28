@@ -19,7 +19,8 @@ class DriverSelectorViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     var driverSelectorDelegate: DriverSelectorViewControllerDelegate!
     @IBOutlet weak var driverPicker: UIPickerView!
-    var drivers: [Driver]?
+    var drivers = [Driver]()
+    var notSelectedDrivers = [Driver]()
     let driverFetchRequest: NSFetchRequest<Driver> = Driver.fetchRequest()
     
     override func viewDidLoad() {
@@ -30,15 +31,18 @@ class DriverSelectorViewController: UIViewController {
         driverPicker.delegate   = self
         driverPicker.dataSource = self
         titleLabel.text = Constants.TIMER_SELECT_DRIVER
-        do {
-            drivers = try CoreDataService.context.fetch(driverFetchRequest)
-        } catch let error as NSError {
-            print("\(error)")
-        }
+//        do {
+//            drivers = try CoreDataService.context.fetch(driverFetchRequest)
+//        } catch let error as NSError {
+//            print("\(error)")
+//        }
     }
     
+    //add ADD button
     @IBAction func dismiss(_ sender: UIButton) {
-        driverSelectorDelegate.selected(driver: drivers![driverPicker.selectedRow(inComponent: 0)])
+        if notSelectedDrivers.count > 0{
+            driverSelectorDelegate.selected(driver: notSelectedDrivers[driverPicker.selectedRow(inComponent: 0)])
+        }
         dismiss(animated: true, completion: nil)
     }
 }
@@ -49,13 +53,10 @@ extension DriverSelectorViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        guard let drivers = drivers else {return 0}
-        return drivers.count
+        return notSelectedDrivers.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if let drivers = drivers{
-            return drivers[row].name! + " #" + drivers[row].number!
-        }else{ return "Error getting Driver name" }
+        return notSelectedDrivers[row].name! + " #" + notSelectedDrivers[row].number!
     }
 }

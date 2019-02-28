@@ -31,7 +31,6 @@ class TrackCollectionViewCell: UICollectionViewCell {
         trackImage.layer.masksToBounds  = false
         trackName.text                  = track.name
         trackLength.text                = String(track.length)
-        print("track record: \(track.trackRecord)")
         if track.trackRecord > 0{
             lapRecordTime.isHidden  = false
             lapRecordTime.text      = track.trackRecord.laptimeToString()

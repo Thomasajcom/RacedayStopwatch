@@ -14,9 +14,20 @@ class DriverCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var timerLabel: UILabel!
-    
+    override var isSelected: Bool {
+        didSet{
+            if self.isSelected
+            {
+                self.contentView.backgroundColor = UIColor.green
+                UIView.animate(withDuration: 0.2) {
+                    self.contentView.backgroundColor = UIColor.white
+                }
+            }
+        }
+    }
 
     func setup(title: String, image: UIImage){
+        contentView.layer.cornerRadius  = Constants.cornerRadius
         cellTitle.text                  = title
         cellImage.layer.cornerRadius    = Constants.cornerRadius
         cellImage.layer.masksToBounds   = true

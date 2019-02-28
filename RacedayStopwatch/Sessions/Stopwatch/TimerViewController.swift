@@ -29,6 +29,7 @@ class TimerViewController: UIViewController {
     
     var participatingDrivers    = [(Driver,RaceDayTimer)]()
     var drivers                 = [Driver]()
+    var notSelectedDrivers      = [Driver]()
     var laps                    = [Lap]()
     var fastestLap: Lap?
     
@@ -37,30 +38,8 @@ class TimerViewController: UIViewController {
     var mainTimerStartTime: Double = 0
 
     
-    // TODO:  - Future Patch: Add the option of setting a selectedTrack by default to UserDefaults
-    var selectedTrack: Track?{
-        didSet{
-            trackNameLabel.text     = selectedTrack!.name
-            trackLengthLabel.text   = String(selectedTrack!.length)+" "+Constants.LENGTH_UNIT
-            lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
-            
-            if let recordHolderName     = selectedTrack!.trackRecordHolder?.name, let trackRecord = selectedTrack?.trackRecord{
-                lapRecordHolder.text    = recordHolderName
-                lapRecordTime.text      = trackRecord.laptimeToString()
-            }else{
-                lapRecordHolder.text    = Constants.LAP_RECORD_HOLDER_NONE
-                lapRecordTime.isHidden  = true
-            }
-        }
-    }
-    var customLength: Int?{
-        didSet{
-            trackNameLabel.text         = String(customLength!)+" "+Constants.LENGTH_UNIT
-            trackLengthLabel.isHidden   = true
-            lapRecordHolder.isHidden    = true
-            lapRecordTime.isHidden      = true
-        }
-    }
+    var selectedTrack: Track?
+    var customTrackLength: Int?
     
     
     override func viewDidLoad() {
@@ -86,6 +65,30 @@ class TimerViewController: UIViewController {
         formatter.dateFormat = "dd.MM.yyyy"
         let todayString = formatter.string(from: date)
 //        self.navigationController?.title = todayString
+        if let track = selectedTrack{
+            trackNameLabel.text     = track.name
+            trackLengthLabel.text   = String(track.length)+" "+Constants.LENGTH_UNIT
+            lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
+            
+            if let recordHolderName     = track.trackRecordHolder?.name{
+                lapRecordHolder.text    = recordHolderName
+                lapRecordTime.text      = track.trackRecord.laptimeToString()
+            }else{
+                lapRecordHolder.text    = Constants.LAP_RECORD_HOLDER_NONE
+                lapRecordTime.isHidden  = true
+            }
+        }
+        if let length = customTrackLength{
+            trackNameLabel.text         = String(length)+" "+Constants.LENGTH_UNIT
+            trackLengthLabel.isHidden   = true
+            lapRecordLabel.isHidden     = true
+            lapRecordHolder.isHidden    = true
+            lapRecordTime.isHidden      = true
+        }
+        
+        for driver in drivers{
+            participatingDrivers.append( (driver,RaceDayTimer()) )
+        }
 
     }
 
@@ -96,6 +99,8 @@ class TimerViewController: UIViewController {
          if segue.identifier == "SelectDriverSegue" {
             if let vc = segue.destination as? DriverSelectorViewController{
                 vc.driverSelectorDelegate = self
+                vc.notSelectedDrivers = notSelectedDrivers
+                vc.drivers = drivers
             }
         }
     }
