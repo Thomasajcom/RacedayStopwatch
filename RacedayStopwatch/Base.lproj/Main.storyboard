@@ -30,117 +30,6 @@
             </objects>
             <point key="canvasLocation" x="9" y="-1259"/>
         </scene>
-        <!--Tracks-->
-        <scene sceneID="jo9-9a-O3P">
-            <objects>
-                <collectionViewController id="XAK-hJ-74C" customClass="TracksCollectionViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZjZ-Y0-zTx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="Ue0-tS-sce">
-                            <size key="itemSize" width="341" height="477"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trackCell" id="SwM-38-s9f" customClass="TrackCollectionViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                <rect key="frame" x="10" y="12.5" width="341" height="477"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="477"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PE2-1y-2A8">
-                                            <rect key="frame" x="20.5" y="169" width="300" height="300"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="Fvo-Ty-FiJ"/>
-                                                <constraint firstAttribute="height" constant="300" id="fQn-5v-1Nt"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-gq-Tz8">
-                                            <rect key="frame" x="8" y="28" width="325" height="36"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTj-cl-391">
-                                            <rect key="frame" x="8" y="64" width="325" height="31.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-CS-Ucf">
-                                            <rect key="frame" x="8" y="105.5" width="325" height="29.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-SS-mm9" userLabel="LapRecord Stack View">
-                                            <rect key="frame" x="8" y="135" width="325" height="24"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-C9-ebq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF0-U8-WW5">
-                                                    <rect key="frame" x="226" y="0.0" width="99" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <color key="backgroundColor" red="0.96525386708139815" green="0.97070285674845513" blue="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="qoF-gq-Tz8" firstAttribute="top" secondItem="SwM-38-s9f" secondAttribute="topMargin" id="0k3-kj-94D"/>
-                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="top" secondItem="bGn-SS-mm9" secondAttribute="bottom" constant="10" id="B5E-zz-oYZ"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="qoF-gq-Tz8" secondAttribute="trailing" id="CMu-zt-Z8i"/>
-                                    <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="Sfu-6e-IwL"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="bTj-cl-391" secondAttribute="trailing" id="SmS-Nd-vPz"/>
-                                    <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="YJy-Hy-nu5"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" id="doL-RX-saK"/>
-                                    <constraint firstItem="PE2-1y-2A8" firstAttribute="centerX" secondItem="SwM-38-s9f" secondAttribute="centerX" id="f4x-MA-gpe"/>
-                                    <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="gC1-5G-81s"/>
-                                    <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="bTj-cl-391" secondAttribute="bottom" constant="10" id="jCz-rb-Qvj"/>
-                                    <constraint firstItem="bTj-cl-391" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="k4X-IE-eFU"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="PE2-1y-2A8" secondAttribute="bottom" id="kml-hS-y1a"/>
-                                    <constraint firstItem="bTj-cl-391" firstAttribute="top" secondItem="qoF-gq-Tz8" secondAttribute="bottom" id="nPA-O7-Lig"/>
-                                    <constraint firstItem="qoF-gq-Tz8" firstAttribute="leading" secondItem="SwM-38-s9f" secondAttribute="leadingMargin" id="rJb-Va-mFE"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="xFu-CS-Ucf" secondAttribute="trailing" id="tXn-z0-P9c"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="lapRecordHolder" destination="OeX-C9-ebq" id="rXY-Gp-Q6U"/>
-                                    <outlet property="lapRecordLabel" destination="xFu-CS-Ucf" id="bIN-zU-dOb"/>
-                                    <outlet property="lapRecordTime" destination="QF0-U8-WW5" id="1xp-Gh-daS"/>
-                                    <outlet property="trackImage" destination="PE2-1y-2A8" id="a6c-Ad-wsU"/>
-                                    <outlet property="trackLength" destination="bTj-cl-391" id="Brb-R3-YQE"/>
-                                    <outlet property="trackName" destination="qoF-gq-Tz8" id="UkY-6y-bAb"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="XAK-hJ-74C" id="2jW-Ax-vOw"/>
-                            <outlet property="delegate" destination="XAK-hJ-74C" id="Uhy-vc-biP"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Tracks" id="XWm-SJ-fRZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BrJ-SG-rdU">
-                            <connections>
-                                <action selector="addTrack:" destination="XAK-hJ-74C" id="MPV-PF-Yln"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MIM-vz-YsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="250.52473763118442"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="42x-W5-bDi">
             <objects>
@@ -642,6 +531,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ad-SH-fyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607.20000000000005" y="973.76311844077964"/>
+        </scene>
+        <!--Tracks-->
+        <scene sceneID="Hov-z5-Q8H">
+            <objects>
+                <tableViewController id="T57-XV-8SU" customClass="TracksTableViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kep-3E-xWa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="251" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="251"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YE3-iL-OPu" id="V1g-zM-Dhb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
+                                            <rect key="frame" x="16" y="11" width="343" height="31.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-is-ATK">
+                                            <rect key="frame" x="16" y="42.5" width="343" height="148"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-CS-Ucf">
+                                            <rect key="frame" x="16" y="195.5" width="343" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-SS-mm9" userLabel="LapRecord Stack View">
+                                            <rect key="frame" x="16" y="216" width="343" height="24"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-C9-ebq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF0-U8-WW5">
+                                                    <rect key="frame" x="244" y="0.0" width="99" height="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bGn-SS-mm9" secondAttribute="bottom" id="332-n1-tR6"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="xRK-is-ATK" secondAttribute="bottom" constant="5" id="APA-go-sWm"/>
+                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="DVJ-Fh-efe"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="G4i-FR-hGz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" id="RbU-le-MdM"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="V54-sB-2Zm"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="W2F-bi-naT"/>
+                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="fEo-Fg-PFr"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="fS9-Dd-GJg"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="top" secondItem="RGX-xA-qSy" secondAttribute="bottom" id="j9x-36-arf"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="lca-tY-YYq"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="mVi-T5-wjy"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="topMargin" id="wQH-UU-rD9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lapRecordHolder" destination="OeX-C9-ebq" id="J4i-aF-Ynl"/>
+                                    <outlet property="lapRecordLabel" destination="xFu-CS-Ucf" id="jkb-4S-SAK"/>
+                                    <outlet property="lapRecordTime" destination="QF0-U8-WW5" id="wto-XW-SMP"/>
+                                    <outlet property="trackLength" destination="xRK-is-ATK" id="wa1-8K-l7c"/>
+                                    <outlet property="trackName" destination="RGX-xA-qSy" id="Vzd-8q-lOX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="T57-XV-8SU" id="lqi-fm-AmZ"/>
+                            <outlet property="delegate" destination="T57-XV-8SU" id="3z9-Ll-O9h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tracks" id="mpq-ul-bmK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bvh-fF-ZjP">
+                            <connections>
+                                <action selector="add:" destination="T57-XV-8SU" id="2cp-gc-MVW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NvB-Yr-OVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.8000000000000007" y="250.52473763118442"/>
         </scene>
         <!--Timer-->
         <scene sceneID="dC4-Hx-ee2">
@@ -1280,7 +1263,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="XAK-hJ-74C" kind="relationship" relationship="rootViewController" id="umN-9v-QN1"/>
+                        <segue destination="T57-XV-8SU" kind="relationship" relationship="rootViewController" id="Rsa-cL-srd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLq-wX-4Ec" userLabel="First Responder" sceneMemberID="firstResponder"/>

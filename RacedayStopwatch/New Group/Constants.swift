@@ -19,7 +19,14 @@ struct Constants{
     static let defaults = UserDefaults.standard
     static let defaults_metric_key = "Metric"
     
+    #warning("internationalize this")
     //MARK: - Strings
+    //Titles
+    static let SESSIONS_TITLE     = "Sessions"
+    static let TRACKS_TITLE       = "Tracks"
+    static let DRIVERS_TITLE      = "Drivers"
+    static let NEW_SESSION_TITLE  = "New Session"
+    static let SETTINGS_TITLE     = "Settings"
     //MARK: - Driver
     //Add Driver
     static let ADD_DRIVER_LABEL                     = "Add Driver"
@@ -73,7 +80,6 @@ struct Constants{
     //MARK: - Timer
     //add driver to session
     static let TIMER_ADD_DRIVER_OKBUTTON = "Add"
-    #warning("internationalize this")
     static let TIMER_SELECT_DRIVER      = "Select Driver"
     static let LAP_RECORD_LABEL         = "Lap Record Holder"
     static let LAP_RECORD_HOLDER_NONE   = "No lap record found."

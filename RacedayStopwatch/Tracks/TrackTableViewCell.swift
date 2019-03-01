@@ -1,36 +1,37 @@
 //
-//  TrackCollectionViewCell.swift
+//  TrackTableViewCell.swift
 //  RacedayStopwatch
 //
-//  Created by Thomas Andre Johansen on 29/01/2019.
+//  Created by Thomas Andre Johansen on 01/03/2019.
 //  Copyright © 2019 Appbryggeriet. All rights reserved.
 //
 
 import UIKit
 
-class TrackCollectionViewCell: UICollectionViewCell {
+class TrackTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "trackCell"
 
-    
+
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var trackLength: UILabel!
     @IBOutlet weak var lapRecordLabel: UILabel!
     @IBOutlet weak var lapRecordHolder: UILabel!
     @IBOutlet weak var lapRecordTime: UILabel!
-    @IBOutlet weak var trackImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
     func setup(_ track: Track){
-        self.layer.cornerRadius     = Constants.cornerRadius
-        self.layer.masksToBounds    = false
-        trackImage.layer.cornerRadius   = Constants.cornerRadius
-        trackImage.layer.masksToBounds  = false
         trackName.text                  = track.name
-        
         if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
             trackLength.text                = String(track.length.noDecimals) + " " + Constants.LENGTH_UNIT_METERS
         }else{
@@ -44,11 +45,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
             lapRecordTime.isHidden  = true
             lapRecordHolder.text    = "No lap record set. Get out there!"
         }
-        if let mapImage = track.image{
-            trackImage.image = UIImage(data: mapImage)
-        }else{
-            #warning("fixTHIS")
-            trackImage.image = UIImage(named: "defaultTrack")
-        }
+        
     }
+
 }

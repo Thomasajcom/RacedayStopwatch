@@ -102,7 +102,6 @@ class SessionTableViewCell: UITableViewCell {
             }
             totalSessionTimeLabel.attributedText = NSAttributedString(string: Constants.SESSION_TIME_ON_TRACK, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             totalSessionTime.text = Double(session.totalSessionTime).laptimeToString()
-            
         }else{
             totalSessionTimeLabel.isHidden  = true
             totalSessionTime.isHidden       = true

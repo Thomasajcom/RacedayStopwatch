@@ -29,22 +29,20 @@ class NewSessionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = UITableView.automaticDimension;
-        self.tableView.estimatedRowHeight = 50.0;
-        trackPicker.delegate        = self
-        trackPicker.dataSource      = self
-        noTrackLabel.text           = Constants.SESSION_WITHOUT_TRACK
-        noTrackLength.placeholder   = Constants.SESSION_CUSTOM_LENGTH
+        self.title = Constants.NEW_SESSION_TITLE
+        self.tableView.rowHeight            = UITableView.automaticDimension;
+        self.tableView.estimatedRowHeight   = 50.0;
+        trackPicker.delegate                = self
+        trackPicker.dataSource              = self
+        noTrackLabel.text                   = Constants.SESSION_WITHOUT_TRACK
+        noTrackLength.placeholder           = Constants.SESSION_CUSTOM_LENGTH
         addDoneButton()
         
         driversCollectionView.delegate      = self
         driversCollectionView.dataSource    = self
         driversCollectionView.allowsMultipleSelection = true
         noDriversLabel.text                 = Constants.SESSION_WITHOUT_DRIVER
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
+
         do {
             tracks = try CoreDataService.context.fetch(trackFetchRequest)
         } catch let error as NSError {
@@ -52,7 +50,6 @@ class NewSessionTableViewController: UITableViewController {
         }
         do {
             drivers = try CoreDataService.context.fetch(driverFetchRequest)
-            #warning("check what happens without drivers")
         } catch let error as NSError {
             print("\(error)")
         }

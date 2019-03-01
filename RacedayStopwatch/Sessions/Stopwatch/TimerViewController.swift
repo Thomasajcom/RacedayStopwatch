@@ -68,7 +68,7 @@ class TimerViewController: UIViewController {
         //TODO: - Internationalize this
         formatter.dateFormat = "dd.MM.yyyy"
         let todayString = formatter.string(from: date)
-//        self.navigationController?.title = todayString
+        self.title = todayString
         if let track = selectedTrack{
             trackNameLabel.text     = track.name
             if Constants.defaults.bool(forKey: Constants.defaults_metric_key){

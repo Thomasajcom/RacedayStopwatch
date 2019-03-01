@@ -32,6 +32,7 @@ class DriversTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title          = Constants.DRIVERS_TITLE
         footerView.isHidden = true
         do {
             try fetchedResultsController.performFetch()
