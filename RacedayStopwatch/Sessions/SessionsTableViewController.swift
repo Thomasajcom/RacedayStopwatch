@@ -83,9 +83,7 @@ class SessionsTableViewController: UITableViewController {
         cell.setup(with: session)
         return cell
     }
-    
-
-    
+        
     //MARK: - Tableview Delegate Methods
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -94,17 +92,6 @@ class SessionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
-//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let moreInfoAction = UIContextualAction.init(style: .normal, title: "More Info") { _,_,_  in
-//            print("lol????")
-//            return
-//        }
-//        moreInfoAction.image = UIImage(named: "delete-50")
-//        moreInfoAction.backgroundColor = .red
-//        
-//        return UISwipeActionsConfiguration(actions: [moreInfoAction])
-//    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.init(style: .destructive, title: nil) { (action, view, completionHandler) in

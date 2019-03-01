@@ -762,9 +762,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-V5-K9d">
-                                <rect key="frame" x="166.5" y="491" width="42" height="36"/>
+                                <rect key="frame" x="156.5" y="483" width="62" height="44"/>
                                 <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -773,7 +774,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8UA-5e-Bxy">
-                                <rect key="frame" x="0.0" y="166.5" width="375" height="324.5"/>
+                                <rect key="frame" x="0.0" y="166.5" width="375" height="316.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
@@ -847,15 +848,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-B1-Isw">
+                                <rect key="frame" x="236" y="483" width="89" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="LAP">
+                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="lap:" destination="V1s-dB-giF" eventType="touchUpInside" id="GN1-u1-1eP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dPa-XW-0Hy" firstAttribute="top" secondItem="ILm-Z1-rpg" secondAttribute="bottom" id="3p0-n0-TaV"/>
                             <constraint firstItem="lCJ-yL-uXW" firstAttribute="top" secondItem="dPa-XW-0Hy" secondAttribute="bottom" id="43U-Om-Xop"/>
+                            <constraint firstItem="XYm-B1-Isw" firstAttribute="height" secondItem="S2a-V5-K9d" secondAttribute="height" id="8KT-cs-hxP"/>
                             <constraint firstItem="MMf-zH-ZkC" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="8Z7-BJ-0Ax"/>
                             <constraint firstItem="dPa-XW-0Hy" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="5" id="9zW-dB-w1J"/>
                             <constraint firstItem="2eI-YQ-QsR" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="E6H-P3-1TW"/>
                             <constraint firstItem="irP-Mv-rJW" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="5" id="ECD-sf-NPs"/>
+                            <constraint firstItem="XYm-B1-Isw" firstAttribute="top" secondItem="8UA-5e-Bxy" secondAttribute="bottom" id="Ieu-7E-aeI"/>
                             <constraint firstItem="8UA-5e-Bxy" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="O1a-Fh-tDv"/>
                             <constraint firstItem="S2a-V5-K9d" firstAttribute="centerX" secondItem="BL4-Yh-sgy" secondAttribute="centerX" id="Qx4-UO-gDv"/>
                             <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="2eI-YQ-QsR" secondAttribute="trailing" id="St5-42-dgB"/>
@@ -876,6 +891,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="lCJ-yL-uXW" secondAttribute="trailing" id="sX3-Rd-dBA"/>
                             <constraint firstItem="irP-Mv-rJW" firstAttribute="top" secondItem="MMf-zH-ZkC" secondAttribute="bottom" id="uub-oP-pIk"/>
                             <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="NeH-Mu-DHZ" secondAttribute="trailing" constant="5" id="v1j-Yd-FaV"/>
+                            <constraint firstItem="gp6-R6-c8d" firstAttribute="trailing" secondItem="XYm-B1-Isw" secondAttribute="trailing" constant="50" id="yBa-aV-VwX"/>
+                            <constraint firstItem="XYm-B1-Isw" firstAttribute="leading" secondItem="S2a-V5-K9d" secondAttribute="trailing" constant="17.5" id="zZN-q0-YQl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gp6-R6-c8d"/>
                     </view>
@@ -890,6 +907,7 @@
                     <connections>
                         <outlet property="addDriverButton" destination="MMf-zH-ZkC" id="Qwu-jQ-5Qc"/>
                         <outlet property="driverCollectionView" destination="irP-Mv-rJW" id="0kf-ix-j3T"/>
+                        <outlet property="lapButton" destination="XYm-B1-Isw" id="V3X-9s-Ti7"/>
                         <outlet property="lapRecordHolder" destination="ple-eU-11C" id="8gI-b5-bK2"/>
                         <outlet property="lapRecordLabel" destination="lCJ-yL-uXW" id="92U-2f-6jD"/>
                         <outlet property="lapRecordTime" destination="n0q-e9-2XM" id="tHh-JV-4dA"/>

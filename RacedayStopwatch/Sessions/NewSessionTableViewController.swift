@@ -126,7 +126,7 @@ class NewSessionTableViewController: UITableViewController {
                 }
             }
             if noDriversSwitch.isOn{
-                
+                newTimer.timerWithoutDrivers = true
             }else if selectedDrivers.count > 0{
                 newTimer.drivers = selectedDrivers
                 newTimer.notSelectedDrivers = notSelectedDrivers

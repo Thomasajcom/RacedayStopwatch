@@ -35,7 +35,6 @@ class DriverSelectorViewController: UIViewController {
         titleLabel.text = Constants.TIMER_SELECT_DRIVER
         OKButton.setTitle(Constants.TIMER_ADD_DRIVER_OKBUTTON, for: .normal)
         dismissButton.setTitle(Constants.ALERT_CANCEL, for: .normal)
-
     }
     
     //add ADD button

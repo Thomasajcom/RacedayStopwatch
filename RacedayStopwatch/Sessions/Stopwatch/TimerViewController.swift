@@ -24,10 +24,12 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var driverCollectionView: UICollectionView!
     
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var lapButton: UIButton!
     
     @IBOutlet weak var addDriverButton: UIButton!
     
     var participatingDrivers    = [(Driver,RaceDayTimer)]()
+    var timerWithoutDrivers     = false
     var drivers                 = [Driver]()
     var notSelectedDrivers      = [Driver]()
     var laps                    = [Lap]()
@@ -54,6 +56,8 @@ class TimerViewController: UIViewController {
         
         startButton.layer.cornerRadius  = 10
         startButton.layer.masksToBounds = true
+        startButton.setTitle(Constants.BUTTON_START, for: .normal)
+        lapButton.isHidden = true
         
         lapTableview.delegate           = self
         lapTableview.dataSource         = self
@@ -98,19 +102,23 @@ class TimerViewController: UIViewController {
             lapRecordLabel.isHidden     = true
             lapRecordHolder.isHidden    = true
             lapRecordTime.isHidden      = true
-            
         }
-        
-        for driver in drivers{
-            participatingDrivers.append( (driver,RaceDayTimer()) )
+        if (timerWithoutDrivers){
+            addDriverButton.isHidden = true
+            lapButton.layer.cornerRadius  = 10
+            lapButton.layer.masksToBounds = true
+            lapButton.setTitle(Constants.BUTTON_LAP, for: .normal)
+            lapButton.isHidden = false
+        }else{
+            for driver in drivers{
+                participatingDrivers.append( (driver,RaceDayTimer()) )
+            }
         }
-
     }
 
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("i prepare for segue")
          if segue.identifier == "SelectDriverSegue" {
             if let vc = segue.destination as? DriverSelectorViewController{
                 vc.driverSelectorDelegate = self
@@ -121,12 +129,11 @@ class TimerViewController: UIViewController {
     }
     
     fileprivate func isItSafeToSave() -> (Bool,String?,String?){
+        print("laps.count: \(laps.count)")
         guard !mainTimerEnabled else{
-            print("mainTimerEnabled cant save!")
             return (false,Constants.TIMER_RUNNING_TITLE,Constants.TIMER_RUNNING_BODY)
         }
-        guard fastestLap != nil else{
-            print("fastestlap !=nil cant save")
+        guard laps.count > 0  else{
             return (false,Constants.NO_LAPS_TITLE,Constants.NO_LAPS_BODY)
         }
         return (true, Constants.TIMER_SESSION_SAVED_TITLE, Constants.TIMER_SESSION_SAVED_BODY)
@@ -136,39 +143,41 @@ class TimerViewController: UIViewController {
         //check if saving should be allowed
         guard isItSafeToSave().0 else{
             presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_CANCEL,.cancel))
-            print("It is not safe to save.")
             return
         }
         let session = Session(context: CoreDataService.context)
         session.sessionDateAndTime  = Date()
-        session.drivers             = NSSet(array: drivers)
-        session.fastestDriver       = fastestLap!.driver
-        session.fastestLapTime      = fastestLap!.lapTime
-        session.fastestLapSpeed     = Int16(fastestLap!.speed)
-        session.numberOfLaps        = Int16(laps.count)
-        session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
-        session.onTrack             = selectedTrack
-        if let track = selectedTrack {
-            if fastestLap!.lapTime < track.trackRecord || track.trackRecord == 0{
-                session.onTrack?.trackRecord = session.fastestLapTime
-                session.onTrack?.trackRecordHolder = session.fastestDriver
+        if timerWithoutDrivers{
+            session.drivers             = nil
+            session.fastestDriver       = nil
+            session.fastestLapTime      = fastestLap!.lapTime
+            session.fastestLapSpeed     = Int16(fastestLap!.speed)
+            session.numberOfLaps        = Int16(laps.count)
+            session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+            if let track = selectedTrack{
+                session.onTrack             = track
+            }else {
+                session.onTrack             = nil
+            }
+        }else {
+            session.drivers             = NSSet(array: drivers)
+            session.fastestDriver       = fastestLap!.driver
+            session.fastestLapTime      = fastestLap!.lapTime
+            session.fastestLapSpeed     = Int16(fastestLap!.speed)
+            session.numberOfLaps        = Int16(laps.count)
+            session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+            session.onTrack             = selectedTrack
+            if let track = selectedTrack {
+                if fastestLap!.lapTime < track.trackRecord || track.trackRecord == 0{
+                    session.onTrack?.trackRecord = session.fastestLapTime
+                    session.onTrack?.trackRecordHolder = session.fastestDriver
+                }
             }
         }
         
+        
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
-    }
-    
-    // MARK: - TIMER
-    /// Helper function to define whether the timer is safe to start or not
-    ///
-    /// - Returns: Bool: result of evaluation, String?: title of error message, String? body of error message
-    /// - Returns: Strings are nil if evaluation is true
-    fileprivate func isItSafeToStartTimer() -> (Bool,String?,String?) {
-        guard participatingDrivers.count > 0 else{
-            return (false,Constants.NO_DRIVER_TITLE,Constants.NO_DRIVER_BODY)
-        }
-        return (true,nil,nil)
     }
     
     fileprivate func presentAlertController(title: String, body: String, actionButton: (String,UIAlertAction.Style)) {
@@ -182,32 +191,52 @@ class TimerViewController: UIViewController {
             }
             
         }
-//        let action = UIAlertAction(title: actionButton, style: .cancel, handler: nil)
         alertController.addAction(action)
         present(alertController, animated: true)
     }
+
+    @IBAction func lap(_ sender: UIButton) {
+        print("lappe da!!!")
+        
+        let lapNumber = laps.count+1
+        let lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime//participatingDrivers[indexPath.row].1.startTime!
+        var lapSpeed = 0
+        if selectedTrack != nil{
+            lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
+        }else if customTrackLength != nil{
+            lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
+        }
+        //create a new instance of the Lap struct and add it to the array of Laps
+        let newLap = Lap(driver: nil, lapNumber: lapNumber, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
+        mainTimerStartTime = Date().timeIntervalSinceReferenceDate
+        laps.append(newLap)
+        //check if this lap was the fastest lap
+        if fastestLap == nil{
+            fastestLap = newLap
+        }else if newLap.lapTime < fastestLap!.lapTime{
+            fastestLap = newLap
+        }
+        
+        lapTableview.beginUpdates()
+        lapTableview.insertRows(at: [IndexPath(row: laps.count-1, section: 0)], with: .bottom)
+        lapTableview.endUpdates()
+        lapTableview.scrollToRow(at: IndexPath(row: laps.count-1, section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+    }
     
     @IBAction func toggleTimer(_ sender: UIButton) {
-        guard isItSafeToStartTimer().0 else{
-            presentAlertController(title: isItSafeToStartTimer().1!, body: isItSafeToStartTimer().2!, actionButton: (Constants.ALERT_CANCEL,.cancel) )
-            return
-        }
-        //Check's done, it's now safe to start the timer
         mainTimerEnabled.toggle()
-        
         if(mainTimerEnabled){
             sender.setTitle(Constants.BUTTON_STOP, for: .normal)
             sender.backgroundColor = .red
             
-            //starting all timers
+            //starting timer
             mainTimerStartTime = Date().timeIntervalSinceReferenceDate
             mainTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             RunLoop.current.add(mainTimer!, forMode: .common) //to make sure that user interaction with the screen does not interferes with the timer
-            
         }else{
             sender.setTitle(Constants.BUTTON_START, for: .normal)
             sender.backgroundColor = UIColor(red: (79.0/255.0), green: (143.0/255.0), blue: (0.0/255.0), alpha: 1)
-            //stopping all timers
+            //stopping timer
             mainTimer!.invalidate()
         }
         for (index, _) in participatingDrivers.enumerated(){
@@ -225,8 +254,6 @@ class TimerViewController: UIViewController {
         }
     }
 }
-
-
 
 extension TimerViewController: DriverSelectorViewControllerDelegate{
     func selected(driver: Driver) {
@@ -263,14 +290,8 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func calculateSpeed(distance: Int, time: Double) -> Int{
-        var speed = 0.0
-        #warning("this needs to check userdefaults for miles or meters")
-        if (true){//check if metric
-            let metersBySecond = Double(distance) / time
-            speed = metersBySecond * 3.6
-        }else if (false){//if not, then imperialc
-            
-        }
+        let metersBySecond = Double(distance) / time
+        let speed = metersBySecond * 3.6
         return Int(speed.rounded(.down))
     }
     
@@ -282,7 +303,6 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
             let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
             let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
-            #warning("error with speed")
             //create a new instance of the Lap struct and add it to the array of Laps
             let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
             laps.append(newLap)

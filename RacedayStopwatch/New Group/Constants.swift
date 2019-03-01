@@ -58,12 +58,12 @@ struct Constants{
     //MARK: - Session
     //NEW SESSION
     static let SESSION_DRIVER_SELECT_TITLE      = "Select Driver"
-    static let SESSION_WITHOUT_TRACK            = "Session Without Track"
+    static let SESSION_WITHOUT_TRACK            = "No Track"
     static let SESSION_CUSTOM_LENGTH            = "Enter Custom Length (optional)"
-    static let SESSION_WITHOUT_DRIVER           = "Session Without Driver"
-    static let SESSION_TRACK_ERROR_TITLE        = "Error With Track"
+    static let SESSION_WITHOUT_DRIVER           = "No Drivers"
+    static let SESSION_TRACK_ERROR_TITLE        = "Track Error"
     static let SESSION_TRACK_ERROR_BODY         = "Either select a track, or turn on the No Track Switch."
-    static let SESSION_DRIVER_ERROR_TITLE       = "Error With Driver"
+    static let SESSION_DRIVER_ERROR_TITLE       = "Driver Error"
     static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
     
     static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
@@ -94,6 +94,7 @@ struct Constants{
     static let SPEED_UNIT_KMH   = "km/h"
     static let SPEED_UNIT_MPH   = "mp/h"
     
+
     static let LAP          = "Lap"
     
     static let TIMER_NOT_RUNNING_TITLE  = "Timer Not Active"

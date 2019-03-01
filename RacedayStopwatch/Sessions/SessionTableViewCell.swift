@@ -44,7 +44,6 @@ class SessionTableViewCell: UITableViewCell {
     
     //setup a session cell
     func setup(with session: Session) {
-        
         setupDate(for: session.sessionDateAndTime!)
         setupTrack(track: session.onTrack)
         setupFastestDriver(with: session.fastestDriver, in: session)
@@ -63,9 +62,9 @@ class SessionTableViewCell: UITableViewCell {
         if let track = track {
             trackName.text = track.name
         }else {
-            sessionWithTrack = false
-            trackName.text = date.text!
-            date.isHidden = true
+            sessionWithTrack    = false
+            trackName.text      = date.text!
+            date.isHidden       = true
         }
     }
     
@@ -92,7 +91,7 @@ class SessionTableViewCell: UITableViewCell {
         bestLapTime.text = session.fastestLapTime.laptimeToString()
         numberOfLaps.text = String(session.numberOfLaps) + Constants.SESSION_LAP
 
-        var calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
+        let calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
         if sessionWithTrack {            
             if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                 bestLapSpeed.text = String(Double(session.fastestLapSpeed).twoDecimals) + Constants.SPEED_UNIT_KMH
@@ -105,10 +104,10 @@ class SessionTableViewCell: UITableViewCell {
             totalSessionTime.text = Double(session.totalSessionTime).laptimeToString()
             
         }else{
-            totalSessionTimeLabel.isHidden   = true
-            totalSessionTime.isHidden        = true
-            distanceDriven.isHidden     = true
-            bestLapSpeed.isHidden       = true
+            totalSessionTimeLabel.isHidden  = true
+            totalSessionTime.isHidden       = true
+            distanceDriven.isHidden         = true
+            bestLapSpeed.isHidden           = true
         }
     }
 }
