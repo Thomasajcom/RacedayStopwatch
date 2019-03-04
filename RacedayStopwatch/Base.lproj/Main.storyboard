@@ -971,29 +971,29 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phd-A6-tqU">
-                                            <rect key="frame" x="116" y="11" width="243" height="36"/>
+                                            <rect key="frame" x="121" y="11" width="238" height="36"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-5p-37L">
-                                            <rect key="frame" x="40" y="87" width="52" height="24"/>
-                                            <color key="backgroundColor" red="1" green="0.98732897701439981" blue="0.84576017167373796" alpha="0.30219927226027399" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-5p-37L">
+                                            <rect key="frame" x="16" y="87" width="100" height="24"/>
+                                            <color key="backgroundColor" red="0.36535918712615967" green="0.56512224674224854" blue="0.52549171447753906" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uA-2B-Dbp" userLabel="Trackdays Stack View">
-                                            <rect key="frame" x="116" y="50" width="243" height="18"/>
+                                            <rect key="frame" x="121" y="50" width="238" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sessions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fub-4Q-cvY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="196.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-bY-kq8">
-                                                    <rect key="frame" x="201.5" y="0.0" width="41.5" height="18"/>
+                                                    <rect key="frame" x="196.5" y="0.0" width="41.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1001,16 +1001,16 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-Rg-b3O" userLabel="Laps Stack View">
-                                            <rect key="frame" x="116" y="71" width="243" height="18"/>
+                                            <rect key="frame" x="121" y="71" width="238" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Fastest Driver:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-eP-Qq9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="201.5" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="196.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzl-WA-rly">
-                                                    <rect key="frame" x="201.5" y="0.0" width="41.5" height="18"/>
+                                                    <rect key="frame" x="196.5" y="0.0" width="41.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1019,13 +1019,14 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Lnr-Rg-b3O" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" id="90K-yG-qBC"/>
+                                        <constraint firstItem="Lnr-Rg-b3O" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="90K-yG-qBC"/>
                                         <constraint firstItem="bbN-fD-bWD" firstAttribute="leading" secondItem="wHS-YG-mUe" secondAttribute="leadingMargin" id="FrV-rr-wbU"/>
                                         <constraint firstItem="5uA-2B-Dbp" firstAttribute="top" secondItem="Phd-A6-tqU" secondAttribute="bottom" constant="3" id="GF5-fe-7Dv"/>
-                                        <constraint firstItem="5uA-2B-Dbp" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" id="ILq-Hc-MX7"/>
+                                        <constraint firstItem="5uA-2B-Dbp" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="ILq-Hc-MX7"/>
                                         <constraint firstItem="Phd-A6-tqU" firstAttribute="top" secondItem="wHS-YG-mUe" secondAttribute="topMargin" id="S5s-1E-EkY"/>
-                                        <constraint firstItem="Phd-A6-tqU" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" id="bAm-Fr-DqJ"/>
+                                        <constraint firstItem="Phd-A6-tqU" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="bAm-Fr-DqJ"/>
                                         <constraint firstItem="ZJz-5p-37L" firstAttribute="bottom" secondItem="bbN-fD-bWD" secondAttribute="bottom" id="dLk-l0-9Ce"/>
+                                        <constraint firstItem="ZJz-5p-37L" firstAttribute="width" secondItem="bbN-fD-bWD" secondAttribute="width" id="dYQ-2g-dL9"/>
                                         <constraint firstAttribute="bottom" secondItem="bbN-fD-bWD" secondAttribute="bottom" constant="24" id="f5P-2g-KzN"/>
                                         <constraint firstItem="ZJz-5p-37L" firstAttribute="centerX" secondItem="bbN-fD-bWD" secondAttribute="centerX" id="hU6-VV-y5F"/>
                                         <constraint firstItem="bbN-fD-bWD" firstAttribute="top" secondItem="wHS-YG-mUe" secondAttribute="topMargin" id="lBu-Yj-8Nq"/>
@@ -1471,6 +1472,6 @@
         <image name="track" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JGP-yD-QPe"/>
+        <segue reference="f8O-rH-vMJ"/>
     </inferredMetricsTieBreakers>
 </document>

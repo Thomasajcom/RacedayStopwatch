@@ -43,6 +43,12 @@ class TracksTableViewController: UITableViewController {
         tableView.reloadData()
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddTrackSegue"){
+            let newDriver = segue.destination as! AddItemViewController
+            newDriver.itemIsTrack = true
+        }
+    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

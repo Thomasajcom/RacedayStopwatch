@@ -88,7 +88,12 @@ class AddItemViewController: UIViewController {
                 print("NEW TRACK SOM ER EMPTY")
                 addItemLabel.text             = Constants.ADD_TRACK_LABEL
                 itemName.placeholder          = Constants.TRACK_NAME_PLACEHOLDER
-                itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER
+                if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                    itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_METERS
+                }else{
+                    itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_MILES
+                }
+                
             }
         }
     }
