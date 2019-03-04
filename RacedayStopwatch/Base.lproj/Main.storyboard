@@ -1380,10 +1380,10 @@
             </objects>
             <point key="canvasLocation" x="-1354" y="1689"/>
         </scene>
-        <!--Helmet Picker View Controller-->
+        <!--Image Picker View Controller-->
         <scene sceneID="DpW-TM-b7O">
             <objects>
-                <viewController id="6Sg-VL-wBU" customClass="HelmetPickerViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Sg-VL-wBU" customClass="ImagePickerViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOu-nS-yXp">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1409,10 +1409,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="1134"/>
         </scene>
-        <!--Driver Picture View Controller-->
+        <!--Item Picture View Controller-->
         <scene sceneID="x7p-EP-NRC">
             <objects>
-                <viewController id="8h3-RP-NNo" customClass="DriverPictureViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8h3-RP-NNo" customClass="ItemPictureViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vxy-bv-3yA">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

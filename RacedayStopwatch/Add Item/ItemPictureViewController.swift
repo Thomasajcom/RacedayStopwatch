@@ -6,21 +6,22 @@
 //  Copyright © 2019 Appbryggeriet. All rights reserved.
 //
 
+
 import UIKit
 
-protocol DriverPictureProtocol {
-    func selectedDriverPicture(_ image: UIImage)
+protocol ItemPictureProtocol {
+    func selectedItemPicture(_ image: UIImage)
 }
 
-class DriverPictureViewController: UIViewController {
+class ItemPictureViewController: UIViewController {
     
     @IBOutlet weak var driverImage: UIImageView!
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
     
-    var delegate: DriverPictureProtocol? = nil
+    var delegate: ItemPictureProtocol? = nil
     var driver: Driver?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         driverImage.layer.cornerRadius  = Constants.cornerRadius
@@ -49,8 +50,7 @@ class DriverPictureViewController: UIViewController {
         present(cameraController, animated: true)
     }
 }
-
-extension DriverPictureViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+extension ItemPictureViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
@@ -58,7 +58,7 @@ extension DriverPictureViewController: UINavigationControllerDelegate, UIImagePi
             return
         }
         driverImage.image = image
-        delegate?.selectedDriverPicture(image)
+        delegate?.selectedItemPicture(image)
     }
     
 }

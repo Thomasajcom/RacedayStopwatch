@@ -45,6 +45,7 @@ class DriversTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddDriverSegue"){
             let newDriver = segue.destination as! AddItemViewController
+            newDriver.itemIsDriver = true
         }
     }
 

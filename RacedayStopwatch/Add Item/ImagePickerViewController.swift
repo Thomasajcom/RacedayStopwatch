@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol HelmetPickerProtocol {
-    func selectedHelmet(image: UIImage)
+protocol ImagePickerProtocol {
+    func selectedImage(image: UIImage)
 }
 
 //TODO: - Fix error with selecting first helmet even when editing a driver with another helmet set
-class HelmetPickerViewController: UIViewController {
+class ImagePickerViewController: UIViewController {
     
     var helmets: [UIImage] = [
         UIImage(named: "helmet_red")!,
@@ -23,23 +23,30 @@ class HelmetPickerViewController: UIViewController {
         UIImage(named: "helmet_green")!,
         ]
     //add tracksImages
+    var tracks: [UIImage] = [
+        UIImage(named: "helmet_red")!,
+        UIImage(named: "helmet_blue")!,
+        UIImage(named: "helmet_yellow")!,
+        UIImage(named: "helmet_purple")!,
+        UIImage(named: "helmet_green")!,
+        ]
     
-    var delegate:HelmetPickerProtocol? = nil
-
+    var delegate:ImagePickerProtocol? = nil
+    
     @IBOutlet weak var helmetPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         helmetPicker.delegate       = self
         helmetPicker.dataSource     = self
-        delegate?.selectedHelmet(image: helmets[helmetPicker.selectedRow(inComponent: 0)])
-
+        delegate?.selectedImage(image: helmets[helmetPicker.selectedRow(inComponent: 0)])
+        
         // Do any additional setup after loading the view.
     }
-
+    
 }
 
-extension HelmetPickerViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+extension ImagePickerViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -56,7 +63,7 @@ extension HelmetPickerViewController: UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectedHelmet(image: helmets[row])
+        delegate?.selectedImage(image: helmets[row])
     }
     
 }

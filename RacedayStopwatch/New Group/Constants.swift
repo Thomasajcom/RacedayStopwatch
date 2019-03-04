@@ -32,24 +32,32 @@ struct Constants{
     static let DRIVERS_TITLE      = "Drivers"
     static let NEW_SESSION_TITLE  = "New Session"
     static let SETTINGS_TITLE     = "Settings"
-    //MARK: - Driver
+    //MARK: - Add Item
     //Add Driver
     static let ADD_DRIVER_LABEL                     = "Add Driver"
     static let EDIT_DRIVER_LABEL                    = "Edit Driver"
     static let ADD_DRIVER_PICTURE_OR_HELMET_LABEL   = "Driver Picture or Helmet"
-    static let ADD_DRIVER_PICTURE_SEGMENT           = "Picture"
-    static let ADD_DRIVER_HELMET_SEGMENT            = "Helmet"
+    static let ADD_ITEM_PICTURE_SEGMENT             = "Picture"
+    static let ADD_ITEM_HELMETS_SEGMENT             = "Helmets"
     static let SAVE_BUTTON_TITLE                    = "Save"
+    static let ITEM_NAME_LABEL                      = "Name"
     static let DRIVER_NAME_PLACEHOLDER              = "Enter a Name"
     static let DRIVER_NAME_PLACEHOLDER_ERROR        = "ENTER NAME!"
+    static let DRIVER_NUMBER_LABEL                  = "Number"
     static let DRIVER_NUMBER_PLACEHOLDER            = "Enter a Number"
     static let DRIVER_NUMBER_PLACEHOLDER_ERROR      = "ENTER NUMBER!"
     static let ADD_DRIVER_IMAGE_ERROR_TITLE         = "Driver Image Error"
     static let ADD_DRIVER_IMAGE_ERROR_BODY          = "Either take a picture of the driver, or select a helmet."
     
+    static let ADD_TRACK_LABEL                      = "Add Track"
+    static let EDIT_TRACK_LABEL                     = "Edit Track"
+    static let ADD_ITEM_TRACKS_SEGMENT              = "Tracks"
+    static let TRACK_LENGTH_LABEL                   = "Track Length"
+
+    
     static let CAMERA_TITLE     = "Camera"
     static let GALLERY_TITLE    = "Gallery"
-    
+    //MARK: - Driver
     //MARK: - Driver Cell
     static let DRIVER_SESSIONS              = "Sessions:"
     static let DRIVER_FASTEST_DRIVER        = "Fastest driver:"
