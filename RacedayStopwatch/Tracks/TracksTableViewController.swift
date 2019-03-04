@@ -43,42 +43,6 @@ class TracksTableViewController: UITableViewController {
         tableView.reloadData()
         
     }
-
-    @IBAction func add(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Add New Track", message: "Enter name and length to add a new track", preferredStyle: .alert)
-        alertController.addTextField { (textField) in
-            textField.placeholder = Constants.TRACK_NAME_PLACEHOLDER
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder   = Constants.TRACK_LENGTH_PLACEHOLDER + (Constants.defaults.bool(forKey: Constants.defaults_metric_key) ? Constants.TRACK_LENGTH_UNIT_METERS : Constants.TRACK_LENGTH_UNIT_MILES)
-            textField.keyboardType  = UIKeyboardType.numberPad
-        }
-        let addAction = UIAlertAction(title: Constants.TRACK_ALERT_ADD_TRACK_TITLE, style: .default) {[unowned self] action in
-            guard let firstField = alertController.textFields?.first,
-                let trackName = firstField.text else {return}
-            guard let secondField = alertController.textFields?[1],
-                let length = secondField.text else {return}
-            
-            self.addToCoreData(trackName: trackName, length: length)
-        }//thisll add to db
-        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .cancel, handler: nil)
-        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-    }
-        func addToCoreData(trackName: String, length: String){
-            guard let doubleLength = Double(length) else{return}
-            let track = Track(context: CoreDataService.context)
-            track.name = trackName
-            if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
-                track.length = doubleLength
-            }else{
-                track.length = doubleLength.fromMilesToMeters()
-            }
-            track.trackRecord = 0
-            CoreDataService.saveContext()
-        }
-    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

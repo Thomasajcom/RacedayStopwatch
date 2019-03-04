@@ -36,8 +36,9 @@ class TimerViewController: UIViewController {
     var fastestLap: Lap?
     
     weak var mainTimer: Timer?
-    var mainTimerEnabled: Bool = false
-    var mainTimerStartTime: Double = 0
+    var mainTimerEnabled: Bool      = false
+    var mainTimerStartTime: Double  = 0
+    var mainTimerStopTime: Double   = 0
 
     
     var selectedTrack: Track?
@@ -153,7 +154,7 @@ class TimerViewController: UIViewController {
             session.fastestLapTime      = fastestLap!.lapTime
             session.fastestLapSpeed     = Int16(fastestLap!.speed)
             session.numberOfLaps        = Int16(laps.count)
-            session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+            session.totalSessionTime    = mainTimerStopTime - mainTimerStartTime
             if let track = selectedTrack{
                 session.onTrack             = track
             }else {
@@ -165,7 +166,7 @@ class TimerViewController: UIViewController {
             session.fastestLapTime      = fastestLap!.lapTime
             session.fastestLapSpeed     = Int16(fastestLap!.speed)
             session.numberOfLaps        = Int16(laps.count)
-            session.totalSessionTime    = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+            session.totalSessionTime    = mainTimerStopTime - mainTimerStartTime
             session.onTrack             = selectedTrack
             if let track = selectedTrack {
                 if fastestLap!.lapTime < track.trackRecord || track.trackRecord == 0{
@@ -174,7 +175,6 @@ class TimerViewController: UIViewController {
                 }
             }
         }
-        
         
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
@@ -196,7 +196,6 @@ class TimerViewController: UIViewController {
     }
 
     @IBAction func lap(_ sender: UIButton) {
-        print("lappe da!!!")
         
         let lapNumber = laps.count+1
         let lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime//participatingDrivers[indexPath.row].1.startTime!
@@ -227,7 +226,8 @@ class TimerViewController: UIViewController {
         mainTimerEnabled.toggle()
         if(mainTimerEnabled){
             sender.setTitle(Constants.BUTTON_STOP, for: .normal)
-            sender.backgroundColor = .red
+            sender.backgroundColor      = .red
+            addDriverButton.isEnabled   = false
             
             //starting timer
             mainTimerStartTime = Date().timeIntervalSinceReferenceDate
@@ -237,6 +237,7 @@ class TimerViewController: UIViewController {
             sender.setTitle(Constants.BUTTON_START, for: .normal)
             sender.backgroundColor = UIColor(red: (79.0/255.0), green: (143.0/255.0), blue: (0.0/255.0), alpha: 1)
             //stopping timer
+            mainTimerStopTime = Date().timeIntervalSinceReferenceDate
             mainTimer!.invalidate()
         }
         for (index, _) in participatingDrivers.enumerated(){
@@ -298,7 +299,6 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
     #warning("this needs a serious rework")
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if mainTimerEnabled {
-            let cell = driverCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
             //find the lapnumber for the current driver based on occurences in the Laps array
             let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
             let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
@@ -323,7 +323,6 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }else {
             presentAlertController(title: Constants.TIMER_NOT_RUNNING_TITLE, body: Constants.TIMER_NOT_RUNNING_BODY, actionButton: (Constants.ALERT_CANCEL,.cancel))
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

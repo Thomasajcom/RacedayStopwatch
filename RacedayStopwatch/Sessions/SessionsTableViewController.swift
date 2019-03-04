@@ -16,13 +16,23 @@ class SessionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set the measurement unit correctly, if this is the first launch of the app
+        if !Constants.defaults.bool(forKey: Constants.defaults_launched_before){
+            print("FØRSTE LAUNCH!!!")
+            let locale = Locale.current
+            let isMetric = locale.usesMetricSystem
+            Constants.defaults.set(isMetric, forKey: Constants.defaults_metric_key)
+            print(isMetric)
+            print(Constants.defaults.bool(forKey: Constants.defaults_metric_key))
+        }
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: false)]
         do {
             sessions = try CoreDataService.context.fetch(fetchRequest)
         } catch let error as NSError {
@@ -47,6 +57,7 @@ class SessionsTableViewController: UITableViewController {
             print ("There was an error")
         }
     }
+    
     @IBAction func devButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Dev Menu", message: "Drop selected table!", preferredStyle: .actionSheet)
         let dropSessions = UIAlertAction(title: "Session", style: .destructive, handler: {(alert: UIAlertAction!) in

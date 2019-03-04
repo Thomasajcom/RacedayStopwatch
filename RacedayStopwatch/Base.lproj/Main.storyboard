@@ -101,6 +101,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mE-hi-Maw" id="dLr-Zm-9w2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCX-lh-SBs">
+                                                    <rect key="frame" x="93.5" y="4" width="188" height="36"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <state key="normal" title="Restore All Purchases"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iCX-lh-SBs" firstAttribute="centerY" secondItem="dLr-Zm-9w2" secondAttribute="centerY" id="NnU-ue-MLA"/>
+                                                <constraint firstItem="iCX-lh-SBs" firstAttribute="centerX" secondItem="dLr-Zm-9w2" secondAttribute="centerX" id="UlL-H7-BxY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="bHF-bJ-CG5">
@@ -618,6 +629,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bvh-fF-ZjP">
                             <connections>
                                 <action selector="add:" destination="T57-XV-8SU" id="2cp-gc-MVW"/>
+                                <segue destination="egn-cB-DnE" kind="presentation" identifier="AddTrackSegue" id="JGP-yD-QPe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1043,7 +1055,7 @@
                     <navigationItem key="navigationItem" title="Drivers" id="MVX-F4-VXt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5X6-hi-4Hu">
                             <connections>
-                                <segue destination="egn-cB-DnE" kind="presentation" id="f8O-rH-vMJ"/>
+                                <segue destination="egn-cB-DnE" kind="presentation" identifier="AddDriverSegue" id="f8O-rH-vMJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1055,10 +1067,10 @@
             </objects>
             <point key="canvasLocation" x="620" y="250.52473763118442"/>
         </scene>
-        <!--Add Driver View Controller-->
+        <!--Add Item View Controller-->
         <scene sceneID="fmG-b0-Gv8">
             <objects>
-                <viewController storyboardIdentifier="editDriver" id="egn-cB-DnE" customClass="AddDriverViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editDriver" id="egn-cB-DnE" customClass="AddItemViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="49s-aK-go4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1072,31 +1084,31 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N18-Aq-kSB">
                                             <rect key="frame" x="37.5" y="133.5" width="300" height="400"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Driver Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VH-1q-EE7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Item Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VH-1q-EE7">
                                                     <rect key="frame" x="5" y="5" width="290" height="36"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver's Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAO-0K-x57">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAO-0K-x57">
                                                     <rect key="frame" x="5" y="46" width="290" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter The Driver's Name " textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-9u-exp">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter The Item's Name " textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-9u-exp">
                                                     <rect key="frame" x="5" y="64" width="290" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver's Number Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCD-7b-Yi9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item's Number Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCD-7b-Yi9">
                                                     <rect key="frame" x="5" y="99" width="290" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Driver's Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="De0-Qg-tTh">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item's Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="De0-Qg-tTh">
                                                     <rect key="frame" x="5" y="117" width="290" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
@@ -1142,7 +1154,7 @@
                                                             <rect key="frame" x="195" y="17" width="95" height="36"/>
                                                             <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="Add Driver"/>
+                                                            <state key="normal" title="Add Item"/>
                                                             <connections>
                                                                 <action selector="save:" destination="egn-cB-DnE" eventType="touchUpInside" id="pNS-8C-Tij"/>
                                                             </connections>
@@ -1214,23 +1226,23 @@
                         <viewLayoutGuide key="safeArea" id="nIr-0R-say"/>
                     </view>
                     <connections>
-                        <outlet property="addDriverButton" destination="hQ9-uL-z6Z" id="i7G-sc-G7F"/>
-                        <outlet property="addDriverLabel" destination="5VH-1q-EE7" id="liS-Le-zmf"/>
+                        <outlet property="addItemButton" destination="hQ9-uL-z6Z" id="tqz-Ey-bIJ"/>
+                        <outlet property="addItemLabel" destination="5VH-1q-EE7" id="liS-Le-zmf"/>
                         <outlet property="cancelButton" destination="o6G-VY-NEk" id="jXx-M9-ruV"/>
-                        <outlet property="driverName" destination="8mm-9u-exp" id="uWb-As-r3y"/>
-                        <outlet property="driverNameLabel" destination="VAO-0K-x57" id="19m-jI-QQl"/>
-                        <outlet property="driverNumber" destination="De0-Qg-tTh" id="bC9-0o-vHw"/>
-                        <outlet property="driverNumberLabel" destination="HCD-7b-Yi9" id="dAD-sD-Mt9"/>
-                        <outlet property="helmetContainerView" destination="M35-s1-Tse" id="n1t-mD-oEv"/>
+                        <outlet property="imageContainerView" destination="M35-s1-Tse" id="n1t-mD-oEv"/>
+                        <outlet property="itemName" destination="8mm-9u-exp" id="uWb-As-r3y"/>
+                        <outlet property="itemNameLabel" destination="VAO-0K-x57" id="19m-jI-QQl"/>
+                        <outlet property="itemNumber" destination="De0-Qg-tTh" id="bC9-0o-vHw"/>
+                        <outlet property="itemNumberLabel" destination="HCD-7b-Yi9" id="dAD-sD-Mt9"/>
                         <outlet property="pictureContainerView" destination="gI4-CD-RO4" id="b3R-nJ-mFk"/>
-                        <outlet property="pictureOrHelmetControl" destination="kPX-XK-PIa" id="QdF-c3-bwy"/>
-                        <outlet property="pictureOrHelmetLabel" destination="fOq-x2-dxs" id="6bq-7S-KfG"/>
+                        <outlet property="pictureOrImageControl" destination="kPX-XK-PIa" id="QdF-c3-bwy"/>
+                        <outlet property="pictureOrImageLabel" destination="fOq-x2-dxs" id="6bq-7S-KfG"/>
                         <outlet property="popupView" destination="N18-Aq-kSB" id="CIe-TH-fDT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YN-YL-khZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="251"/>
+            <point key="canvasLocation" x="310" y="1028"/>
         </scene>
         <!--Drivers-->
         <scene sceneID="jBc-kK-hdv">
@@ -1395,7 +1407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLJ-mz-vMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="390"/>
+            <point key="canvasLocation" x="994" y="1134"/>
         </scene>
         <!--Driver Picture View Controller-->
         <scene sceneID="x7p-EP-NRC">
@@ -1450,7 +1462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgt-zB-zAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956.8" y="84.557721139430285"/>
+            <point key="canvasLocation" x="994" y="904"/>
         </scene>
     </scenes>
     <resources>
@@ -1458,4 +1470,7 @@
         <image name="session" width="75" height="75"/>
         <image name="track" width="75" height="75"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JGP-yD-QPe"/>
+    </inferredMetricsTieBreakers>
 </document>

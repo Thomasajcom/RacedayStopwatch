@@ -71,16 +71,16 @@ class SessionTableViewCell: UITableViewCell {
     func setupFastestDriver(with driver: Driver?, in session: Session){
         
         guard let fastestDriver = driver else {
-            driverImage.image           = nil
-            driverImage.isHidden        = true
-            fastestDriverLabel.isHidden = true
-            fastestDriverName.isHidden  = true
-            bestLapTime.isHidden        = true
-            bestLapSpeed.isHidden       = true
-            totalSessionTimeLabel.isHidden   = true
-            totalSessionTime.isHidden        = true
-            numberOfLaps.isHidden       = true
-            distanceDriven.isHidden     = true
+            driverImage.image               = nil
+            driverImage.isHidden            = true
+            fastestDriverLabel.isHidden     = true
+            fastestDriverName.isHidden      = true
+            bestLapTime.isHidden            = true
+            bestLapSpeed.isHidden           = true
+            totalSessionTimeLabel.isHidden  = true
+            totalSessionTime.isHidden       = true
+            numberOfLaps.isHidden           = true
+            distanceDriven.isHidden         = true
             return
         }
         driverImage.image = UIImage(data: fastestDriver.image!)

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */; };
-		E9241A6D222002CE003B6C11 /* AddDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */; };
+		E9241A6D222002CE003B6C11 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A6C222002CE003B6C11 /* AddItemViewController.swift */; };
 		E9241A7122201A7B003B6C11 /* HelmetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */; };
 		E9241A7322202431003B6C11 /* DriverPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9241A7222202431003B6C11 /* DriverPictureViewController.swift */; };
 		E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */; };
@@ -58,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriversTableViewController.swift; sourceTree = "<group>"; };
-		E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDriverViewController.swift; sourceTree = "<group>"; };
+		E9241A6C222002CE003B6C11 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelmetPickerViewController.swift; sourceTree = "<group>"; };
 		E9241A7222202431003B6C11 /* DriverPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPictureViewController.swift; sourceTree = "<group>"; };
 		E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSelectorViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				E9241A7222202431003B6C11 /* DriverPictureViewController.swift */,
-				E9241A6C222002CE003B6C11 /* AddDriverViewController.swift */,
+				E9241A6C222002CE003B6C11 /* AddItemViewController.swift */,
 				E9241A7022201A7B003B6C11 /* HelmetPickerViewController.swift */,
 			);
 			path = "Add Driver";
@@ -180,16 +180,16 @@
 		E9605FFF219359DA00D37631 /* RacedayStopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				E925B5092228546D00E67365 /* Settings */,
-				E9EE5D092215674B00E2F57D /* Helpers */,
-				E960600E219359DB00D37631 /* Info.plist */,
 				E9606000219359DA00D37631 /* AppDelegate.swift */,
 				E9606009219359DB00D37631 /* Assets.xcassets */,
 				E960608321936EC500D37631 /* CoreData */,
 				E92111A72194BE0A00D5D67F /* Drivers */,
+				E9EE5D092215674B00E2F57D /* Helpers */,
+				E960600E219359DB00D37631 /* Info.plist */,
 				E960600B219359DB00D37631 /* LaunchScreen.storyboard */,
 				E9606006219359DA00D37631 /* Main.storyboard */,
 				E960603721935D6800D37631 /* Sessions */,
+				E925B5092228546D00E67365 /* Settings */,
 				E960603A21935DA100D37631 /* Tracks */,
 			);
 			path = RacedayStopwatch;
@@ -420,7 +420,7 @@
 				E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */,
 				E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */,
 				E925B50F22296FE100E67365 /* TrackTableViewCell.swift in Sources */,
-				E9241A6D222002CE003B6C11 /* AddDriverViewController.swift in Sources */,
+				E9241A6D222002CE003B6C11 /* AddItemViewController.swift in Sources */,
 				E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */,
 				E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */,
 				E9EE5D112215E3AF00E2F57D /* RaceDayTimer.swift in Sources */,

@@ -41,6 +41,12 @@ class DriversTableViewController: UITableViewController {
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddDriverSegue"){
+            let newDriver = segue.destination as! AddItemViewController
+        }
+    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +54,6 @@ class DriversTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("driver count: \(fetchedResultsController.fetchedObjects!.count)")
         return fetchedResultsController.fetchedObjects!.count
     }
 
@@ -73,7 +78,7 @@ class DriversTableViewController: UITableViewController {
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let editDriver = storyboard.instantiateViewController(withIdentifier: "editDriver") as! AddDriverViewController
+            let editDriver = storyboard.instantiateViewController(withIdentifier: "editDriver") as! AddItemViewController
             editDriver.driver =  self.fetchedResultsController.fetchedObjects![indexPath.row]
             self.present(editDriver, animated: true, completion: nil)
             completionHandler(true)

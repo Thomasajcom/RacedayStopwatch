@@ -17,7 +17,12 @@ struct Constants{
     
     //UserDefaults
     static let defaults = UserDefaults.standard
-    static let defaults_metric_key = "Metric"
+    static let defaults_metric_key      = "Metric"
+    static let defaults_launched_before     = "LaunchedBefore"
+    
+    //used in About footer
+    static let Appversion = "CFBundleShortVersionString"
+    static let Buildnumber = "CFBundleVersion"
     
     #warning("internationalize this")
     //MARK: - Strings

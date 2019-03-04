@@ -22,6 +22,7 @@ class HelmetPickerViewController: UIViewController {
         UIImage(named: "helmet_purple")!,
         UIImage(named: "helmet_green")!,
         ]
+    //add tracksImages
     
     var delegate:HelmetPickerProtocol? = nil
 

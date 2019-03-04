@@ -70,4 +70,17 @@ class SettingsTableViewController: UITableViewController {
             return ""
         }
     }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        //Only one section should have a footer, the last one
+        if section == 1 {
+            guard let dictionary = Bundle.main.infoDictionary else {
+                return "© 2019 Appbryggeriet - 🇳🇴"
+            }
+            let version = dictionary[Constants.Appversion] as! String
+            let build = dictionary[Constants.Buildnumber] as! String
+            return "🇳🇴 - v\(version) - © 2019 Appbryggeriet - 🇳🇴"
+        }
+        return ""
+    }
 }

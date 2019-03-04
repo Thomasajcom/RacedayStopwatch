@@ -1,5 +1,5 @@
 //
-//  AddDriverViewController.swift
+//  AddItemViewController.swift
 //  RacedayStopwatch
 //
 //  Created by Thomas Andre Johansen on 22/02/2019.
@@ -8,57 +8,60 @@
 
 import UIKit
 
-class AddDriverViewController: UIViewController {
+class AddItemViewController: UIViewController {
 
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var addDriverLabel: UILabel!
-    @IBOutlet weak var driverNameLabel: UILabel!
-    @IBOutlet weak var driverNumberLabel: UILabel!
-    @IBOutlet weak var pictureOrHelmetLabel: UILabel!
+    @IBOutlet weak var addItemLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var itemNumberLabel: UILabel!
+    @IBOutlet weak var pictureOrImageLabel: UILabel!
     
-    @IBOutlet weak var driverName: UITextField!
-    @IBOutlet weak var driverNumber: UITextField!
-    @IBOutlet weak var pictureOrHelmetControl: UISegmentedControl!
+    @IBOutlet weak var itemName: UITextField!
+    @IBOutlet weak var itemNumber: UITextField!
+    @IBOutlet weak var pictureOrImageControl: UISegmentedControl!
     
     @IBOutlet weak var pictureContainerView: UIView!
-    @IBOutlet weak var helmetContainerView: UIView!
+    @IBOutlet weak var imageContainerView: UIView!
     
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var addDriverButton: UIButton!
+    @IBOutlet weak var addItemButton: UIButton!
     
     var driver: Driver?
     var driverImage: UIImage?
     var helmetImage: UIImage?
     
+    var track: Track?
+    var trackImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius            = Constants.cornerRadius
         popupView.layer.masksToBounds           = true
-        addDriverButton.layer.cornerRadius      = Constants.cornerRadius
-        addDriverButton.layer.masksToBounds     = true
+        addItemButton.layer.cornerRadius      = Constants.cornerRadius
+        addItemButton.layer.masksToBounds     = true
         cancelButton.layer.cornerRadius         = Constants.cornerRadius
         cancelButton.layer.masksToBounds        = true
         
-        driverName.delegate     = self
-        driverNumber.delegate   = self
+        itemName.delegate     = self
+        itemNumber.delegate   = self
         
-        helmetContainerView.isHidden            = true
+        imageContainerView.isHidden            = true
         
-        pictureOrHelmetControl.addTarget(self, action: #selector(changeContainerView), for: .valueChanged)
-        addDriverLabel.text             = Constants.ADD_DRIVER_LABEL
-        driverNameLabel.text            = Constants.DRIVER_NAME_PLACEHOLDER
-        driverNumberLabel.text          = Constants.DRIVER_NUMBER_PLACEHOLDER
+        pictureOrImageControl.addTarget(self, action: #selector(changeContainerView), for: .valueChanged)
+        addItemLabel.text             = Constants.ADD_DRIVER_LABEL
+        itemNameLabel.text            = Constants.DRIVER_NAME_PLACEHOLDER
+        itemNumberLabel.text          = Constants.DRIVER_NUMBER_PLACEHOLDER
         addDoneButton()
-        pictureOrHelmetLabel.text       = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
-        pictureOrHelmetLabel.isHidden   = true
-        pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_PICTURE_SEGMENT, forSegmentAt: 0)
-        pictureOrHelmetControl.setTitle(Constants.ADD_DRIVER_HELMET_SEGMENT, forSegmentAt: 1)
+        pictureOrImageLabel.text       = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
+        pictureOrImageLabel.isHidden   = true
+        pictureOrImageControl.setTitle(Constants.ADD_DRIVER_PICTURE_SEGMENT, forSegmentAt: 0)
+        pictureOrImageControl.setTitle(Constants.ADD_DRIVER_HELMET_SEGMENT, forSegmentAt: 1)
         if let driver = driver {
-            driverName.text     = driver.name
-            driverNumber.text   = driver.number
+            itemName.text     = driver.name
+            itemNumber.text   = driver.number
             
-            addDriverLabel.text = Constants.EDIT_DRIVER_LABEL
-            addDriverButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
+            addItemLabel.text = Constants.EDIT_DRIVER_LABEL
+            addItemButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
         }
     }
     //refactor to an extension as it's being used multiple places
@@ -68,7 +71,7 @@ class AddDriverViewController: UIViewController {
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
         keyboardToolbar.items = [flexSpace, doneBarButton]
-        driverNumber.inputAccessoryView = keyboardToolbar
+        itemNumber.inputAccessoryView = keyboardToolbar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,12 +86,12 @@ class AddDriverViewController: UIViewController {
     }
     
     @objc func changeContainerView(){
-        switch pictureOrHelmetControl.selectedSegmentIndex{
+        switch pictureOrImageControl.selectedSegmentIndex{
         case 0:
             pictureContainerView.isHidden.toggle()
-            helmetContainerView.isHidden.toggle()
+            imageContainerView.isHidden.toggle()
         case 1:
-            helmetContainerView.isHidden.toggle()
+            imageContainerView.isHidden.toggle()
             pictureContainerView.isHidden.toggle()
         default:
             print("default switch selectedSegmentIndex")
@@ -97,11 +100,11 @@ class AddDriverViewController: UIViewController {
     
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
-        guard let name = driverName.text, name.count > 0 else {                            driverName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        guard let name = itemName.text, name.count > 0 else {                            itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
-        guard let number = driverNumber.text, number.count > 0 else {
-            driverNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        guard let number = itemNumber.text, number.count > 0 else {
+            itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
         if pictureContainerView.isHidden{
@@ -142,7 +145,7 @@ class AddDriverViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-extension AddDriverViewController: UITextFieldDelegate{
+extension AddItemViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -150,12 +153,12 @@ extension AddDriverViewController: UITextFieldDelegate{
 }
 
 //TODO: - rework these to one variable and automatically understanding which one the user wants
-extension AddDriverViewController: HelmetPickerProtocol{
+extension AddItemViewController: HelmetPickerProtocol{
     func selectedHelmet(image: UIImage) {
         helmetImage = image
     }
 }
-extension AddDriverViewController: DriverPictureProtocol{
+extension AddItemViewController: DriverPictureProtocol{
     func selectedDriverPicture(_ image: UIImage) {
         driverImage = image
     }
