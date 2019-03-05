@@ -196,7 +196,11 @@ class AddItemViewController: UIViewController {
         }else if itemIsTrack{
             if let track = track{
                 track.name      = name
-                track.length    = Double(number)!
+                if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                    track.length    = Double(number)!
+                }else{
+                    track.length    = Double(number)!.fromMilesToMeters()
+                }
                 track.image     = image.pngData()
                 
                 CoreDataService.saveContext()
@@ -204,7 +208,11 @@ class AddItemViewController: UIViewController {
             }else{//save a new track
                 let track = Track(context: CoreDataService.context)
                 track.name     = name
-                track.length   = (Double(number)?.fromMilesToMeters())!
+                if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                    track.length    = Double(number)!
+                }else{
+                    track.length    = Double(number)!.fromMilesToMeters()
+                }
                 track.image    = image.pngData()
                 if (track.name!.count > 0 && track.length > 0){
                     CoreDataService.saveContext()
@@ -230,13 +238,11 @@ extension AddItemViewController: UITextFieldDelegate{
 //TODO: - rework these to one variable and automatically understanding which one the user wants
 extension AddItemViewController: ImagePickerProtocol{
     func selectedImage(image: UIImage) {
-        print("image satt i imagepicker")
         itemImage = image
     }
 }
 extension AddItemViewController: ItemPictureProtocol{
     func selectedItemPicture(_ image: UIImage) {
-        print("image satt i itempicture")
         itemImage = image
     }
 }
