@@ -28,6 +28,8 @@ class ItemPictureViewController: UIViewController {
         itemImage.layer.masksToBounds = true
         if let image = picture {
             itemImage.image = image
+            delegate?.selectedItemPicture(image)
+
         }else{
             itemImage.image = UIImage(named: "itemImage_placeholder")
         }

@@ -99,6 +99,7 @@ class AddItemViewController: UIViewController {
                 itemName.text     = track.name
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                     itemNumber.text   = String(track.length.noDecimals)
+                    itemNumber.keyboardType = .numberPad
                 }else{
                     itemNumber.text   = String(track.length.threeDecimals)
                 }
@@ -109,6 +110,7 @@ class AddItemViewController: UIViewController {
                 itemName.placeholder          = Constants.TRACK_NAME_PLACEHOLDER
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                     itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_METERS
+                    itemNumber.keyboardType = .numberPad
                 }else{
                     itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_MILES
                 }
