@@ -110,8 +110,8 @@ struct Constants{
     static let BUTTON_LAP       = "LAP"
     
     static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
-    static let SPEED_UNIT_KMH   = "km/h"
-    static let SPEED_UNIT_MPH   = "mp/h"
+    static let SPEED_UNIT_KMH   = "KM/H"
+    static let SPEED_UNIT_MPH   = "MPH"
     
 
     static let LAP          = "Lap"

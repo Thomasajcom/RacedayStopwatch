@@ -31,6 +31,7 @@ class DriverTableViewCell: UITableViewCell {
     func setup(with driver: Driver){
         numberLabel.layer.cornerRadius  = Constants.cornerRadius
         numberLabel.layer.masksToBounds = true
+        numberLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         driverImage.layer.cornerRadius = Constants.cornerRadius
         driverImage.layer.masksToBounds = true
         nameLabel.text                  = driver.name
