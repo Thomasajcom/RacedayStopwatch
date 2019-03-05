@@ -18,6 +18,7 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var lapRecordLabel: UILabel!
     @IBOutlet weak var lapRecordHolder: UILabel!
     @IBOutlet weak var lapRecordTime: UILabel!
+    @IBOutlet weak var trackImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +32,8 @@ class TrackTableViewCell: UITableViewCell {
     }
     
     func setup(_ track: Track){
-        trackName.text                  = track.name
+        trackName.text      = track.name
+        trackImage.image    = UIImage(data: track.image!)
         if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
             trackLength.text                = String(track.length.noDecimals) + " " + Constants.LENGTH_UNIT_METERS
         }else{
@@ -45,7 +47,5 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordTime.isHidden  = true
             lapRecordHolder.text    = "No lap record set. Get out there!"
         }
-        
     }
-
 }

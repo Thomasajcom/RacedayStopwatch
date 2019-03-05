@@ -552,69 +552,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="251" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="251"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="393" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="393"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YE3-iL-OPu" id="V1g-zM-Dhb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="392.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
-                                            <rect key="frame" x="16" y="11" width="343" height="31.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gKY-Th-A1q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="300" id="Q0K-QJ-vwb"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
+                                            <rect key="frame" x="5" y="5" width="365" height="31.5"/>
+                                            <color key="backgroundColor" red="0.36535918709999998" green="0.5651222467" blue="0.52549171449999998" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-is-ATK">
-                                            <rect key="frame" x="16" y="42.5" width="343" height="148"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-CS-Ucf">
-                                            <rect key="frame" x="16" y="195.5" width="343" height="20.5"/>
+                                            <rect key="frame" x="21" y="300" width="343" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-SS-mm9" userLabel="LapRecord Stack View">
-                                            <rect key="frame" x="16" y="216" width="343" height="24"/>
+                                            <rect key="frame" x="21" y="325.5" width="333" height="51.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lap Record Holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeX-C9-ebq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="51.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lap Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF0-U8-WW5">
-                                                    <rect key="frame" x="244" y="0.0" width="99" height="24"/>
+                                                    <rect key="frame" x="234" y="0.0" width="99" height="51.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-is-ATK">
+                                            <rect key="frame" x="0.0" y="271.5" width="375" height="20.5"/>
+                                            <color key="backgroundColor" red="0.36535918712615967" green="0.56512224674224854" blue="0.52549171447753906" alpha="0.74561215753424659" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bGn-SS-mm9" secondAttribute="bottom" id="332-n1-tR6"/>
-                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="xRK-is-ATK" secondAttribute="bottom" constant="5" id="APA-go-sWm"/>
-                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="DVJ-Fh-efe"/>
-                                        <constraint firstItem="xRK-is-ATK" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="G4i-FR-hGz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" id="RbU-le-MdM"/>
-                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="V54-sB-2Zm"/>
-                                        <constraint firstItem="xRK-is-ATK" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="W2F-bi-naT"/>
-                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="fEo-Fg-PFr"/>
-                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="fS9-Dd-GJg"/>
-                                        <constraint firstItem="xRK-is-ATK" firstAttribute="top" secondItem="RGX-xA-qSy" secondAttribute="bottom" id="j9x-36-arf"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" id="lca-tY-YYq"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="mVi-T5-wjy"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="topMargin" id="wQH-UU-rD9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bGn-SS-mm9" secondAttribute="bottom" constant="5" id="4I6-iv-yN9"/>
+                                        <constraint firstAttribute="trailing" secondItem="RGX-xA-qSy" secondAttribute="trailing" constant="5" id="6Bk-0b-37f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" constant="5" id="6pT-Tp-jWG"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="centerX" secondItem="gKY-Th-A1q" secondAttribute="centerX" id="9TW-Vc-NM7"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" constant="5" id="Mld-2J-eOL"/>
+                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" constant="5" id="TJF-73-UfT"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="width" secondItem="gKY-Th-A1q" secondAttribute="width" id="blI-C8-dlU"/>
+                                        <constraint firstItem="gKY-Th-A1q" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" id="cLM-VG-ZMF"/>
+                                        <constraint firstItem="bGn-SS-mm9" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" constant="5" id="jeU-tc-4Yf"/>
+                                        <constraint firstItem="gKY-Th-A1q" firstAttribute="baseline" secondItem="xRK-is-ATK" secondAttribute="firstBaseline" constant="12.5" symbolType="layoutAnchor" id="jf0-w2-pnX"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" constant="5" id="l1c-Gn-iN5"/>
+                                        <constraint firstAttribute="trailing" secondItem="gKY-Th-A1q" secondAttribute="trailing" id="mH5-3d-PY3"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="gKY-Th-A1q" secondAttribute="bottom" id="xEn-wX-ESe"/>
+                                        <constraint firstItem="xFu-CS-Ucf" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" constant="5" id="xfc-uO-gEb"/>
+                                        <constraint firstItem="gKY-Th-A1q" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" id="yBE-hE-21f"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" constant="5" id="zwD-nR-DmG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lapRecordHolder" destination="OeX-C9-ebq" id="J4i-aF-Ynl"/>
                                     <outlet property="lapRecordLabel" destination="xFu-CS-Ucf" id="jkb-4S-SAK"/>
                                     <outlet property="lapRecordTime" destination="QF0-U8-WW5" id="wto-XW-SMP"/>
+                                    <outlet property="trackImage" destination="gKY-Th-A1q" id="CCR-qn-O6g"/>
                                     <outlet property="trackLength" destination="xRK-is-ATK" id="wa1-8K-l7c"/>
                                     <outlet property="trackName" destination="RGX-xA-qSy" id="Vzd-8q-lOX"/>
                                 </connections>
@@ -978,7 +990,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-5p-37L">
                                             <rect key="frame" x="16" y="87" width="100" height="24"/>
-                                            <color key="backgroundColor" red="0.36535918712615967" green="0.56512224674224854" blue="0.52549171447753906" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.36535918712615967" green="0.56512224674224854" blue="0.52549171447753906" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -1134,7 +1146,7 @@
                                                         <constraint firstAttribute="height" constant="130" id="jtb-lJ-oXe"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="6Sg-VL-wBU" kind="embed" identifier="embedHelmetPickerView" id="Ze6-g3-zaY"/>
+                                                        <segue destination="6Sg-VL-wBU" kind="embed" identifier="embedImagePickerView" id="Ze6-g3-zaY"/>
                                                     </connections>
                                                 </containerView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="AcH-Me-dk9">
@@ -1472,6 +1484,6 @@
         <image name="track" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f8O-rH-vMJ"/>
+        <segue reference="JGP-yD-QPe"/>
     </inferredMetricsTieBreakers>
 </document>

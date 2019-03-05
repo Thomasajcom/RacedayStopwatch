@@ -28,12 +28,26 @@ class AddItemViewController: UIViewController {
     
     var driver: Driver?
     var itemIsDriver = false
-    var driverImage: UIImage?
-    var helmetImage: UIImage?
+    var itemImage: UIImage?
+    var helmets: [UIImage] = [
+        UIImage(named: "helmet_red")!,
+        UIImage(named: "helmet_blue")!,
+        UIImage(named: "helmet_yellow")!,
+        UIImage(named: "helmet_purple")!,
+        UIImage(named: "helmet_green")!,
+        UIImage(named: "helmet_cyan")!,
+        ]
     
     var track: Track?
     var itemIsTrack = false
     var trackImage: UIImage?
+    var tracks: [UIImage] = [
+        UIImage(named: "helmet_red")!,
+        UIImage(named: "helmet_blue")!,
+        UIImage(named: "helmet_yellow")!,
+        UIImage(named: "helmet_purple")!,
+        UIImage(named: "helmet_green")!,
+        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +125,11 @@ class AddItemViewController: UIViewController {
         if (segue.identifier == "embedImagePickerView"){
             let selectItem = segue.destination as! ImagePickerViewController
             selectItem.delegate   = self
+            if itemIsDriver{
+                selectItem.images = helmets
+            }else if itemIsTrack{
+                selectItem.images = tracks
+            }
         }else if (segue.identifier == "embedPicturePickerView"){
             let selectPicture = segue.destination as! ItemPictureViewController
             selectPicture.delegate  = self
@@ -133,17 +152,16 @@ class AddItemViewController: UIViewController {
     
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
-        guard let name = itemName.text, name.count > 0 else {                            itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        guard let name = itemName.text, name.count > 0 else {
+            itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
         guard let number = itemNumber.text, number.count > 0 else {
             itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
-        if pictureContainerView.isHidden{
-            driverImage = helmetImage
-        }
-        guard let image = driverImage else {
+
+        guard let image = itemImage else {
             let alertController = UIAlertController(title: Constants.ADD_DRIVER_IMAGE_ERROR_TITLE, message: Constants.ADD_DRIVER_IMAGE_ERROR_BODY, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(action)
@@ -175,9 +193,23 @@ class AddItemViewController: UIViewController {
             }
         }else if itemIsTrack{
             if let track = track{
+                track.name      = name
+                track.length    = Double(number)!
+                track.image     = image.pngData()
                 
+                CoreDataService.saveContext()
+                dismiss(animated: true, completion: nil)
             }else{//save a new track
-                
+                let track = Track(context: CoreDataService.context)
+                track.name     = name
+                track.length   = (Double(number)?.fromMilesToMeters())!
+                track.image    = image.pngData()
+                if (track.name!.count > 0 && track.length > 0){
+                    CoreDataService.saveContext()
+                    dismiss(animated: true, completion: nil)
+                }else{
+                    CoreDataService.context.delete(track)
+                }
             }
         }
     }
@@ -196,11 +228,13 @@ extension AddItemViewController: UITextFieldDelegate{
 //TODO: - rework these to one variable and automatically understanding which one the user wants
 extension AddItemViewController: ImagePickerProtocol{
     func selectedImage(image: UIImage) {
-        helmetImage = image
+        print("image satt i imagepicker")
+        itemImage = image
     }
 }
 extension AddItemViewController: ItemPictureProtocol{
     func selectedItemPicture(_ image: UIImage) {
-        driverImage = image
+        print("image satt i itempicture")
+        itemImage = image
     }
 }

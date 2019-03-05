@@ -15,21 +15,7 @@ protocol ImagePickerProtocol {
 //TODO: - Fix error with selecting first helmet even when editing a driver with another helmet set
 class ImagePickerViewController: UIViewController {
     
-    var helmets: [UIImage] = [
-        UIImage(named: "helmet_red")!,
-        UIImage(named: "helmet_blue")!,
-        UIImage(named: "helmet_yellow")!,
-        UIImage(named: "helmet_purple")!,
-        UIImage(named: "helmet_green")!,
-        ]
-    //add tracksImages
-    var tracks: [UIImage] = [
-        UIImage(named: "helmet_red")!,
-        UIImage(named: "helmet_blue")!,
-        UIImage(named: "helmet_yellow")!,
-        UIImage(named: "helmet_purple")!,
-        UIImage(named: "helmet_green")!,
-        ]
+    var images = [UIImage]()
     
     var delegate:ImagePickerProtocol? = nil
     
@@ -39,9 +25,11 @@ class ImagePickerViewController: UIViewController {
         super.viewDidLoad()
         helmetPicker.delegate       = self
         helmetPicker.dataSource     = self
-        delegate?.selectedImage(image: helmets[helmetPicker.selectedRow(inComponent: 0)])
-        
-        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        delegate?.selectedImage(image: images[helmetPicker.selectedRow(inComponent: 0)])
+        print("viewdidappear!")
     }
     
 }
@@ -52,18 +40,17 @@ extension ImagePickerViewController: UIPickerViewDataSource, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return helmets.count
+        return images.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 60
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        return UIImageView(image: helmets[row])
+        return UIImageView(image: images[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectedImage(image: helmets[row])
+        delegate?.selectedImage(image: images[row])
     }
-    
 }

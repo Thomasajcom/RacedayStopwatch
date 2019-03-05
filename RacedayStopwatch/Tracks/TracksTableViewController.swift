@@ -80,6 +80,15 @@ class TracksTableViewController: UITableViewController {
         deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    //MARK: - Tableview Delegate Methods
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 320
+    }
 }
 
 //NSFetchedResultsControllerDelegate extension
