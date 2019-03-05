@@ -78,7 +78,6 @@ class SettingsTableViewController: UITableViewController {
                 return "© 2019 Appbryggeriet - 🇳🇴"
             }
             let version = dictionary[Constants.Appversion] as! String
-            let build = dictionary[Constants.Buildnumber] as! String
             return "🇳🇴 - v\(version) - © 2019 Appbryggeriet - 🇳🇴"
         }
         return ""

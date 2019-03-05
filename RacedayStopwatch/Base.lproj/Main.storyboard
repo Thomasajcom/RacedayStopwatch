@@ -198,17 +198,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b37-ZA-0O3" userLabel="Best Lap Stack View">
-                                            <rect key="frame" x="116" y="108" width="240" height="18"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b37-ZA-0O3" userLabel="Best Lap Stack View">
+                                            <rect key="frame" x="116" y="108" width="254" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="BestLap Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUD-DB-E64">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BestLap Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-CM-HaS">
-                                                    <rect key="frame" x="124" y="0.0" width="116" height="18"/>
+                                                    <rect key="frame" x="150" y="0.0" width="104" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -227,11 +227,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-Oj-ddS" userLabel="Total Lap Info Stack View">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-Oj-ddS" userLabel="Total Lap Info Stack View">
                                             <rect key="frame" x="116" y="171.5" width="256" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="# Laps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-oi-I8e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="113" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -247,7 +247,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fnb-zL-p9Q" firstAttribute="top" secondItem="tMJ-os-qFJ" secondAttribute="bottom" id="0eI-cp-2b9"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="b37-ZA-0O3" secondAttribute="trailing" constant="3" id="4OZ-of-0y5"/>
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="5Fv-bm-0aN"/>
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="6MN-Xy-Vj7"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="83f-jN-yly"/>
@@ -259,6 +258,7 @@
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="Lcu-Rb-kQh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tMJ-os-qFJ" secondAttribute="trailing" id="P02-1z-Jr8"/>
                                         <constraint firstAttribute="trailing" secondItem="hRg-12-4ng" secondAttribute="trailing" constant="3" id="TZh-vk-mGL"/>
+                                        <constraint firstAttribute="trailing" secondItem="b37-ZA-0O3" secondAttribute="trailing" constant="5" id="UHf-x4-Zda"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="Vpz-mg-CJ1"/>
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="top" secondItem="ANF-9u-tIc" secondAttribute="bottom" constant="1" id="Xs9-al-Lzh"/>
                                         <constraint firstAttribute="bottom" secondItem="uQe-Oj-ddS" secondAttribute="bottom" constant="3" id="bso-19-vXV"/>
@@ -1036,6 +1036,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Lnr-Rg-b3O" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="90K-yG-qBC"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Lnr-Rg-b3O" secondAttribute="bottom" constant="20" id="Ava-Gu-kEa"/>
                                         <constraint firstItem="bbN-fD-bWD" firstAttribute="leading" secondItem="wHS-YG-mUe" secondAttribute="leadingMargin" id="FrV-rr-wbU"/>
                                         <constraint firstItem="5uA-2B-Dbp" firstAttribute="top" secondItem="Phd-A6-tqU" secondAttribute="bottom" constant="3" id="GF5-fe-7Dv"/>
                                         <constraint firstItem="5uA-2B-Dbp" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="ILq-Hc-MX7"/>
@@ -1043,7 +1044,6 @@
                                         <constraint firstItem="Phd-A6-tqU" firstAttribute="leading" secondItem="bbN-fD-bWD" secondAttribute="trailing" constant="5" id="bAm-Fr-DqJ"/>
                                         <constraint firstItem="ZJz-5p-37L" firstAttribute="bottom" secondItem="bbN-fD-bWD" secondAttribute="bottom" id="dLk-l0-9Ce"/>
                                         <constraint firstItem="ZJz-5p-37L" firstAttribute="width" secondItem="bbN-fD-bWD" secondAttribute="width" id="dYQ-2g-dL9"/>
-                                        <constraint firstAttribute="bottom" secondItem="bbN-fD-bWD" secondAttribute="bottom" constant="24" id="f5P-2g-KzN"/>
                                         <constraint firstItem="ZJz-5p-37L" firstAttribute="centerX" secondItem="bbN-fD-bWD" secondAttribute="centerX" id="hU6-VV-y5F"/>
                                         <constraint firstItem="bbN-fD-bWD" firstAttribute="top" secondItem="wHS-YG-mUe" secondAttribute="topMargin" id="lBu-Yj-8Nq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="5uA-2B-Dbp" secondAttribute="trailing" id="mez-KL-xgt"/>
@@ -1087,7 +1087,7 @@
         <!--Add Item View Controller-->
         <scene sceneID="fmG-b0-Gv8">
             <objects>
-                <viewController storyboardIdentifier="editDriver" id="egn-cB-DnE" customClass="AddItemViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editItem" id="egn-cB-DnE" customClass="AddItemViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="49s-aK-go4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1460,8 +1460,8 @@
                         <viewLayoutGuide key="safeArea" id="AzV-Xl-nqa"/>
                     </view>
                     <connections>
-                        <outlet property="driverImage" destination="FQa-Uc-d5l" id="hia-9D-S0T"/>
                         <outlet property="galleryButton" destination="SBp-FQ-OfX" id="2Ug-FF-ofy"/>
+                        <outlet property="itemImage" destination="FQa-Uc-d5l" id="hia-9D-S0T"/>
                         <outlet property="newPhotoButton" destination="Gm4-d4-QlH" id="eb9-wS-ZXG"/>
                     </connections>
                 </viewController>
@@ -1476,6 +1476,6 @@
         <image name="track" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JGP-yD-QPe"/>
+        <segue reference="f8O-rH-vMJ"/>
     </inferredMetricsTieBreakers>
 </document>

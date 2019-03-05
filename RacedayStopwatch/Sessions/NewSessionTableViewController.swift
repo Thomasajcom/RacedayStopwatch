@@ -57,6 +57,7 @@ class NewSessionTableViewController: UITableViewController {
     
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {
         noTrackLength.isEnabled.toggle()
+        trackPicker.isHidden.toggle()
     }
     @IBAction func noDriversSwitchChanged(_ sender: UISwitch) {
         driversCollectionView.allowsSelection.toggle()
@@ -97,6 +98,9 @@ class NewSessionTableViewController: UITableViewController {
         if (segue.identifier == "timerSegue"){
             let newTimer = segue.destination as! TimerViewController
             newTimer.hidesBottomBarWhenPushed = true
+            newTimer.navigationItem.hidesBackButton = true
+            let exitButton = UIBarButtonItem(title: Constants.TIMER_EXIT, style: .plain, target: self, action: #selector(exitToRoot))
+            newTimer.navigationItem.leftBarButtonItem = exitButton
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             
             //set track on the timer vc
@@ -134,6 +138,18 @@ class NewSessionTableViewController: UITableViewController {
                 present(alertController, animated: true)
             }
         }
+    }
+    @objc func exitToRoot(){
+        let alertController = UIAlertController(title: Constants.TIMER_EXIT, message: Constants.TIMER_EXIT_MESSAGE, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
     
     //refactor to an extension as it's being used multiple places

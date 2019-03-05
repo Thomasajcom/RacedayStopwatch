@@ -79,14 +79,15 @@ class DriversTableViewController: UITableViewController {
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let editDriver = storyboard.instantiateViewController(withIdentifier: "editDriver") as! AddItemViewController
+            let editDriver = storyboard.instantiateViewController(withIdentifier: "editItem") as! AddItemViewController
+            editDriver.itemIsDriver = true
             editDriver.driver =  self.fetchedResultsController.fetchedObjects![indexPath.row]
             self.present(editDriver, animated: true, completion: nil)
             completionHandler(true)
         }
         editAction.backgroundColor  = .blue
         editAction.image            = UIImage(named: "delete-50-filled")
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
 }
 

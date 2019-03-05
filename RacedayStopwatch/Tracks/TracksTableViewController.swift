@@ -78,7 +78,18 @@ class TracksTableViewController: UITableViewController {
         }
         deleteAction.image = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor = .red
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
+            //perform segue to edit
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editTrack = storyboard.instantiateViewController(withIdentifier: "editItem") as! AddItemViewController
+            editTrack.itemIsTrack = true
+            editTrack.track = self.fetchedResultsController.object(at: indexPath)
+            self.present(editTrack, animated: true, completion: nil)
+            completionHandler(true)
+        }
+        editAction.backgroundColor  = .blue
+        editAction.image            = UIImage(named: "delete-50-filled")
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
     
     //MARK: - Tableview Delegate Methods

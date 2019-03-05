@@ -97,8 +97,11 @@ class AddItemViewController: UIViewController {
             if let track = track {
                 print("EDITING EXISTING TRACK")
                 itemName.text     = track.name
-                itemNumber.text   = String(track.length)
-                
+                if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
+                    itemNumber.text   = String(track.length.noDecimals)
+                }else{
+                    itemNumber.text   = String(track.length.threeDecimals)
+                }
                 addItemLabel.text = Constants.EDIT_TRACK_LABEL
             }else{
                 print("NEW TRACK SOM ER EMPTY")
@@ -135,7 +138,11 @@ class AddItemViewController: UIViewController {
         }else if (segue.identifier == "embedPicturePickerView"){
             let selectPicture = segue.destination as! ItemPictureViewController
             selectPicture.delegate  = self
-            selectPicture.driver    = driver
+            if let driver = driver{
+                selectPicture.picture = UIImage(data: driver.image!)
+            }else if let track = track{
+                selectPicture.picture = UIImage(data: track.image!)
+            }
         }
     }
     
@@ -164,7 +171,7 @@ class AddItemViewController: UIViewController {
         }
 
         guard let image = itemImage else {
-            let alertController = UIAlertController(title: Constants.ADD_DRIVER_IMAGE_ERROR_TITLE, message: Constants.ADD_DRIVER_IMAGE_ERROR_BODY, preferredStyle: .alert)
+            let alertController = UIAlertController(title: Constants.ADD_ITEM_IMAGE_ERROR_TITLE, message: Constants.ADD_ITEM_IMAGE_ERROR_BODY, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(action)
             present(alertController, animated: true)

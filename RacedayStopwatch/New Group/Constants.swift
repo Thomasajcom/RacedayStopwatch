@@ -46,8 +46,8 @@ struct Constants{
     static let DRIVER_NUMBER_LABEL                  = "Number"
     static let DRIVER_NUMBER_PLACEHOLDER            = "Enter a Number"
     static let DRIVER_NUMBER_PLACEHOLDER_ERROR      = "ENTER NUMBER!"
-    static let ADD_DRIVER_IMAGE_ERROR_TITLE         = "Driver Image Error"
-    static let ADD_DRIVER_IMAGE_ERROR_BODY          = "Either take a picture of the driver, or select a helmet."
+    static let ADD_ITEM_IMAGE_ERROR_TITLE           = "Image Error"
+    static let ADD_ITEM_IMAGE_ERROR_BODY            = "Either take a picture, select a photo or choose a pre-defined item from the list."
     
     static let ADD_TRACK_LABEL                      = "Add Track"
     static let EDIT_TRACK_LABEL                     = "Edit Track"
@@ -92,10 +92,12 @@ struct Constants{
     static let DRIVER_IS_SELECTED               = "Selected!"
     //MARK: - Timer
     //add driver to session
-    static let TIMER_ADD_DRIVER_OKBUTTON = "Add"
-    static let TIMER_SELECT_DRIVER      = "Select Driver"
-    static let LAP_RECORD_LABEL         = "Lap Record Holder"
-    static let LAP_RECORD_HOLDER_NONE   = "No lap record found."
+    static let TIMER_EXIT                   = "Exit"
+    static let TIMER_EXIT_MESSAGE           = "This will exit without saving. Are you sure?"
+    static let TIMER_ADD_DRIVER_OKBUTTON    = "Add"
+    static let TIMER_SELECT_DRIVER          = "Select Driver"
+    static let LAP_RECORD_LABEL             = "Lap Record Holder"
+    static let LAP_RECORD_HOLDER_NONE       = "No lap record found."
     //check userDefaults, return metric or imperial based on that
     static let LENGTH_UNIT_METERS       = "Meters"
     static let LENGTH_UNIT_MILES        = "Miles"
@@ -133,7 +135,7 @@ struct Constants{
     
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"
-    static let ALERT_SAVED      = "Ok"
+    static let ALERT_OK      = "Ok"
     
     //MARK: - SETTINGS
     static let SETTINGS_DEFAULT_HEADER      = "Defaults"

@@ -15,21 +15,21 @@ protocol ItemPictureProtocol {
 
 class ItemPictureViewController: UIViewController {
     
-    @IBOutlet weak var driverImage: UIImageView!
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
     
     var delegate: ItemPictureProtocol? = nil
-    var driver: Driver?
+    var picture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        driverImage.layer.cornerRadius  = Constants.cornerRadius
-        driverImage.layer.masksToBounds = true
-        if let driver = driver {
-            driverImage.image = UIImage(data: driver.image!)
+        itemImage.layer.cornerRadius  = Constants.cornerRadius
+        itemImage.layer.masksToBounds = true
+        if let image = picture {
+            itemImage.image = image
         }else{
-            driverImage.image = UIImage(named: "driverImage_placeholder")
+            itemImage.image = UIImage(named: "itemImage_placeholder")
         }
         newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
         galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
@@ -57,7 +57,7 @@ extension ItemPictureViewController: UINavigationControllerDelegate, UIImagePick
         guard let image = info[.editedImage] as? UIImage else {
             return
         }
-        driverImage.image = image
+        itemImage.image = image
         delegate?.selectedItemPicture(image)
     }
     

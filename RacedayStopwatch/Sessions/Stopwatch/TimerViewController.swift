@@ -48,14 +48,11 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         mainTimerLabel.text = Constants.LAPTIME_NOT_STARTED
-        //session.sessionDateAndTime = Date() as NSDate
-
         driverCollectionView.delegate   = self
         driverCollectionView.dataSource = self
         
-        startButton.layer.cornerRadius  = 10
+        startButton.layer.cornerRadius  = Constants.cornerRadius
         startButton.layer.masksToBounds = true
         startButton.setTitle(Constants.BUTTON_START, for: .normal)
         lapButton.isHidden = true
@@ -67,7 +64,9 @@ class TimerViewController: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         //TODO: - Internationalize this
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.locale = Locale.current
+        formatter.setLocalizedDateFormatFromTemplate("dd.MM.YYYY")
+//        formatter.dateFormat = "dd.MM.yyyy"
         let todayString = formatter.string(from: date)
         self.title = todayString
         if let track = selectedTrack{
@@ -177,7 +176,7 @@ class TimerViewController: UIViewController {
         }
         
         CoreDataService.saveContext()
-        presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_SAVED,.default))
+        presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_OK,.default))
     }
     
     fileprivate func presentAlertController(title: String, body: String, actionButton: (String,UIAlertAction.Style)) {
@@ -185,7 +184,7 @@ class TimerViewController: UIViewController {
         let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
         let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
             (alert: UIAlertAction!) in
-            if (actionString == Constants.ALERT_SAVED){
+            if (actionString == Constants.ALERT_OK){
                 self.navigationController?.popToRootViewController(animated: true)
             }else{
             }
