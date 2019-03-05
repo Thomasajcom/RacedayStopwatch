@@ -75,7 +75,7 @@ class TimerViewController: UIViewController {
             if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                 trackLengthLabel.text   = String(track.length.noDecimals)+" "+Constants.LENGTH_UNIT_METERS
             }else{
-                trackLengthLabel.text   = String(Double(track.length).fromMetersToMiles().fourDecimals)+" "+Constants.LENGTH_UNIT_MILES
+                trackLengthLabel.text   = String(Double(track.length).fromMetersToMiles().threeDecimals)+" "+Constants.LENGTH_UNIT_MILES
             }
             lapRecordLabel.text     = Constants.LAP_RECORD_LABEL
             

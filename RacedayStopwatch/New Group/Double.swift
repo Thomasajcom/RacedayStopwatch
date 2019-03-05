@@ -20,9 +20,9 @@ public extension Double{
         
         var newTime     = self//Date().timeIntervalSinceReferenceDate - self
         let minutes     =  UInt8(newTime / 60.0)
-        newTime         -= (TimeInterval(minutes) * 60)
+        newTime        -= (TimeInterval(minutes) * 60)
         let seconds     = UInt8(newTime)
-        newTime         -= TimeInterval(seconds)
+        newTime        -= TimeInterval(seconds)
         let miliseconds = UInt64(newTime * 1000)
         
         var returnString                = formatter.string(from: minutes as NSNumber)! + ":" + formatter.string(from: seconds as NSNumber)!
@@ -57,8 +57,8 @@ public extension Double{
     var twoDecimals:String {
         return String(format: "%.2f", self)
     }
-    var fourDecimals:String {
-        return String(format: "%.4f", self)
+    var threeDecimals:String {
+        return String(format: "%.3f", self)
     }
 }
 

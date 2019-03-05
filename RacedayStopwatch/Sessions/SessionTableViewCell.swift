@@ -98,7 +98,7 @@ class SessionTableViewCell: UITableViewCell {
                 distanceDriven.text = String(calculatedDistanceDriven.noDecimals) + Constants.LENGTH_UNIT_METERS
             }else{
                 bestLapSpeed.text = String(Double(session.fastestLapSpeed).kmhToMph().twoDecimals) + Constants.SPEED_UNIT_MPH
-                distanceDriven.text = String(Double(calculatedDistanceDriven).fromMetersToMiles().fourDecimals) + Constants.LENGTH_UNIT_MILES
+                distanceDriven.text = String(Double(calculatedDistanceDriven).fromMetersToMiles().threeDecimals) + Constants.LENGTH_UNIT_MILES
             }
             totalSessionTimeLabel.attributedText = NSAttributedString(string: Constants.SESSION_TIME_ON_TRACK, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             totalSessionTime.text = Double(session.totalSessionTime).laptimeToString()

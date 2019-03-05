@@ -37,7 +37,7 @@ class TrackTableViewCell: UITableViewCell {
         if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
             trackLength.text                = String(track.length.noDecimals) + " " + Constants.LENGTH_UNIT_METERS
         }else{
-            trackLength.text                = String(Double(track.length).fromMetersToMiles().fourDecimals ) + " " + Constants.LENGTH_UNIT_MILES
+            trackLength.text                = String(Double(track.length).fromMetersToMiles().threeDecimals ) + " " + Constants.LENGTH_UNIT_MILES
         }
         if track.trackRecord > 0{
             lapRecordTime.isHidden  = false

@@ -547,10 +547,11 @@
         <scene sceneID="Hov-z5-Q8H">
             <objects>
                 <tableViewController id="T57-XV-8SU" customClass="TracksTableViewController" customModule="RacedayStopwatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kep-3E-xWa">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kep-3E-xWa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.99157893659999996" green="0.7040820122" blue="0.03578078002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="393" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="393"/>
@@ -566,7 +567,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
-                                            <rect key="frame" x="5" y="5" width="365" height="31.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
                                             <color key="backgroundColor" red="0.36535918709999998" green="0.5651222467" blue="0.52549171449999998" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -605,10 +606,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="bGn-SS-mm9" secondAttribute="bottom" constant="5" id="4I6-iv-yN9"/>
-                                        <constraint firstAttribute="trailing" secondItem="RGX-xA-qSy" secondAttribute="trailing" constant="5" id="6Bk-0b-37f"/>
+                                        <constraint firstAttribute="trailing" secondItem="RGX-xA-qSy" secondAttribute="trailing" id="6Bk-0b-37f"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bGn-SS-mm9" secondAttribute="trailing" constant="5" id="6pT-Tp-jWG"/>
                                         <constraint firstItem="xRK-is-ATK" firstAttribute="centerX" secondItem="gKY-Th-A1q" secondAttribute="centerX" id="9TW-Vc-NM7"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" constant="5" id="Mld-2J-eOL"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" id="Mld-2J-eOL"/>
                                         <constraint firstItem="bGn-SS-mm9" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" constant="5" id="TJF-73-UfT"/>
                                         <constraint firstItem="xRK-is-ATK" firstAttribute="width" secondItem="gKY-Th-A1q" secondAttribute="width" id="blI-C8-dlU"/>
                                         <constraint firstItem="gKY-Th-A1q" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" id="cLM-VG-ZMF"/>
@@ -619,7 +620,7 @@
                                         <constraint firstItem="xFu-CS-Ucf" firstAttribute="top" secondItem="gKY-Th-A1q" secondAttribute="bottom" id="xEn-wX-ESe"/>
                                         <constraint firstItem="xFu-CS-Ucf" firstAttribute="trailing" secondItem="V1g-zM-Dhb" secondAttribute="trailingMargin" constant="5" id="xfc-uO-gEb"/>
                                         <constraint firstItem="gKY-Th-A1q" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" id="yBE-hE-21f"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" constant="5" id="zwD-nR-DmG"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" id="zwD-nR-DmG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
