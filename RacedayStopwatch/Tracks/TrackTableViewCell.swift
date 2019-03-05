@@ -45,8 +45,8 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordTime.text      = track.trackRecord.laptimeToString()
             lapRecordHolder.text    = track.trackRecordHolder!.name
         }else{
-            lapRecordTime.isHidden  = true
-            lapRecordHolder.text    = "No lap record set. Get out there!"
+            lapRecordHolder.isHidden  = true
+            lapRecordTime.text    = "No lap record set. Get out there!"
         }
     }
 }

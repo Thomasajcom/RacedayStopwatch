@@ -14,7 +14,6 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var addItemLabel: UILabel!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemNumberLabel: UILabel!
-    @IBOutlet weak var pictureOrImageLabel: UILabel!
     
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemNumber: UITextField!
@@ -57,6 +56,11 @@ class AddItemViewController: UIViewController {
         addItemButton.layer.masksToBounds       = true
         cancelButton.layer.cornerRadius         = Constants.cornerRadius
         cancelButton.layer.masksToBounds        = true
+        addItemButton.layer.maskedCorners       = [.layerMaxXMaxYCorner]
+        cancelButton.layer.maskedCorners        = [.layerMinXMaxYCorner]
+        addItemLabel.layer.cornerRadius        = Constants.cornerRadius
+        addItemLabel.layer.masksToBounds       = true
+        addItemLabel.layer.maskedCorners       = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         itemName.delegate     = self
         itemNumber.delegate   = self
@@ -67,8 +71,6 @@ class AddItemViewController: UIViewController {
         
         
         addDoneButton()
-        pictureOrImageLabel.text       = Constants.ADD_DRIVER_PICTURE_OR_HELMET_LABEL
-        pictureOrImageLabel.isHidden   = true
         
         pictureOrImageControl.setTitle(Constants.ADD_ITEM_PICTURE_SEGMENT, forSegmentAt: 0)
         addItemButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
