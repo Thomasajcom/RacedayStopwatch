@@ -41,12 +41,13 @@ class TrackTableViewCell: UITableViewCell {
             trackLength.text                = String(Double(track.length).fromMetersToMiles().threeDecimals ) + " " + Constants.LENGTH_UNIT_MILES
         }
         if track.trackRecord > 0{
-            lapRecordTime.isHidden  = false
-            lapRecordTime.text      = track.trackRecord.laptimeToString()
-            lapRecordHolder.text    = track.trackRecordHolder!.name
+            lapRecordTime.isHidden      = false
+            lapRecordHolder.isHidden    = false
+            lapRecordTime.text          = track.trackRecord.laptimeToString()
+            lapRecordHolder.text        = track.trackRecordHolder!.name
         }else{
-            lapRecordHolder.isHidden  = true
-            lapRecordTime.text    = "No lap record set. Get out there!"
+            lapRecordHolder.isHidden    = true
+            lapRecordTime.text          = "No lap record set. Get out there!"
         }
     }
 }

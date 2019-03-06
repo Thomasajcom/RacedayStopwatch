@@ -24,17 +24,21 @@ class ItemPictureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemImage.layer.cornerRadius  = Constants.cornerRadius
-        itemImage.layer.masksToBounds = true
+        itemImage.layer.cornerRadius        = Constants.cornerRadius
+        itemImage.layer.masksToBounds       = true
+        newPhotoButton.layer.cornerRadius   = Constants.cornerRadius
+        galleryButton.layer.cornerRadius    = Constants.cornerRadius
+        newPhotoButton.layer.masksToBounds  = true
+        galleryButton.layer.masksToBounds   = true
+        
         if let image = picture {
             itemImage.image = image
             delegate?.selectedItemPicture(image)
-
         }else{
             itemImage.image = UIImage(named: "itemImage_placeholder")
         }
-        newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
-        galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
+        //newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
+        //galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
     }
     
     @IBAction func takePhoto(_ sender: UIButton) {

@@ -151,7 +151,7 @@ class TimerViewController: UIViewController {
             session.drivers             = nil
             session.fastestDriver       = nil
             session.fastestLapTime      = fastestLap!.lapTime
-            session.fastestLapSpeed     = Int16(fastestLap!.speed)
+            session.fastestLapSpeed     = Int64(fastestLap!.speed)
             session.numberOfLaps        = Int16(laps.count)
             session.totalSessionTime    = mainTimerStopTime - mainTimerStartTime
             if let track = selectedTrack{
@@ -163,7 +163,7 @@ class TimerViewController: UIViewController {
             session.drivers             = NSSet(array: drivers)
             session.fastestDriver       = fastestLap!.driver
             session.fastestLapTime      = fastestLap!.lapTime
-            session.fastestLapSpeed     = Int16(fastestLap!.speed)
+            session.fastestLapSpeed     = Int64(fastestLap!.speed)
             session.numberOfLaps        = Int16(laps.count)
             session.totalSessionTime    = mainTimerStopTime - mainTimerStartTime
             session.onTrack             = selectedTrack

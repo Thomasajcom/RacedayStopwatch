@@ -101,7 +101,7 @@ class AddItemViewController: UIViewController {
                     itemNumber.text   = String(track.length.noDecimals)
                     itemNumber.keyboardType = .numberPad
                 }else{
-                    itemNumber.text   = String(track.length.threeDecimals)
+                    itemNumber.text   = String(track.length.fromMetersToMiles().threeDecimals)
                 }
                 addItemLabel.text = Constants.EDIT_TRACK_LABEL
             }else{

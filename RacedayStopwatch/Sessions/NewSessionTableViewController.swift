@@ -61,22 +61,23 @@ class NewSessionTableViewController: UITableViewController {
     }
     @IBAction func noDriversSwitchChanged(_ sender: UISwitch) {
         driversCollectionView.allowsSelection.toggle()
+        driversCollectionView.isHidden.toggle()
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0:
-            return 3
+            return 1
         case 1:
-            return 2
+            return 1
+        case 2:
+            return 3
         default:
             return 0
         }
@@ -88,6 +89,8 @@ class NewSessionTableViewController: UITableViewController {
             return Constants.TRACK_SELECT_TITLE
         case 1:
             return Constants.SESSION_DRIVER_SELECT_TITLE
+        case 2:
+            return Constants.NEW_SESSION_TIMER_ONLY_TITLE
         default:
             return ""
         }
@@ -177,6 +180,7 @@ extension NewSessionTableViewController: UIPickerViewDelegate, UIPickerViewDataS
         guard let tracks = tracks, tracks.count > 0 else {return "No tracks found."}
         return tracks[row].name //+ " " + String(tracks[row].length) + Constants.LENGTH_UNIT
     }
+
 }
 
 //MARK: - CollectionView
