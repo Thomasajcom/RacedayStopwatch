@@ -304,7 +304,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="M4z-ey-Pvs">
                                 <connections>
-                                    <segue destination="A9a-DA-Qst" kind="show" id="3ff-X9-gd4"/>
+                                    <segue destination="A9a-DA-Qst" kind="show" identifier="NewSessionSegue" id="3ff-X9-gd4"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Dev" id="zTM-hv-bVP">

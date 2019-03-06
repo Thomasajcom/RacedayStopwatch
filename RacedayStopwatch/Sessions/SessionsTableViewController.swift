@@ -41,6 +41,16 @@ class SessionsTableViewController: UITableViewController {
        
         tableView.reloadData()
     }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        var shouldPerformSegue = true
+        if (identifier == "NewSessionSegue"){
+            if (sessions.count >= Constants.IAP_SESSION_LIMIT) {
+                print("over the limit, unlock unlimited sessions and remove the session and timer ads by clicking purchase")
+                shouldPerformSegue = false
+            }
+        }
+        return shouldPerformSegue
+    }
 
     // MARK: - Developer Options Core Data
     func drop(table: String){
@@ -51,6 +61,7 @@ class SessionsTableViewController: UITableViewController {
         {
             try CoreDataService.context.execute(deleteRequest)
             CoreDataService.saveContext()
+            
         }
         catch
         {
@@ -108,6 +119,11 @@ class SessionsTableViewController: UITableViewController {
         let deleteAction = UIContextualAction.init(style: .destructive, title: nil) { (action, view, completionHandler) in
             CoreDataService.context.delete(self.sessions[indexPath.row])
             CoreDataService.saveContext()
+            do {
+                self.sessions = try CoreDataService.context.fetch(self.fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
             completionHandler(true)
         }
         deleteAction.image = UIImage(named: "delete-50-filled")

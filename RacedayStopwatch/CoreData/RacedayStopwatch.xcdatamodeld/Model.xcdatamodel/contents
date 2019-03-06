@@ -20,14 +20,14 @@
         <attribute name="weatherInfo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="drivers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Driver" inverseName="sessions" inverseEntity="Driver" syncable="YES"/>
         <relationship name="fastestDriver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="wasFastestOnSession" inverseEntity="Driver" syncable="YES"/>
-        <relationship name="onTrack" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Track" inverseName="sessions" inverseEntity="Track" syncable="YES"/>
+        <relationship name="onTrack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="sessions" inverseEntity="Track" syncable="YES"/>
     </entity>
     <entity name="Track" representedClassName=".Track" syncable="YES" codeGenerationType="category">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackRecord" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Session" inverseName="onTrack" inverseEntity="Session" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="onTrack" inverseEntity="Session" syncable="YES"/>
         <relationship name="trackRecordHolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="holdsRecords" inverseEntity="Driver" syncable="YES"/>
     </entity>
     <elements>

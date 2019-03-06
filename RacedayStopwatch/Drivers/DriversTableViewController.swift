@@ -48,6 +48,17 @@ class DriversTableViewController: UITableViewController {
             newDriver.itemIsDriver = true
         }
     }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        var shouldPerformSegue = true
+        if (identifier == "AddDriverSegue"){
+            if ((fetchedResultsController.fetchedObjects?.count)! >= Constants.IAP_DRIVER_LIMIT) {
+                print("over the limit, unlock unlimited drivers and remove the driver ads by clicking purchase")
+                shouldPerformSegue = false
+            }
+        }
+        return shouldPerformSegue
+    }
+
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

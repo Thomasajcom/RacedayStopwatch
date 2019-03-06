@@ -20,6 +20,15 @@ struct Constants{
     static let defaults_metric_key      = "Metric"
     static let defaults_launched_before     = "LaunchedBefore"
     
+    //iAP limits
+    static let IAP_TRACK_LIMIT      = 2
+    static let IAP_DRIVER_LIMIT     = 3
+    static let IAP_SESSION_LIMIT    = 10
+    
+    static let AD_BANNER_FREQUENCY_TRACKS       = 2
+    static let AD_BANNER_FREQUENCR_DRIVERS      = 3
+    static let AD_BANNER_FREQUENCY_SESSIONS     = 4
+    
     //used in About footer
     static let Appversion = "CFBundleShortVersionString"
     static let Buildnumber = "CFBundleVersion"
@@ -85,6 +94,7 @@ struct Constants{
     static let SESSION_TRACK_ERROR_BODY         = "Either select a track, or turn on the No Track Switch."
     static let SESSION_DRIVER_ERROR_TITLE       = "Driver Error"
     static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
+    static let NEW_SESSION_TIMER_ONLY_TITLE     = "BASIC TIMER"
     
     static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
     static let SESSION_LAP                      = " laps"

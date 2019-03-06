@@ -45,9 +45,20 @@ class TracksTableViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddTrackSegue"){
+            
             let newDriver = segue.destination as! AddItemViewController
             newDriver.itemIsTrack = true
         }
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        var shouldPerformSegue = true
+        if (identifier == "AddTrackSegue"){
+            if ((fetchedResultsController.fetchedObjects?.count)! >= Constants.IAP_TRACK_LIMIT) {
+                print("over the limit, unlock unlimited tracks spots and remove the track ads by clicking purchase")
+                shouldPerformSegue = false
+            }
+        }
+        return shouldPerformSegue
     }
     
     // MARK: - Table view data source
