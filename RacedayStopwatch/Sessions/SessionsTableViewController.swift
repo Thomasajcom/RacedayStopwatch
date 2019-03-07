@@ -126,8 +126,8 @@ class SessionsTableViewController: UITableViewController {
             }
             completionHandler(true)
         }
-        deleteAction.image = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor = .red
+        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     

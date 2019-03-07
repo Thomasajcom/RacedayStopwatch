@@ -27,9 +27,11 @@ class ItemPictureViewController: UIViewController {
         itemImage.layer.cornerRadius        = Constants.cornerRadius
         itemImage.layer.masksToBounds       = true
         newPhotoButton.layer.cornerRadius   = Constants.cornerRadius
-        galleryButton.layer.cornerRadius    = Constants.cornerRadius
         newPhotoButton.layer.masksToBounds  = true
+        newPhotoButton.layer.maskedCorners  = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        galleryButton.layer.cornerRadius    = Constants.cornerRadius
         galleryButton.layer.masksToBounds   = true
+        galleryButton.layer.maskedCorners   = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         if let image = picture {
             itemImage.image = image

@@ -91,8 +91,8 @@ class SessionTableViewCell: UITableViewCell {
         bestLapTime.text = session.fastestLapTime.laptimeToString()
         numberOfLaps.text = String(session.numberOfLaps) + Constants.SESSION_LAP
 
-        let calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
-        if sessionWithTrack {            
+        if sessionWithTrack {
+            let calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
             if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                 bestLapSpeed.text = String(session.fastestLapSpeed) + " " + Constants.SPEED_UNIT_KMH
                 distanceDriven.text = String(calculatedDistanceDriven.noDecimals) + Constants.LENGTH_UNIT_METERS

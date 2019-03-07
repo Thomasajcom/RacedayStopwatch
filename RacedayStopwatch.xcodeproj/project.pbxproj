@@ -37,6 +37,7 @@
 		E9EE5D082215674100E2F57D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D072215674100E2F57D /* Constants.swift */; };
 		E9EE5D0D22156D2D00E2F57D /* Lap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0C22156D2D00E2F57D /* Lap.swift */; };
 		E9EE5D112215E3AF00E2F57D /* RaceDayTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D102215E3AF00E2F57D /* RaceDayTimer.swift */; };
+		E9F0F553223133930079A7E7 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F552223133930079A7E7 /* Theme.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		E9EE5D072215674100E2F57D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E9EE5D0C22156D2D00E2F57D /* Lap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
 		E9EE5D102215E3AF00E2F57D /* RaceDayTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDayTimer.swift; sourceTree = "<group>"; };
+		E9F0F552223133930079A7E7 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,13 +183,10 @@
 			children = (
 				E9388D38222DDEEE0053F39D /* Add Item */,
 				E9606000219359DA00D37631 /* AppDelegate.swift */,
-				E9606009219359DB00D37631 /* Assets.xcassets */,
 				E960608321936EC500D37631 /* CoreData */,
 				E92111A72194BE0A00D5D67F /* Drivers */,
 				E9EE5D092215674B00E2F57D /* Helpers */,
-				E960600E219359DB00D37631 /* Info.plist */,
-				E960600B219359DB00D37631 /* LaunchScreen.storyboard */,
-				E9606006219359DA00D37631 /* Main.storyboard */,
+				E9F0F551223132930079A7E7 /* Resources */,
 				E960603721935D6800D37631 /* Sessions */,
 				E925B5092228546D00E67365 /* Settings */,
 				E960603A21935DA100D37631 /* Tracks */,
@@ -266,6 +265,18 @@
 			);
 			name = Helpers;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E9F0F551223132930079A7E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9606006219359DA00D37631 /* Main.storyboard */,
+				E960600E219359DB00D37631 /* Info.plist */,
+				E9606009219359DB00D37631 /* Assets.xcassets */,
+				E960600B219359DB00D37631 /* LaunchScreen.storyboard */,
+				E9F0F552223133930079A7E7 /* Theme.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E960600D219359DB00D37631 /* LaunchScreen.storyboard in Resources */,
+				E9F0F553223133930079A7E7 /* Theme.xcassets in Resources */,
 				E960600A219359DB00D37631 /* Assets.xcassets in Resources */,
 				E9606008219359DA00D37631 /* Main.storyboard in Resources */,
 			);
@@ -600,7 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z57UTV2LU;
-				INFOPLIST_FILE = RacedayStopwatch/Info.plist;
+				INFOPLIST_FILE = RacedayStopwatch/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,7 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z57UTV2LU;
-				INFOPLIST_FILE = RacedayStopwatch/Info.plist;
+				INFOPLIST_FILE = RacedayStopwatch/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

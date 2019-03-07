@@ -87,8 +87,8 @@ class TracksTableViewController: UITableViewController {
             CoreDataService.saveContext()
             completionHandler(true)
         }
-        deleteAction.image = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor = .red
+        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -98,7 +98,7 @@ class TracksTableViewController: UITableViewController {
             self.present(editTrack, animated: true, completion: nil)
             completionHandler(true)
         }
-        editAction.backgroundColor  = .blue
+        editAction.backgroundColor  = UIColor(named: "ConfirmColor")
         editAction.image            = UIImage(named: "delete-50-filled")
         return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }

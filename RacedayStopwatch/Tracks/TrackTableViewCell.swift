@@ -40,7 +40,7 @@ class TrackTableViewCell: UITableViewCell {
         }else{
             trackLength.text                = String(Double(track.length).fromMetersToMiles().threeDecimals ) + " " + Constants.LENGTH_UNIT_MILES
         }
-        if track.trackRecord > 0{
+        if track.trackRecord > 0 && track.trackRecordHolder != nil{
             lapRecordTime.isHidden      = false
             lapRecordHolder.isHidden    = false
             lapRecordTime.text          = track.trackRecord.laptimeToString()
