@@ -150,6 +150,7 @@ struct Constants{
     //MARK: - SETTINGS
     static let SETTINGS_DEFAULT_HEADER      = "Defaults"
     static let SETTINGS_IAP_HEADER          = "In-App Purchases"
+    static let SETTINGS_THEME_HEADER        = "Themes"
     static let SETTINGS_IMP_OR_METRIC_LABEL = "Measurement Units"
     static let SETTINGS_IMPERIAL_LABEL      = "Imperial"
     static let SETTINGS_METRIC_LABEL        = "Metric"

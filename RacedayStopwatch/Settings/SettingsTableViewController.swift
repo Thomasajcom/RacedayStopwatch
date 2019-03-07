@@ -35,10 +35,8 @@ class SettingsTableViewController: UITableViewController {
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {
         case 0:
-            print("metriclol")
             Constants.defaults.set(true, forKey: Constants.defaults_metric_key)
         case 1:
-            print("imperlorel")
             Constants.defaults.set(false, forKey: Constants.defaults_metric_key)
         default:
             print("Default metric or imperial switch")
@@ -46,7 +44,7 @@ class SettingsTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +52,8 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             return 1
         case 1:
+            return 1
+        case 2:
             return 1
         default:
             return 0
@@ -66,6 +66,8 @@ class SettingsTableViewController: UITableViewController {
             return Constants.SETTINGS_DEFAULT_HEADER
         case 1:
             return Constants.SETTINGS_IAP_HEADER
+        case 2:
+            return Constants.SETTINGS_THEME_HEADER
         default:
             return ""
         }
@@ -73,7 +75,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         //Only one section should have a footer, the last one
-        if section == 1 {
+        if section == 2 {
             guard let dictionary = Bundle.main.infoDictionary else {
                 return "© 2019 Appbryggeriet - 🇳🇴"
             }

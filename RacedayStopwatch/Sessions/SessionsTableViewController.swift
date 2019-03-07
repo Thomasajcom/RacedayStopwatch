@@ -25,8 +25,6 @@ class SessionsTableViewController: UITableViewController {
             print(isMetric)
             print(Constants.defaults.bool(forKey: Constants.defaults_metric_key))
         }
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tableView.tableFooterView = UIView()
     }
     

@@ -21,6 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" name="BarColor"/>
                         <color key="tintColor" name="BarTint"/>
+                        <color key="barTintColor" name="BarColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="2WK-nN-9Xu" kind="relationship" relationship="viewControllers" id="qNs-zU-2TI"/>
@@ -123,6 +124,8 @@
                                                 <constraint firstItem="iCX-lh-SBs" firstAttribute="centerX" secondItem="dLr-Zm-9w2" secondAttribute="centerX" id="UlL-H7-BxY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="bHF-bJ-CG5">
                                         <rect key="frame" x="0.0" y="232" width="375" height="44"/>
@@ -131,6 +134,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fMC-55-RJ2">
                                         <rect key="frame" x="0.0" y="276" width="375" height="44"/>
@@ -139,6 +144,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Themes" id="2Zv-3c-7BA">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="aix-Ee-fXb">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aix-Ee-fXb" id="Vjw-Qd-PMX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="hfc-oi-eFz">
+                                        <rect key="frame" x="0.0" y="392" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hfc-oi-eFz" id="WHn-OD-bD6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ARb-Sc-Val">
+                                        <rect key="frame" x="0.0" y="436" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ARb-Sc-Val" id="dVs-hP-rLe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -166,7 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" red="0.36535918709999998" green="0.5651222467" blue="0.52549171449999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" name="BarTint"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionCell" rowHeight="193" id="xRX-QS-4MG" customClass="SessionTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="193"/>
@@ -175,9 +216,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="192.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGw-zx-gll">
-                                            <rect key="frame" x="0.0" y="11" width="375" height="36"/>
-                                            <color key="backgroundColor" name="HighlightColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGw-zx-gll">
+                                            <rect key="frame" x="3" y="11" width="369" height="36"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <color key="textColor" name="HighlightFontColor"/>
                                             <nil key="highlightedColor"/>
@@ -272,11 +313,11 @@
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="top" secondItem="ANF-9u-tIc" secondAttribute="bottom" constant="1" id="Xs9-al-Lzh"/>
                                         <constraint firstAttribute="bottom" secondItem="uQe-Oj-ddS" secondAttribute="bottom" constant="3" id="bso-19-vXV"/>
                                         <constraint firstItem="Egq-TC-aui" firstAttribute="top" secondItem="tMJ-os-qFJ" secondAttribute="bottom" constant="2" id="bxx-FW-4lM"/>
-                                        <constraint firstItem="HGw-zx-gll" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leading" id="dqu-ag-pv1"/>
+                                        <constraint firstItem="HGw-zx-gll" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leading" constant="3" id="dqu-ag-pv1"/>
                                         <constraint firstItem="Egq-TC-aui" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" constant="-3" id="ecf-dW-Phr"/>
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="top" secondItem="b37-ZA-0O3" secondAttribute="bottom" constant="1" id="fQX-zQ-9jH"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="top" secondItem="wQV-ao-gcE" secondAttribute="bottom" constant="1" id="gr4-qA-H8T"/>
-                                        <constraint firstAttribute="trailing" secondItem="HGw-zx-gll" secondAttribute="trailing" id="hLO-dH-DvS"/>
+                                        <constraint firstAttribute="trailing" secondItem="HGw-zx-gll" secondAttribute="trailing" constant="3" id="hLO-dH-DvS"/>
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="top" secondItem="HGw-zx-gll" secondAttribute="bottom" id="hSr-4x-QpK"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="hU3-Rf-QGw"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="top" secondItem="fnb-zL-p9Q" secondAttribute="bottom" constant="1" id="mUd-67-S8r"/>
@@ -337,7 +378,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hZu-kx-pxz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="tintColor" name="BarTint"/>
+                        <color key="separatorColor" name="TintColor"/>
                         <sections>
                             <tableViewSection headerTitle="TRACK" id="gEQ-GM-CVC">
                                 <cells>
@@ -359,6 +402,8 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="roK-df-RBn" secondAttribute="trailing" id="mHC-uq-zG9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -439,6 +484,8 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="vkU-eM-8TI" secondAttribute="trailing" id="tkK-JZ-SIv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -476,6 +523,8 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="h9r-5A-T9i" secondAttribute="trailing" id="scv-w9-Xfy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="U4T-YT-Gjt">
                                         <rect key="frame" x="0.0" y="471.5" width="375" height="63"/>
@@ -509,6 +558,8 @@
                                                 <constraint firstItem="v14-Q5-XVN" firstAttribute="leading" secondItem="AwV-Zf-KSt" secondAttribute="leadingMargin" id="S4W-ly-ryQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="VuO-Nv-kdW">
                                         <rect key="frame" x="0.0" y="534.5" width="375" height="44"/>
@@ -531,6 +582,8 @@
                                                 <constraint firstItem="cvo-UA-AEB" firstAttribute="top" secondItem="bcp-5t-RIK" secondAttribute="topMargin" constant="5" id="xWS-yX-ywh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -569,7 +622,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" red="0.36535918709999998" green="0.5651222467" blue="0.52549171449999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" name="BarTint"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="393" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="393"/>
@@ -584,8 +637,8 @@
                                                 <constraint firstAttribute="height" constant="300" id="Q0K-QJ-vwb"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-xA-qSy">
+                                            <rect key="frame" x="3" y="0.0" width="369" height="31.5"/>
                                             <color key="backgroundColor" name="HighlightColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="textColor" name="HighlightFontColor"/>
@@ -603,8 +656,8 @@
                                             <color key="textColor" name="MainFontColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-is-ATK">
-                                            <rect key="frame" x="0.0" y="271.5" width="375" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-is-ATK">
+                                            <rect key="frame" x="3" y="271.5" width="369" height="20.5"/>
                                             <color key="backgroundColor" name="HighlightColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" name="HighlightFontColor"/>
@@ -619,13 +672,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="OeX-C9-ebq" secondAttribute="trailing" id="2yn-YD-lHI"/>
-                                        <constraint firstAttribute="trailing" secondItem="RGX-xA-qSy" secondAttribute="trailing" id="6Bk-0b-37f"/>
-                                        <constraint firstItem="xRK-is-ATK" firstAttribute="centerX" secondItem="gKY-Th-A1q" secondAttribute="centerX" id="9TW-Vc-NM7"/>
+                                        <constraint firstAttribute="trailing" secondItem="RGX-xA-qSy" secondAttribute="trailing" constant="3" id="6Bk-0b-37f"/>
+                                        <constraint firstAttribute="trailing" secondItem="xRK-is-ATK" secondAttribute="trailing" constant="3" id="9jd-xp-s1m"/>
                                         <constraint firstItem="OeX-C9-ebq" firstAttribute="top" secondItem="QF0-U8-WW5" secondAttribute="bottom" id="AWe-VI-85t"/>
                                         <constraint firstItem="QF0-U8-WW5" firstAttribute="top" secondItem="xFu-CS-Ucf" secondAttribute="bottom" id="Bjo-0r-ZnX"/>
-                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" id="Mld-2J-eOL"/>
+                                        <constraint firstItem="RGX-xA-qSy" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" constant="3" id="Mld-2J-eOL"/>
+                                        <constraint firstItem="xRK-is-ATK" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leading" constant="3" id="Sux-Fx-i3r"/>
                                         <constraint firstItem="QF0-U8-WW5" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="aSb-CH-mbL"/>
-                                        <constraint firstItem="xRK-is-ATK" firstAttribute="width" secondItem="gKY-Th-A1q" secondAttribute="width" id="blI-C8-dlU"/>
                                         <constraint firstItem="gKY-Th-A1q" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" id="cLM-VG-ZMF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QF0-U8-WW5" secondAttribute="trailing" id="gsE-ub-HSD"/>
                                         <constraint firstItem="gKY-Th-A1q" firstAttribute="baseline" secondItem="xRK-is-ATK" secondAttribute="firstBaseline" constant="12.5" symbolType="layoutAnchor" id="jf0-w2-pnX"/>
@@ -677,8 +730,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-Z1-rpg">
-                                <rect key="frame" x="0.0" y="64" width="375" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-Z1-rpg">
+                                <rect key="frame" x="3" y="64" width="375" height="36"/>
                                 <color key="backgroundColor" name="HighlightColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" name="HighlightFontColor"/>
@@ -724,7 +777,8 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="irP-Mv-rJW" userLabel="Add Drivers Collection View">
                                 <rect key="frame" x="5" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="tintColor" name="BarTint"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="eHX-TW-yzt"/>
                                 </constraints>
@@ -804,6 +858,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8UA-5e-Bxy">
                                 <rect key="frame" x="0.0" y="166.5" width="375" height="316.5"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="tintColor" name="TintColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
@@ -910,9 +965,9 @@
                             <constraint firstItem="irP-Mv-rJW" firstAttribute="top" secondItem="2eI-YQ-QsR" secondAttribute="bottom" id="eJU-WR-Vyz"/>
                             <constraint firstItem="NeH-Mu-DHZ" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="5" id="fdW-lL-zXP"/>
                             <constraint firstItem="irP-Mv-rJW" firstAttribute="bottom" secondItem="gp6-R6-c8d" secondAttribute="bottom" id="gfb-Hp-mvR"/>
-                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="hDn-02-lee"/>
+                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" constant="3" id="hDn-02-lee"/>
                             <constraint firstItem="8UA-5e-Bxy" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" id="jkh-C3-XHa"/>
-                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" id="kD2-AM-Imc"/>
+                            <constraint firstItem="ILm-Z1-rpg" firstAttribute="leading" secondItem="gp6-R6-c8d" secondAttribute="leading" constant="3" id="kD2-AM-Imc"/>
                             <constraint firstItem="8UA-5e-Bxy" firstAttribute="top" secondItem="NeH-Mu-DHZ" secondAttribute="bottom" constant="5" id="m6l-83-oCs"/>
                             <constraint firstItem="irP-Mv-rJW" firstAttribute="trailing" secondItem="gp6-R6-c8d" secondAttribute="trailing" constant="5" id="mHR-WI-duy"/>
                             <constraint firstItem="ILm-Z1-rpg" firstAttribute="top" secondItem="gp6-R6-c8d" secondAttribute="top" id="miv-gq-Ydp"/>
@@ -959,7 +1014,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" red="0.36535918709999998" green="0.5651222467" blue="0.52549171449999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" name="BarTint"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="xbL-ba-2rz">
                             <rect key="frame" x="0.0" y="163" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1282,6 +1337,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="BarColor"/>
                         <color key="tintColor" name="BarTint"/>
+                        <color key="barTintColor" name="BarColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1303,6 +1359,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="BarColor"/>
                         <color key="tintColor" name="BarTint"/>
+                        <color key="barTintColor" name="BarColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1324,6 +1381,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="BarColor"/>
                         <color key="tintColor" name="BarTint"/>
+                        <color key="barTintColor" name="BarColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1513,19 +1571,19 @@
         <image name="session" width="75" height="75"/>
         <image name="track" width="75" height="75"/>
         <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BarColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="BarTint">
-            <color red="0.078000001609325409" green="0.55699998140335083" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CellBackground">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CellTint">
-            <color red="0.078000001609325409" green="0.55699998140335083" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ConfirmColor">
             <color red="0.36500000953674316" green="0.56499999761581421" blue="0.52499997615814209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1534,16 +1592,16 @@
             <color red="0.64399999380111694" green="0.096000000834465027" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightColor">
-            <color red="0.36500000953674316" green="0.56499999761581421" blue="0.52499997615814209" alpha="0.75" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="HighlightFontColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MainFontColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.13725490196078433" green="0.19215686274509805" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TintColor">
-            <color red="0.29499998688697815" green="0.57200002670288086" blue="0.52600002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
