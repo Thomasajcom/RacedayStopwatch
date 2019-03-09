@@ -164,11 +164,15 @@ class AddItemViewController: UIViewController {
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
         guard let name = itemName.text, name.count > 0 else {
-            itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.itemName.layer.borderColor = UIColor.red.cgColor
+            self.itemName.borderStyle = .roundedRect
+            self.itemName.layer.borderWidth = 1
             return
         }
         guard let number = itemNumber.text, number.count > 0 else {
-            itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER_ERROR,attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.itemNumber.layer.borderColor = UIColor.red.cgColor
+            self.itemNumber.borderStyle = .roundedRect
+            self.itemNumber.layer.borderWidth = 1
             return
         }
 
