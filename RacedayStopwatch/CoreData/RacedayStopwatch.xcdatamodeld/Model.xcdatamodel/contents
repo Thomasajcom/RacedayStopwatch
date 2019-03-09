@@ -7,8 +7,17 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="holdsRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Track" inverseName="trackRecordHolder" inverseEntity="Track" syncable="YES"/>
+        <relationship name="laps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lap" inverseName="driver" inverseEntity="Lap" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="drivers" inverseEntity="Session" syncable="YES"/>
         <relationship name="wasFastestOnSession" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="fastestDriver" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Lap" representedClassName=".Lap" syncable="YES" codeGenerationType="category">
+        <attribute name="lapNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lapTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="speed" optional="YES" transient="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="driver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="laps" inverseEntity="Driver" syncable="YES"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="laps" inverseEntity="Session" syncable="YES"/>
+        <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="laps" inverseEntity="Track" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName=".Session" syncable="YES" codeGenerationType="category">
         <attribute name="fastestLapSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -20,6 +29,7 @@
         <attribute name="weatherInfo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="drivers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Driver" inverseName="sessions" inverseEntity="Driver" syncable="YES"/>
         <relationship name="fastestDriver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="wasFastestOnSession" inverseEntity="Driver" syncable="YES"/>
+        <relationship name="laps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lap" inverseName="session" inverseEntity="Lap" syncable="YES"/>
         <relationship name="onTrack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="sessions" inverseEntity="Track" syncable="YES"/>
     </entity>
     <entity name="Track" representedClassName=".Track" syncable="YES" codeGenerationType="category">
@@ -27,12 +37,14 @@
         <attribute name="length" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackRecord" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="laps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lap" inverseName="track" inverseEntity="Lap" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="onTrack" inverseEntity="Session" syncable="YES"/>
         <relationship name="trackRecordHolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="holdsRecords" inverseEntity="Driver" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Driver" positionX="-3398.48046875" positionY="-3568.7421875" width="128" height="163"/>
-        <element name="Session" positionX="-3696.21484375" positionY="-3349.62109375" width="128" height="193"/>
-        <element name="Track" positionX="-3863.921875" positionY="-3670.84375" width="128" height="133"/>
+        <element name="Driver" positionX="-4050.74609375" positionY="-3393.25" width="128" height="178"/>
+        <element name="Session" positionX="-3581.7890625" positionY="-3231.9296875" width="128" height="208"/>
+        <element name="Track" positionX="-3879.3515625" positionY="-3108.62890625" width="128" height="148"/>
+        <element name="Lap" positionX="-3764.125" positionY="-3422.984375" width="128" height="133"/>
     </elements>
 </model>

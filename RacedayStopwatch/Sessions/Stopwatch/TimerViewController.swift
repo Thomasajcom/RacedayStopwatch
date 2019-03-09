@@ -174,6 +174,9 @@ class TimerViewController: UIViewController {
                 }
             }
         }
+        for lap in laps{
+            lap.session = session
+        }
         
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_OK,.default))
@@ -205,7 +208,12 @@ class TimerViewController: UIViewController {
             lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
         }
         //create a new instance of the Lap struct and add it to the array of Laps
-        let newLap = Lap(driver: nil, lapNumber: lapNumber, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
+        let newLap = Lap(context: CoreDataService.context)
+        newLap.driver = nil
+        newLap.lapNumber = Int16(lapNumber)
+        newLap.lapTime = lapTime
+        newLap.speed = Int16(lapSpeed)
+//        let newLap = Lap(driver: nil, lapNumber: lapNumber, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
         mainTimerStartTime = Date().timeIntervalSinceReferenceDate
         laps.append(newLap)
         //check if this lap was the fastest lap
@@ -302,8 +310,13 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
             let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
             let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
-            //create a new instance of the Lap struct and add it to the array of Laps
-            let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
+            //create a new instance of Lap and add it to the array of Laps
+            let newLap = Lap(context: CoreDataService.context)
+            newLap.driver = participatingDrivers[indexPath.row].0
+            newLap.lapNumber = Int16(lapNumber.count + 1)
+            newLap.lapTime = lapTime
+            newLap.speed = Int16(lapSpeed)
+//            let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
             laps.append(newLap)
             
             //check if this lap was the fastest lap

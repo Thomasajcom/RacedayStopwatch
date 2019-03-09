@@ -36,6 +36,8 @@ class SettingsTableViewController: UITableViewController {
         switch metricImperialSegmentedControl.selectedSegmentIndex {
         case 0:
             Constants.defaults.set(true, forKey: Constants.defaults_metric_key)
+            Theme.darkTheme()
+            self.loadView()
         case 1:
             Constants.defaults.set(false, forKey: Constants.defaults_metric_key)
         default:
@@ -71,6 +73,17 @@ class SettingsTableViewController: UITableViewController {
         default:
             return ""
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.backgroundView?.backgroundColor? = UIColor(named: "BackgroundColor")!
+        header.textLabel?.textColor             = UIColor(named: "HighlightFontColor")!
+    }
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        let footer = view as! UITableViewHeaderFooterView
+        footer.backgroundView?.backgroundColor? = UIColor(named: "BackgroundColor")!
+        footer.textLabel?.textColor             = UIColor(named: "HighlightFontColor")!
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
