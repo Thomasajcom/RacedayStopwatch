@@ -154,32 +154,43 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Themes" id="2Zv-3c-7BA">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="aix-Ee-fXb">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="58" id="aix-Ee-fXb">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aix-Ee-fXb" id="Vjw-Qd-PMX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="CellBackground"/>
-                                        <color key="tintColor" name="CellTint"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="hfc-oi-eFz">
-                                        <rect key="frame" x="0.0" y="392" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hfc-oi-eFz" id="WHn-OD-bD6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="CellBackground"/>
-                                        <color key="tintColor" name="CellTint"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ARb-Sc-Val">
-                                        <rect key="frame" x="0.0" y="436" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ARb-Sc-Val" id="dVs-hP-rLe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FsD-G4-NkF">
+                                                    <rect key="frame" x="21" y="16" width="333" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNg-Qb-hEX">
+                                                            <rect key="frame" x="0.0" y="6" width="276" height="24"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-2g-zQ1">
+                                                            <rect key="frame" x="284" y="2.5" width="51" height="31"/>
+                                                            <color key="tintColor" name="TintColor"/>
+                                                            <color key="onTintColor" name="ConfirmColor"/>
+                                                            <color key="thumbTintColor" name="TintColor"/>
+                                                            <connections>
+                                                                <action selector="setDarkMode:" destination="nMG-Uh-yDW" eventType="valueChanged" id="jnH-4A-7Oe"/>
+                                                            </connections>
+                                                        </switch>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="qNg-Qb-hEX" firstAttribute="centerY" secondItem="hWd-2g-zQ1" secondAttribute="centerY" id="TdB-G1-LaG"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FsD-G4-NkF" firstAttribute="bottom" secondItem="Vjw-Qd-PMX" secondAttribute="bottomMargin" constant="5" id="EfE-sX-BS5"/>
+                                                <constraint firstItem="FsD-G4-NkF" firstAttribute="top" secondItem="Vjw-Qd-PMX" secondAttribute="topMargin" constant="5" id="SmU-fW-i3A"/>
+                                                <constraint firstItem="FsD-G4-NkF" firstAttribute="leading" secondItem="Vjw-Qd-PMX" secondAttribute="leadingMargin" constant="5" id="kc0-mj-hN3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FsD-G4-NkF" secondAttribute="trailing" constant="5" id="tAn-PD-gCu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
@@ -194,13 +205,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="UZ5-te-RBx"/>
                     <connections>
+                        <outlet property="darkModeLabel" destination="qNg-Qb-hEX" id="pet-0p-dtf"/>
+                        <outlet property="darkModeSwitch" destination="hWd-2g-zQ1" id="rFB-v2-M0H"/>
                         <outlet property="measurementUnitsLabel" destination="eNH-iE-7RT" id="rSe-xI-Fi6"/>
                         <outlet property="metricImperialSegmentedControl" destination="H7y-s7-GZu" id="ATh-Ez-EHq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eX-4P-EHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1444" y="242"/>
+            <point key="canvasLocation" x="-1444" y="241.52923538230885"/>
         </scene>
         <!--Sessions-->
         <scene sceneID="5jM-hl-fOK">
@@ -421,7 +434,8 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vkU-eM-8TI" userLabel="Add Drivers Collection View">
                                                     <rect key="frame" x="16" y="11" width="343" height="100"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" name="CellBackground"/>
+                                                    <color key="tintColor" name="CellTint"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="VbQ-Mm-BVr"/>
                                                     </constraints>
@@ -480,6 +494,7 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <color key="backgroundColor" name="CellBackground"/>
                                             <constraints>
                                                 <constraint firstItem="vkU-eM-8TI" firstAttribute="leading" secondItem="rUe-PI-RV4" secondAttribute="leadingMargin" id="5ia-FF-em6"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vkU-eM-8TI" secondAttribute="bottom" id="N0e-Ua-PJ5"/>
@@ -512,6 +527,8 @@
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GLd-dF-P5C">
                                                             <rect key="frame" x="294" y="0.0" width="51" height="12"/>
+                                                            <color key="onTintColor" name="ConfirmColor"/>
+                                                            <color key="thumbTintColor" name="TintColor"/>
                                                             <connections>
                                                                 <action selector="noDriversSwitchChanged:" destination="A9a-DA-Qst" eventType="valueChanged" id="Gpv-4K-PeX"/>
                                                             </connections>
@@ -547,6 +564,8 @@
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-Ry-Wml">
                                                             <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                            <color key="onTintColor" name="ConfirmColor"/>
+                                                            <color key="thumbTintColor" name="TintColor"/>
                                                             <connections>
                                                                 <action selector="noTrackSwitchChanged:" destination="A9a-DA-Qst" eventType="valueChanged" id="by9-pb-gMf"/>
                                                             </connections>
@@ -573,6 +592,8 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Custom Length (Optional)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvo-UA-AEB">
                                                     <rect key="frame" x="16" y="16" width="343" height="12"/>
+                                                    <color key="backgroundColor" name="CellBackground"/>
+                                                    <color key="tintColor" name="CellTint"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -820,7 +841,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="GSy-qr-jWl" firstAttribute="top" secondItem="xT4-44-x8V" secondAttribute="bottom" id="1kY-HJ-TeG"/>
                                             <constraint firstItem="GSy-qr-jWl" firstAttribute="centerX" secondItem="NYV-pq-vEx" secondAttribute="centerX" id="FpF-nt-glv"/>
@@ -1195,6 +1216,7 @@
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter The Item's Name " textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-9u-exp">
                                                     <rect key="frame" x="5" y="59" width="290" height="30"/>
+                                                    <color key="backgroundColor" name="CellBackground"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
@@ -1207,6 +1229,7 @@
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Item's Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="De0-Qg-tTh">
                                                     <rect key="frame" x="5" y="112" width="290" height="30"/>
+                                                    <color key="backgroundColor" name="CellBackground"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
@@ -1423,7 +1446,7 @@
                                                 <color key="backgroundColor" name="DeleteColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Dismiss">
-                                                    <color key="titleColor" name="HighlightFontColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="dismiss:" destination="1AM-ea-whu" eventType="touchUpInside" id="dtq-7v-nzT"/>
@@ -1434,7 +1457,7 @@
                                                 <color key="backgroundColor" name="ConfirmColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Add">
-                                                    <color key="titleColor" name="HighlightFontColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="addDriver:" destination="1AM-ea-whu" eventType="touchUpInside" id="oP7-Q7-zXI"/>
@@ -1490,6 +1513,8 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-h6-Om4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="174"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="tintColor" name="TintColor"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -1546,6 +1571,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="tintColor" name="TintColor"/>
                         <constraints>
                             <constraint firstItem="FQa-Uc-d5l" firstAttribute="top" secondItem="AzV-Xl-nqa" secondAttribute="top" constant="10" id="1wQ-Yv-3SO"/>
                             <constraint firstItem="22s-6X-7T0" firstAttribute="height" secondItem="FQa-Uc-d5l" secondAttribute="height" id="5QX-hG-NY4"/>

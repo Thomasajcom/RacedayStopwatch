@@ -12,11 +12,14 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var metricImperialSegmentedControl: UISegmentedControl!
     @IBOutlet weak var measurementUnitsLabel: UILabel!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title                  = Constants.SETTINGS_TITLE
         measurementUnitsLabel.text  = Constants.SETTINGS_IMP_OR_METRIC_LABEL
+        darkModeLabel.text = Constants.SETTINGS_DARK_MODE_LABEL
         metricImperialSegmentedControl.addTarget(self, action: #selector(changeMeasurementUnit), for: .valueChanged)
         metricImperialSegmentedControl.setTitle(Constants.SETTINGS_METRIC_LABEL, forSegmentAt: 0)
         metricImperialSegmentedControl.setTitle(Constants.SETTINGS_IMPERIAL_LABEL, forSegmentAt: 1)
@@ -31,12 +34,20 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         navigationController?.popToRootViewController(animated: false)
     }
-
+    
+    @IBAction func setDarkMode(_ sender: UISwitch) {
+        switch sender.isOn {
+        case true:
+            Theme.darkTheme()
+        case false:
+            Theme.defaultTheme()
+        }
+    }
+    
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {
         case 0:
             Constants.defaults.set(true, forKey: Constants.defaults_metric_key)
-            Theme.darkTheme()
             self.loadView()
         case 1:
             Constants.defaults.set(false, forKey: Constants.defaults_metric_key)
