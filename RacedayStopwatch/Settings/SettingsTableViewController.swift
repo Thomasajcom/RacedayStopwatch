@@ -35,14 +35,14 @@ class SettingsTableViewController: UITableViewController {
         navigationController?.popToRootViewController(animated: false)
     }
     
-    @IBAction func setDarkMode(_ sender: UISwitch) {
-        switch sender.isOn {
-        case true:
-            Theme.darkTheme()
-        case false:
-            Theme.defaultTheme()
-        }
-    }
+//    @IBAction func setDarkMode(_ sender: UISwitch) {
+//        switch sender.isOn {
+//        case true:
+//            Theme.darkTheme()
+//        case false:
+//            Theme.defaultTheme()
+//        }
+//    }
     
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {

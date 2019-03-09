@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class DefaultTheme: ThemeProtocol {
-    
+class LightTheme: ThemeProtocol {
     var backgroundColor: UIColor = UIColor(named: "BackgroundColor")!
     var tintColor: UIColor = UIColor(named: "TintColor")!
     var barColor: UIColor = UIColor(named: "BarColor")!

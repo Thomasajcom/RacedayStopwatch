@@ -39,8 +39,9 @@
 		E9F0F553223133930079A7E7 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F552223133930079A7E7 /* Theme.xcassets */; };
 		E9F0F5612232708F0079A7E7 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F5602232708F0079A7E7 /* ThemeProtocol.swift */; };
 		E9F0F565223352480079A7E7 /* Lap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F564223352480079A7E7 /* Lap.swift */; };
-		E9F0F56722341BED0079A7E7 /* DefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F56622341BED0079A7E7 /* DefaultTheme.swift */; };
+		E9F0F56722341BED0079A7E7 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F56622341BED0079A7E7 /* LightTheme.swift */; };
 		E9F0F56922341CC00079A7E7 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F56822341CC00079A7E7 /* DarkTheme.swift */; };
+		E9F0F56B223477710079A7E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F56A223477710079A7E7 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,8 +100,9 @@
 		E9F0F552223133930079A7E7 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		E9F0F5602232708F0079A7E7 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThemeProtocol.swift; path = ../../../../../ThemeProtocol.swift; sourceTree = "<group>"; };
 		E9F0F564223352480079A7E7 /* Lap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
-		E9F0F56622341BED0079A7E7 /* DefaultTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultTheme.swift; path = RacedayStopwatch/Helpers/DefaultTheme.swift; sourceTree = SOURCE_ROOT; };
+		E9F0F56622341BED0079A7E7 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightTheme.swift; path = RacedayStopwatch/Helpers/LightTheme.swift; sourceTree = SOURCE_ROOT; };
 		E9F0F56822341CC00079A7E7 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkTheme.swift; path = RacedayStopwatch/Helpers/DarkTheme.swift; sourceTree = SOURCE_ROOT; };
+		E9F0F56A223477710079A7E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = RacedayStopwatch/Helpers/Theme.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,8 +271,9 @@
 				E9EE5D102215E3AF00E2F57D /* RaceDayTimer.swift */,
 				E969EA97221AB7A400E6D174 /* Double.swift */,
 				E9F0F5602232708F0079A7E7 /* ThemeProtocol.swift */,
-				E9F0F56622341BED0079A7E7 /* DefaultTheme.swift */,
+				E9F0F56622341BED0079A7E7 /* LightTheme.swift */,
 				E9F0F56822341CC00079A7E7 /* DarkTheme.swift */,
+				E9F0F56A223477710079A7E7 /* Theme.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -420,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9F0F56722341BED0079A7E7 /* DefaultTheme.swift in Sources */,
+				E9F0F56722341BED0079A7E7 /* LightTheme.swift in Sources */,
 				E9606001219359DA00D37631 /* AppDelegate.swift in Sources */,
 				E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */,
 				E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */,
@@ -442,6 +445,7 @@
 				E9F0F56922341CC00079A7E7 /* DarkTheme.swift in Sources */,
 				E9EE5D082215674100E2F57D /* Constants.swift in Sources */,
 				E960603621935D4300D37631 /* SessionsTableViewController.swift in Sources */,
+				E9F0F56B223477710079A7E7 /* Theme.swift in Sources */,
 				E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */,
 				E925B50F22296FE100E67365 /* TrackTableViewCell.swift in Sources */,
 				E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */,
