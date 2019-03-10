@@ -36,6 +36,8 @@ class SessionsTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        tableView.backgroundColor   = Theme.activeTheme.backgroundColor
+        tableView.separatorColor    = Theme.activeTheme.tintColor
        
         tableView.reloadData()
     }

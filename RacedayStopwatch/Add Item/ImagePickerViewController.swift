@@ -19,17 +19,21 @@ class ImagePickerViewController: UIViewController {
     
     var delegate:ImagePickerProtocol? = nil
     
-    @IBOutlet weak var helmetPicker: UIPickerView!
+    @IBOutlet weak var itemPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        helmetPicker.delegate       = self
-        helmetPicker.dataSource     = self
+        itemPicker.delegate       = self
+        itemPicker.dataSource     = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        delegate?.selectedImage(image: images[helmetPicker.selectedRow(inComponent: 0)])
-        print("viewdidappear!")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = Theme.activeTheme.backgroundColor
+        itemPicker.backgroundColor = Theme.activeTheme.backgroundColor
+        itemPicker.tintColor = Theme.activeTheme.tintColor
     }
     
 }

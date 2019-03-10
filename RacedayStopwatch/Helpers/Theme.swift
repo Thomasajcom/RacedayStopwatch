@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class Theme {
-    static var activeTheme: ThemeProtocol = LightTheme
+    static var activeTheme: ThemeProtocol = LightTheme()
 }

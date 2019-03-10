@@ -19,7 +19,7 @@ class LightTheme: ThemeProtocol {
     var mainFontColor: UIColor = UIColor(named: "MainFontColor")!
     var secondaryFontColor: UIColor = UIColor(named: "SecondaryFontColor")!
     var highlightColor: UIColor = UIColor(named: "HighlightColor")!
-    var highlightFontColor: UIColor = UIColor(named: "HighlightFontCOlor")!
+    var highlightFontColor: UIColor = UIColor(named: "HighlightFontColor")!
     var confirmColor: UIColor = UIColor(named: "ConfirmColor")!
     var deleteColor: UIColor = UIColor(named: "DeleteColor")!
 }

@@ -44,6 +44,13 @@ class DriverTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         getNumberOfSessions(for: driver)
         getFastestDriver(for: driver)
+        setupTheme()
+    }
+    func setupTheme(){
+        backgroundColor = Theme.activeTheme.cellBackground
+        numberLabel.backgroundColor = Theme.activeTheme.highlightColor
+        numberLabel.textColor = Theme.activeTheme.highlightFontColor
+        
     }
     
     //get driver data for cell

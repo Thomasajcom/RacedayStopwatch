@@ -42,6 +42,14 @@ class ItemPictureViewController: UIViewController {
         //newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
         //galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = Theme.activeTheme.backgroundColor
+        newPhotoButton.backgroundColor = Theme.activeTheme.backgroundColor
+        newPhotoButton.tintColor = Theme.activeTheme.tintColor
+        galleryButton.backgroundColor = Theme.activeTheme.backgroundColor
+        galleryButton.tintColor = Theme.activeTheme.tintColor
+    }
     
     @IBAction func takePhoto(_ sender: UIButton) {
         let cameraController = UIImagePickerController()

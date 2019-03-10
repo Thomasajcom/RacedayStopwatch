@@ -18,6 +18,11 @@ class NewSessionTableViewController: UITableViewController {
     @IBOutlet weak var noTrackLabel: UILabel!
     @IBOutlet weak var noTrackSwitch: UISwitch!
     @IBOutlet weak var noTrackLength: UITextField!
+    @IBOutlet weak var trackSelectorCell: UITableViewCell!
+    @IBOutlet weak var driverSelectorCell: UITableViewCell!
+    @IBOutlet weak var noDriverCell: UITableViewCell!
+    @IBOutlet weak var noTrackCell: UITableViewCell!
+    @IBOutlet weak var customLengthCell: UITableViewCell!
     
     var drivers: [Driver]?
     var selectedDrivers = [Driver]()
@@ -53,6 +58,24 @@ class NewSessionTableViewController: UITableViewController {
         } catch let error as NSError {
             print("\(error)")
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTheme()
+    }
+    func setupTheme(){
+        tableView.separatorColor = Theme.activeTheme.tintColor
+        trackPicker.backgroundColor = Theme.activeTheme.cellBackground
+        trackPicker.tintColor       = Theme.activeTheme.tintColor
+        noDriversSwitch.thumbTintColor = Theme.activeTheme.tintColor
+        noTrackSwitch.thumbTintColor = Theme.activeTheme.tintColor
+        trackSelectorCell.backgroundColor = Theme.activeTheme.cellBackground
+        driverSelectorCell.backgroundColor = Theme.activeTheme.cellBackground
+        driversCollectionView.backgroundColor = Theme.activeTheme.cellBackground
+        noDriverCell.backgroundColor = Theme.activeTheme.cellBackground
+        noTrackCell.backgroundColor = Theme.activeTheme.cellBackground
+        customLengthCell.backgroundColor = Theme.activeTheme.cellBackground
+        
     }
     
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {
@@ -216,9 +239,9 @@ extension NewSessionTableViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! DriverCollectionViewCell
         cell.timerLabel.isHidden = true
-        cell.contentView.backgroundColor = .red
+        cell.contentView.backgroundColor = Theme.activeTheme.deleteColor
         UIView.animate(withDuration: 0.3) {
-            cell.contentView.backgroundColor = .white
+            cell.contentView.backgroundColor = Theme.activeTheme.cellBackground
         }
     }
     

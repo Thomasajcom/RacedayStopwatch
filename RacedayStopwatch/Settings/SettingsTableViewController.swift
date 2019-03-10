@@ -29,20 +29,24 @@ class SettingsTableViewController: UITableViewController {
             metricImperialSegmentedControl.selectedSegmentIndex = 1
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        darkModeSwitch.setOn(Constants.defaults.bool(forKey: Constants.defaults_dark_mode), animated: false)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.popToRootViewController(animated: false)
     }
     
-//    @IBAction func setDarkMode(_ sender: UISwitch) {
-//        switch sender.isOn {
-//        case true:
-//            Theme.darkTheme()
-//        case false:
-//            Theme.defaultTheme()
-//        }
-//    }
+    @IBAction func setDarkMode(_ sender: UISwitch) {
+        Theme.activeTheme = sender.isOn ? DarkTheme() : LightTheme()
+        Constants.defaults.set(sender.isOn, forKey: Constants.defaults_dark_mode)
+        setupTheme()
+    }
+    func setupTheme(){
+        
+    }
     
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {

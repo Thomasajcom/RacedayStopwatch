@@ -18,9 +18,9 @@ class DriverCollectionViewCell: UICollectionViewCell {
         didSet{
             if self.isSelected
             {
-                self.contentView.backgroundColor = UIColor.green
+                self.contentView.backgroundColor = Theme.activeTheme.confirmColor
                 UIView.animate(withDuration: 0.2) {
-                    self.contentView.backgroundColor = UIColor.white
+                    self.contentView.backgroundColor = Theme.activeTheme.cellBackground
                 }
             }
         }

@@ -50,6 +50,7 @@ class AddItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTheme()
         popupView.layer.cornerRadius            = Constants.cornerRadius
         popupView.layer.masksToBounds           = true
         addItemButton.layer.cornerRadius        = Constants.cornerRadius
@@ -118,6 +119,18 @@ class AddItemViewController: UIViewController {
             }
         }
     }
+    #warning("changing theme for the modal doesnt work")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTheme()
+    }
+    func setupTheme(){
+        
+        addItemLabel.textColor = Theme.activeTheme.highlightFontColor
+        addItemLabel.backgroundColor = Theme.activeTheme.highlightColor
+        popupView.backgroundColor = Theme.activeTheme.backgroundColor
+        pictureOrImageControl.tintColor = Theme.activeTheme.tintColor
+    }
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
         let keyboardToolbar = UIToolbar()
@@ -169,12 +182,14 @@ class AddItemViewController: UIViewController {
             self.itemName.layer.borderWidth = 1
             return
         }
+        itemName.layer.borderColor = UIColor.clear.cgColor
         guard let number = itemNumber.text, number.count > 0 else {
             self.itemNumber.layer.borderColor = UIColor.red.cgColor
             self.itemNumber.borderStyle = .roundedRect
             self.itemNumber.layer.borderWidth = 1
             return
         }
+        itemNumber.layer.borderColor = UIColor.clear.cgColor
 
         guard let image = itemImage else {
             let alertController = UIAlertController(title: Constants.ADD_ITEM_IMAGE_ERROR_TITLE, message: Constants.ADD_ITEM_IMAGE_ERROR_BODY, preferredStyle: .alert)

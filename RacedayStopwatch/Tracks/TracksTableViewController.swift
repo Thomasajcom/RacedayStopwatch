@@ -40,9 +40,14 @@ class TracksTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupTheme()
         tableView.reloadData()
-        
     }
+    func setupTheme(){
+        tableView.backgroundColor = Theme.activeTheme.backgroundColor
+        tableView.separatorColor = Theme.activeTheme.barTint
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddTrackSegue"){
             

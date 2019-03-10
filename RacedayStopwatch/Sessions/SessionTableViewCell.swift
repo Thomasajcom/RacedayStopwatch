@@ -47,6 +47,7 @@ class SessionTableViewCell: UITableViewCell {
         setupDate(for: session.sessionDateAndTime!)
         setupTrack(track: session.onTrack)
         setupFastestDriver(with: session.fastestDriver, in: session)
+        setupTheme()
     }
     
     func setupDate(for sessionDate: Date){
@@ -108,5 +109,9 @@ class SessionTableViewCell: UITableViewCell {
             distanceDriven.isHidden         = true
             bestLapSpeed.isHidden           = true
         }
+    }
+    func setupTheme(){
+        backgroundColor = Theme.activeTheme.cellBackground
+        trackName.textColor = Theme.activeTheme.highlightFontColor
     }
 }

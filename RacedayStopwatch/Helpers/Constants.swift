@@ -19,6 +19,7 @@ struct Constants{
     static let defaults = UserDefaults.standard
     static let defaults_metric_key      = "Metric"
     static let defaults_launched_before     = "LaunchedBefore"
+    static let defaults_dark_mode       = "DarkMode"
     
     //iAP limits
     static let IAP_TRACK_LIMIT      = 2

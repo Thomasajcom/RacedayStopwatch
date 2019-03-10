@@ -625,13 +625,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="customLengthCell" destination="VuO-Nv-kdW" id="gWP-3B-AOR"/>
+                        <outlet property="driverSelectorCell" destination="u9Z-zV-okz" id="Y4H-qw-oDz"/>
                         <outlet property="driversCollectionView" destination="vkU-eM-8TI" id="U90-YJ-bMA"/>
+                        <outlet property="noDriverCell" destination="aQO-ev-9Ee" id="QbV-H7-45q"/>
                         <outlet property="noDriversLabel" destination="8oa-T4-0Go" id="WXb-7V-Qsk"/>
                         <outlet property="noDriversSwitch" destination="GLd-dF-P5C" id="Q2b-9i-uBY"/>
+                        <outlet property="noTrackCell" destination="U4T-YT-Gjt" id="giS-q7-OP8"/>
                         <outlet property="noTrackLabel" destination="E7R-B8-oaj" id="DWT-2O-NtD"/>
                         <outlet property="noTrackLength" destination="cvo-UA-AEB" id="GEk-Ga-ELY"/>
                         <outlet property="noTrackSwitch" destination="ebJ-Ry-Wml" id="TSt-Ll-1iu"/>
                         <outlet property="trackPicker" destination="roK-df-RBn" id="dl2-KF-bVf"/>
+                        <outlet property="trackSelectorCell" destination="rPR-fY-cNu" id="CGT-M4-ymO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ad-SH-fyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1527,7 +1532,7 @@
                         <viewLayoutGuide key="safeArea" id="fQg-7U-5bX"/>
                     </view>
                     <connections>
-                        <outlet property="helmetPicker" destination="Qmq-h6-Om4" id="4MU-IM-bwR"/>
+                        <outlet property="itemPicker" destination="Qmq-h6-Om4" id="4MU-IM-bwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLJ-mz-vMu" userLabel="First Responder" sceneMemberID="firstResponder"/>

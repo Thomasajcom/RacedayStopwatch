@@ -41,6 +41,16 @@ class DriversTableViewController: UITableViewController {
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTheme()
+        tableView.reloadData()
+    }
+    func setupTheme(){
+        tableView.backgroundColor = Theme.activeTheme.backgroundColor
+        tableView.separatorColor = Theme.activeTheme.barTint
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddDriverSegue"){

@@ -32,7 +32,6 @@ class TrackTableViewCell: UITableViewCell {
     }
     
     func setup(_ track: Track){
-
         trackName.text      = track.name
         trackImage.image    = UIImage(data: track.image!)
         if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
@@ -49,5 +48,12 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordHolder.isHidden    = true
             lapRecordTime.text          = "No lap record set. Get out there!"
         }
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        trackName.textColor = Theme.activeTheme.highlightFontColor
+        trackLength.textColor = Theme.activeTheme.highlightFontColor
+        backgroundColor = Theme.activeTheme.cellBackground
     }
 }
