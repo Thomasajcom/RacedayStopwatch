@@ -157,4 +157,10 @@ struct Constants{
     static let SETTINGS_IMPERIAL_LABEL      = "Imperial"
     static let SETTINGS_METRIC_LABEL        = "Metric"
     
+    static let SETTINGS_IAP_RESTORE         = "Restore Purchases"
+    static let SETTINGS_IAP_REMOVE_ALL      = "Remove ads and limits"
+    static let SETTINGS_IAP_REMOVE_ADS      = "Remove ads"
+    static let SETTINGS_IAP_REMOVE_LIMITS   = "Remove limits"
+    
+    
 }

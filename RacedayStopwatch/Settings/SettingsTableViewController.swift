@@ -14,6 +14,11 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var measurementUnitsLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var restorePurchasesLabel: UILabel!
+    @IBOutlet weak var removeAllLabel: UILabel!
+    @IBOutlet weak var removeAdsLabel: UILabel!
+    @IBOutlet weak var removeLimitsLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,11 @@ class SettingsTableViewController: UITableViewController {
         }else{
             metricImperialSegmentedControl.selectedSegmentIndex = 1
         }
+        
+        restorePurchasesLabel.text  = Constants.SETTINGS_IAP_RESTORE
+        removeAllLabel.text         = Constants.SETTINGS_IAP_REMOVE_ALL
+        removeAdsLabel.text         = Constants.SETTINGS_IAP_REMOVE_ADS
+        removeLimitsLabel.text      = Constants.SETTINGS_IAP_REMOVE_LIMITS
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,7 +79,7 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 1
+            return 4
         case 2:
             return 1
         default:
