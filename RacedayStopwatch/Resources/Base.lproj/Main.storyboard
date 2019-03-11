@@ -1285,6 +1285,13 @@
                                                         <segue destination="8h3-RP-NNo" kind="embed" identifier="embedPicturePickerView" id="I00-xJ-njr"/>
                                                     </connections>
                                                 </containerView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k91-Zd-bes">
+                                                    <rect key="frame" x="223.5" y="149" width="61.5" height="34"/>
+                                                    <state key="normal" title="Reset"/>
+                                                    <connections>
+                                                        <action selector="resetStats:" destination="egn-cB-DnE" eventType="touchUpInside" id="GW6-wd-pB2"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="BackgroundColor"/>
                                             <constraints>
@@ -1298,6 +1305,7 @@
                                                 <constraint firstItem="De0-Qg-tTh" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" constant="5" id="Es8-1d-H6W"/>
                                                 <constraint firstAttribute="bottom" secondItem="AcH-Me-dk9" secondAttribute="bottom" id="FC3-a7-t2K"/>
                                                 <constraint firstItem="8mm-9u-exp" firstAttribute="top" secondItem="VAO-0K-x57" secondAttribute="bottom" id="Gi7-cx-KEL"/>
+                                                <constraint firstItem="k91-Zd-bes" firstAttribute="centerY" secondItem="kPX-XK-PIa" secondAttribute="centerY" id="HCc-sw-fT4"/>
                                                 <constraint firstAttribute="trailing" secondItem="M35-s1-Tse" secondAttribute="trailing" constant="30" id="Hej-pX-sIw"/>
                                                 <constraint firstItem="5VH-1q-EE7" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" id="KMx-kI-hoB"/>
                                                 <constraint firstAttribute="trailing" secondItem="8mm-9u-exp" secondAttribute="trailing" constant="5" id="Ley-a1-wiI"/>
@@ -1308,6 +1316,8 @@
                                                 <constraint firstAttribute="width" constant="300" id="Vld-Ox-Ooc"/>
                                                 <constraint firstAttribute="trailing" secondItem="gI4-CD-RO4" secondAttribute="trailing" constant="30" id="Wwl-vc-iBE"/>
                                                 <constraint firstItem="AcH-Me-dk9" firstAttribute="top" secondItem="gI4-CD-RO4" secondAttribute="bottom" constant="5" id="Xiu-uC-U0o"/>
+                                                <constraint firstItem="k91-Zd-bes" firstAttribute="leading" secondItem="kPX-XK-PIa" secondAttribute="trailing" constant="15" id="Z8f-33-408"/>
+                                                <constraint firstAttribute="trailing" secondItem="k91-Zd-bes" secondAttribute="trailing" constant="15" id="ZsF-1H-exw"/>
                                                 <constraint firstItem="AcH-Me-dk9" firstAttribute="top" secondItem="M35-s1-Tse" secondAttribute="bottom" constant="5" id="haw-Ae-Ggi"/>
                                                 <constraint firstAttribute="trailing" secondItem="VAO-0K-x57" secondAttribute="trailing" constant="5" id="jah-7H-h3c"/>
                                                 <constraint firstItem="M35-s1-Tse" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" constant="30" id="ncy-QQ-fAK"/>
@@ -1351,6 +1361,7 @@
                         <outlet property="pictureContainerView" destination="gI4-CD-RO4" id="b3R-nJ-mFk"/>
                         <outlet property="pictureOrImageControl" destination="kPX-XK-PIa" id="QdF-c3-bwy"/>
                         <outlet property="popupView" destination="N18-Aq-kSB" id="CIe-TH-fDT"/>
+                        <outlet property="resetButton" destination="k91-Zd-bes" id="nkX-9g-H6e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YN-YL-khZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,6 +22,7 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var pictureContainerView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addItemButton: UIButton!
     
@@ -76,18 +77,19 @@ class AddItemViewController: UIViewController {
         pictureOrImageControl.setTitle(Constants.ADD_ITEM_PICTURE_SEGMENT, forSegmentAt: 0)
         addItemButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
         itemNameLabel.text   = Constants.ITEM_NAME_LABEL
+        resetButton.isHidden = true
 
         if itemIsDriver{
             pictureOrImageControl.setTitle(Constants.ADD_ITEM_HELMETS_SEGMENT, forSegmentAt: 1)
             itemNumberLabel.text = Constants.DRIVER_NUMBER_LABEL
             if let driver = driver {
-                print("EDITING EXISTING DRIVER")
                 itemName.text     = driver.name
                 itemNumber.text   = driver.number
                 
+                itemName.placeholder     = Constants.DRIVER_NAME_PLACEHOLDER
+                itemNumber.placeholder   = Constants.DRIVER_NUMBER_PLACEHOLDER
                 addItemLabel.text = Constants.EDIT_DRIVER_LABEL
             }else{
-                print("NEW DRIVER SOM ER EMPTY")
                 addItemLabel.text        = Constants.ADD_DRIVER_LABEL
                 itemName.placeholder     = Constants.DRIVER_NAME_PLACEHOLDER
                 itemNumber.placeholder   = Constants.DRIVER_NUMBER_PLACEHOLDER
@@ -96,7 +98,7 @@ class AddItemViewController: UIViewController {
             pictureOrImageControl.setTitle(Constants.ADD_ITEM_TRACKS_SEGMENT, forSegmentAt: 1)
             itemNumberLabel.text = Constants.TRACK_LENGTH_LABEL
             if let track = track {
-                print("EDITING EXISTING TRACK")
+                resetButton.isHidden = false
                 itemName.text     = track.name
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                     itemNumber.text   = String(track.length.noDecimals)
@@ -106,7 +108,6 @@ class AddItemViewController: UIViewController {
                 }
                 addItemLabel.text = Constants.EDIT_TRACK_LABEL
             }else{
-                print("NEW TRACK SOM ER EMPTY")
                 addItemLabel.text             = Constants.ADD_TRACK_LABEL
                 itemName.placeholder          = Constants.TRACK_NAME_PLACEHOLDER
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
@@ -130,6 +131,7 @@ class AddItemViewController: UIViewController {
         addItemLabel.backgroundColor = Theme.activeTheme.highlightColor
         popupView.backgroundColor = Theme.activeTheme.backgroundColor
         pictureOrImageControl.tintColor = Theme.activeTheme.tintColor
+        resetButton.tintColor = Theme.activeTheme.tintColor
     }
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
@@ -193,7 +195,7 @@ class AddItemViewController: UIViewController {
 
         guard let image = itemImage else {
             let alertController = UIAlertController(title: Constants.ADD_ITEM_IMAGE_ERROR_TITLE, message: Constants.ADD_ITEM_IMAGE_ERROR_BODY, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let action = UIAlertAction(title: Constants.ALERT_OK, style: .default, handler: nil)
             alertController.addAction(action)
             present(alertController, animated: true)
             return
@@ -252,6 +254,23 @@ class AddItemViewController: UIViewController {
         }
     }
     
+    @IBAction func resetStats(_ sender: UIButton) {
+        let alertController = UIAlertController(title: Constants.ITEM_RESET_TITLE, message: Constants.ITEM_RESET_BODY, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            if (self.itemIsTrack && self.track != nil){
+                self.track?.trackRecord = 0
+                self.track?.trackRecordHolder = nil
+                CoreDataService.saveContext()
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

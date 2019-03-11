@@ -63,10 +63,10 @@ struct Constants{
     static let EDIT_TRACK_LABEL                     = "Edit Track"
     static let ADD_ITEM_TRACKS_SEGMENT              = "Tracks"
     static let TRACK_LENGTH_LABEL                   = "Track Length"
-
-    
     static let CAMERA_TITLE     = "Camera"
     static let GALLERY_TITLE    = "Gallery"
+    static let ITEM_RESET_TITLE = "RESET"
+    static let ITEM_RESET_BODY  = "This will reset the track record."
     //MARK: - Driver
     //MARK: - Driver Cell
     static let DRIVER_SESSIONS              = "Sessions:"
@@ -122,12 +122,12 @@ struct Constants{
     static let BUTTON_STOP      = "STOP"
     static let BUTTON_LAP       = "LAP"
     
-    static let LAPTIME_NOT_STARTED = "00:00"+decimalSeparator+"000"
-    static let SPEED_UNIT_KMH   = "KM/H"
-    static let SPEED_UNIT_MPH   = "MPH"
+    static let LAPTIME_NOT_STARTED  = "00:00"+decimalSeparator+"000"
+    static let SPEED_UNIT_KMH       = "KM/H"
+    static let SPEED_UNIT_MPH       = "MPH"
     
 
-    static let LAP          = "Lap"
+    static let LAP = "Lap"
     
     static let TIMER_NOT_RUNNING_TITLE  = "Timer Not Active"
     static let TIMER_NOT_RUNNING_BODY   = "Unable to lap when the timer isn't running."
@@ -146,7 +146,7 @@ struct Constants{
     
     //MARK: - Alert
     static let ALERT_CANCEL     = "Cancel"
-    static let ALERT_OK      = "Ok"
+    static let ALERT_OK         = "Ok"
     
     //MARK: - SETTINGS
     static let SETTINGS_DEFAULT_HEADER      = "Defaults"
@@ -156,6 +156,5 @@ struct Constants{
     static let SETTINGS_IMP_OR_METRIC_LABEL = "Measurement Units"
     static let SETTINGS_IMPERIAL_LABEL      = "Imperial"
     static let SETTINGS_METRIC_LABEL        = "Metric"
-    
     
 }
