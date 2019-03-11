@@ -63,10 +63,8 @@ class TimerViewController: UIViewController {
         
         let date = Date()
         let formatter = DateFormatter()
-        //TODO: - Internationalize this
         formatter.locale = Locale.current
         formatter.setLocalizedDateFormatFromTemplate("dd.MM.YYYY")
-//        formatter.dateFormat = "dd.MM.yyyy"
         let todayString = formatter.string(from: date)
         self.title = todayString
         if let track = selectedTrack{
@@ -129,7 +127,6 @@ class TimerViewController: UIViewController {
     }
     
     fileprivate func isItSafeToSave() -> (Bool,String?,String?){
-        print("laps.count: \(laps.count)")
         guard !mainTimerEnabled else{
             return (false,Constants.TIMER_RUNNING_TITLE,Constants.TIMER_RUNNING_BODY)
         }
@@ -198,30 +195,8 @@ class TimerViewController: UIViewController {
     }
 
     @IBAction func lap(_ sender: UIButton) {
-        
-        let lapNumber = laps.count+1
-        let lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime//participatingDrivers[indexPath.row].1.startTime!
-        var lapSpeed = 0
-        if selectedTrack != nil{
-            lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
-        }else if customTrackLength != nil{
-            lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
-        }
-        //create a new instance of the Lap struct and add it to the array of Laps
-        let newLap = Lap(context: CoreDataService.context)
-        newLap.driver = nil
-        newLap.lapNumber = Int16(lapNumber)
-        newLap.lapTime = lapTime
-        newLap.speed = Int16(lapSpeed)
-//        let newLap = Lap(driver: nil, lapNumber: lapNumber, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
+        newLap(nil)
         mainTimerStartTime = Date().timeIntervalSinceReferenceDate
-        laps.append(newLap)
-        //check if this lap was the fastest lap
-        if fastestLap == nil{
-            fastestLap = newLap
-        }else if newLap.lapTime < fastestLap!.lapTime{
-            fastestLap = newLap
-        }
         
         lapTableview.beginUpdates()
         lapTableview.insertRows(at: [IndexPath(row: laps.count-1, section: 0)], with: .bottom)
@@ -303,28 +278,45 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return Int(speed.rounded(.down))
     }
     
-    #warning("this needs a serious rework")
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if mainTimerEnabled {
-            //find the lapnumber for the current driver based on occurences in the Laps array
+    fileprivate func newLap(_ indexPath: IndexPath?) {
+        let newLap = Lap(context: CoreDataService.context)
+        var lapTime: Double
+        var lapSpeed = 0
+        //find the lapnumber for the current driver based on occurences in the Laps array
+        if let indexPath = indexPath{
             let lapNumber = laps.filter {$0.driver == participatingDrivers[indexPath.row].0}
-            let lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
-            let lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
-            //create a new instance of Lap and add it to the array of Laps
-            let newLap = Lap(context: CoreDataService.context)
+            lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
             newLap.driver = participatingDrivers[indexPath.row].0
             newLap.lapNumber = Int16(lapNumber.count + 1)
-            newLap.lapTime = lapTime
-            newLap.speed = Int16(lapSpeed)
-//            let newLap = Lap(driver: participatingDrivers[indexPath.row].0, lapNumber: lapNumber.count+1, lapTime: lapTime, speed: lapSpeed) //add 1 to lapNumber as there is no "lap 0"
-            laps.append(newLap)
-            
             //check if this lap was the fastest lap
+            //we only perform this check when a driver is lapping
             if fastestLap == nil{
                 fastestLap = newLap
             }else if newLap.lapTime < fastestLap!.lapTime{
                 fastestLap = newLap
             }
+        }else{
+            let lapNumber = laps.count+1
+            lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
+            newLap.driver = nil
+            newLap.lapNumber = Int16(lapNumber)
+        }
+        //check for a track or a customlength, if neither is present, speed will be 0
+        if selectedTrack != nil{
+            lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
+        }else if customTrackLength != nil{
+            lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
+        }
+        newLap.speed = Int16(lapSpeed)
+        newLap.lapTime = lapTime
+
+        laps.append(newLap)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if mainTimerEnabled {
+            newLap(indexPath)
             //starts a new lap
             participatingDrivers[indexPath.row].1.startTime = Date().timeIntervalSinceReferenceDate
             

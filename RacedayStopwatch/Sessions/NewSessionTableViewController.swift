@@ -64,17 +64,19 @@ class NewSessionTableViewController: UITableViewController {
         setupTheme()
     }
     func setupTheme(){
-        tableView.separatorColor = Theme.activeTheme.tintColor
-        trackPicker.backgroundColor = Theme.activeTheme.cellBackground
-        trackPicker.tintColor       = Theme.activeTheme.tintColor
-        noDriversSwitch.thumbTintColor = Theme.activeTheme.tintColor
-        noTrackSwitch.thumbTintColor = Theme.activeTheme.tintColor
-        trackSelectorCell.backgroundColor = Theme.activeTheme.cellBackground
-        driverSelectorCell.backgroundColor = Theme.activeTheme.cellBackground
-        driversCollectionView.backgroundColor = Theme.activeTheme.cellBackground
-        noDriverCell.backgroundColor = Theme.activeTheme.cellBackground
-        noTrackCell.backgroundColor = Theme.activeTheme.cellBackground
-        customLengthCell.backgroundColor = Theme.activeTheme.cellBackground
+        tableView.separatorColor                = Theme.activeTheme.tintColor
+        trackPicker.backgroundColor             = Theme.activeTheme.cellBackground
+        trackPicker.tintColor                   = Theme.activeTheme.tintColor
+        noDriversSwitch.thumbTintColor          = Theme.activeTheme.tintColor
+        noDriversSwitch.tintColor               = Theme.activeTheme.tintColor
+        noTrackSwitch.thumbTintColor            = Theme.activeTheme.tintColor
+        noTrackSwitch.tintColor                 = Theme.activeTheme.tintColor
+        trackSelectorCell.backgroundColor       = Theme.activeTheme.cellBackground
+        driverSelectorCell.backgroundColor      = Theme.activeTheme.cellBackground
+        driversCollectionView.backgroundColor   = Theme.activeTheme.cellBackground
+        noDriverCell.backgroundColor            = Theme.activeTheme.cellBackground
+        noTrackCell.backgroundColor             = Theme.activeTheme.cellBackground
+        customLengthCell.backgroundColor        = Theme.activeTheme.cellBackground
         
     }
     

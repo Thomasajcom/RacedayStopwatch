@@ -19,7 +19,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title                  = Constants.SETTINGS_TITLE
         measurementUnitsLabel.text  = Constants.SETTINGS_IMP_OR_METRIC_LABEL
-        darkModeLabel.text = Constants.SETTINGS_DARK_MODE_LABEL
+        darkModeLabel.text          = Constants.SETTINGS_DARK_MODE_LABEL
         metricImperialSegmentedControl.addTarget(self, action: #selector(changeMeasurementUnit), for: .valueChanged)
         metricImperialSegmentedControl.setTitle(Constants.SETTINGS_METRIC_LABEL, forSegmentAt: 0)
         metricImperialSegmentedControl.setTitle(Constants.SETTINGS_IMPERIAL_LABEL, forSegmentAt: 1)
@@ -45,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
         setupTheme()
     }
     func setupTheme(){
-        
+        #warning("setup theme missing")
     }
     
     @objc func changeMeasurementUnit(){
