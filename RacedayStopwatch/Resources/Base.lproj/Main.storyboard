@@ -866,7 +866,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="irP-Mv-rJW" userLabel="Add Drivers Collection View">
                                 <rect key="frame" x="5" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="backgroundColor" name="CellBackground"/>
                                 <color key="tintColor" name="BarTint"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="eHX-TW-yzt"/>
@@ -957,16 +957,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E07-Jk-tl6">
-                                                    <rect key="frame" x="15" y="11" width="345" height="34.5"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="29.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Driver Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-kt-kVl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="34.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="29.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <color key="textColor" name="MainFontColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lapnumber" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD7-Lc-zTY">
-                                                            <rect key="frame" x="139" y="0.0" width="206" height="34.5"/>
+                                                            <rect key="frame" x="139" y="0.0" width="206" height="29.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" name="MainFontColor"/>
                                                             <nil key="highlightedColor"/>
@@ -974,14 +974,14 @@
                                                     </subviews>
                                                 </stackView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-Cg-JOH">
-                                                    <rect key="frame" x="20" y="45.5" width="50" height="50"/>
+                                                    <rect key="frame" x="20" y="40.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="6jy-0A-jlh"/>
                                                         <constraint firstAttribute="height" constant="50" id="ZPu-ll-Z0d"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWG-c2-10c">
-                                                    <rect key="frame" x="75" y="50.5" width="285" height="30.5"/>
+                                                    <rect key="frame" x="75" y="45.5" width="285" height="30.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08h-t2-BYo">
                                                             <rect key="frame" x="0.0" y="0.0" width="159.5" height="30.5"/>
@@ -1005,7 +1005,7 @@
                                                 <constraint firstItem="PWG-c2-10c" firstAttribute="leading" secondItem="Fej-Cg-JOH" secondAttribute="trailing" constant="5" id="ccP-f7-cmJ"/>
                                                 <constraint firstItem="E07-Jk-tl6" firstAttribute="top" secondItem="eZh-9E-zVa" secondAttribute="topMargin" id="eP9-yT-fVW"/>
                                                 <constraint firstItem="Fej-Cg-JOH" firstAttribute="leading" secondItem="eZh-9E-zVa" secondAttribute="leading" constant="20" symbolic="YES" id="ewn-k5-YuA"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fej-Cg-JOH" secondAttribute="bottom" id="lvC-ZX-Cab"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fej-Cg-JOH" secondAttribute="bottom" constant="5" id="lvC-ZX-Cab"/>
                                                 <constraint firstItem="E07-Jk-tl6" firstAttribute="leading" secondItem="eZh-9E-zVa" secondAttribute="leadingMargin" id="pSy-CE-Kue"/>
                                                 <constraint firstItem="PWG-c2-10c" firstAttribute="top" secondItem="E07-Jk-tl6" secondAttribute="bottom" constant="5" id="qxP-jn-AoD"/>
                                             </constraints>

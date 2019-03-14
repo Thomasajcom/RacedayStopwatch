@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3029F9AADFC5C968DD7A22 /* Pods_RacedayStopwatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE0E695B9EDC7A97509EE07 /* Pods_RacedayStopwatchUITests.framework */; };
+		8C4B25EDF6162C88BD45ABF4 /* Pods_RacedayStopwatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044BFE826B46C1D351D3D25E /* Pods_RacedayStopwatchTests.framework */; };
+		A3F803B86D35C409997302F6 /* Pods_RacedayStopwatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E0BF96EAFDDDC82FBB028B /* Pods_RacedayStopwatch.framework */; };
 		E92111A92194BE0A00D5D67F /* DriversTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */; };
 		E9256418220B6BAE004F2A7B /* DriverSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */; };
 		E925B5062227CE0900E67365 /* NewSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E925B5052227CE0900E67365 /* NewSessionTableViewController.swift */; };
@@ -62,6 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044BFE826B46C1D351D3D25E /* Pods_RacedayStopwatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RacedayStopwatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		260D65A1C8B3391D17867D5C /* Pods-RacedayStopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatch.debug.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatch/Pods-RacedayStopwatch.debug.xcconfig"; sourceTree = "<group>"; };
+		278EBEC218D6193FB21867B9 /* Pods-RacedayStopwatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatchUITests.release.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatchUITests/Pods-RacedayStopwatchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		354F22E7D40E4AE6E83E1389 /* Pods-RacedayStopwatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatchTests.debug.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatchTests/Pods-RacedayStopwatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B518EFB81ED9EFB823FD704 /* Pods-RacedayStopwatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatchUITests/Pods-RacedayStopwatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65E0BF96EAFDDDC82FBB028B /* Pods_RacedayStopwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RacedayStopwatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC30AB6E79278CEAAD7B482 /* Pods-RacedayStopwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatch.release.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatch/Pods-RacedayStopwatch.release.xcconfig"; sourceTree = "<group>"; };
+		DC081ABAA0035E80FCC9C43A /* Pods-RacedayStopwatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RacedayStopwatchTests.release.xcconfig"; path = "Target Support Files/Pods-RacedayStopwatchTests/Pods-RacedayStopwatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		E92111A82194BE0A00D5D67F /* DriversTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriversTableViewController.swift; sourceTree = "<group>"; };
 		E9256417220B6BAE004F2A7B /* DriverSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSelectorViewController.swift; sourceTree = "<group>"; };
 		E925B5052227CE0900E67365 /* NewSessionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionTableViewController.swift; sourceTree = "<group>"; };
@@ -89,20 +100,21 @@
 		E960603521935D4300D37631 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
 		E96060792193662100D37631 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E960607B219366A300D37631 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		E969EA97221AB7A400E6D174 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Double.swift; path = ../Helpers/Double.swift; sourceTree = "<group>"; };
+		E969EA97221AB7A400E6D174 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
 		E9EE5D0122140F4F00E2F57D /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		E9EE5D0322140F6500E2F57D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E9EE5D0522140F7700E2F57D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
-		E9EE5D072215674100E2F57D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Helpers/Constants.swift; sourceTree = "<group>"; };
-		E9EE5D102215E3AF00E2F57D /* RaceDayTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceDayTimer.swift; path = ../Helpers/RaceDayTimer.swift; sourceTree = "<group>"; };
+		E9EE5D072215674100E2F57D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E9EE5D102215E3AF00E2F57D /* RaceDayTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDayTimer.swift; sourceTree = "<group>"; };
 		E9F0F552223133930079A7E7 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
-		E9F0F5602232708F0079A7E7 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThemeProtocol.swift; path = ../../../../../ThemeProtocol.swift; sourceTree = "<group>"; };
+		E9F0F5602232708F0079A7E7 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		E9F0F564223352480079A7E7 /* Lap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
 		E9F0F56622341BED0079A7E7 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightTheme.swift; path = RacedayStopwatch/Helpers/LightTheme.swift; sourceTree = SOURCE_ROOT; };
 		E9F0F56822341CC00079A7E7 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkTheme.swift; path = RacedayStopwatch/Helpers/DarkTheme.swift; sourceTree = SOURCE_ROOT; };
 		E9F0F56A223477710079A7E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = RacedayStopwatch/Helpers/Theme.swift; sourceTree = SOURCE_ROOT; };
+		FDE0E695B9EDC7A97509EE07 /* Pods_RacedayStopwatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RacedayStopwatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F803B86D35C409997302F6 /* Pods_RacedayStopwatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C4B25EDF6162C88BD45ABF4 /* Pods_RacedayStopwatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,12 +138,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3029F9AADFC5C968DD7A22 /* Pods_RacedayStopwatchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F03511E4F7A976D8C123A61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				260D65A1C8B3391D17867D5C /* Pods-RacedayStopwatch.debug.xcconfig */,
+				8CC30AB6E79278CEAAD7B482 /* Pods-RacedayStopwatch.release.xcconfig */,
+				354F22E7D40E4AE6E83E1389 /* Pods-RacedayStopwatchTests.debug.xcconfig */,
+				DC081ABAA0035E80FCC9C43A /* Pods-RacedayStopwatchTests.release.xcconfig */,
+				3B518EFB81ED9EFB823FD704 /* Pods-RacedayStopwatchUITests.debug.xcconfig */,
+				278EBEC218D6193FB21867B9 /* Pods-RacedayStopwatchUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D697AC64540FDFFA3797E91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65E0BF96EAFDDDC82FBB028B /* Pods_RacedayStopwatch.framework */,
+				044BFE826B46C1D351D3D25E /* Pods_RacedayStopwatchTests.framework */,
+				FDE0E695B9EDC7A97509EE07 /* Pods_RacedayStopwatchUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E92111A72194BE0A00D5D67F /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +211,8 @@
 				E9605FFF219359DA00D37631 /* RacedayStopwatch */,
 				E9606016219359DB00D37631 /* RacedayStopwatchTests */,
 				E9606021219359DC00D37631 /* RacedayStopwatchUITests */,
+				4F03511E4F7A976D8C123A61 /* Pods */,
+				5D697AC64540FDFFA3797E91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,8 +315,7 @@
 				E9F0F56822341CC00079A7E7 /* DarkTheme.swift */,
 				E9F0F56A223477710079A7E7 /* Theme.swift */,
 			);
-			name = Helpers;
-			path = "New Group";
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E9F0F551223132930079A7E7 /* Resources */ = {
@@ -298,6 +337,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9606027219359DC00D37631 /* Build configuration list for PBXNativeTarget "RacedayStopwatch" */;
 			buildPhases = (
+				E3B6EDF53CD23BB1401D454B /* [CP] Check Pods Manifest.lock */,
 				E9605FF9219359DA00D37631 /* Sources */,
 				E9605FFA219359DA00D37631 /* Frameworks */,
 				E9605FFB219359DA00D37631 /* Resources */,
@@ -315,6 +355,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E960602A219359DC00D37631 /* Build configuration list for PBXNativeTarget "RacedayStopwatchTests" */;
 			buildPhases = (
+				28C9D6DDF285FDF4CBA4FDDF /* [CP] Check Pods Manifest.lock */,
 				E960600F219359DB00D37631 /* Sources */,
 				E9606010219359DB00D37631 /* Frameworks */,
 				E9606011219359DB00D37631 /* Resources */,
@@ -333,6 +374,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E960602D219359DC00D37631 /* Build configuration list for PBXNativeTarget "RacedayStopwatchUITests" */;
 			buildPhases = (
+				D39B4FCE182E17755731525B /* [CP] Check Pods Manifest.lock */,
 				E960601A219359DC00D37631 /* Sources */,
 				E960601B219359DC00D37631 /* Frameworks */,
 				E960601C219359DC00D37631 /* Resources */,
@@ -417,6 +459,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28C9D6DDF285FDF4CBA4FDDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RacedayStopwatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D39B4FCE182E17755731525B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RacedayStopwatchUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3B6EDF53CD23BB1401D454B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RacedayStopwatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9605FF9219359DA00D37631 /* Sources */ = {
@@ -624,6 +735,7 @@
 		};
 		E9606028219359DC00D37631 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 260D65A1C8B3391D17867D5C /* Pods-RacedayStopwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -642,6 +754,7 @@
 		};
 		E9606029219359DC00D37631 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CC30AB6E79278CEAAD7B482 /* Pods-RacedayStopwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -660,6 +773,7 @@
 		};
 		E960602B219359DC00D37631 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 354F22E7D40E4AE6E83E1389 /* Pods-RacedayStopwatchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -681,6 +795,7 @@
 		};
 		E960602C219359DC00D37631 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC081ABAA0035E80FCC9C43A /* Pods-RacedayStopwatchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -702,6 +817,7 @@
 		};
 		E960602E219359DC00D37631 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B518EFB81ED9EFB823FD704 /* Pods-RacedayStopwatchUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -722,6 +838,7 @@
 		};
 		E960602F219359DC00D37631 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278EBEC218D6193FB21867B9 /* Pods-RacedayStopwatchUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
