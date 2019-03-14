@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Setting the theme for the app, defaults to the LightTheme
         Theme.activeTheme = Constants.defaults.bool(forKey: Constants.defaults_dark_mode) ? DarkTheme() : LightTheme()
+        
+        // Setup for the AdMob ads
+        GADMobileAds.configure(withApplicationID: Constants.ADMOB_ID_TEST) //ADMOB_ID_PRODUCTION
+        #warning("remember to update the plist when changing from test to production")
+        
         return true
     }
 

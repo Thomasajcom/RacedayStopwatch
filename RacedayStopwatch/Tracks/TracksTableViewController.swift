@@ -8,8 +8,17 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class TracksTableViewController: UITableViewController {
+    
+    lazy var adBannerView: GADBannerView = {
+        let adBannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+        adBannerView.adUnitID = Constants.ADMOB_ID_DRIVERS
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        return adBannerView
+    }()
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Track> = {
         // Create Fetch Request
@@ -29,14 +38,15 @@ class TracksTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         self.title = Constants.TRACKS_TITLE
         do {
             try fetchedResultsController.performFetch()
+            displayAds()
         } catch  {
             let error = error as NSError
             print("Unable to fetch tracks: \(error)")
         }
-        tableView.tableFooterView = UIView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,10 +57,18 @@ class TracksTableViewController: UITableViewController {
         tableView.backgroundColor = Theme.activeTheme.backgroundColor
         tableView.separatorColor = Theme.activeTheme.barTint
     }
+    func displayAds(){
+        if fetchedResultsController.fetchedObjects!.count > 0{
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            adBannerView.load(request)
+        }else{
+            tableView.tableHeaderView = nil
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddTrackSegue"){
-            
             let newDriver = segue.destination as! AddItemViewController
             newDriver.itemIsTrack = true
         }
@@ -115,6 +133,25 @@ class TracksTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
+    }
+}
+
+//MARK: - AdMob Banner Delegate
+extension TracksTableViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+        tableView.tableHeaderView?.frame = bannerView.frame
+        tableView.tableHeaderView = bannerView
+        //        tableView.tableFooterView?.frame = bannerView.frame
+        //        tableView.tableFooterView = bannerView
+//        tableView.tableHeaderView?.alpha = 0
+//        UIView.animate(withDuration: 1) {
+//            self.tableView.tableHeaderView?.alpha = 1
+//        }
+    }
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
 

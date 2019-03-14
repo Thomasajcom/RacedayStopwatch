@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 //TODO: - Rewrite this to a more effiecient, cleaner solution. participatingDrivers and laps is unnecessarily complicated
 class TimerViewController: UIViewController {
+    
+    var interstitial: GADInterstitial!
     
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var trackLengthLabel: UILabel!
@@ -47,6 +50,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interstitial = createInterstitialAd()
         
         mainTimerLabel.text = Constants.LAPTIME_NOT_STARTED
         driverCollectionView.delegate   = self
@@ -113,6 +117,15 @@ class TimerViewController: UIViewController {
             }
         }
     }
+    
+    func createInterstitialAd() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
+        interstitial.delegate = self
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitial.load(request)
+        return interstitial
+    }
 
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -177,6 +190,7 @@ class TimerViewController: UIViewController {
         
         CoreDataService.saveContext()
         presentAlertController(title: isItSafeToSave().1!, body: isItSafeToSave().2!, actionButton: (Constants.ALERT_OK,.default))
+        
     }
     
     fileprivate func presentAlertController(title: String, body: String, actionButton: (String,UIAlertAction.Style)) {
@@ -185,10 +199,14 @@ class TimerViewController: UIViewController {
         let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
             (alert: UIAlertAction!) in
             if (actionString == Constants.ALERT_OK){
-                self.navigationController?.popToRootViewController(animated: true)
-            }else{
+                if self.interstitial.isReady {
+                    self.interstitial.present(fromRootViewController: self)
+                } else {
+                    print("Ad wasn't ready")
+                }
+                self.navigationController?.popToRootViewController(animated: false)
+
             }
-            
         }
         alertController.addAction(action)
         present(alertController, animated: true)
@@ -331,5 +349,20 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
+    }
+}
+
+//MARK: - AdMob Interstitial Delegate
+extension TimerViewController: GADInterstitialDelegate{
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitialDidReceiveAd")
+    }
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    //create a new interstitial when finished with one
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createInterstitialAd()
     }
 }

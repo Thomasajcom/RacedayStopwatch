@@ -21,6 +21,14 @@ struct Constants{
     static let defaults_launched_before     = "LaunchedBefore"
     static let defaults_dark_mode       = "DarkMode"
     
+    //AdMob ID
+    static let ADMOB_ID_TEST                = "ca-app-pub-3940256099942544~1458002511"
+    static let ADMOB_ID_TEST_INTERSTITIAL   = "ca-app-pub-3940256099942544/4411468910"
+    static let ADMOB_ID_PRODUCTION          = "ca-app-pub-8190128329666781~9045362499"
+    static let ADMOB_ID_DRIVERS             = "ca-app-pub-8190128329666781/5522541147"
+    static let ADMOB_ID_TRACKS              = "ca-app-pub-8190128329666781/6696678553"
+    static let ADMOB_ID_SESSIONSAVED        = "ca-app-pub-8190128329666781/4126355537"
+    
     //iAP limits
     static let IAP_TRACK_LIMIT      = 2
     static let IAP_DRIVER_LIMIT     = 3
@@ -30,7 +38,7 @@ struct Constants{
     static let AD_BANNER_FREQUENCR_DRIVERS      = 3
     static let AD_BANNER_FREQUENCY_SESSIONS     = 4
     
-    //used in About footer
+    //Build info, used in About footer
     static let Appversion = "CFBundleShortVersionString"
     static let Buildnumber = "CFBundleVersion"
     

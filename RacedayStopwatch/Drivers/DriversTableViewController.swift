@@ -8,11 +8,17 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class DriversTableViewController: UITableViewController {
     
-    //TODO: - "Future patch: add this footer view with different stats from db, load on viewdidload, show different stat on viewwillappear")
-    @IBOutlet weak var footerView: UIView!
+    lazy var adBannerView: GADBannerView = {
+        let adBannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
+        adBannerView.adUnitID = Constants.ADMOB_ID_DRIVERS
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        return adBannerView
+    }()
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Driver> = {
         // Create Fetch Request
@@ -32,24 +38,36 @@ class DriversTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title          = Constants.DRIVERS_TITLE
-        footerView.isHidden = true
+        tableView.tableFooterView = UIView()
+        self.title = Constants.DRIVERS_TITLE
         do {
             try fetchedResultsController.performFetch()
+            displayAds()
         } catch  {
             let error = error as NSError
             print("Unable to fetch drivers: \(String(describing: error.localizedFailureReason))")
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTheme()
         tableView.reloadData()
     }
+    
     func setupTheme(){
         tableView.backgroundColor = Theme.activeTheme.backgroundColor
         tableView.separatorColor = Theme.activeTheme.barTint
-
+    }
+    
+    func displayAds(){
+        if fetchedResultsController.fetchedObjects!.count > 0{
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            adBannerView.load(request)
+        }else{
+            tableView.tableHeaderView = nil
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,7 +94,7 @@ class DriversTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects!.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
     
@@ -110,8 +128,31 @@ class DriversTableViewController: UITableViewController {
         editAction.image            = UIImage(named: "delete-50-filled")
         return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
+    
+
+}
+//MARK: - AdMob Banner Delegate
+extension DriversTableViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+        tableView.tableHeaderView?.frame = bannerView.frame
+        tableView.tableHeaderView = bannerView
+//        tableView.tableFooterView?.frame = bannerView.frame
+//        tableView.tableFooterView = bannerView
+//        tableView.tableHeaderView?.alpha = 0
+//        UIView.animate(withDuration: 1) {
+//            self.tableView.tableHeaderView?.alpha = 1
+//        }
+    }
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
+    }
 }
 
+
+
+//MARK: - NSFetchedResultsControllerDelegate
 extension DriversTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

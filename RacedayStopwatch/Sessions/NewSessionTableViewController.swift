@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-//TODO: - Make the driversCollectionView it's own class, so it can be reused in the timerview, add driver in timerview etc
+
+//TODO: - Make the driversCollectionView its own class, so it can be reused in the timerview, add driver in timerview etc
 class NewSessionTableViewController: UITableViewController {
     
     var tracks: [Track]?
@@ -63,6 +64,7 @@ class NewSessionTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         setupTheme()
     }
+    
     func setupTheme(){
         tableView.separatorColor                = Theme.activeTheme.tintColor
         trackPicker.backgroundColor             = Theme.activeTheme.cellBackground

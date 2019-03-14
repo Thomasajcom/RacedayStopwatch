@@ -1104,36 +1104,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <color key="separatorColor" name="BarTint"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="xbL-ba-2rz">
-                            <rect key="frame" x="0.0" y="163" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-L1-fOd">
-                                    <rect key="frame" x="5" y="5" width="365" height="34"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Distance: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5N-OS-VEi">
-                                            <rect key="frame" x="0.0" y="0.0" width="268" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYD-jp-wdS">
-                                            <rect key="frame" x="276" y="0.0" width="89" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Kbd-L1-fOd" secondAttribute="trailing" constant="5" id="Agu-iw-lgf"/>
-                                <constraint firstItem="Kbd-L1-fOd" firstAttribute="leading" secondItem="xbL-ba-2rz" secondAttribute="leading" constant="5" id="F8z-wW-cbX"/>
-                                <constraint firstItem="Kbd-L1-fOd" firstAttribute="top" secondItem="xbL-ba-2rz" secondAttribute="top" constant="5" id="HLC-Sf-MVX"/>
-                                <constraint firstAttribute="bottom" secondItem="Kbd-L1-fOd" secondAttribute="bottom" constant="5" id="fcf-cu-7ou"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="135" id="4kz-Wy-AUR" customClass="DriverTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="135"/>
@@ -1241,9 +1211,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="footerView" destination="xbL-ba-2rz" id="lTw-s7-6LF"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPe-Pu-fSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1710,6 +1677,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JGP-yD-QPe"/>
+        <segue reference="f8O-rH-vMJ"/>
     </inferredMetricsTieBreakers>
 </document>
