@@ -109,7 +109,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" In-App Purchases" id="8re-P4-HYk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="3Hn-st-NYR" style="IBUITableViewCellStyleDefault" id="6mE-hi-Maw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="3Hn-st-NYR" style="IBUITableViewCellStyleDefault" id="6mE-hi-Maw" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mE-hi-Maw" id="dLr-Zm-9w2">
@@ -128,7 +128,7 @@
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ypt-OJ-gjC" detailTextLabel="dvE-3B-i9F" style="IBUITableViewCellStyleValue1" id="bHF-bJ-CG5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ypt-OJ-gjC" detailTextLabel="dvE-3B-i9F" style="IBUITableViewCellStyleSubtitle" id="bHF-bJ-CG5" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="232" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bHF-bJ-CG5" id="8tu-5c-6c3">
@@ -136,16 +136,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Remove ads and limits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ypt-OJ-gjC">
-                                                    <rect key="frame" x="16" y="12" width="171" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="171" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dvE-3B-i9F">
-                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dvE-3B-i9F">
+                                                    <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -154,7 +154,7 @@
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TOv-Xr-NKq" detailTextLabel="3g0-oS-6nm" style="IBUITableViewCellStyleValue1" id="fMC-55-RJ2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TOv-Xr-NKq" detailTextLabel="3g0-oS-6nm" style="IBUITableViewCellStyleSubtitle" id="fMC-55-RJ2" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="276" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMC-55-RJ2" id="suW-vX-SFE">
@@ -162,16 +162,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Remove Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TOv-Xr-NKq">
-                                                    <rect key="frame" x="16" y="12" width="95" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="95" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3g0-oS-6nm">
-                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3g0-oS-6nm">
+                                                    <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -180,7 +180,7 @@
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="d5N-RZ-dqw" detailTextLabel="WQ9-Tx-4Ib" style="IBUITableViewCellStyleValue1" id="aY5-ih-kns">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="d5N-RZ-dqw" detailTextLabel="WQ9-Tx-4Ib" style="IBUITableViewCellStyleSubtitle" id="aY5-ih-kns" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="320" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aY5-ih-kns" id="wcf-BX-MrF">
@@ -188,16 +188,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Remove limits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d5N-RZ-dqw">
-                                                    <rect key="frame" x="16" y="12" width="106" height="20.5"/>
+                                                    <rect key="frame" x="16" y="5" width="106" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WQ9-Tx-4Ib">
-                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WQ9-Tx-4Ib">
+                                                    <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -265,8 +265,12 @@
                         <outlet property="darkModeSwitch" destination="hWd-2g-zQ1" id="rFB-v2-M0H"/>
                         <outlet property="measurementUnitsLabel" destination="eNH-iE-7RT" id="rSe-xI-Fi6"/>
                         <outlet property="metricImperialSegmentedControl" destination="H7y-s7-GZu" id="ATh-Ez-EHq"/>
+                        <outlet property="removeAdsCell" destination="fMC-55-RJ2" id="eiR-65-gEp"/>
                         <outlet property="removeAdsLabel" destination="TOv-Xr-NKq" id="Q0d-kK-ndd"/>
+                        <outlet property="removeAllCell" destination="bHF-bJ-CG5" id="K43-dP-zPB"/>
+                        <outlet property="removeAllDetailsLabel" destination="dvE-3B-i9F" id="vCB-Ok-oWS"/>
                         <outlet property="removeAllLabel" destination="Ypt-OJ-gjC" id="79X-bO-Kkg"/>
+                        <outlet property="removeLimitsCell" destination="aY5-ih-kns" id="EBR-58-87s"/>
                         <outlet property="removeLimitsLabel" destination="d5N-RZ-dqw" id="yY4-3V-cLd"/>
                         <outlet property="restorePurchasesLabel" destination="3Hn-st-NYR" id="8RY-2A-OXV"/>
                     </connections>
@@ -1312,13 +1316,6 @@
                                                         <segue destination="8h3-RP-NNo" kind="embed" identifier="embedPicturePickerView" id="I00-xJ-njr"/>
                                                     </connections>
                                                 </containerView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k91-Zd-bes">
-                                                    <rect key="frame" x="223.5" y="149" width="61.5" height="34"/>
-                                                    <state key="normal" title="Reset"/>
-                                                    <connections>
-                                                        <action selector="resetStats:" destination="egn-cB-DnE" eventType="touchUpInside" id="GW6-wd-pB2"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="BackgroundColor"/>
                                             <constraints>
@@ -1332,7 +1329,6 @@
                                                 <constraint firstItem="De0-Qg-tTh" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" constant="5" id="Es8-1d-H6W"/>
                                                 <constraint firstAttribute="bottom" secondItem="AcH-Me-dk9" secondAttribute="bottom" id="FC3-a7-t2K"/>
                                                 <constraint firstItem="8mm-9u-exp" firstAttribute="top" secondItem="VAO-0K-x57" secondAttribute="bottom" id="Gi7-cx-KEL"/>
-                                                <constraint firstItem="k91-Zd-bes" firstAttribute="centerY" secondItem="kPX-XK-PIa" secondAttribute="centerY" id="HCc-sw-fT4"/>
                                                 <constraint firstAttribute="trailing" secondItem="M35-s1-Tse" secondAttribute="trailing" constant="30" id="Hej-pX-sIw"/>
                                                 <constraint firstItem="5VH-1q-EE7" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" id="KMx-kI-hoB"/>
                                                 <constraint firstAttribute="trailing" secondItem="8mm-9u-exp" secondAttribute="trailing" constant="5" id="Ley-a1-wiI"/>
@@ -1343,8 +1339,6 @@
                                                 <constraint firstAttribute="width" constant="300" id="Vld-Ox-Ooc"/>
                                                 <constraint firstAttribute="trailing" secondItem="gI4-CD-RO4" secondAttribute="trailing" constant="30" id="Wwl-vc-iBE"/>
                                                 <constraint firstItem="AcH-Me-dk9" firstAttribute="top" secondItem="gI4-CD-RO4" secondAttribute="bottom" constant="5" id="Xiu-uC-U0o"/>
-                                                <constraint firstItem="k91-Zd-bes" firstAttribute="leading" secondItem="kPX-XK-PIa" secondAttribute="trailing" constant="15" id="Z8f-33-408"/>
-                                                <constraint firstAttribute="trailing" secondItem="k91-Zd-bes" secondAttribute="trailing" constant="15" id="ZsF-1H-exw"/>
                                                 <constraint firstItem="AcH-Me-dk9" firstAttribute="top" secondItem="M35-s1-Tse" secondAttribute="bottom" constant="5" id="haw-Ae-Ggi"/>
                                                 <constraint firstAttribute="trailing" secondItem="VAO-0K-x57" secondAttribute="trailing" constant="5" id="jah-7H-h3c"/>
                                                 <constraint firstItem="M35-s1-Tse" firstAttribute="leading" secondItem="N18-Aq-kSB" secondAttribute="leading" constant="30" id="ncy-QQ-fAK"/>
@@ -1388,7 +1382,6 @@
                         <outlet property="pictureContainerView" destination="gI4-CD-RO4" id="b3R-nJ-mFk"/>
                         <outlet property="pictureOrImageControl" destination="kPX-XK-PIa" id="QdF-c3-bwy"/>
                         <outlet property="popupView" destination="N18-Aq-kSB" id="CIe-TH-fDT"/>
-                        <outlet property="resetButton" destination="k91-Zd-bes" id="nkX-9g-H6e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YN-YL-khZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1654,11 +1647,23 @@
         <namedColor name="CellBackground">
             <color red="0.95800000429153442" green="0.94999998807907104" blue="0.90399998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="CellBackground">
+            <color red="0.95800000429153442" green="0.94999998807907104" blue="0.90399998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellBackground">
+            <color red="0.95800000429153442" green="0.94999998807907104" blue="0.90399998426437378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellTint">
+            <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CellTint">
+            <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CellTint">
             <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ConfirmColor">
-            <color red="0.36500000953674316" green="0.56499999761581421" blue="0.52499997615814209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.36470588235294116" green="0.56470588235294117" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="DeleteColor">
             <color red="0.64399999380111694" green="0.096000000834465027" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -84,6 +84,21 @@ class TracksTableViewController: UITableViewController {
         return shouldPerformSegue
     }
     
+    func resetStats(track: Track) {
+        let alertController = UIAlertController(title: Constants.ITEM_RESET_TITLE, message: Constants.ITEM_RESET_BODY, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            track.trackRecord = 0
+            track.trackRecordHolder = nil
+            CoreDataService.saveContext()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -103,15 +118,12 @@ class TracksTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
-            completionHandler(true)
-            let deleteObject = self.fetchedResultsController.object(at: indexPath)
-            CoreDataService.context.delete(deleteObject)
-            CoreDataService.saveContext()
+        let resetAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
+            //perform segue to edit
+            let track = self.fetchedResultsController.object(at: indexPath)
+            self.resetStats(track: track)
             completionHandler(true)
         }
-        deleteAction.image              = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -123,7 +135,21 @@ class TracksTableViewController: UITableViewController {
         }
         editAction.backgroundColor  = UIColor(named: "ConfirmColor")
         editAction.image            = UIImage(named: "delete-50-filled")
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        return UISwipeActionsConfiguration(actions: [editAction, resetAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+            completionHandler(true)
+            let deleteObject = self.fetchedResultsController.object(at: indexPath)
+            CoreDataService.context.delete(deleteObject)
+            CoreDataService.saveContext()
+            completionHandler(true)
+        }
+        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+
     }
     
     //MARK: - Tableview Delegate Methods

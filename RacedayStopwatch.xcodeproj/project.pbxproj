@@ -34,6 +34,9 @@
 		E969EA98221AB7A400E6D174 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969EA97221AB7A400E6D174 /* Double.swift */; };
 		E97143D12196040B00F9B4CF /* LapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97143D02196040B00F9B4CF /* LapTableViewCell.swift */; };
 		E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */; };
+		E9C907C9223AFA1000605D0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C907C8223AFA1000605D0B /* StoreKit.framework */; };
+		E9C907CB223B050C00605D0B /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C907CA223B050C00605D0B /* IAPHelper.swift */; };
+		E9C907CF223B0EA400605D0B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C907CE223B0EA400605D0B /* ProductCell.swift */; };
 		E9EE5D0222140F4F00E2F57D /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0122140F4F00E2F57D /* Driver.swift */; };
 		E9EE5D0422140F6500E2F57D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0322140F6500E2F57D /* Session.swift */; };
 		E9EE5D0622140F7700E2F57D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE5D0522140F7700E2F57D /* Track.swift */; };
@@ -103,6 +106,9 @@
 		E969EA97221AB7A400E6D174 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E97143D02196040B00F9B4CF /* LapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTableViewCell.swift; sourceTree = "<group>"; };
 		E97F11BE2195DDCE0090C336 /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
+		E9C907C8223AFA1000605D0B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E9C907CA223B050C00605D0B /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		E9C907CE223B0EA400605D0B /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		E9EE5D0122140F4F00E2F57D /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		E9EE5D0322140F6500E2F57D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E9EE5D0522140F7700E2F57D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F803B86D35C409997302F6 /* Pods_RacedayStopwatch.framework in Frameworks */,
+				E9C907C9223AFA1000605D0B /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +168,7 @@
 		5D697AC64540FDFFA3797E91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9C907C8223AFA1000605D0B /* StoreKit.framework */,
 				65E0BF96EAFDDDC82FBB028B /* Pods_RacedayStopwatch.framework */,
 				044BFE826B46C1D351D3D25E /* Pods_RacedayStopwatchTests.framework */,
 				FDE0E695B9EDC7A97509EE07 /* Pods_RacedayStopwatchUITests.framework */,
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				E925B50A2228548600E67365 /* SettingsTableViewController.swift */,
+				E9C907CE223B0EA400605D0B /* ProductCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -314,6 +323,7 @@
 				E9F0F56622341BED0079A7E7 /* LightTheme.swift */,
 				E9F0F56822341CC00079A7E7 /* DarkTheme.swift */,
 				E9F0F56A223477710079A7E7 /* Theme.swift */,
+				E9C907CA223B050C00605D0B /* IAPHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -401,6 +411,11 @@
 				TargetAttributes = {
 					E9605FFC219359DA00D37631 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					E9606012219359DB00D37631 = {
 						CreatedOnToolsVersion = 10.1;
@@ -544,6 +559,7 @@
 				E925B5062227CE0900E67365 /* NewSessionTableViewController.swift in Sources */,
 				E9388D3A222DDF120053F39D /* ItemPictureViewController.swift in Sources */,
 				E9388D3C222DDF430053F39D /* ImagePickerViewController.swift in Sources */,
+				E9C907CF223B0EA400605D0B /* ProductCell.swift in Sources */,
 				E92E963E22098653004E6E20 /* DriverCollectionViewCell.swift in Sources */,
 				E925B50B2228548600E67365 /* SettingsTableViewController.swift in Sources */,
 				E97F11BF2195DDCE0090C336 /* DriverTableViewCell.swift in Sources */,
@@ -562,6 +578,7 @@
 				E92F342D22117EA5003ECAB4 /* SessionTableViewCell.swift in Sources */,
 				E9388D3E222DDF670053F39D /* AddItemViewController.swift in Sources */,
 				E92E963B2207B604004E6E20 /* TimerViewController.swift in Sources */,
+				E9C907CB223B050C00605D0B /* IAPHelper.swift in Sources */,
 				E9EE5D112215E3AF00E2F57D /* RaceDayTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

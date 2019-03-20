@@ -22,7 +22,6 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var pictureContainerView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     
-    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addItemButton: UIButton!
     
@@ -77,7 +76,6 @@ class AddItemViewController: UIViewController {
         pictureOrImageControl.setTitle(Constants.ADD_ITEM_PICTURE_SEGMENT, forSegmentAt: 0)
         addItemButton.setTitle(Constants.SAVE_BUTTON_TITLE, for: .normal)
         itemNameLabel.text   = Constants.ITEM_NAME_LABEL
-        resetButton.isHidden = true
 
         if itemIsDriver{
             pictureOrImageControl.setTitle(Constants.ADD_ITEM_HELMETS_SEGMENT, forSegmentAt: 1)
@@ -98,7 +96,6 @@ class AddItemViewController: UIViewController {
             pictureOrImageControl.setTitle(Constants.ADD_ITEM_TRACKS_SEGMENT, forSegmentAt: 1)
             itemNumberLabel.text = Constants.TRACK_LENGTH_LABEL
             if let track = track {
-                resetButton.isHidden = false
                 itemName.text     = track.name
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
                     itemNumber.text   = String(track.length.noDecimals)
@@ -126,12 +123,10 @@ class AddItemViewController: UIViewController {
         setupTheme()
     }
     func setupTheme(){
-        
         addItemLabel.textColor = Theme.activeTheme.highlightFontColor
         addItemLabel.backgroundColor = Theme.activeTheme.highlightColor
         popupView.backgroundColor = Theme.activeTheme.backgroundColor
         pictureOrImageControl.tintColor = Theme.activeTheme.tintColor
-        resetButton.tintColor = Theme.activeTheme.tintColor
     }
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
@@ -252,23 +247,6 @@ class AddItemViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    @IBAction func resetStats(_ sender: UIButton) {
-        let alertController = UIAlertController(title: Constants.ITEM_RESET_TITLE, message: Constants.ITEM_RESET_BODY, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
-            if (self.itemIsTrack && self.track != nil){
-                self.track?.trackRecord = 0
-                self.track?.trackRecordHolder = nil
-                CoreDataService.saveContext()
-            }
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        present(alertController, animated: true)
     }
 
     @IBAction func cancel(_ sender: Any) {
