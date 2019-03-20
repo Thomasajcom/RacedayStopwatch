@@ -29,7 +29,14 @@ struct Constants{
     static let ADMOB_ID_TRACKS              = "ca-app-pub-8190128329666781/6696678553"
     static let ADMOB_ID_SESSIONSAVED        = "ca-app-pub-8190128329666781/4126355537"
     
-    //iAP limits
+    //iAP
+    static let IAP_REMOVE_ADS_ID     = "no.Appbryggeriet.RacedayStopwatch.RemoveAds"
+    static let IAP_REMOVE_LIMITS_ID  = "no.Appbryggeriet.RacedayStopwatch.RemoveLimits"
+    static let IAP_REMOVE_ALL_ID    = "no.Appbryggeriet.RacedayStopwatch.RemoveAll"
+    private static let productIdentifiers: Set<ProductIdentifier> = [Constants.IAP_REMOVE_ADS_ID, IAP_REMOVE_LIMITS_ID,IAP_REMOVE_ALL_ID]
+    public static let store = IAPHelper(productIds: Constants.productIdentifiers)
+    
+    
     static let IAP_TRACK_LIMIT      = 2
     static let IAP_DRIVER_LIMIT     = 3
     static let IAP_SESSION_LIMIT    = 10
@@ -37,6 +44,9 @@ struct Constants{
     static let AD_BANNER_FREQUENCY_TRACKS       = 2
     static let AD_BANNER_FREQUENCR_DRIVERS      = 3
     static let AD_BANNER_FREQUENCY_SESSIONS     = 4
+    
+    static let IAP_CELL_BUY_BUTTON          = "Buy"
+    static let IAP_CELL_PRICE_NOT_AVAILABLE = "Not available"
     
     //Build info, used in About footer
     static let Appversion = "CFBundleShortVersionString"
@@ -158,7 +168,7 @@ struct Constants{
     
     //MARK: - SETTINGS
     static let SETTINGS_DEFAULT_HEADER      = "Defaults"
-    static let SETTINGS_IAP_HEADER          = "In-App Purchases"
+    static let SETTINGS_IAP_HEADER          = "Store"
     static let SETTINGS_THEME_HEADER        = "Themes"
     static let SETTINGS_DARK_MODE_LABEL     = "Dark Mode"
     static let SETTINGS_IMP_OR_METRIC_LABEL = "Measurement Units"

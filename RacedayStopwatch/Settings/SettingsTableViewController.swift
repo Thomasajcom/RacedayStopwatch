@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class SettingsTableViewController: UITableViewController {
 
@@ -18,6 +19,13 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var removeAllLabel: UILabel!
     @IBOutlet weak var removeAdsLabel: UILabel!
     @IBOutlet weak var removeLimitsLabel: UILabel!
+    @IBOutlet weak var removeAllDetailsLabel: UILabel!
+    
+    @IBOutlet weak var removeAllCell: ProductCell!
+    @IBOutlet weak var removeAdsCell: ProductCell!
+    @IBOutlet weak var removeLimitsCell: ProductCell!
+    
+    var iapProducts: [SKProduct] = []
     
     
     override func viewDidLoad() {
@@ -33,20 +41,72 @@ class SettingsTableViewController: UITableViewController {
         }else{
             metricImperialSegmentedControl.selectedSegmentIndex = 1
         }
-        
-        restorePurchasesLabel.text  = Constants.SETTINGS_IAP_RESTORE
-        removeAllLabel.text         = Constants.SETTINGS_IAP_REMOVE_ALL
-        removeAdsLabel.text         = Constants.SETTINGS_IAP_REMOVE_ADS
-        removeLimitsLabel.text      = Constants.SETTINGS_IAP_REMOVE_LIMITS
+        tableView.register(ProductCell.self, forCellReuseIdentifier: "Cell")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsTableViewController.handlePurchaseNotification(_:)),
+                                               name: .IAPHelperPurchaseNotification,
+                                               object: nil)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getIAPData()
         darkModeSwitch.setOn(Constants.defaults.bool(forKey: Constants.defaults_dark_mode), animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.popToRootViewController(animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func getIAPData() {
+        iapProducts = []
+        tableView.reloadData()
+        Constants.store.requestProducts{ [weak self] success, products in
+            guard let self = self else { return }
+            if success {
+                self.iapProducts = products!
+                self.setupStoreCells()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func setupStoreCells(){
+        removeAllCell.product       = iapProducts[1]
+        removeAllCell.buyButtonHandler = { product in
+            Constants.store.buyProduct(product)
+        }
+        removeAdsCell.product       = iapProducts[0]
+        removeAdsCell.buyButtonHandler = { product in
+            Constants.store.buyProduct(product)
+        }
+        removeLimitsCell.product    = iapProducts[2]
+        removeLimitsCell.buyButtonHandler = { product in
+            Constants.store.buyProduct(product)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == 0{
+                Constants.store.restorePurchases()
+            }
+        }
+    }
+    
+    @objc func handlePurchaseNotification(_ notification: Notification) {
+        guard
+            let productID = notification.object as? String,
+            let index = iapProducts.index(where: { product -> Bool in
+                product.productIdentifier == productID
+            })
+            else { return }
+        getIAPData()
     }
     
     @IBAction func setDarkMode(_ sender: UISwitch) {
@@ -62,7 +122,6 @@ class SettingsTableViewController: UITableViewController {
         switch metricImperialSegmentedControl.selectedSegmentIndex {
         case 0:
             Constants.defaults.set(true, forKey: Constants.defaults_metric_key)
-            self.loadView()
         case 1:
             Constants.defaults.set(false, forKey: Constants.defaults_metric_key)
         default:
@@ -74,18 +133,44 @@ class SettingsTableViewController: UITableViewController {
         return 3
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 4
-        case 2:
-            return 1
-        default:
-            return 0
-        }
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        switch section {
+////        case 0:
+////            return 1
+////        case 1:
+////            return iapProducts.count //consider adding +1 for restore button row
+////        case 2:
+////            return 1
+////        default:
+////            return 0
+////        }
+////        if section == 1 {
+////            print("count: \(iapProducts.count)")
+////            return iapProducts.count
+////            //the datasource of the dynamic section
+////        }
+//        return super.tableView(tableView, numberOfRowsInSection: section)
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if indexPath.section == 1{
+//            print("lager PRODUCTCELL)")
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProductCell
+//
+//            let product = iapProducts[(indexPath as NSIndexPath).row]
+//
+//            cell.product = product
+//            cell.buyButtonHandler = { product in
+//                Constants.store.buyProduct(product)
+//            }
+//
+//            //tableview doesnt work!
+//            return cell
+//        }
+//        print("returning generic cell")
+//
+//        return super.tableView(tableView, cellForRowAt: indexPath)
+//    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
