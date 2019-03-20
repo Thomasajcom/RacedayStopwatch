@@ -84,19 +84,31 @@ class TracksTableViewController: UITableViewController {
         return shouldPerformSegue
     }
     
-    func resetStats(track: Track) {
-        let alertController = UIAlertController(title: Constants.ITEM_RESET_TITLE, message: Constants.ITEM_RESET_BODY, preferredStyle: .alert)
+    func resetStats(_ track: Track) {
+        let alertController = UIAlertController(title: Constants.TRACK_RESET_TITLE, message: Constants.TRACK_RESET_BODY, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
-            track.trackRecord = 0
-            track.trackRecordHolder = nil
+            track.resetRecord()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+    func deleteTrack(_ track: Track){
+        let alertController = UIAlertController(title: Constants.TRACK_ALERT_DELETE_TITLE, message: Constants.TRACK_ALERT_DELETE_BODY, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            CoreDataService.context.delete(track)
             CoreDataService.saveContext()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
         present(alertController, animated: true)
+        
     }
     
     // MARK: - Table view data source
@@ -121,7 +133,7 @@ class TracksTableViewController: UITableViewController {
         let resetAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let track = self.fetchedResultsController.object(at: indexPath)
-            self.resetStats(track: track)
+            self.resetStats(track)
             completionHandler(true)
         }
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
@@ -141,9 +153,8 @@ class TracksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
             completionHandler(true)
-            let deleteObject = self.fetchedResultsController.object(at: indexPath)
-            CoreDataService.context.delete(deleteObject)
-            CoreDataService.saveContext()
+            let track = self.fetchedResultsController.object(at: indexPath)
+            self.deleteTrack(track)
             completionHandler(true)
         }
         deleteAction.image              = UIImage(named: "delete-50-filled")

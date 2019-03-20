@@ -119,7 +119,7 @@ class TimerViewController: UIViewController {
     }
     
     func createInterstitialAd() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
+        let interstitial = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
         interstitial.delegate = self
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -275,6 +275,21 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource{
         cell.setup(with: laps[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+            self.laps.remove(at: indexPath.row)
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    //removes the default delete action for trailingswipe
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
 }
 
 //MARK: - CollectionView
@@ -324,6 +339,10 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
         }else if customTrackLength != nil{
             lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
+        }
+        if lapSpeed > INT16_MAX{
+            print("LAPSPEDEEEDF HØØØØØY!")
+            lapSpeed = 32767
         }
         newLap.speed = Int16(lapSpeed)
         newLap.lapTime = lapTime

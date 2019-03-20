@@ -12,7 +12,21 @@ import CoreData
 class SessionsTableViewController: UITableViewController {
 
     var sessions: [Session] = []
-    let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        
+        // Configure Fetch Request
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: false)]
+        
+        // Create Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataService.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +40,16 @@ class SessionsTableViewController: UITableViewController {
             print(Constants.defaults.bool(forKey: Constants.defaults_metric_key))
         }
         self.tableView.tableFooterView = UIView()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch  {
+            let error = error as NSError
+            print("Unable to fetch tracks: \(error)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: false)]
-        do {
-            sessions = try CoreDataService.context.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
         tableView.backgroundColor   = Theme.activeTheme.backgroundColor
         tableView.separatorColor    = Theme.activeTheme.tintColor
        
@@ -89,19 +103,35 @@ class SessionsTableViewController: UITableViewController {
         
     }
     
+    func deleteSession(_ session: Session){
+        let alertController = UIAlertController(title: Constants.SESSION_ALERT_DELETE_TITLE, message: Constants.SESSION_ALERT_DELETE_BODY, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            CoreDataService.context.delete(session)
+            CoreDataService.saveContext()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+        
+    }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let sessions = fetchedResultsController.fetchedObjects else { return 0 }
         return sessions.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let session = sessions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.reuseIdentifier) as! SessionTableViewCell
+        let session = fetchedResultsController.object(at: indexPath)
         cell.setup(with: session)
         return cell
     }
@@ -115,20 +145,19 @@ class SessionsTableViewController: UITableViewController {
         return 200
     }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .destructive, title: nil) { (action, view, completionHandler) in
-            CoreDataService.context.delete(self.sessions[indexPath.row])
-            CoreDataService.saveContext()
-            do {
-                self.sessions = try CoreDataService.context.fetch(self.fetchRequest)
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+            let session = self.fetchedResultsController.object(at: indexPath)
+            self.deleteSession(session)
             completionHandler(true)
         }
         deleteAction.image              = UIImage(named: "delete-50-filled")
         deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    //removes the default delete action for trailingswipe
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+            return .none
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -136,5 +165,34 @@ class SessionsTableViewController: UITableViewController {
         print("Session:\(sessions[indexPath.row])")
     }
 
-    
 }
+
+extension SessionsTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch (type) {
+        case .delete:
+            if let indexPath = indexPath{
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? SessionTableViewCell{
+                cell.setup(with: fetchedResultsController.fetchedObjects![indexPath.row])
+            }
+            break;
+        default:
+            print("...")
+        }
+    }
+}
+

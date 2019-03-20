@@ -83,7 +83,6 @@ class AddItemViewController: UIViewController {
             if let driver = driver {
                 itemName.text     = driver.name
                 itemNumber.text   = driver.number
-                
                 itemName.placeholder     = Constants.DRIVER_NAME_PLACEHOLDER
                 itemNumber.placeholder   = Constants.DRIVER_NUMBER_PLACEHOLDER
                 addItemLabel.text = Constants.EDIT_DRIVER_LABEL
@@ -135,7 +134,8 @@ class AddItemViewController: UIViewController {
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
         keyboardToolbar.items = [flexSpace, doneBarButton]
-        itemNumber.inputAccessoryView = keyboardToolbar
+        itemName.inputAccessoryView     = keyboardToolbar
+        itemNumber.inputAccessoryView   = keyboardToolbar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -246,6 +246,7 @@ class AddItemViewController: UIViewController {
                     CoreDataService.context.delete(track)
                 }
             }
+            
         }
     }
 

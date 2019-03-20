@@ -86,6 +86,20 @@ class DriversTableViewController: UITableViewController {
         }
         return shouldPerformSegue
     }
+    
+    func deleteDriver(_ driver: Driver){
+        let alertController = UIAlertController(title: Constants.DRIVER_ALERT_DELETE_TITLE, message: Constants.DRIVER_ALERT_DELETE_BODY, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
+            CoreDataService.context.delete(driver)
+            CoreDataService.saveContext()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
 
 
     // MARK: - Table view data source
@@ -106,15 +120,6 @@ class DriversTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
-            completionHandler(true)
-            let deleteObject = self.fetchedResultsController.object(at: indexPath)
-            CoreDataService.context.delete(deleteObject)
-            CoreDataService.saveContext()
-            completionHandler(true)
-        }
-        deleteAction.image              = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
         let editAction = UIContextualAction.init(style: .normal, title: "") { (action, view, completionHandler) in
             //perform segue to edit
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -126,7 +131,20 @@ class DriversTableViewController: UITableViewController {
         }
         editAction.backgroundColor  = UIColor(named: "ConfirmColor")
         editAction.image            = UIImage(named: "delete-50-filled")
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        return UISwipeActionsConfiguration(actions: [editAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+            completionHandler(true)
+            let driver = self.fetchedResultsController.object(at: indexPath)
+            self.deleteDriver(driver)
+            completionHandler(true)
+        }
+        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+        
     }
     
 

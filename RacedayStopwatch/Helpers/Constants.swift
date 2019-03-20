@@ -83,13 +83,14 @@ struct Constants{
     static let TRACK_LENGTH_LABEL                   = "Track Length"
     static let CAMERA_TITLE     = "Camera"
     static let GALLERY_TITLE    = "Gallery"
-    static let ITEM_RESET_TITLE = "RESET"
-    static let ITEM_RESET_BODY  = "This will reset the track record."
+    
     //MARK: - Driver
     //MARK: - Driver Cell
     static let DRIVER_SESSIONS              = "Sessions:"
     static let DRIVER_FASTEST_DRIVER        = "Fastest driver:"
     static let DRIVER_FASTEST_DRIVER_TIMER  = " times."
+    static let DRIVER_ALERT_DELETE_TITLE    = "Delete Driver"
+    static let DRIVER_ALERT_DELETE_BODY     = "Do you want to delete this driver? This can not be undone."
     
     //MARK: - Tracks
     static let TRACK_NAME_PLACEHOLDER       = "Enter Track Name"
@@ -102,8 +103,12 @@ struct Constants{
     static let TRACK_ALERT_ADD_TRACK_TITLE  = "Add Track"
     static let TRACK_ALERT_DELETE_TITLE     = "Delete Track"
     static let TRACK_ALERT_DELETE_BODY      = "Do you want to delete this track? This can not be undone."
+    static let TRACK_RESET_TITLE            = "RESET"
+    static let TRACK_RESET_BODY             = "This will reset the track record."
     
     //MARK: - Session
+    static let SESSION_ALERT_DELETE_TITLE   = "Delete Session"
+    static let SESSION_ALERT_DELETE_BODY    = "Do you want to delete this session? This can not be undone."
     //NEW SESSION
     static let SESSION_DRIVER_SELECT_TITLE      = "Select Driver"
     static let SESSION_WITHOUT_TRACK            = "No Track"
