@@ -7,6 +7,7 @@ target 'RacedayStopwatch' do
 
   # Pods for RacedayStopwatch
   pod 'Google-Mobile-Ads-SDK'
+  pod 'KeychainAccess'
 
   target 'RacedayStopwatchTests' do
     inherit! :search_paths

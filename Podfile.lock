@@ -1,16 +1,20 @@
 PODS:
   - Google-Mobile-Ads-SDK (7.37.0)
+  - KeychainAccess (3.1.2)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
+  - KeychainAccess
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Google-Mobile-Ads-SDK
+    - KeychainAccess
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: d028682d7450749a1955679da050eaf70d997b3e
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
 
-PODFILE CHECKSUM: 285b7c27b8b834ad0d3d2a8bcff14ed41ae47ff9
+PODFILE CHECKSUM: 676e79bda01dd444b567dd1123954062366320a3
 
 COCOAPODS: 1.6.1
