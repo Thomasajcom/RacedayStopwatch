@@ -18,7 +18,7 @@ struct Constants{
     //UserDefaults
     static let defaults = UserDefaults.standard
     static let defaults_metric_key      = "Metric"
-    static let defaults_launched_before     = "LaunchedBefore"
+    static let defaults_launched_before = "LaunchedBefore"
     static let defaults_dark_mode       = "DarkMode"
     
     //AdMob ID
@@ -41,6 +41,9 @@ struct Constants{
     static let IAP_TRACK_LIMIT      = 2
     static let IAP_DRIVER_LIMIT     = 3
     static let IAP_SESSION_LIMIT    = 10
+    
+    static let IAP_LIMIT_REACHED_TITLE  = "Limit Reached"
+    static let IAP_LIMIT_REACHED_BODY   = "Remove limit on Tracks/Drivers by making a purchase on the settings page."
     
     static let AD_BANNER_FREQUENCY_TRACKS       = 2
     static let AD_BANNER_FREQUENCR_DRIVERS      = 3
