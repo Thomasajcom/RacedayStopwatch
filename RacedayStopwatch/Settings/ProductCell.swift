@@ -55,14 +55,14 @@ class ProductCell: UITableViewCell {
     
             textLabel?.text = product.localizedTitle
             if Constants.store.isProductPurchased(product.productIdentifier) {
-                accessoryType = .checkmark
-                accessoryView = nil
-                detailTextLabel?.text = ""
+                accessoryType           = .checkmark
+                accessoryView           = nil
+                detailTextLabel?.text   = ""
             } else if IAPHelper.canMakePayments() {
-                ProductCell.priceFormatter.locale = product.priceLocale
-                detailTextLabel?.text = ProductCell.priceFormatter.string(from: product.price)
-                accessoryType = .none
-                accessoryView = self.newBuyButton()
+                ProductCell.priceFormatter.locale   = product.priceLocale
+                detailTextLabel?.text               = ProductCell.priceFormatter.string(from: product.price)
+                accessoryType                       = .none
+                accessoryView                       = self.newBuyButton()
             } else {
                 detailTextLabel?.text = Constants.IAP_CELL_PRICE_NOT_AVAILABLE
             }

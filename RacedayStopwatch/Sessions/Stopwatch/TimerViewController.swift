@@ -106,9 +106,9 @@ class TimerViewController: UIViewController {
             lapRecordTime.isHidden      = true
         }
         if (timerWithoutDrivers){
-            addDriverButton.isHidden = true
-            lapButton.layer.cornerRadius  = 10
-            lapButton.layer.masksToBounds = true
+            addDriverButton.isHidden        = true
+            lapButton.layer.cornerRadius    = Constants.cornerRadius
+            lapButton.layer.masksToBounds   = true
             lapButton.setTitle(Constants.BUTTON_LAP, for: .normal)
             lapButton.isHidden = false
         }else{
@@ -119,10 +119,10 @@ class TimerViewController: UIViewController {
     }
     
     func createInterstitialAd() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
-        interstitial.delegate = self
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+        let interstitial        = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
+        interstitial.delegate   = self
+        let request             = GADRequest()
+        request.testDevices     = [kGADSimulatorID]
         interstitial.load(request)
         return interstitial
     }

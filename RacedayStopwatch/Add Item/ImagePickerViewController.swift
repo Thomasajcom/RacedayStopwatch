@@ -31,9 +31,9 @@ class ImagePickerViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.backgroundColor = Theme.activeTheme.backgroundColor
-        itemPicker.backgroundColor = Theme.activeTheme.backgroundColor
-        itemPicker.tintColor = Theme.activeTheme.tintColor
+        view.backgroundColor        = Theme.activeTheme.backgroundColor
+        itemPicker.backgroundColor  = Theme.activeTheme.backgroundColor
+        itemPicker.tintColor        = Theme.activeTheme.tintColor
     }
     
 }

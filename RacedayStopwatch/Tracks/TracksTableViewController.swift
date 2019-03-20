@@ -59,8 +59,8 @@ class TracksTableViewController: UITableViewController {
     }
     func displayAds(){
         if fetchedResultsController.fetchedObjects!.count > 0{
-            let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
+            let request             = GADRequest()
+            request.testDevices     = [kGADSimulatorID]
             adBannerView.load(request)
         }else{
             tableView.tableHeaderView = nil
@@ -179,12 +179,6 @@ extension TracksTableViewController: GADBannerViewDelegate{
         print("adViewDidReceiveAd")
         tableView.tableHeaderView?.frame = bannerView.frame
         tableView.tableHeaderView = bannerView
-        //        tableView.tableFooterView?.frame = bannerView.frame
-        //        tableView.tableFooterView = bannerView
-//        tableView.tableHeaderView?.alpha = 0
-//        UIView.animate(withDuration: 1) {
-//            self.tableView.tableHeaderView?.alpha = 1
-//        }
     }
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("Fail to receive ads")

@@ -85,24 +85,24 @@ class SessionTableViewCell: UITableViewCell {
             return
         }
         driverImage.image = UIImage(data: fastestDriver.image!)
-        driverImage.layer.cornerRadius  = Constants.cornerRadius
-        driverImage.layer.masksToBounds = true
-        fastestDriverLabel.attributedText = NSAttributedString(string: Constants.SESSION_FASTEST_DRIVER, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-        fastestDriverName.text = fastestDriver.name
-        bestLapTime.text = session.fastestLapTime.laptimeToString()
-        numberOfLaps.text = String(session.numberOfLaps) + Constants.SESSION_LAP
+        driverImage.layer.cornerRadius      = Constants.cornerRadius
+        driverImage.layer.masksToBounds     = true
+        fastestDriverLabel.attributedText   = NSAttributedString(string: Constants.SESSION_FASTEST_DRIVER, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        fastestDriverName.text              = fastestDriver.name
+        bestLapTime.text                    = session.fastestLapTime.laptimeToString()
+        numberOfLaps.text                   = String(session.numberOfLaps) + Constants.SESSION_LAP
 
         if sessionWithTrack {
             let calculatedDistanceDriven = Double(session.numberOfLaps) * session.onTrack!.length
             if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
-                bestLapSpeed.text = String(session.fastestLapSpeed) + " " + Constants.SPEED_UNIT_KMH
+                bestLapSpeed.text   = String(session.fastestLapSpeed) + " " + Constants.SPEED_UNIT_KMH
                 distanceDriven.text = String(calculatedDistanceDriven.noDecimals) + Constants.LENGTH_UNIT_METERS
             }else{
-                bestLapSpeed.text = String(Double(session.fastestLapSpeed).kmhToMph().noDecimals) + " " + Constants.SPEED_UNIT_MPH
+                bestLapSpeed.text   = String(Double(session.fastestLapSpeed).kmhToMph().noDecimals) + " " + Constants.SPEED_UNIT_MPH
                 distanceDriven.text = String(Double(calculatedDistanceDriven).fromMetersToMiles().threeDecimals) + Constants.LENGTH_UNIT_MILES
             }
-            totalSessionTimeLabel.attributedText = NSAttributedString(string: Constants.SESSION_TIME_ON_TRACK, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            totalSessionTime.text = Double(session.totalSessionTime).laptimeToString()
+            totalSessionTimeLabel.attributedText    = NSAttributedString(string: Constants.SESSION_TIME_ON_TRACK, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            totalSessionTime.text                   = Double(session.totalSessionTime).laptimeToString()
         }else{
             totalSessionTimeLabel.isHidden  = true
             totalSessionTime.isHidden       = true
@@ -111,7 +111,7 @@ class SessionTableViewCell: UITableViewCell {
         }
     }
     func setupTheme(){
-        backgroundColor = Theme.activeTheme.cellBackground
-        trackName.textColor = Theme.activeTheme.highlightFontColor
+        backgroundColor         = Theme.activeTheme.cellBackground
+        trackName.textColor     = Theme.activeTheme.highlightFontColor
     }
 }

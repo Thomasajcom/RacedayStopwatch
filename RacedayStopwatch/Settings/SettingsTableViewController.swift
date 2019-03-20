@@ -77,16 +77,16 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func setupStoreCells(){
-        removeAllCell.product       = iapProducts[1]
-        removeAllCell.buyButtonHandler = { product in
+        removeAllCell.product           = iapProducts[1]
+        removeAllCell.buyButtonHandler  = { product in
             Constants.store.buyProduct(product)
         }
-        removeAdsCell.product       = iapProducts[0]
-        removeAdsCell.buyButtonHandler = { product in
+        removeAdsCell.product           = iapProducts[0]
+        removeAdsCell.buyButtonHandler  = { product in
             Constants.store.buyProduct(product)
         }
-        removeLimitsCell.product    = iapProducts[2]
-        removeLimitsCell.buyButtonHandler = { product in
+        removeLimitsCell.product            = iapProducts[2]
+        removeLimitsCell.buyButtonHandler   = { product in
             Constants.store.buyProduct(product)
         }
     }
@@ -133,45 +133,6 @@ class SettingsTableViewController: UITableViewController {
         return 3
     }
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        switch section {
-////        case 0:
-////            return 1
-////        case 1:
-////            return iapProducts.count //consider adding +1 for restore button row
-////        case 2:
-////            return 1
-////        default:
-////            return 0
-////        }
-////        if section == 1 {
-////            print("count: \(iapProducts.count)")
-////            return iapProducts.count
-////            //the datasource of the dynamic section
-////        }
-//        return super.tableView(tableView, numberOfRowsInSection: section)
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 1{
-//            print("lager PRODUCTCELL)")
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProductCell
-//
-//            let product = iapProducts[(indexPath as NSIndexPath).row]
-//
-//            cell.product = product
-//            cell.buyButtonHandler = { product in
-//                Constants.store.buyProduct(product)
-//            }
-//
-//            //tableview doesnt work!
-//            return cell
-//        }
-//        print("returning generic cell")
-//
-//        return super.tableView(tableView, cellForRowAt: indexPath)
-//    }
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:

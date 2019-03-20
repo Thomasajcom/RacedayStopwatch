@@ -122,18 +122,18 @@ class AddItemViewController: UIViewController {
         setupTheme()
     }
     func setupTheme(){
-        addItemLabel.textColor = Theme.activeTheme.highlightFontColor
-        addItemLabel.backgroundColor = Theme.activeTheme.highlightColor
-        popupView.backgroundColor = Theme.activeTheme.backgroundColor
-        pictureOrImageControl.tintColor = Theme.activeTheme.tintColor
+        addItemLabel.textColor              = Theme.activeTheme.highlightFontColor
+        addItemLabel.backgroundColor        = Theme.activeTheme.highlightColor
+        popupView.backgroundColor           = Theme.activeTheme.backgroundColor
+        pictureOrImageControl.tintColor     = Theme.activeTheme.tintColor
     }
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
-        let keyboardToolbar = UIToolbar()
+        let keyboardToolbar             = UIToolbar()
         keyboardToolbar.sizeToFit()
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
-        keyboardToolbar.items = [flexSpace, doneBarButton]
+        let flexSpace                   = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton               = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items           = [flexSpace, doneBarButton]
         itemName.inputAccessoryView     = keyboardToolbar
         itemNumber.inputAccessoryView   = keyboardToolbar
     }
@@ -174,16 +174,16 @@ class AddItemViewController: UIViewController {
     // MARK: - Popup Buttons
     @IBAction func save(_ sender: Any) {
         guard let name = itemName.text, name.count > 0 else {
-            self.itemName.layer.borderColor = UIColor.red.cgColor
-            self.itemName.borderStyle = .roundedRect
-            self.itemName.layer.borderWidth = 1
+            self.itemName.layer.borderColor     = UIColor.red.cgColor
+            self.itemName.borderStyle           = .roundedRect
+            self.itemName.layer.borderWidth     = 1
             return
         }
         itemName.layer.borderColor = UIColor.clear.cgColor
         guard let number = itemNumber.text, number.count > 0 else {
-            self.itemNumber.layer.borderColor = UIColor.red.cgColor
-            self.itemNumber.borderStyle = .roundedRect
-            self.itemNumber.layer.borderWidth = 1
+            self.itemNumber.layer.borderColor   = UIColor.red.cgColor
+            self.itemNumber.borderStyle         = .roundedRect
+            self.itemNumber.layer.borderWidth   = 1
             return
         }
         itemNumber.layer.borderColor = UIColor.clear.cgColor

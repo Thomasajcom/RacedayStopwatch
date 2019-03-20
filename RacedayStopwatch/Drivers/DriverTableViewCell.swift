@@ -32,7 +32,7 @@ class DriverTableViewCell: UITableViewCell {
         numberLabel.layer.cornerRadius  = Constants.cornerRadius
         numberLabel.layer.masksToBounds = true
         numberLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        driverImage.layer.cornerRadius = Constants.cornerRadius
+        driverImage.layer.cornerRadius  = Constants.cornerRadius
         driverImage.layer.masksToBounds = true
         nameLabel.text                  = driver.name
         if let driverNumber = driver.number{
@@ -47,20 +47,20 @@ class DriverTableViewCell: UITableViewCell {
         setupTheme()
     }
     func setupTheme(){
-        backgroundColor = Theme.activeTheme.cellBackground
-        numberLabel.backgroundColor = Theme.activeTheme.highlightColor
-        numberLabel.textColor = Theme.activeTheme.highlightFontColor
+        backgroundColor                 = Theme.activeTheme.cellBackground
+        numberLabel.backgroundColor     = Theme.activeTheme.highlightColor
+        numberLabel.textColor           = Theme.activeTheme.highlightFontColor
         
     }
     
     //get driver data for cell
     func getFastestDriver(for driver: Driver){
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
-        fastestDriverPredicate = NSPredicate(format: "fastestDriver == %@", driver)
-        fetchRequest.predicate = fastestDriverPredicate
+        fetchRequest.sortDescriptors    = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
+        fastestDriverPredicate          = NSPredicate(format: "fastestDriver == %@", driver)
+        fetchRequest.predicate          = fastestDriverPredicate
         do {
-            let sessions = try CoreDataService.context.fetch(fetchRequest)
-            fastestDriverLabel.text = Constants.DRIVER_FASTEST_DRIVER
+            let sessions                    = try CoreDataService.context.fetch(fetchRequest)
+            fastestDriverLabel.text         = Constants.DRIVER_FASTEST_DRIVER
             numberOfTimesFastestDriver.text = String(sessions.count)
         } catch let error as NSError {
             fastestDriverLabel.isHidden             = true
@@ -70,13 +70,13 @@ class DriverTableViewCell: UITableViewCell {
     
     }
     func getNumberOfSessions(for driver: Driver){
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
-        driverPredicate = NSPredicate(format: "%@ IN  drivers", driver)
-        fetchRequest.predicate = driverPredicate
+        fetchRequest.sortDescriptors    = [NSSortDescriptor(key: "sessionDateAndTime", ascending: true)]
+        driverPredicate                 = NSPredicate(format: "%@ IN  drivers", driver)
+        fetchRequest.predicate          = driverPredicate
         do {
-            let sessions = try CoreDataService.context.fetch(fetchRequest)
-            sessionsLabel.text = Constants.DRIVER_SESSIONS
-            numberOfSessions.text = String(sessions.count)
+            let sessions            = try CoreDataService.context.fetch(fetchRequest)
+            sessionsLabel.text      = Constants.DRIVER_SESSIONS
+            numberOfSessions.text   = String(sessions.count)
         } catch let error as NSError {
             sessionsLabel.isHidden      = true
             numberOfSessions.isHidden   = true

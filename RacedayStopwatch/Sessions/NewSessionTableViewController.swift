@@ -126,11 +126,11 @@ class NewSessionTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "timerSegue"){
-            let newTimer = segue.destination as! TimerViewController
-            newTimer.hidesBottomBarWhenPushed = true
-            newTimer.navigationItem.hidesBackButton = true
+            let newTimer                                = segue.destination as! TimerViewController
+            newTimer.hidesBottomBarWhenPushed           = true
+            newTimer.navigationItem.hidesBackButton     = true
             let exitButton = UIBarButtonItem(title: Constants.TIMER_EXIT, style: .plain, target: self, action: #selector(exitToRoot))
-            newTimer.navigationItem.leftBarButtonItem = exitButton
+            newTimer.navigationItem.leftBarButtonItem   = exitButton
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             
             //set track on the timer vc
@@ -171,7 +171,7 @@ class NewSessionTableViewController: UITableViewController {
     }
     @objc func exitToRoot(){
         let alertController = UIAlertController(title: Constants.TIMER_EXIT, message: Constants.TIMER_EXIT_MESSAGE, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
+        let cancelAction    = UIAlertAction(title: Constants.ALERT_CANCEL, style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .destructive) { (action) in
@@ -184,11 +184,11 @@ class NewSessionTableViewController: UITableViewController {
     
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
-        let keyboardToolbar = UIToolbar()
+        let keyboardToolbar     = UIToolbar()
         keyboardToolbar.sizeToFit()
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
-        keyboardToolbar.items = [flexSpace, doneBarButton]
+        let flexSpace           = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton       = UIBarButtonItem(barButtonSystemItem: .done, target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items   = [flexSpace, doneBarButton]
         noTrackLength.inputAccessoryView = keyboardToolbar
     }
 }
@@ -223,8 +223,8 @@ extension NewSessionTableViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = driversCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
-        let driver = drivers![indexPath.row]
+        let cell            = driversCollectionView.dequeueReusableCell(withReuseIdentifier: DriverCollectionViewCell.reuseIdentifier, for: indexPath) as! DriverCollectionViewCell
+        let driver          = drivers![indexPath.row]
         cell.setup(title: driver.name!, image: UIImage(data: driver.image!)!)
         cell.timerLabel.text = Constants.DRIVER_IS_SELECTED
         if cell.isSelected{
@@ -241,9 +241,9 @@ extension NewSessionTableViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! DriverCollectionViewCell
-        cell.timerLabel.isHidden = true
-        cell.contentView.backgroundColor = Theme.activeTheme.deleteColor
+        let cell                            = collectionView.cellForItem(at: indexPath) as! DriverCollectionViewCell
+        cell.timerLabel.isHidden            = true
+        cell.contentView.backgroundColor    = Theme.activeTheme.deleteColor
         UIView.animate(withDuration: 0.3) {
             cell.contentView.backgroundColor = Theme.activeTheme.cellBackground
         }

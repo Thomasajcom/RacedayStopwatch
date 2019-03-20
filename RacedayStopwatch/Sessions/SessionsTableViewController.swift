@@ -69,8 +69,8 @@ class SessionsTableViewController: UITableViewController {
     // MARK: - Developer Options Core Data
     func drop(table: String){
         print("Going to drop table: \(table)")
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: table)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        let deleteFetch     = NSFetchRequest<NSFetchRequestResult>(entityName: table)
+        let deleteRequest   = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do
         {
             try CoreDataService.context.execute(deleteRequest)
@@ -85,7 +85,7 @@ class SessionsTableViewController: UITableViewController {
     
     @IBAction func devButton(_ sender: Any) {
         let alertController = UIAlertController(title: "Dev Menu", message: "Drop selected table!", preferredStyle: .actionSheet)
-        let dropSessions = UIAlertAction(title: "Session", style: .destructive, handler: {(alert: UIAlertAction!) in
+        let dropSessions    = UIAlertAction(title: "Session", style: .destructive, handler: {(alert: UIAlertAction!) in
             self.drop(table: alert.title!)
         })
         let dropTracks = UIAlertAction(title: "Track", style: .destructive, handler: {(alert: UIAlertAction!) in

@@ -12,8 +12,8 @@ import CoreData
 class Track: NSManagedObject {
 
     func resetRecord(){
-        self.trackRecord = 0
-        self.trackRecordHolder = nil
+        self.trackRecord        = 0
+        self.trackRecordHolder  = nil
         CoreDataService.saveContext()
     }
 }
