@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBA2A68CA660490D6B521EED55EA141F"
+               BlueprintIdentifier = "869E91F795AD9571919E7728AF5D3CEA"
                BuildableName = "Pods_RacedayStopwatch.framework"
                BlueprintName = "Pods-RacedayStopwatch"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBA2A68CA660490D6B521EED55EA141F"
+            BlueprintIdentifier = "869E91F795AD9571919E7728AF5D3CEA"
             BuildableName = "Pods_RacedayStopwatch.framework"
             BlueprintName = "Pods-RacedayStopwatch"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -30,6 +30,7 @@ struct Constants{
     static let ADMOB_ID_SESSIONSAVED        = "ca-app-pub-8190128329666781/4126355537"
     
     //iAP
+    static let KEYCHAIN_SERVICE      = "no.appbryggeriet.racedaystopwatch.iapService"
     static let IAP_REMOVE_ADS_ID     = "no.Appbryggeriet.RacedayStopwatch.RemoveAds"
     static let IAP_REMOVE_LIMITS_ID  = "no.Appbryggeriet.RacedayStopwatch.RemoveLimits"
     static let IAP_REMOVE_ALL_ID    = "no.Appbryggeriet.RacedayStopwatch.RemoveAll"

@@ -42,7 +42,6 @@ class TracksTableViewController: UITableViewController {
         self.title = Constants.TRACKS_TITLE
         do {
             try fetchedResultsController.performFetch()
-            displayAds()
         } catch  {
             let error = error as NSError
             print("Unable to fetch tracks: \(error)")
@@ -51,6 +50,12 @@ class TracksTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTheme()
+        if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID)){
+            displayAds()
+            print("viser ads, siden remove_ads_isProductPurchased er false")
+        }else{
+            tableView.tableHeaderView = nil
+        }
         tableView.reloadData()
     }
     func setupTheme(){

@@ -50,7 +50,11 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interstitial = createInterstitialAd()
+        if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID)){
+            print("lager interstitial siden remove_ads_isProductPurchased er false")
+            interstitial = createInterstitialAd()
+        }
+        
         
         mainTimerLabel.text = Constants.LAPTIME_NOT_STARTED
         driverCollectionView.delegate   = self
@@ -199,11 +203,15 @@ class TimerViewController: UIViewController {
         let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
             (alert: UIAlertAction!) in
             if (actionString == Constants.ALERT_OK){
-                if self.interstitial.isReady {
-                    self.interstitial.present(fromRootViewController: self)
-                } else {
-                    print("Ad wasn't ready")
+                if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID)){
+                    print("viser interstitial siden remove_ads_isProductPurchased er false")
+                    if self.interstitial.isReady {
+                        self.interstitial.present(fromRootViewController: self)
+                    } else {
+                        print("Ad wasn't ready")
+                    }
                 }
+                
                 self.navigationController?.popToRootViewController(animated: false)
 
             }

@@ -19,110 +19,90 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		067CC44D572E92101015CCB2621D26B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		0CCEE8539CBD5C693D23DB1BAC5509FB /* Pods-RacedayStopwatchTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEB34C2BE2C9BA46724E8EA29862508 /* Pods-RacedayStopwatchTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		133B6103130C96B7CCE0263893CAD1FF /* Pods-RacedayStopwatch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A07A475EC950F0552811A3764859C56 /* Pods-RacedayStopwatch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FC0C7328EE8C55998B934B7C4260C5D /* Pods-RacedayStopwatchUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B777DF2ACF87D5384359CB0A1E8B8C71 /* Pods-RacedayStopwatchUITests-dummy.m */; };
-		453F83EED06FF06F51F299AEB2EE2904 /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B1B42388ECFEE40ECC88734EFD0F23 /* KeychainAccess-dummy.m */; };
-		6E64A1950C0A490078FC2B853958A222 /* Pods-RacedayStopwatchTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F66F317E548EA99819D538989CCD3E79 /* Pods-RacedayStopwatchTests-dummy.m */; };
-		81CB40EAA5C6A65FD21071C0FEA71221 /* Pods-RacedayStopwatchUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 235C9A5F7CA2CB8C5D773824D0D763BD /* Pods-RacedayStopwatchUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E13D244B07976131333F1A7A99A0043 /* Pods-RacedayStopwatch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62766EB7527482B10122ED1F10867D79 /* Pods-RacedayStopwatch-dummy.m */; };
-		92B9A2B19BE39566C6CACFD26BF134C4 /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBF1CE47B38E530E3A9DE9E53BFE8D9 /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		030C5E148030D9277F84EDF0CEA8DC91 /* Pods-RacedayStopwatch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C70420446F49207E9B7FB5A2627F /* Pods-RacedayStopwatch-dummy.m */; };
+		0CCEE8539CBD5C693D23DB1BAC5509FB /* Pods-RacedayStopwatchTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC754E39C89B9FB4AC01C0F3E81AD18 /* Pods-RacedayStopwatchTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		193030B97E0C86DDC2289D29BE8AD777 /* Pods-RacedayStopwatch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EDFB744A6D46BBAFFCA6FA49B3DED25 /* Pods-RacedayStopwatch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FC0C7328EE8C55998B934B7C4260C5D /* Pods-RacedayStopwatchUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E344884FBF365E04C4175F16C596EC08 /* Pods-RacedayStopwatchUITests-dummy.m */; };
+		6E64A1950C0A490078FC2B853958A222 /* Pods-RacedayStopwatchTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2D912EA409E4E88D8428FE79228766 /* Pods-RacedayStopwatchTests-dummy.m */; };
+		75DE36030D656A7B62F49EE1816E96D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		81CB40EAA5C6A65FD21071C0FEA71221 /* Pods-RacedayStopwatchUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B30F8B36FB7A1800820F11E359EF8A1 /* Pods-RacedayStopwatchUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9418C3534416CC10F81D8327F334C77F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		CD679E01B668D0C6594201643B4C28A5 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A52B99609802C369CFC0E4C886C9D9 /* Keychain.swift */; };
-		E8395200A45B1D891CABD0675CDFEB7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		F6E02F635825C1C9BDCBCE96AA892154 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8F8CCC3C4A0E43A46CE22DB86288080B /* PBXContainerItemProxy */ = {
+		3A989041ADA1F7E982D37C9B15757655 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FB967FF9676EB9B886760D8D9C68EAD9;
 			remoteInfo = "Google-Mobile-Ads-SDK";
 		};
-		A9E60CEEFB128F681297666BA48CDF4C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F895CBA524B654D3F837F25BFBE2262;
-			remoteInfo = KeychainAccess;
-		};
 		F7255262CF24BE128BB0ED7314665849 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CBA2A68CA660490D6B521EED55EA141F;
+			remoteGlobalIDString = 869E91F795AD9571919E7728AF5D3CEA;
 			remoteInfo = "Pods-RacedayStopwatch";
 		};
 		FCDBD82C6E525F8ECFB0E6D3111DB9CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CBA2A68CA660490D6B521EED55EA141F;
+			remoteGlobalIDString = 869E91F795AD9571919E7728AF5D3CEA;
 			remoteInfo = "Pods-RacedayStopwatch";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		094F9122FC16A3221620EF23A4407986 /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
-		19543564ED2C0992CF237A88E38CD7F3 /* Pods-RacedayStopwatchUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchUITests-Info.plist"; sourceTree = "<group>"; };
-		1A07A475EC950F0552811A3764859C56 /* Pods-RacedayStopwatch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatch-umbrella.h"; sourceTree = "<group>"; };
-		201D995821E0E5B0C7656610918E24CC /* Pods-RacedayStopwatchUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatchUITests.modulemap"; sourceTree = "<group>"; };
-		235C9A5F7CA2CB8C5D773824D0D763BD /* Pods-RacedayStopwatchUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatchUITests-umbrella.h"; sourceTree = "<group>"; };
-		2B838A6190E8496BB3759B31D44E929A /* Pods-RacedayStopwatchUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		2B9D530E0AB07B6EB79D146F5F056E5A /* Pods-RacedayStopwatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3675FDF214A482DE944899819657B952 /* Pods-RacedayStopwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatch.release.xcconfig"; sourceTree = "<group>"; };
-		46F03D8676CD355410F8740F49E9E9D9 /* Pods-RacedayStopwatch-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RacedayStopwatch-frameworks.sh"; sourceTree = "<group>"; };
-		4CEB34C2BE2C9BA46724E8EA29862508 /* Pods-RacedayStopwatchTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatchTests-umbrella.h"; sourceTree = "<group>"; };
-		61B1B42388ECFEE40ECC88734EFD0F23 /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
-		62766EB7527482B10122ED1F10867D79 /* Pods-RacedayStopwatch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatch-dummy.m"; sourceTree = "<group>"; };
-		67A52B99609802C369CFC0E4C886C9D9 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
-		6F9CBCD6FDFD03CA1599AF043F82EE7A /* Google-Mobile-Ads-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Mobile-Ads-SDK.xcconfig"; sourceTree = "<group>"; };
-		7AD18401EF89ABB04E02AE6C3DC125F5 /* Pods-RacedayStopwatchTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7DBF1CE47B38E530E3A9DE9E53BFE8D9 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
-		83A09C8DFE8A6D2C391F9BF8E7B4B682 /* Pods-RacedayStopwatch-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatch-acknowledgements.plist"; sourceTree = "<group>"; };
-		849FEAFDB31D5CE26A9CB8DA43C17B61 /* Pods-RacedayStopwatchTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchTests-Info.plist"; sourceTree = "<group>"; };
-		8A667F929DE92F092AB5BC08BCC744CD /* Pods_RacedayStopwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatch.framework; path = "Pods-RacedayStopwatch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		926CFD50965A7BE733756A7CA0CAA5B3 /* Pods-RacedayStopwatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchTests.release.xcconfig"; sourceTree = "<group>"; };
-		9A49C71BEE503AA0BA302DA46988B156 /* Pods-RacedayStopwatchUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatchUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0B30F8B36FB7A1800820F11E359EF8A1 /* Pods-RacedayStopwatchUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatchUITests-umbrella.h"; sourceTree = "<group>"; };
+		0EDFB744A6D46BBAFFCA6FA49B3DED25 /* Pods-RacedayStopwatch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatch-umbrella.h"; sourceTree = "<group>"; };
+		14ABFC09EE90E9D6E710784393B83EE7 /* Pods-RacedayStopwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatch.release.xcconfig"; sourceTree = "<group>"; };
+		15A237CDCB7B32ECFC96998D83188831 /* Pods-RacedayStopwatchUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchUITests-Info.plist"; sourceTree = "<group>"; };
+		1BD62B392AA0A9750FB9B4DA216F84FC /* Pods-RacedayStopwatchTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1BFA3BDF998BF4B862E66AB9E8CADF60 /* Pods-RacedayStopwatchUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatchUITests.modulemap"; sourceTree = "<group>"; };
+		1E49ED639A288B730EAE7BCD68CD6CD6 /* Pods-RacedayStopwatchUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatchUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		317929D4B3B2E22B66B2CDE2DACD6FB3 /* Pods-RacedayStopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatch.debug.xcconfig"; sourceTree = "<group>"; };
+		34168F3139987EE960F76A3A329CCA2C /* Pods-RacedayStopwatch-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatch-acknowledgements.markdown"; sourceTree = "<group>"; };
+		39B9C7563996DFD13AF2EFDB331BB26F /* Pods_RacedayStopwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatch.framework; path = "Pods-RacedayStopwatch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		503D0C767B6E07B379FBE542BE8E6F6C /* Pods-RacedayStopwatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50792C79DF8379039038F31803E6B731 /* Pods-RacedayStopwatch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatch.modulemap"; sourceTree = "<group>"; };
+		54E17918DFD1E6EB61FE989F9B1A6E39 /* Pods_RacedayStopwatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatchUITests.framework; path = "Pods-RacedayStopwatchUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9ACA70E349101FA4866071B173C283 /* Pods-RacedayStopwatch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatch-Info.plist"; sourceTree = "<group>"; };
+		5BC754E39C89B9FB4AC01C0F3E81AD18 /* Pods-RacedayStopwatchTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RacedayStopwatchTests-umbrella.h"; sourceTree = "<group>"; };
+		6DBAC25CE389B0994B1A09A34D042BBE /* Pods-RacedayStopwatchTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatchTests.modulemap"; sourceTree = "<group>"; };
+		80077A86B50CB2DA3DC10BB27B03438A /* Pods-RacedayStopwatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		80A7E93AC5CF57DC0E34FAEAE5BB4380 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		9CF5EDC4B1A9786EF66FF389C8E614E9 /* Pods-RacedayStopwatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A2E91E5F1EAF2BB9B417675CB880C2B3 /* Pods-RacedayStopwatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B037523A066AC5818B5E6553B437A527 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
-		B777DF2ACF87D5384359CB0A1E8B8C71 /* Pods-RacedayStopwatchUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatchUITests-dummy.m"; sourceTree = "<group>"; };
+		A3010D9E77ED12F0D834DD5F035A5954 /* Google-Mobile-Ads-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Mobile-Ads-SDK.xcconfig"; sourceTree = "<group>"; };
+		AD34855EF2AFFF20AD84AC893308E7E2 /* Pods-RacedayStopwatchTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchTests-Info.plist"; sourceTree = "<group>"; };
+		AD6A94EBDE87139F4CDBBDB063C1168E /* Pods-RacedayStopwatchUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatchUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		ADC9B1823B18D80CDD8CB4E34A85DCEB /* Pods-RacedayStopwatchTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatchTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B09EEAB35E5DCC49E1D60E4F909F3808 /* libGoogleMobileAds.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleMobileAds.a; path = Libraries/libGoogleMobileAds.a; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CF42E0FBAC4DBCC186A3E226017AE189 /* Pods-RacedayStopwatch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatch-Info.plist"; sourceTree = "<group>"; };
-		D21C503DD0D17D0DB2CDCEDE6CE63990 /* Pods-RacedayStopwatchTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatchTests.modulemap"; sourceTree = "<group>"; };
-		D6E813ABEFD56AD2BB0317CD1B99AD1A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		D85FBAAC1DFBBD6A7F420AACC4281E9D /* libGoogleMobileAds.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleMobileAds.a; path = Libraries/libGoogleMobileAds.a; sourceTree = "<group>"; };
-		DC4F72E058E6C5724C0288B37AA961DE /* Pods-RacedayStopwatch-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatch-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DDA48A73C280123131CB14728ADA714A /* Pods-RacedayStopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatch.debug.xcconfig"; sourceTree = "<group>"; };
-		E3D7D20637D638CD7C2E4BE3B138A852 /* Pods-RacedayStopwatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E73BBF99B3999B4736A2450FA3D5EA66 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E87F41D264322B6E14A8DEAE58A4C1F0 /* Pods_RacedayStopwatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatchTests.framework; path = "Pods-RacedayStopwatchTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE964CB6C890024B2318A85F5E25EE15 /* KeychainAccess-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainAccess-Info.plist"; sourceTree = "<group>"; };
-		EFCB5AE51A90590AC288E9A483252B39 /* Pods-RacedayStopwatchTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RacedayStopwatchTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F4FB7F8DD3DD937E7586FC237274BAE7 /* Pods_RacedayStopwatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatchUITests.framework; path = "Pods-RacedayStopwatchUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F66F317E548EA99819D538989CCD3E79 /* Pods-RacedayStopwatchTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatchTests-dummy.m"; sourceTree = "<group>"; };
-		FC65E131F890341423246DF2CA58CA61 /* Pods-RacedayStopwatch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RacedayStopwatch.modulemap"; sourceTree = "<group>"; };
-		FCE062963E8C0B7109C8B6EB0509863B /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
+		D2CA31FD29DC46A066C692A85D62FEC2 /* Pods_RacedayStopwatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RacedayStopwatchTests.framework; path = "Pods-RacedayStopwatchTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BBAA070C48116413EC8FF76EF48BEF /* Pods-RacedayStopwatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RacedayStopwatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E236C70420446F49207E9B7FB5A2627F /* Pods-RacedayStopwatch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatch-dummy.m"; sourceTree = "<group>"; };
+		E344884FBF365E04C4175F16C596EC08 /* Pods-RacedayStopwatchUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatchUITests-dummy.m"; sourceTree = "<group>"; };
+		EA33DF175B615EF8606C523BA078E714 /* Pods-RacedayStopwatch-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RacedayStopwatch-acknowledgements.plist"; sourceTree = "<group>"; };
+		FC2D912EA409E4E88D8428FE79228766 /* Pods-RacedayStopwatchTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RacedayStopwatchTests-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C0B0F40208AB904406C377F57C74608 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				067CC44D572E92101015CCB2621D26B3 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9E79520571F5ECEC2541FB2EE787D11C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F6E02F635825C1C9BDCBCE96AA892154 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC949F776A9ADDD01CA8ED4D77EDFFBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75DE36030D656A7B62F49EE1816E96D9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,117 +114,73 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDED646FFE773E48D6F071CBE9862359 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8395200A45B1D891CABD0675CDFEB7B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00109FA8D3F821453FCC4EEA66CB9CA8 /* Pods-RacedayStopwatchUITests */ = {
+		0B3C9785A3EC7A81C8C48CA9921EA83F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				201D995821E0E5B0C7656610918E24CC /* Pods-RacedayStopwatchUITests.modulemap */,
-				9A49C71BEE503AA0BA302DA46988B156 /* Pods-RacedayStopwatchUITests-acknowledgements.markdown */,
-				2B838A6190E8496BB3759B31D44E929A /* Pods-RacedayStopwatchUITests-acknowledgements.plist */,
-				B777DF2ACF87D5384359CB0A1E8B8C71 /* Pods-RacedayStopwatchUITests-dummy.m */,
-				19543564ED2C0992CF237A88E38CD7F3 /* Pods-RacedayStopwatchUITests-Info.plist */,
-				235C9A5F7CA2CB8C5D773824D0D763BD /* Pods-RacedayStopwatchUITests-umbrella.h */,
-				E3D7D20637D638CD7C2E4BE3B138A852 /* Pods-RacedayStopwatchUITests.debug.xcconfig */,
-				2B9D530E0AB07B6EB79D146F5F056E5A /* Pods-RacedayStopwatchUITests.release.xcconfig */,
+				314A3DAC79DCD4FE12475A9690D182DD /* Pods-RacedayStopwatch */,
+				96D7B583691087DCBB92DF6A4B19B43A /* Pods-RacedayStopwatchTests */,
+				6DAD66DE5B049A7ED6308E4809721A4B /* Pods-RacedayStopwatchUITests */,
 			);
-			name = "Pods-RacedayStopwatchUITests";
-			path = "Target Support Files/Pods-RacedayStopwatchUITests";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		0C8CCCCD0F5D2BACF69924106C446877 /* Pods-RacedayStopwatch */ = {
+		314A3DAC79DCD4FE12475A9690D182DD /* Pods-RacedayStopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				FC65E131F890341423246DF2CA58CA61 /* Pods-RacedayStopwatch.modulemap */,
-				DC4F72E058E6C5724C0288B37AA961DE /* Pods-RacedayStopwatch-acknowledgements.markdown */,
-				83A09C8DFE8A6D2C391F9BF8E7B4B682 /* Pods-RacedayStopwatch-acknowledgements.plist */,
-				62766EB7527482B10122ED1F10867D79 /* Pods-RacedayStopwatch-dummy.m */,
-				46F03D8676CD355410F8740F49E9E9D9 /* Pods-RacedayStopwatch-frameworks.sh */,
-				CF42E0FBAC4DBCC186A3E226017AE189 /* Pods-RacedayStopwatch-Info.plist */,
-				1A07A475EC950F0552811A3764859C56 /* Pods-RacedayStopwatch-umbrella.h */,
-				DDA48A73C280123131CB14728ADA714A /* Pods-RacedayStopwatch.debug.xcconfig */,
-				3675FDF214A482DE944899819657B952 /* Pods-RacedayStopwatch.release.xcconfig */,
+				50792C79DF8379039038F31803E6B731 /* Pods-RacedayStopwatch.modulemap */,
+				34168F3139987EE960F76A3A329CCA2C /* Pods-RacedayStopwatch-acknowledgements.markdown */,
+				EA33DF175B615EF8606C523BA078E714 /* Pods-RacedayStopwatch-acknowledgements.plist */,
+				E236C70420446F49207E9B7FB5A2627F /* Pods-RacedayStopwatch-dummy.m */,
+				5A9ACA70E349101FA4866071B173C283 /* Pods-RacedayStopwatch-Info.plist */,
+				0EDFB744A6D46BBAFFCA6FA49B3DED25 /* Pods-RacedayStopwatch-umbrella.h */,
+				317929D4B3B2E22B66B2CDE2DACD6FB3 /* Pods-RacedayStopwatch.debug.xcconfig */,
+				14ABFC09EE90E9D6E710784393B83EE7 /* Pods-RacedayStopwatch.release.xcconfig */,
 			);
 			name = "Pods-RacedayStopwatch";
 			path = "Target Support Files/Pods-RacedayStopwatch";
 			sourceTree = "<group>";
 		};
-		2628479D8B8331AAE669B8751F8BFF0B /* Frameworks */ = {
+		6B211663DCEEBAED89B50D8384CA363D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D6E813ABEFD56AD2BB0317CD1B99AD1A /* GoogleMobileAds.framework */,
-				D85FBAAC1DFBBD6A7F420AACC4281E9D /* libGoogleMobileAds.a */,
+				EA23766AED70F7AC4B12E621FB8862AC /* Google-Mobile-Ads-SDK */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		3F0C6908085BFC7268F4C6996C38A23A /* Products */ = {
+		6DAD66DE5B049A7ED6308E4809721A4B /* Pods-RacedayStopwatchUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E73BBF99B3999B4736A2450FA3D5EA66 /* KeychainAccess.framework */,
-				8A667F929DE92F092AB5BC08BCC744CD /* Pods_RacedayStopwatch.framework */,
-				E87F41D264322B6E14A8DEAE58A4C1F0 /* Pods_RacedayStopwatchTests.framework */,
-				F4FB7F8DD3DD937E7586FC237274BAE7 /* Pods_RacedayStopwatchUITests.framework */,
+				1BFA3BDF998BF4B862E66AB9E8CADF60 /* Pods-RacedayStopwatchUITests.modulemap */,
+				1E49ED639A288B730EAE7BCD68CD6CD6 /* Pods-RacedayStopwatchUITests-acknowledgements.markdown */,
+				AD6A94EBDE87139F4CDBBDB063C1168E /* Pods-RacedayStopwatchUITests-acknowledgements.plist */,
+				E344884FBF365E04C4175F16C596EC08 /* Pods-RacedayStopwatchUITests-dummy.m */,
+				15A237CDCB7B32ECFC96998D83188831 /* Pods-RacedayStopwatchUITests-Info.plist */,
+				0B30F8B36FB7A1800820F11E359EF8A1 /* Pods-RacedayStopwatchUITests-umbrella.h */,
+				503D0C767B6E07B379FBE542BE8E6F6C /* Pods-RacedayStopwatchUITests.debug.xcconfig */,
+				9CF5EDC4B1A9786EF66FF389C8E614E9 /* Pods-RacedayStopwatchUITests.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-RacedayStopwatchUITests";
+			path = "Target Support Files/Pods-RacedayStopwatchUITests";
 			sourceTree = "<group>";
 		};
-		4D5CA7EE0F0C35EF60C5055DF38E2046 /* Support Files */ = {
+		96D7B583691087DCBB92DF6A4B19B43A /* Pods-RacedayStopwatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				B037523A066AC5818B5E6553B437A527 /* KeychainAccess.modulemap */,
-				FCE062963E8C0B7109C8B6EB0509863B /* KeychainAccess.xcconfig */,
-				61B1B42388ECFEE40ECC88734EFD0F23 /* KeychainAccess-dummy.m */,
-				EE964CB6C890024B2318A85F5E25EE15 /* KeychainAccess-Info.plist */,
-				094F9122FC16A3221620EF23A4407986 /* KeychainAccess-prefix.pch */,
-				7DBF1CE47B38E530E3A9DE9E53BFE8D9 /* KeychainAccess-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/KeychainAccess";
-			sourceTree = "<group>";
-		};
-		67A9EA01F1974FB653FC2712C724B895 /* Pods-RacedayStopwatchTests */ = {
-			isa = PBXGroup;
-			children = (
-				D21C503DD0D17D0DB2CDCEDE6CE63990 /* Pods-RacedayStopwatchTests.modulemap */,
-				EFCB5AE51A90590AC288E9A483252B39 /* Pods-RacedayStopwatchTests-acknowledgements.markdown */,
-				7AD18401EF89ABB04E02AE6C3DC125F5 /* Pods-RacedayStopwatchTests-acknowledgements.plist */,
-				F66F317E548EA99819D538989CCD3E79 /* Pods-RacedayStopwatchTests-dummy.m */,
-				849FEAFDB31D5CE26A9CB8DA43C17B61 /* Pods-RacedayStopwatchTests-Info.plist */,
-				4CEB34C2BE2C9BA46724E8EA29862508 /* Pods-RacedayStopwatchTests-umbrella.h */,
-				A2E91E5F1EAF2BB9B417675CB880C2B3 /* Pods-RacedayStopwatchTests.debug.xcconfig */,
-				926CFD50965A7BE733756A7CA0CAA5B3 /* Pods-RacedayStopwatchTests.release.xcconfig */,
+				6DBAC25CE389B0994B1A09A34D042BBE /* Pods-RacedayStopwatchTests.modulemap */,
+				ADC9B1823B18D80CDD8CB4E34A85DCEB /* Pods-RacedayStopwatchTests-acknowledgements.markdown */,
+				1BD62B392AA0A9750FB9B4DA216F84FC /* Pods-RacedayStopwatchTests-acknowledgements.plist */,
+				FC2D912EA409E4E88D8428FE79228766 /* Pods-RacedayStopwatchTests-dummy.m */,
+				AD34855EF2AFFF20AD84AC893308E7E2 /* Pods-RacedayStopwatchTests-Info.plist */,
+				5BC754E39C89B9FB4AC01C0F3E81AD18 /* Pods-RacedayStopwatchTests-umbrella.h */,
+				D4BBAA070C48116413EC8FF76EF48BEF /* Pods-RacedayStopwatchTests.debug.xcconfig */,
+				80077A86B50CB2DA3DC10BB27B03438A /* Pods-RacedayStopwatchTests.release.xcconfig */,
 			);
 			name = "Pods-RacedayStopwatchTests";
 			path = "Target Support Files/Pods-RacedayStopwatchTests";
-			sourceTree = "<group>";
-		};
-		72E528378EF529BC24735EA31DD171F8 /* KeychainAccess */ = {
-			isa = PBXGroup;
-			children = (
-				67A52B99609802C369CFC0E4C886C9D9 /* Keychain.swift */,
-				4D5CA7EE0F0C35EF60C5055DF38E2046 /* Support Files */,
-			);
-			name = KeychainAccess;
-			path = KeychainAccess;
-			sourceTree = "<group>";
-		};
-		7A28C1393B070DB412782D33ED8E693F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AAB17843D565D4D930B3BDFB73C0C39C /* Google-Mobile-Ads-SDK */,
-				72E528378EF529BC24735EA31DD171F8 /* KeychainAccess */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
@@ -255,34 +191,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		AAB17843D565D4D930B3BDFB73C0C39C /* Google-Mobile-Ads-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				2628479D8B8331AAE669B8751F8BFF0B /* Frameworks */,
-				D8E08FD762A2A4FFC39D1ACD965D1E93 /* Support Files */,
-			);
-			name = "Google-Mobile-Ads-SDK";
-			path = "Google-Mobile-Ads-SDK";
-			sourceTree = "<group>";
-		};
-		BE1501A943EEEC1F4CE02DDB2CF1F73C /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0C8CCCCD0F5D2BACF69924106C446877 /* Pods-RacedayStopwatch */,
-				67A9EA01F1974FB653FC2712C724B895 /* Pods-RacedayStopwatchTests */,
-				00109FA8D3F821453FCC4EEA66CB9CA8 /* Pods-RacedayStopwatchUITests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7A28C1393B070DB412782D33ED8E693F /* Pods */,
-				3F0C6908085BFC7268F4C6996C38A23A /* Products */,
-				BE1501A943EEEC1F4CE02DDB2CF1F73C /* Targets Support Files */,
+				6B211663DCEEBAED89B50D8384CA363D /* Pods */,
+				E02E80C1E3E1135628B85EA4FE577B6B /* Products */,
+				0B3C9785A3EC7A81C8C48CA9921EA83F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,10 +210,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D8E08FD762A2A4FFC39D1ACD965D1E93 /* Support Files */ = {
+		D226A03AEFABBBF00689384C83FAA53B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6F9CBCD6FDFD03CA1599AF043F82EE7A /* Google-Mobile-Ads-SDK.xcconfig */,
+				80A7E93AC5CF57DC0E34FAEAE5BB4380 /* GoogleMobileAds.framework */,
+				B09EEAB35E5DCC49E1D60E4F909F3808 /* libGoogleMobileAds.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E02E80C1E3E1135628B85EA4FE577B6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39B9C7563996DFD13AF2EFDB331BB26F /* Pods_RacedayStopwatch.framework */,
+				D2CA31FD29DC46A066C692A85D62FEC2 /* Pods_RacedayStopwatchTests.framework */,
+				54E17918DFD1E6EB61FE989F9B1A6E39 /* Pods_RacedayStopwatchUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA23766AED70F7AC4B12E621FB8862AC /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				D226A03AEFABBBF00689384C83FAA53B /* Frameworks */,
+				F8970F4A22477C4C0D068E4E7CF50607 /* Support Files */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		F8970F4A22477C4C0D068E4E7CF50607 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3010D9E77ED12F0D834DD5F035A5954 /* Google-Mobile-Ads-SDK.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Google-Mobile-Ads-SDK";
@@ -306,14 +251,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		35EA24761FC20AE2B8CC8E9670E57DC5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92B9A2B19BE39566C6CACFD26BF134C4 /* KeychainAccess-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		49540D8CEB31592E22A1D036D39BC488 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,11 +259,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B415556BB180FB87021A331F78E917DC /* Headers */ = {
+		CD5EFD3361013AF9E57BCC6019DF6F56 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				133B6103130C96B7CCE0263893CAD1FF /* Pods-RacedayStopwatch-umbrella.h in Headers */,
+				193030B97E0C86DDC2289D29BE8AD777 /* Pods-RacedayStopwatch-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +294,7 @@
 			);
 			name = "Pods-RacedayStopwatchTests";
 			productName = "Pods-RacedayStopwatchTests";
-			productReference = E87F41D264322B6E14A8DEAE58A4C1F0 /* Pods_RacedayStopwatchTests.framework */;
+			productReference = D2CA31FD29DC46A066C692A85D62FEC2 /* Pods_RacedayStopwatchTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		15E5787B1371BFFA6EA8C761EC6C9EB9 /* Pods-RacedayStopwatchUITests */ = {
@@ -376,45 +313,26 @@
 			);
 			name = "Pods-RacedayStopwatchUITests";
 			productName = "Pods-RacedayStopwatchUITests";
-			productReference = F4FB7F8DD3DD937E7586FC237274BAE7 /* Pods_RacedayStopwatchUITests.framework */;
+			productReference = 54E17918DFD1E6EB61FE989F9B1A6E39 /* Pods_RacedayStopwatchUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3F895CBA524B654D3F837F25BFBE2262 /* KeychainAccess */ = {
+		869E91F795AD9571919E7728AF5D3CEA /* Pods-RacedayStopwatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE15D3D37E993FBD358414CD9F51D3B6 /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildConfigurationList = 722A964D4736F48E52809F3EAC615C6A /* Build configuration list for PBXNativeTarget "Pods-RacedayStopwatch" */;
 			buildPhases = (
-				35EA24761FC20AE2B8CC8E9670E57DC5 /* Headers */,
-				981E49296D4A3DDE2FB24BC60D07F5BF /* Sources */,
-				FDED646FFE773E48D6F071CBE9862359 /* Frameworks */,
-				153594991ADE9BDDE5FB6C2FDB474216 /* Resources */,
+				CD5EFD3361013AF9E57BCC6019DF6F56 /* Headers */,
+				F1F7DC9D674A662B5E6C318C5EDF8D2D /* Sources */,
+				AC949F776A9ADDD01CA8ED4D77EDFFBE /* Frameworks */,
+				15A45C61F460C787C7CD996371866732 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = KeychainAccess;
-			productName = KeychainAccess;
-			productReference = E73BBF99B3999B4736A2450FA3D5EA66 /* KeychainAccess.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CBA2A68CA660490D6B521EED55EA141F /* Pods-RacedayStopwatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D483EEE270B71EAA0A1A8B2802ABD10D /* Build configuration list for PBXNativeTarget "Pods-RacedayStopwatch" */;
-			buildPhases = (
-				B415556BB180FB87021A331F78E917DC /* Headers */,
-				DD048D874BF5EC3D306836B3376B687A /* Sources */,
-				6C0B0F40208AB904406C377F57C74608 /* Frameworks */,
-				86784EFB9372CC20098CE66F73F2433A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BFD8FF2D7EDFF8A96BA00BE76A35598F /* PBXTargetDependency */,
-				DDDED7DD5E5CB81C4A5ED453C8B63C34 /* PBXTargetDependency */,
+				D96F241CF22BC2179D6A8EB601A59A4A /* PBXTargetDependency */,
 			);
 			name = "Pods-RacedayStopwatch";
 			productName = "Pods-RacedayStopwatch";
-			productReference = 8A667F929DE92F092AB5BC08BCC744CD /* Pods_RacedayStopwatch.framework */;
+			productReference = 39B9C7563996DFD13AF2EFDB331BB26F /* Pods_RacedayStopwatch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -434,13 +352,12 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 3F0C6908085BFC7268F4C6996C38A23A /* Products */;
+			productRefGroup = E02E80C1E3E1135628B85EA4FE577B6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				FB967FF9676EB9B886760D8D9C68EAD9 /* Google-Mobile-Ads-SDK */,
-				3F895CBA524B654D3F837F25BFBE2262 /* KeychainAccess */,
-				CBA2A68CA660490D6B521EED55EA141F /* Pods-RacedayStopwatch */,
+				869E91F795AD9571919E7728AF5D3CEA /* Pods-RacedayStopwatch */,
 				02005EAB72B311D8A7A6EB7064244715 /* Pods-RacedayStopwatchTests */,
 				15E5787B1371BFFA6EA8C761EC6C9EB9 /* Pods-RacedayStopwatchUITests */,
 			);
@@ -448,7 +365,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		153594991ADE9BDDE5FB6C2FDB474216 /* Resources */ = {
+		15A45C61F460C787C7CD996371866732 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -463,13 +380,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7706AAF1CFD0BFFD9CB34141BCFE6039 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86784EFB9372CC20098CE66F73F2433A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,56 +405,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		981E49296D4A3DDE2FB24BC60D07F5BF /* Sources */ = {
+		F1F7DC9D674A662B5E6C318C5EDF8D2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD679E01B668D0C6594201643B4C28A5 /* Keychain.swift in Sources */,
-				453F83EED06FF06F51F299AEB2EE2904 /* KeychainAccess-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD048D874BF5EC3D306836B3376B687A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E13D244B07976131333F1A7A99A0043 /* Pods-RacedayStopwatch-dummy.m in Sources */,
+				030C5E148030D9277F84EDF0CEA8DC91 /* Pods-RacedayStopwatch-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BFD8FF2D7EDFF8A96BA00BE76A35598F /* PBXTargetDependency */ = {
+		D96F241CF22BC2179D6A8EB601A59A4A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Google-Mobile-Ads-SDK";
 			target = FB967FF9676EB9B886760D8D9C68EAD9 /* Google-Mobile-Ads-SDK */;
-			targetProxy = 8F8CCC3C4A0E43A46CE22DB86288080B /* PBXContainerItemProxy */;
-		};
-		DDDED7DD5E5CB81C4A5ED453C8B63C34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KeychainAccess;
-			target = 3F895CBA524B654D3F837F25BFBE2262 /* KeychainAccess */;
-			targetProxy = A9E60CEEFB128F681297666BA48CDF4C /* PBXContainerItemProxy */;
+			targetProxy = 3A989041ADA1F7E982D37C9B15757655 /* PBXContainerItemProxy */;
 		};
 		F55E68076F8E7DA7FA9FFB9B664E585F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-RacedayStopwatch";
-			target = CBA2A68CA660490D6B521EED55EA141F /* Pods-RacedayStopwatch */;
+			target = 869E91F795AD9571919E7728AF5D3CEA /* Pods-RacedayStopwatch */;
 			targetProxy = F7255262CF24BE128BB0ED7314665849 /* PBXContainerItemProxy */;
 		};
 		F5B6135F28634D94768795531C1A6B36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-RacedayStopwatch";
-			target = CBA2A68CA660490D6B521EED55EA141F /* Pods-RacedayStopwatch */;
+			target = 869E91F795AD9571919E7728AF5D3CEA /* Pods-RacedayStopwatch */;
 			targetProxy = FCDBD82C6E525F8ECFB0E6D3111DB9CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		152FB86E8CF0A6F1892C218ECD1DFB34 /* Debug */ = {
+		04F2B1CB714E3E99209D3093D4C1B7AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDA48A73C280123131CB14728ADA714A /* Pods-RacedayStopwatch.debug.xcconfig */;
+			baseConfigurationReference = 14ABFC09EE90E9D6E710784393B83EE7 /* Pods-RacedayStopwatch.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -575,14 +470,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		2D488C029B07FF673C40FD9E51E2B641 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3D7D20637D638CD7C2E4BE3B138A852 /* Pods-RacedayStopwatchUITests.debug.xcconfig */;
+			baseConfigurationReference = 503D0C767B6E07B379FBE542BE8E6F6C /* Pods-RacedayStopwatchUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -620,7 +516,7 @@
 		};
 		3CE32AB55CF6A234C84C006365CAD9DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F9CBCD6FDFD03CA1599AF043F82EE7A /* Google-Mobile-Ads-SDK.xcconfig */;
+			baseConfigurationReference = A3010D9E77ED12F0D834DD5F035A5954 /* Google-Mobile-Ads-SDK.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -636,7 +532,7 @@
 		};
 		41275123DB85D5DCE080218F6374EC52 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B9D530E0AB07B6EB79D146F5F056E5A /* Pods-RacedayStopwatchUITests.release.xcconfig */;
+			baseConfigurationReference = 9CF5EDC4B1A9786EF66FF389C8E614E9 /* Pods-RacedayStopwatchUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -797,44 +693,9 @@
 			};
 			name = Debug;
 		};
-		8114969EAF1E99ACDCDB312665860D50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCE062963E8C0B7109C8B6EB0509863B /* KeychainAccess.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
-				PRODUCT_MODULE_NAME = KeychainAccess;
-				PRODUCT_NAME = KeychainAccess;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		935718FF7B5BA97EE4ABD5D35FC8D81A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2E91E5F1EAF2BB9B417675CB880C2B3 /* Pods-RacedayStopwatchTests.debug.xcconfig */;
+			baseConfigurationReference = D4BBAA070C48116413EC8FF76EF48BEF /* Pods-RacedayStopwatchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -870,45 +731,9 @@
 			};
 			name = Debug;
 		};
-		988402A091A11CD3FD7D356B20707B26 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCE062963E8C0B7109C8B6EB0509863B /* KeychainAccess.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
-				PRODUCT_MODULE_NAME = KeychainAccess;
-				PRODUCT_NAME = KeychainAccess;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		9A232E4A548DEA74E8E1D0D5452A69D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 926CFD50965A7BE733756A7CA0CAA5B3 /* Pods-RacedayStopwatchTests.release.xcconfig */;
+			baseConfigurationReference = 80077A86B50CB2DA3DC10BB27B03438A /* Pods-RacedayStopwatchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -947,7 +772,7 @@
 		};
 		A69E6F385741A51EF83D732B12CC8A25 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F9CBCD6FDFD03CA1599AF043F82EE7A /* Google-Mobile-Ads-SDK.xcconfig */;
+			baseConfigurationReference = A3010D9E77ED12F0D834DD5F035A5954 /* Google-Mobile-Ads-SDK.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -962,9 +787,9 @@
 			};
 			name = Release;
 		};
-		AFB48436B4A84B1329687F2838573660 /* Release */ = {
+		C5C3742FF0EF0CB7C6EBAC9744EF1016 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3675FDF214A482DE944899819657B952 /* Pods-RacedayStopwatch.release.xcconfig */;
+			baseConfigurationReference = 317929D4B3B2E22B66B2CDE2DACD6FB3 /* Pods-RacedayStopwatch.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -995,11 +820,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1031,20 +855,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D483EEE270B71EAA0A1A8B2802ABD10D /* Build configuration list for PBXNativeTarget "Pods-RacedayStopwatch" */ = {
+		722A964D4736F48E52809F3EAC615C6A /* Build configuration list for PBXNativeTarget "Pods-RacedayStopwatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				152FB86E8CF0A6F1892C218ECD1DFB34 /* Debug */,
-				AFB48436B4A84B1329687F2838573660 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DE15D3D37E993FBD358414CD9F51D3B6 /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8114969EAF1E99ACDCDB312665860D50 /* Debug */,
-				988402A091A11CD3FD7D356B20707B26 /* Release */,
+				C5C3742FF0EF0CB7C6EBAC9744EF1016 /* Debug */,
+				04F2B1CB714E3E99209D3093D4C1B7AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
