@@ -54,7 +54,6 @@ class TimerViewController: UIViewController {
         addDriverButton.isEnabled   = false
         addDriverButton.isHidden    = true
         if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID)){
-            print("lager interstitial siden remove_ads_isProductPurchased er false")
             interstitial = createInterstitialAd()
         }
         
@@ -222,7 +221,6 @@ class TimerViewController: UIViewController {
             (alert: UIAlertAction!) in
             if (actionString == Constants.ALERT_OK){
                 if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || !Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
-                    print("viser interstitial siden remove_ads_isProductPurchased er false")
                     if self.interstitial.isReady {
                         self.interstitial.present(fromRootViewController: self)
                     } else {

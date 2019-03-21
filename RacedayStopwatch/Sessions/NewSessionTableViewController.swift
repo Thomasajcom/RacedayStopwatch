@@ -51,10 +51,6 @@ class NewSessionTableViewController: UITableViewController {
 
         do {
             tracks = try CoreDataService.context.fetch(trackFetchRequest)
-        } catch let error as NSError {
-            print("\(error)")
-        }
-        do {
             drivers = try CoreDataService.context.fetch(driverFetchRequest)
         } catch let error as NSError {
             print("\(error)")

@@ -32,12 +32,9 @@ class SessionsTableViewController: UITableViewController {
         super.viewDidLoad()
         //set the measurement unit correctly, if this is the first launch of the app
         if !Constants.defaults.bool(forKey: Constants.defaults_launched_before){
-            print("FØRSTE LAUNCH!!!")
             let locale = Locale.current
             let isMetric = locale.usesMetricSystem
             Constants.defaults.set(isMetric, forKey: Constants.defaults_metric_key)
-            print(isMetric)
-            print(Constants.defaults.bool(forKey: Constants.defaults_metric_key))
         }
         self.tableView.tableFooterView = UIView()
         do {
@@ -68,7 +65,6 @@ class SessionsTableViewController: UITableViewController {
         var shouldPerformSegue = true
         if (identifier == "NewSessionSegue"){
             if (sessions.count >= Constants.IAP_SESSION_LIMIT) {
-                print("over the limit, unlock unlimited sessions and remove the session and timer ads by clicking purchase")
                 shouldPerformSegue = false
             }
         }

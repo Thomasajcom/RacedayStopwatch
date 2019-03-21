@@ -52,7 +52,6 @@ class DriversTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || !Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
             displayAds()
-            print("viser ads, siden remove_ads_isProductPurchased er false")
         }else{
             tableView.tableHeaderView = nil
         }
@@ -90,7 +89,6 @@ class DriversTableViewController: UITableViewController {
         var shouldPerformSegue = true
         if (identifier == "AddDriverSegue"){
             if ((fetchedResultsController.fetchedObjects?.count)! >= Constants.IAP_DRIVER_LIMIT && !Constants.store.isProductPurchased(Constants.IAP_REMOVE_LIMITS_ID)) {
-                print("over the limit, unlock unlimited tracks spots and remove the track ads by clicking purchase")
                 let alertController = UIAlertController(title: Constants.IAP_LIMIT_REACHED_TITLE, message: Constants.IAP_LIMIT_REACHED_BODY, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: Constants.ALERT_OK, style: .default) { (action) in
                     self.dismiss(animated: true, completion: nil)
@@ -168,16 +166,10 @@ class DriversTableViewController: UITableViewController {
 //MARK: - AdMob Banner Delegate
 extension DriversTableViewController: GADBannerViewDelegate{
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
         tableView.tableHeaderView?.frame = bannerView.frame
         tableView.tableHeaderView = bannerView
-//        tableView.tableFooterView?.frame = bannerView.frame
-//        tableView.tableFooterView = bannerView
-//        tableView.tableHeaderView?.alpha = 0
-//        UIView.animate(withDuration: 1) {
-//            self.tableView.tableHeaderView?.alpha = 1
-//        }
     }
+    
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print("Fail to receive ads")
         print(error)

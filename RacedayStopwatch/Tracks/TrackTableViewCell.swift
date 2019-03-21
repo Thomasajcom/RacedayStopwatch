@@ -41,7 +41,6 @@ class TrackTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("layoutSubview")
         setupTheme()
     }
     
