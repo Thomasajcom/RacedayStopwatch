@@ -13,6 +13,8 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var metricImperialSegmentedControl: UISegmentedControl!
     @IBOutlet weak var measurementUnitsLabel: UILabel!
+    @IBOutlet weak var reviewButton: UIButton!
+    
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var restorePurchasesLabel: UILabel!
@@ -30,6 +32,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reviewButton.setTitle(Constants.SETTINGS_REVIEW_BUTTON_TITLE, for: .normal)
         restorePurchasesCell.isHidden   = true
         removeAllCell.isHidden          = true
         removeAdsCell.isHidden          = true
@@ -63,9 +66,8 @@ class SettingsTableViewController: UITableViewController {
         navigationController?.popToRootViewController(animated: false)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    @IBAction func createReview(_ sender: UIButton) {
+        SKStoreReviewController.requestReview()
     }
     
     func getIAPData() {

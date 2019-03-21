@@ -177,13 +177,14 @@ struct Constants{
     static let ALERT_OK         = "Ok"
     
     //MARK: - SETTINGS
-    static let SETTINGS_DEFAULT_HEADER      = "Defaults"
-    static let SETTINGS_IAP_HEADER          = "Store"
-    static let SETTINGS_THEME_HEADER        = "Themes"
-    static let SETTINGS_DARK_MODE_LABEL     = "Dark Mode"
-    static let SETTINGS_IMP_OR_METRIC_LABEL = "Measurement Units"
-    static let SETTINGS_IMPERIAL_LABEL      = "Imperial"
-    static let SETTINGS_METRIC_LABEL        = "Metric"
+    static let SETTINGS_DEFAULT_HEADER          = "Defaults"
+    static let SETTINGS_IAP_HEADER              = "Store"
+    static let SETTINGS_THEME_HEADER            = "Themes"
+    static let SETTINGS_DARK_MODE_LABEL         = "Dark Mode"
+    static let SETTINGS_IMP_OR_METRIC_LABEL     = "Measurement Units"
+    static let SETTINGS_IMPERIAL_LABEL          = "Imperial"
+    static let SETTINGS_METRIC_LABEL            = "Metric"
+    static let SETTINGS_REVIEW_BUTTON_TITLE     = "Review Raceday Stopwatch"
     
     static let SETTINGS_IAP_RESTORE         = "Restore Purchases"
     static let SETTINGS_IAP_REMOVE_ALL      = "Remove ads and limits"

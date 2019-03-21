@@ -91,16 +91,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FGQ-mH-9qd" id="Uc3-e0-Rgt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="CellBackground"/>
-                                        <color key="tintColor" name="CellTint"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="gGM-SZ-aeM">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGM-SZ-aeM" id="p1U-Cd-rS8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGO-iF-ARW">
+                                                    <rect key="frame" x="5" y="5" width="365" height="33.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="createReview:" destination="nMG-Uh-yDW" eventType="touchUpInside" id="Gqe-gH-4lP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vGO-iF-ARW" firstAttribute="leading" secondItem="Uc3-e0-Rgt" secondAttribute="leading" constant="5" id="I4x-pN-3oL"/>
+                                                <constraint firstAttribute="trailing" secondItem="vGO-iF-ARW" secondAttribute="trailing" constant="5" id="OqT-od-y1x"/>
+                                                <constraint firstItem="vGO-iF-ARW" firstAttribute="top" secondItem="Uc3-e0-Rgt" secondAttribute="top" constant="5" id="Oqv-1k-dmo"/>
+                                                <constraint firstAttribute="bottom" secondItem="vGO-iF-ARW" secondAttribute="bottom" constant="5" id="xVv-BJ-6bY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
@@ -110,7 +116,7 @@
                             <tableViewSection headerTitle=" In-App Purchases" id="8re-P4-HYk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="3Hn-st-NYR" style="IBUITableViewCellStyleDefault" id="6mE-hi-Maw" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mE-hi-Maw" id="dLr-Zm-9w2">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -129,7 +135,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ypt-OJ-gjC" detailTextLabel="dvE-3B-i9F" style="IBUITableViewCellStyleSubtitle" id="bHF-bJ-CG5" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bHF-bJ-CG5" id="8tu-5c-6c3">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -155,7 +161,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TOv-Xr-NKq" detailTextLabel="3g0-oS-6nm" style="IBUITableViewCellStyleSubtitle" id="fMC-55-RJ2" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMC-55-RJ2" id="suW-vX-SFE">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -181,7 +187,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="d5N-RZ-dqw" detailTextLabel="WQ9-Tx-4Ib" style="IBUITableViewCellStyleSubtitle" id="aY5-ih-kns" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="320" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aY5-ih-kns" id="wcf-BX-MrF">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -211,7 +217,7 @@
                             <tableViewSection headerTitle="Themes" id="2Zv-3c-7BA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="58" id="aix-Ee-fXb">
-                                        <rect key="frame" x="0.0" y="392" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="348" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aix-Ee-fXb" id="Vjw-Qd-PMX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
@@ -273,6 +279,7 @@
                         <outlet property="removeLimitsLabel" destination="d5N-RZ-dqw" id="yY4-3V-cLd"/>
                         <outlet property="restorePurchasesCell" destination="6mE-hi-Maw" id="J5G-mo-eub"/>
                         <outlet property="restorePurchasesLabel" destination="3Hn-st-NYR" id="8RY-2A-OXV"/>
+                        <outlet property="reviewButton" destination="vGO-iF-ARW" id="nVf-I4-EXc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eX-4P-EHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
