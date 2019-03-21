@@ -50,11 +50,20 @@ class SessionsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.backgroundColor   = Theme.activeTheme.backgroundColor
-        tableView.separatorColor    = Theme.activeTheme.tintColor
-       
         tableView.reloadData()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        tableView.separatorColor    = Theme.activeTheme.tintColor
+        tableView.backgroundColor   = Theme.activeTheme.backgroundColor
+        tableView.separatorColor    = Theme.activeTheme.tintColor
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         var shouldPerformSegue = true
         if (identifier == "NewSessionSegue"){

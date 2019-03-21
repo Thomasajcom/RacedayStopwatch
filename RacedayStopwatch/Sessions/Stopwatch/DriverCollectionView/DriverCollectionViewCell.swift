@@ -20,17 +20,17 @@ class DriverCollectionViewCell: UICollectionViewCell {
             {
                 self.contentView.backgroundColor = Theme.activeTheme.confirmColor
                 UIView.animate(withDuration: 0.2) {
-                    self.contentView.backgroundColor = Theme.activeTheme.cellBackground
+                    self.contentView.backgroundColor = Theme.activeTheme.foregroundColor
                 }
             }
         }
     }
 
     func setup(title: String, image: UIImage){
-        contentView.layer.cornerRadius  = Constants.cornerRadius
+//        contentView.layer.cornerRadius  = Constants.cornerRadius
         cellTitle.text                  = title
-        cellImage.layer.cornerRadius    = Constants.cornerRadius
-        cellImage.layer.masksToBounds   = true
+//        cellImage.layer.cornerRadius    = Constants.cornerRadius
+//        cellImage.layer.masksToBounds   = true
         cellImage.image                 = image
         timerLabel.text                 = Constants.LAPTIME_NOT_STARTED
     }

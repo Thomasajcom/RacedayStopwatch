@@ -62,24 +62,28 @@ class NewSessionTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         setupTheme()
     }
     
     func setupTheme(){
         tableView.separatorColor                = Theme.activeTheme.tintColor
-        trackPicker.backgroundColor             = Theme.activeTheme.cellBackground
+        trackPicker.backgroundColor             = Theme.activeTheme.foregroundColor
         trackPicker.tintColor                   = Theme.activeTheme.tintColor
         noDriversSwitch.thumbTintColor          = Theme.activeTheme.tintColor
         noDriversSwitch.tintColor               = Theme.activeTheme.tintColor
+        noDriversSwitch.onTintColor             = Theme.activeTheme.confirmColor
         noTrackSwitch.thumbTintColor            = Theme.activeTheme.tintColor
         noTrackSwitch.tintColor                 = Theme.activeTheme.tintColor
-        trackSelectorCell.backgroundColor       = Theme.activeTheme.cellBackground
-        driverSelectorCell.backgroundColor      = Theme.activeTheme.cellBackground
-        driversCollectionView.backgroundColor   = Theme.activeTheme.cellBackground
-        noDriverCell.backgroundColor            = Theme.activeTheme.cellBackground
-        noTrackCell.backgroundColor             = Theme.activeTheme.cellBackground
-        customLengthCell.backgroundColor        = Theme.activeTheme.cellBackground
-        
+        noTrackSwitch.onTintColor               = Theme.activeTheme.confirmColor
+        trackSelectorCell.backgroundColor       = Theme.activeTheme.foregroundColor
+        driverSelectorCell.backgroundColor      = Theme.activeTheme.foregroundColor
+        driversCollectionView.backgroundColor   = Theme.activeTheme.foregroundColor
+        noDriverCell.backgroundColor            = Theme.activeTheme.foregroundColor
+        noTrackCell.backgroundColor             = Theme.activeTheme.foregroundColor
+        customLengthCell.backgroundColor        = Theme.activeTheme.foregroundColor
     }
     
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {
@@ -212,9 +216,7 @@ extension NewSessionTableViewController: UIPickerViewDelegate, UIPickerViewDataS
 
 //MARK: - CollectionView
 extension NewSessionTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard drivers != nil else {
             return 0
@@ -245,7 +247,7 @@ extension NewSessionTableViewController: UICollectionViewDelegate, UICollectionV
         cell.timerLabel.isHidden            = true
         cell.contentView.backgroundColor    = Theme.activeTheme.deleteColor
         UIView.animate(withDuration: 0.3) {
-            cell.contentView.backgroundColor = Theme.activeTheme.cellBackground
+            cell.contentView.backgroundColor = Theme.activeTheme.foregroundColor
         }
     }
     

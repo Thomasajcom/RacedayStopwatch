@@ -122,6 +122,22 @@ class TimerViewController: UIViewController {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        trackNameLabel.textColor                = Theme.activeTheme.highlightFontColor
+        trackNameLabel.backgroundColor          = Theme.activeTheme.highlightColor
+        trackLengthLabel.textColor              = Theme.activeTheme.mainFontColor
+        lapRecordLabel.textColor                = Theme.activeTheme.mainFontColor
+        lapRecordHolder.textColor               = Theme.activeTheme.mainFontColor
+        lapRecordTime.textColor                 = Theme.activeTheme.mainFontColor
+        lapTableview.backgroundColor            = Theme.activeTheme.backgroundColor
+        driverCollectionView.backgroundColor    = Theme.activeTheme.foregroundColor
+    }
+    
     func createInterstitialAd() -> GADInterstitial {
         let interstitial        = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
         interstitial.delegate   = self

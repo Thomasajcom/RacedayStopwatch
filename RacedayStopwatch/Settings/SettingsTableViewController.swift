@@ -19,8 +19,8 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var removeAllLabel: UILabel!
     @IBOutlet weak var removeAdsLabel: UILabel!
     @IBOutlet weak var removeLimitsLabel: UILabel!
-    @IBOutlet weak var removeAllDetailsLabel: UILabel!
     
+    @IBOutlet weak var restorePurchasesCell: ProductCell!
     @IBOutlet weak var removeAllCell: ProductCell!
     @IBOutlet weak var removeAdsCell: ProductCell!
     @IBOutlet weak var removeLimitsCell: ProductCell!
@@ -30,6 +30,11 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        restorePurchasesCell.isHidden   = true
+        removeAllCell.isHidden          = true
+        removeAdsCell.isHidden          = true
+        removeLimitsCell.isHidden       = true
+        
         self.title                  = Constants.SETTINGS_TITLE
         measurementUnitsLabel.text  = Constants.SETTINGS_IMP_OR_METRIC_LABEL
         darkModeLabel.text          = Constants.SETTINGS_DARK_MODE_LABEL
@@ -77,6 +82,10 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func setupStoreCells(){
+        restorePurchasesCell.isHidden   = false
+        removeAllCell.isHidden          = false
+        removeAdsCell.isHidden          = false
+        removeLimitsCell.isHidden       = false
         removeAllCell.product           = iapProducts[1]
         removeAllCell.buyButtonHandler  = { product in
             Constants.store.buyProduct(product)

@@ -27,7 +27,6 @@ class DriverTableViewCell: UITableViewCell {
     var driverPredicate: NSPredicate?
     var fastestDriverPredicate: NSPredicate?
 
-    
     func setup(with driver: Driver){
         numberLabel.layer.cornerRadius  = Constants.cornerRadius
         numberLabel.layer.masksToBounds = true
@@ -44,12 +43,22 @@ class DriverTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         getNumberOfSessions(for: driver)
         getFastestDriver(for: driver)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setupTheme()
     }
+    
     func setupTheme(){
-        backgroundColor                 = Theme.activeTheme.cellBackground
-        numberLabel.backgroundColor     = Theme.activeTheme.highlightColor
-        numberLabel.textColor           = Theme.activeTheme.highlightFontColor
+        backgroundColor                         = Theme.activeTheme.foregroundColor
+        nameLabel.textColor                     = Theme.activeTheme.highlightFontColor
+        sessionsLabel.textColor                 = Theme.activeTheme.mainFontColor
+        numberOfSessions.textColor              = Theme.activeTheme.mainFontColor
+        fastestDriverLabel.textColor            = Theme.activeTheme.mainFontColor
+        numberOfTimesFastestDriver.textColor    = Theme.activeTheme.mainFontColor
+        numberLabel.backgroundColor             = Theme.activeTheme.highlightColor
+        numberLabel.textColor                   = Theme.activeTheme.highlightFontColor
         
     }
     

@@ -10,16 +10,14 @@ import Foundation
 import UIKit
 
 class DarkTheme: ThemeProtocol {
+    var foregroundColor: UIColor        = .gray
     var backgroundColor: UIColor        = .darkGray
+    var barColor: UIColor               = .gray
     var tintColor: UIColor              = .black
-    var barColor: UIColor               = .black
-    var barTint: UIColor                = .black
-    var cellBackground: UIColor         = .darkGray
-    var cellTint: UIColor               = .black
-    var mainFontColor: UIColor          = .blue
-    var secondaryFontColor: UIColor     = .yellow
-    var highlightColor: UIColor         = .green
-    var highlightFontColor: UIColor     = .white
+    var mainFontColor: UIColor          = UIColor(named: "MainFontColor")!
+    var secondaryFontColor: UIColor     = UIColor(named: "SecondaryFontColor")!
+    var highlightColor: UIColor         = UIColor(named: "HighlightColor")!
+    var highlightFontColor: UIColor     = UIColor(named: "HighlightFontColor")!
     var confirmColor: UIColor           = UIColor(named: "ConfirmColor")!
     var deleteColor: UIColor            = UIColor(named: "DeleteColor")!
 }

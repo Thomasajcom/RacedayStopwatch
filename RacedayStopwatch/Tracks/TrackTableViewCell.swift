@@ -48,12 +48,17 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordHolder.isHidden    = true
             lapRecordTime.text          = "No lap record set. Get out there!"
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print("layoutSubview")
         setupTheme()
     }
     
     func setupTheme(){
         trackName.textColor         = Theme.activeTheme.highlightFontColor
         trackLength.textColor       = Theme.activeTheme.highlightFontColor
-        backgroundColor             = Theme.activeTheme.cellBackground
+        backgroundColor             = Theme.activeTheme.foregroundColor
     }
 }

@@ -47,6 +47,19 @@ class LapTableViewCell: UITableViewCell {
         }else{
             speedLabel.isHidden = true
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        backgroundColor = Theme.activeTheme.foregroundColor
+        driverNameLabel.textColor   = Theme.activeTheme.mainFontColor
+        lapNumberLabel.textColor    = Theme.activeTheme.mainFontColor
+        timeLabel.textColor         = Theme.activeTheme.mainFontColor
+        speedLabel.textColor        = Theme.activeTheme.mainFontColor
         
     }
 

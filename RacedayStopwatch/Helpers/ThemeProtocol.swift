@@ -10,12 +10,10 @@ import Foundation
 import UIKit
 
 protocol ThemeProtocol {
+    var foregroundColor      : UIColor { get }
     var backgroundColor      : UIColor { get }
-    var tintColor            : UIColor { get }
     var barColor             : UIColor { get }
-    var barTint              : UIColor { get }
-    var cellBackground       : UIColor { get }
-    var cellTint             : UIColor { get }
+    var tintColor            : UIColor { get }
     var mainFontColor        : UIColor { get }
     var secondaryFontColor   : UIColor { get }
     var highlightColor       : UIColor { get }

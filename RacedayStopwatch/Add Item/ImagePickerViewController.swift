@@ -26,11 +26,13 @@ class ImagePickerViewController: UIViewController {
         itemPicker.delegate       = self
         itemPicker.dataSource     = self
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+ 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    func setupTheme() {
         view.backgroundColor        = Theme.activeTheme.backgroundColor
         itemPicker.backgroundColor  = Theme.activeTheme.backgroundColor
         itemPicker.tintColor        = Theme.activeTheme.tintColor

@@ -42,12 +42,17 @@ class ItemPictureViewController: UIViewController {
         //newPhotoButton.setTitle(Constants.CAMERA_TITLE, for: .normal)
         //galleryButton.setTitle(Constants.GALLERY_TITLE, for: .normal)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme() {
         view.backgroundColor            = Theme.activeTheme.backgroundColor
-        newPhotoButton.backgroundColor  = Theme.activeTheme.backgroundColor
+        newPhotoButton.backgroundColor  = Theme.activeTheme.foregroundColor
         newPhotoButton.tintColor        = Theme.activeTheme.tintColor
-        galleryButton.backgroundColor   = Theme.activeTheme.backgroundColor
+        galleryButton.backgroundColor   = Theme.activeTheme.foregroundColor
         galleryButton.tintColor         = Theme.activeTheme.tintColor
     }
     

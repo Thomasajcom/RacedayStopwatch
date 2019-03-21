@@ -110,8 +110,13 @@ class SessionTableViewCell: UITableViewCell {
             bestLapSpeed.isHidden           = true
         }
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupTheme()
+    }
+    
     func setupTheme(){
-        backgroundColor         = Theme.activeTheme.cellBackground
+        backgroundColor         = Theme.activeTheme.foregroundColor
         trackName.textColor     = Theme.activeTheme.highlightFontColor
     }
 }

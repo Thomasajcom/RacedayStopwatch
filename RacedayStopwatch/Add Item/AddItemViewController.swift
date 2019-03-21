@@ -50,7 +50,6 @@ class AddItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTheme()
         popupView.layer.cornerRadius            = Constants.cornerRadius
         popupView.layer.masksToBounds           = true
         addItemButton.layer.cornerRadius        = Constants.cornerRadius
@@ -59,9 +58,9 @@ class AddItemViewController: UIViewController {
         cancelButton.layer.masksToBounds        = true
         addItemButton.layer.maskedCorners       = [.layerMaxXMaxYCorner]
         cancelButton.layer.maskedCorners        = [.layerMinXMaxYCorner]
-        addItemLabel.layer.cornerRadius        = Constants.cornerRadius
-        addItemLabel.layer.masksToBounds       = true
-        addItemLabel.layer.maskedCorners       = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        addItemLabel.layer.cornerRadius         = Constants.cornerRadius
+        addItemLabel.layer.masksToBounds        = true
+        addItemLabel.layer.maskedCorners        = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         itemName.delegate     = self
         itemNumber.delegate   = self
@@ -116,15 +115,21 @@ class AddItemViewController: UIViewController {
             }
         }
     }
-    #warning("changing theme for the modal doesnt work")
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         setupTheme()
     }
+    
     func setupTheme(){
+        popupView.backgroundColor           = Theme.activeTheme.backgroundColor
         addItemLabel.textColor              = Theme.activeTheme.highlightFontColor
         addItemLabel.backgroundColor        = Theme.activeTheme.highlightColor
-        popupView.backgroundColor           = Theme.activeTheme.backgroundColor
+        itemNameLabel.textColor             = Theme.activeTheme.mainFontColor
+        itemNumberLabel.textColor           = Theme.activeTheme.mainFontColor
         pictureOrImageControl.tintColor     = Theme.activeTheme.tintColor
     }
     //refactor to an extension as it's being used multiple places

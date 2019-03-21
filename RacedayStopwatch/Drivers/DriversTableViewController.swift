@@ -50,7 +50,6 @@ class DriversTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTheme()
         if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || !Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
             displayAds()
             print("viser ads, siden remove_ads_isProductPurchased er false")
@@ -60,9 +59,15 @@ class DriversTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
+    }
+    
     func setupTheme(){
-        tableView.backgroundColor = Theme.activeTheme.backgroundColor
-        tableView.separatorColor = Theme.activeTheme.barTint
+        tableView.separatorColor    = Theme.activeTheme.tintColor
+        tableView.backgroundColor   = Theme.activeTheme.backgroundColor
+        tableView.separatorColor    = Theme.activeTheme.tintColor
     }
     
     func displayAds(){
