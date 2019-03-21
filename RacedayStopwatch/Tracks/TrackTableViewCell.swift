@@ -20,16 +20,6 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var lapRecordTime: UILabel!
     @IBOutlet weak var trackImage: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func setup(_ track: Track){
         trackName.text      = track.name
@@ -46,8 +36,7 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordHolder.text        = track.trackRecordHolder!.name
         }else{
             lapRecordHolder.isHidden    = true
-            lapRecordTime.text          = "No lap record set. Get out there!"
-        }
+            lapRecordTime.text          = Constants.TRACK_NO_RECORD_TIME        }
     }
     
     override func layoutSubviews() {

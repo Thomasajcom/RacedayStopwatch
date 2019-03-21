@@ -91,7 +91,7 @@ class NewSessionTableViewController: UITableViewController {
         trackPicker.isHidden.toggle()
     }
     @IBAction func noDriversSwitchChanged(_ sender: UISwitch) {
-        driversCollectionView.allowsSelection.toggle()
+        //driversCollectionView.allowsSelection.toggle()
         driversCollectionView.isHidden.toggle()
     }
     

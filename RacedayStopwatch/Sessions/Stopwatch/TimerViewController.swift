@@ -50,6 +50,9 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //removing this feature until a proper solution is found
+        addDriverButton.isEnabled   = false
+        addDriverButton.isHidden    = true
         if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID)){
             print("lager interstitial siden remove_ads_isProductPurchased er false")
             interstitial = createInterstitialAd()
@@ -110,7 +113,6 @@ class TimerViewController: UIViewController {
             lapRecordTime.isHidden      = true
         }
         if (timerWithoutDrivers){
-            addDriverButton.isHidden        = true
             lapButton.layer.cornerRadius    = Constants.cornerRadius
             lapButton.layer.masksToBounds   = true
             lapButton.setTitle(Constants.BUTTON_LAP, for: .normal)
@@ -251,7 +253,6 @@ class TimerViewController: UIViewController {
         if(mainTimerEnabled){
             sender.setTitle(Constants.BUTTON_STOP, for: .normal)
             sender.backgroundColor      = .red
-            addDriverButton.isEnabled   = false
             
             //starting timer
             mainTimerStartTime = Date().timeIntervalSinceReferenceDate
@@ -347,16 +348,17 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             newLap.lapNumber = Int16(lapNumber.count + 1)
             //check if this lap was the fastest lap
             //we only perform this check when a driver is lapping
-            if fastestLap == nil{
-                fastestLap = newLap
-            }else if newLap.lapTime < fastestLap!.lapTime{
-                fastestLap = newLap
-            }
+            
         }else{
             let lapNumber = laps.count+1
             lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
             newLap.driver = nil
             newLap.lapNumber = Int16(lapNumber)
+        }
+        if fastestLap == nil{
+            fastestLap = newLap
+        }else if newLap.lapTime < fastestLap!.lapTime{
+            fastestLap = newLap
         }
         //check for a track or a customlength, if neither is present, speed will be 0
         if selectedTrack != nil{

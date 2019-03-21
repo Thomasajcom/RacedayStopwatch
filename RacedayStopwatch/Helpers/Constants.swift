@@ -109,6 +109,7 @@ struct Constants{
     static let TRACK_ALERT_DELETE_BODY      = "Do you want to delete this track? This can not be undone."
     static let TRACK_RESET_TITLE            = "RESET"
     static let TRACK_RESET_BODY             = "This will reset the track record."
+    static let TRACK_NO_RECORD_TIME         = "No lap record set. Get out there!"
     
     //MARK: - Session
     static let SESSION_ALERT_DELETE_TITLE   = "Delete Session"
