@@ -57,11 +57,14 @@ class ItemPictureViewController: UIViewController {
     }
     
     @IBAction func takePhoto(_ sender: UIButton) {
-        let cameraController            = UIImagePickerController()
-        cameraController.sourceType     = .camera
-        cameraController.allowsEditing  = true
-        cameraController.delegate       = self
-        present(cameraController, animated: true)
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let cameraController            = UIImagePickerController()
+            cameraController.sourceType     = .camera
+            cameraController.allowsEditing  = true
+            cameraController.delegate       = self
+            present(cameraController, animated: true)
+        }
+        
     }
     
     @IBAction func selectFromGallery(_ sender: UIButton) {

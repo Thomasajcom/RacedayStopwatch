@@ -346,20 +346,13 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             lapTime = Date().timeIntervalSinceReferenceDate - participatingDrivers[indexPath.row].1.startTime!
             newLap.driver = participatingDrivers[indexPath.row].0
             newLap.lapNumber = Int16(lapNumber.count + 1)
-            //check if this lap was the fastest lap
-            //we only perform this check when a driver is lapping
-            
         }else{
             let lapNumber = laps.count+1
             lapTime = Date().timeIntervalSinceReferenceDate - mainTimerStartTime
             newLap.driver = nil
             newLap.lapNumber = Int16(lapNumber)
         }
-        if fastestLap == nil{
-            fastestLap = newLap
-        }else if newLap.lapTime < fastestLap!.lapTime{
-            fastestLap = newLap
-        }
+        
         //check for a track or a customlength, if neither is present, speed will be 0
         if selectedTrack != nil{
             lapSpeed = calculateSpeed(distance: Int(selectedTrack!.length), time: lapTime)
@@ -367,14 +360,16 @@ extension TimerViewController: UICollectionViewDelegate, UICollectionViewDataSou
             lapSpeed = calculateSpeed(distance: customTrackLength!, time: lapTime)
         }
         if lapSpeed > INT16_MAX{
-            print("LAPSPEDEEEDF HØØØØØY!")
-            lapSpeed = 32767
+            lapSpeed = 32766
         }
-        newLap.speed = Int16(lapSpeed)
-        newLap.lapTime = lapTime
-
+        newLap.speed    = Int16(lapSpeed)
+        newLap.lapTime  = lapTime
+        if fastestLap == nil{
+            fastestLap = newLap
+        }else if newLap.lapTime < fastestLap!.lapTime{
+            fastestLap = newLap
+        }
         laps.append(newLap)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
