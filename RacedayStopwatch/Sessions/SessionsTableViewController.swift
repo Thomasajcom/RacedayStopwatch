@@ -157,7 +157,7 @@ class SessionsTableViewController: UITableViewController {
             completionHandler(true)
         }
         deleteAction.image              = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
+        deleteAction.backgroundColor    = Theme.activeTheme.deleteColor
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     //removes the default delete action for trailingswipe

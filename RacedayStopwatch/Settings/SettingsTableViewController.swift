@@ -113,7 +113,7 @@ class SettingsTableViewController: UITableViewController {
     @objc func handlePurchaseNotification(_ notification: Notification) {
         guard
             let productID = notification.object as? String,
-            let index = iapProducts.index(where: { product -> Bool in
+            let index = iapProducts.firstIndex(where: { product -> Bool in
                 product.productIdentifier == productID
             })
             else { return }

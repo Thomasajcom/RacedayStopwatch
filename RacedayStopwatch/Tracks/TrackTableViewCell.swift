@@ -12,14 +12,12 @@ class TrackTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "trackCell"
 
-
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var trackLength: UILabel!
     @IBOutlet weak var lapRecordLabel: UILabel!
     @IBOutlet weak var lapRecordHolder: UILabel!
     @IBOutlet weak var lapRecordTime: UILabel!
     @IBOutlet weak var trackImage: UIImageView!
-    
     
     func setup(_ track: Track){
         trackName.text      = track.name
@@ -36,7 +34,8 @@ class TrackTableViewCell: UITableViewCell {
             lapRecordHolder.text        = track.trackRecordHolder!.name
         }else{
             lapRecordHolder.isHidden    = true
-            lapRecordTime.text          = Constants.TRACK_NO_RECORD_TIME        }
+            lapRecordTime.text          = Constants.TRACK_NO_RECORD_TIME
+        }
     }
     
     override func layoutSubviews() {
