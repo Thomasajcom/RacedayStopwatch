@@ -65,7 +65,12 @@ class NewSessionTableViewController: UITableViewController {
     }
     
     func setupTheme(){
+        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
+        tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
+        tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
         tableView.separatorColor                = Theme.activeTheme.tintColor
+        tableView.backgroundColor               = Theme.activeTheme.backgroundColor
         trackPicker.backgroundColor             = Theme.activeTheme.foregroundColor
         trackPicker.tintColor                   = Theme.activeTheme.tintColor
         noDriversSwitch.thumbTintColor          = Theme.activeTheme.tintColor

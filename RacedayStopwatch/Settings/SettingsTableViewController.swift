@@ -11,16 +11,15 @@ import StoreKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var measurementCell: UITableViewCell!
     @IBOutlet weak var metricImperialSegmentedControl: UISegmentedControl!
     @IBOutlet weak var measurementUnitsLabel: UILabel!
+    @IBOutlet weak var reviewCell: UITableViewCell!
     @IBOutlet weak var reviewButton: UIButton!
     
+    @IBOutlet weak var darkModeCell: UITableViewCell!
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
-    @IBOutlet weak var restorePurchasesLabel: UILabel!
-    @IBOutlet weak var removeAllLabel: UILabel!
-    @IBOutlet weak var removeAdsLabel: UILabel!
-    @IBOutlet weak var removeLimitsLabel: UILabel!
     
     @IBOutlet weak var restorePurchasesCell: ProductCell!
     @IBOutlet weak var removeAllCell: ProductCell!
@@ -64,6 +63,33 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.popToRootViewController(animated: false)
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupTheme()
+    }
+    func setupTheme(){
+        tableView.backgroundColor = Theme.activeTheme.backgroundColor
+        tableView.separatorColor = Theme.activeTheme.tintColor
+        metricImperialSegmentedControl.tintColor = Theme.activeTheme.tintColor
+        measurementUnitsLabel.textColor = Theme.activeTheme.mainFontColor
+        reviewButton.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
+        measurementCell.backgroundColor = Theme.activeTheme.foregroundColor
+        reviewCell.backgroundColor = Theme.activeTheme.foregroundColor
+        darkModeCell.backgroundColor = Theme.activeTheme.foregroundColor
+        darkModeLabel.textColor = Theme.activeTheme.mainFontColor
+        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
+        tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
+
+//        UITabBar.appearance().barTintColor                      = Theme.activeTheme.barColor
+//        UITabBar.appearance().tintColor                         = Theme.activeTheme.tintColor
+        
+//        tableView.reloadSections(IndexSet(0..<1), with: .automatic)
+
     }
     
     @IBAction func createReview(_ sender: UIButton) {
@@ -125,9 +151,7 @@ class SettingsTableViewController: UITableViewController {
         Constants.defaults.set(sender.isOn, forKey: Constants.defaults_dark_mode)
         setupTheme()
     }
-    func setupTheme(){
-        #warning("setup theme missing")
-    }
+    
     
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {
@@ -159,13 +183,13 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.backgroundView?.backgroundColor? = UIColor(named: "BackgroundColor")!
-        header.textLabel?.textColor             = UIColor(named: "HighlightFontColor")!
+        header.backgroundView?.backgroundColor? = Theme.activeTheme.backgroundColor
+        header.textLabel?.textColor             = Theme.activeTheme.highlightFontColor
     }
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let footer = view as! UITableViewHeaderFooterView
-        footer.backgroundView?.backgroundColor? = UIColor(named: "BackgroundColor")!
-        footer.textLabel?.textColor             = UIColor(named: "HighlightFontColor")!
+        footer.backgroundView?.backgroundColor? = Theme.activeTheme.backgroundColor
+        footer.textLabel?.textColor             = Theme.activeTheme.highlightFontColor
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

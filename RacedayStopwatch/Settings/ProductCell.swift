@@ -38,6 +38,19 @@ import StoreKit
 
 class ProductCell: UITableViewCell {
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        backgroundColor         = Theme.activeTheme.foregroundColor
+        textLabel?.textColor     = Theme.activeTheme.mainFontColor
+        detailTextLabel?.textColor = Theme.activeTheme.secondaryFontColor
+        accessoryView?.tintColor = Theme.activeTheme.tintColor
+    }
+    
+    
     static let priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         

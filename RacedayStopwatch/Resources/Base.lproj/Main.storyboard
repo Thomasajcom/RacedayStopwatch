@@ -267,19 +267,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="UZ5-te-RBx"/>
                     <connections>
+                        <outlet property="darkModeCell" destination="aix-Ee-fXb" id="tnf-A1-WHp"/>
                         <outlet property="darkModeLabel" destination="qNg-Qb-hEX" id="pet-0p-dtf"/>
                         <outlet property="darkModeSwitch" destination="hWd-2g-zQ1" id="rFB-v2-M0H"/>
+                        <outlet property="measurementCell" destination="Q7D-DR-zic" id="lIM-vy-Dco"/>
                         <outlet property="measurementUnitsLabel" destination="eNH-iE-7RT" id="rSe-xI-Fi6"/>
                         <outlet property="metricImperialSegmentedControl" destination="H7y-s7-GZu" id="ATh-Ez-EHq"/>
                         <outlet property="removeAdsCell" destination="fMC-55-RJ2" id="eiR-65-gEp"/>
-                        <outlet property="removeAdsLabel" destination="TOv-Xr-NKq" id="Q0d-kK-ndd"/>
                         <outlet property="removeAllCell" destination="bHF-bJ-CG5" id="K43-dP-zPB"/>
-                        <outlet property="removeAllLabel" destination="Ypt-OJ-gjC" id="79X-bO-Kkg"/>
                         <outlet property="removeLimitsCell" destination="aY5-ih-kns" id="EBR-58-87s"/>
-                        <outlet property="removeLimitsLabel" destination="d5N-RZ-dqw" id="yY4-3V-cLd"/>
                         <outlet property="restorePurchasesCell" destination="6mE-hi-Maw" id="J5G-mo-eub"/>
-                        <outlet property="restorePurchasesLabel" destination="3Hn-st-NYR" id="8RY-2A-OXV"/>
                         <outlet property="reviewButton" destination="vGO-iF-ARW" id="nVf-I4-EXc"/>
+                        <outlet property="reviewCell" destination="FGQ-mH-9qd" id="PSF-Qa-Rwe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eX-4P-EHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,7 +465,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="tintColor" name="BarTint"/>
                         <color key="separatorColor" name="TintColor"/>
                         <sections>
                             <tableViewSection headerTitle="TRACK" id="gEQ-GM-CVC">
@@ -1643,7 +1641,7 @@
         <image name="tab_bar_driver_selected" width="50" height="50"/>
         <image name="track" width="33.333332061767578" height="33.333332061767578"/>
         <namedColor name="BackgroundColor">
-            <color red="0.92941176470588238" green="0.87450980392156863" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BarColor">
             <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
