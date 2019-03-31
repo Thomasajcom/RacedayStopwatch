@@ -84,12 +84,8 @@ class SettingsTableViewController: UITableViewController {
         navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
         tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
         tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
-
-//        UITabBar.appearance().barTintColor                      = Theme.activeTheme.barColor
-//        UITabBar.appearance().tintColor                         = Theme.activeTheme.tintColor
-        
-//        tableView.reloadSections(IndexSet(0..<1), with: .automatic)
-
+//        darkModeSwitch.onTintColor = Theme.activeTheme.confirmColor
+//        darkModeSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
     }
     
     @IBAction func createReview(_ sender: UIButton) {

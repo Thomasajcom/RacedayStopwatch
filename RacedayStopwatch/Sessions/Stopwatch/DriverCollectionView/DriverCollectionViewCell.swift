@@ -38,4 +38,15 @@ class DriverCollectionViewCell: UICollectionViewCell {
     func updateLabels(lapTime: Double){
         timerLabel.text = lapTime.laptimeToString()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupTheme()
+    }
+    
+    func setupTheme(){
+        backgroundColor = Theme.activeTheme.foregroundColor
+        cellTitle.textColor = Theme.activeTheme.secondaryFontColor
+        timerLabel.textColor = Theme.activeTheme.mainFontColor
+    }
 }

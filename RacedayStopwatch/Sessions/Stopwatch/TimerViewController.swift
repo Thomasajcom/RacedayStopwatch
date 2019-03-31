@@ -19,6 +19,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var lapRecordLabel: UILabel!
     @IBOutlet weak var lapRecordHolder: UILabel!
     @IBOutlet weak var lapRecordTime: UILabel!
+    @IBOutlet var timerView: UIView!
     
     
     @IBOutlet weak var mainTimerLabel: UILabel!
@@ -129,14 +130,18 @@ class TimerViewController: UIViewController {
     }
     
     func setupTheme(){
+        timerView.backgroundColor = Theme.activeTheme.foregroundColor
         trackNameLabel.textColor                = Theme.activeTheme.highlightFontColor
-        trackNameLabel.backgroundColor          = Theme.activeTheme.highlightColor
-        trackLengthLabel.textColor              = Theme.activeTheme.mainFontColor
-        lapRecordLabel.textColor                = Theme.activeTheme.mainFontColor
+//        trackNameLabel.backgroundColor          = Theme.activeTheme.highlightColor
+        trackLengthLabel.textColor              = Theme.activeTheme.secondaryFontColor
+        lapRecordLabel.textColor                = Theme.activeTheme.secondaryFontColor
         lapRecordHolder.textColor               = Theme.activeTheme.mainFontColor
         lapRecordTime.textColor                 = Theme.activeTheme.mainFontColor
-        lapTableview.backgroundColor            = Theme.activeTheme.backgroundColor
+        lapTableview.backgroundColor            = Theme.activeTheme.foregroundColor
+        lapTableview.separatorColor = Theme.activeTheme.tintColor
         driverCollectionView.backgroundColor    = Theme.activeTheme.foregroundColor
+        mainTimerLabel.textColor = Theme.activeTheme.mainFontColor
+        
     }
     
     func createInterstitialAd() -> GADInterstitial {
@@ -299,20 +304,20 @@ extension TimerViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
-            self.laps.remove(at: indexPath.row)
-            tableView.reloadData()
-            completionHandler(true)
-        }
-        deleteAction.image              = UIImage(named: "delete-50-filled")
-        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
-        return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    //removes the default delete action for trailingswipe
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
+//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let deleteAction = UIContextualAction.init(style: .normal, title: nil) { (action, view, completionHandler) in
+//            self.laps.remove(at: indexPath.row)
+//            tableView.reloadData()
+//            completionHandler(true)
+//        }
+//        deleteAction.image              = UIImage(named: "delete-50-filled")
+//        deleteAction.backgroundColor    = UIColor(named: "DeleteColor")
+//        return UISwipeActionsConfiguration(actions: [deleteAction])
+//    }
+//    //removes the default delete action for trailingswipe
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
 }
 
 //MARK: - CollectionView

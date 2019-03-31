@@ -41,7 +41,6 @@ class NewSessionTableViewController: UITableViewController {
         trackPicker.delegate                = self
         trackPicker.dataSource              = self
         noTrackLabel.text                   = Constants.SESSION_WITHOUT_TRACK
-        noTrackLength.placeholder           = Constants.SESSION_CUSTOM_LENGTH
         addDoneButton()
         
         driversCollectionView.delegate      = self
@@ -85,6 +84,13 @@ class NewSessionTableViewController: UITableViewController {
         noDriverCell.backgroundColor            = Theme.activeTheme.foregroundColor
         noTrackCell.backgroundColor             = Theme.activeTheme.foregroundColor
         customLengthCell.backgroundColor        = Theme.activeTheme.foregroundColor
+        noDriversLabel.textColor = Theme.activeTheme.mainFontColor
+        noTrackLabel.textColor = Theme.activeTheme.mainFontColor
+        noTrackLength.attributedPlaceholder = NSAttributedString(string: Constants.SESSION_CUSTOM_LENGTH, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
+        noTrackSwitch.onTintColor = Theme.activeTheme.confirmColor
+        noTrackSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
+        noDriversSwitch.onTintColor = Theme.activeTheme.confirmColor
+        noDriversSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
     }
     
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {
@@ -208,9 +214,9 @@ extension NewSessionTableViewController: UIPickerViewDelegate, UIPickerViewDataS
         return tracks.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let tracks = tracks, tracks.count > 0 else {return "No tracks found."}
-        return tracks[row].name //+ " " + String(tracks[row].length) + Constants.LENGTH_UNIT
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        guard let tracks = tracks, tracks.count > 0 else {return nil}
+        return NSAttributedString(string: tracks[row].name!, attributes: [NSAttributedString.Key.foregroundColor : Theme.activeTheme.mainFontColor])
     }
 
 }

@@ -293,7 +293,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" name="BarTint"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionCell" rowHeight="193" id="xRX-QS-4MG" customClass="SessionTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="193"/>
@@ -563,7 +562,6 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" name="CellBackground"/>
                                             <constraints>
                                                 <constraint firstItem="vkU-eM-8TI" firstAttribute="leading" secondItem="rUe-PI-RV4" secondAttribute="leadingMargin" id="5ia-FF-em6"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vkU-eM-8TI" secondAttribute="bottom" id="N0e-Ua-PJ5"/>
@@ -571,8 +569,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="vkU-eM-8TI" secondAttribute="trailing" id="tkK-JZ-SIv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="CellBackground"/>
-                                        <color key="tintColor" name="CellTint"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -720,7 +717,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" name="BarTint"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="393" id="YE3-iL-OPu" customClass="TrackTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="393"/>
@@ -830,7 +826,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-Z1-rpg">
                                 <rect key="frame" x="3" y="88" width="375" height="36"/>
-                                <color key="backgroundColor" name="HighlightColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" name="HighlightFontColor"/>
                                 <nil key="highlightedColor"/>
@@ -958,7 +953,7 @@
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <color key="tintColor" name="TintColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2u-AB-wtN" id="eZh-9E-zVa">
@@ -1096,6 +1091,7 @@
                         <outlet property="lapTableview" destination="8UA-5e-Bxy" id="Gow-qH-jUV"/>
                         <outlet property="mainTimerLabel" destination="2eI-YQ-QsR" id="XC7-zP-o8P"/>
                         <outlet property="startButton" destination="S2a-V5-K9d" id="nVW-qf-54L"/>
+                        <outlet property="timerView" destination="BL4-Yh-sgy" id="ysO-xU-9Ru"/>
                         <outlet property="trackLengthLabel" destination="dPa-XW-0Hy" id="wuT-3s-FAO"/>
                         <outlet property="trackNameLabel" destination="ILm-Z1-rpg" id="QrK-c7-9kr"/>
                     </connections>
@@ -1112,7 +1108,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
-                        <color key="separatorColor" name="BarTint"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverCell" rowHeight="135" id="4kz-Wy-AUR" customClass="DriverTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="135"/>

@@ -57,7 +57,7 @@ class LapTableViewCell: UITableViewCell {
     func setupTheme(){
         backgroundColor = Theme.activeTheme.foregroundColor
         driverNameLabel.textColor   = Theme.activeTheme.mainFontColor
-        lapNumberLabel.textColor    = Theme.activeTheme.mainFontColor
+        lapNumberLabel.textColor    = Theme.activeTheme.secondaryFontColor
         timeLabel.textColor         = Theme.activeTheme.mainFontColor
         speedLabel.textColor        = Theme.activeTheme.mainFontColor
         

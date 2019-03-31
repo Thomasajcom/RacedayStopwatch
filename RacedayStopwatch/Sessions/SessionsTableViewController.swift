@@ -60,6 +60,8 @@ class SessionsTableViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
         navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
+        tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
         tableView.separatorColor    = Theme.activeTheme.tintColor
         tableView.backgroundColor   = Theme.activeTheme.backgroundColor
         tableView.separatorColor    = Theme.activeTheme.tintColor
