@@ -56,6 +56,10 @@ class SessionsTableViewController: UITableViewController {
     }
     
     func setupTheme(){
+        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
         tableView.separatorColor    = Theme.activeTheme.tintColor
         tableView.backgroundColor   = Theme.activeTheme.backgroundColor
         tableView.separatorColor    = Theme.activeTheme.tintColor

@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Setting the theme for the app, defaults to the LightTheme
         Theme.activeTheme = Constants.defaults.bool(forKey: Constants.defaults_dark_mode) ? DarkTheme() : LightTheme()
-//        UINavigationBar.appearance().barTintColor               = Theme.activeTheme.barColor
-//        UINavigationBar.appearance().tintColor                  = Theme.activeTheme.tintColor
-//        UINavigationBar.appearance().titleTextAttributes        = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.highlightFontColor]
-//        UINavigationBar.appearance().largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.highlightFontColor]
-//        UITabBar.appearance().barTintColor                      = Theme.activeTheme.barColor
-//        UITabBar.appearance().tintColor                         = Theme.activeTheme.tintColor
-//
+        UINavigationBar.appearance().barTintColor               = Theme.activeTheme.barColor
+        UINavigationBar.appearance().tintColor                  = Theme.activeTheme.tintColor
+        UINavigationBar.appearance().titleTextAttributes        = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.highlightFontColor]
+        UINavigationBar.appearance().largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.highlightFontColor]
+        UITabBar.appearance().barTintColor                      = Theme.activeTheme.barColor
+        UITabBar.appearance().tintColor                         = Theme.activeTheme.tintColor
+
         
         // Setup for the AdMob ads
         GADMobileAds.configure(withApplicationID: Constants.ADMOB_ID_TEST) //ADMOB_ID_PRODUCTION

@@ -33,9 +33,11 @@ class ImagePickerViewController: UIViewController {
     }
     
     func setupTheme() {
+        print("setter farge på picker")
         view.backgroundColor        = Theme.activeTheme.backgroundColor
         itemPicker.backgroundColor  = Theme.activeTheme.backgroundColor
         itemPicker.tintColor        = Theme.activeTheme.tintColor
+//        itemPicker.color
     }
     
 }

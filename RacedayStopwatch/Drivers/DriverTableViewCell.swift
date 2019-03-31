@@ -52,11 +52,11 @@ class DriverTableViewCell: UITableViewCell {
     
     func setupTheme(){
         backgroundColor                         = Theme.activeTheme.foregroundColor
-        nameLabel.textColor                     = Theme.activeTheme.highlightFontColor
-        sessionsLabel.textColor                 = Theme.activeTheme.mainFontColor
-        numberOfSessions.textColor              = Theme.activeTheme.mainFontColor
-        fastestDriverLabel.textColor            = Theme.activeTheme.mainFontColor
-        numberOfTimesFastestDriver.textColor    = Theme.activeTheme.mainFontColor
+        nameLabel.textColor                     = Theme.activeTheme.mainFontColor
+        sessionsLabel.textColor                 = Theme.activeTheme.secondaryFontColor
+        numberOfSessions.textColor              = Theme.activeTheme.secondaryFontColor
+        fastestDriverLabel.textColor            = Theme.activeTheme.secondaryFontColor
+        numberOfTimesFastestDriver.textColor    = Theme.activeTheme.secondaryFontColor
         numberLabel.backgroundColor             = Theme.activeTheme.highlightColor
         numberLabel.textColor                   = Theme.activeTheme.highlightFontColor
         

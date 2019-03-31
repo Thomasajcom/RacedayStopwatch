@@ -117,5 +117,12 @@ class SessionTableViewCell: UITableViewCell {
     func setupTheme(){
         backgroundColor         = Theme.activeTheme.foregroundColor
         trackName.textColor     = Theme.activeTheme.highlightFontColor
+        date.textColor          = Theme.activeTheme.mainFontColor
+        fastestDriverLabel.textColor = Theme.activeTheme.secondaryFontColor
+        fastestDriverName.textColor = Theme.activeTheme.mainFontColor
+        bestLapTime.textColor = Theme.activeTheme.mainFontColor
+        bestLapSpeed.textColor = Theme.activeTheme.mainFontColor
+        totalSessionTimeLabel.textColor = Theme.activeTheme.secondaryFontColor
+        totalSessionTime.textColor = Theme.activeTheme.mainFontColor
     }
 }

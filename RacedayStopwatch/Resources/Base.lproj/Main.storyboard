@@ -303,7 +303,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGw-zx-gll">
-                                            <rect key="frame" x="3" y="11" width="369" height="36"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="36"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                             <color key="textColor" name="HighlightFontColor"/>
@@ -394,16 +394,16 @@
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="Lcu-Rb-kQh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tMJ-os-qFJ" secondAttribute="trailing" id="P02-1z-Jr8"/>
                                         <constraint firstAttribute="trailing" secondItem="hRg-12-4ng" secondAttribute="trailing" constant="3" id="TZh-vk-mGL"/>
+                                        <constraint firstItem="HGw-zx-gll" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" id="UEb-Ld-3wh"/>
                                         <constraint firstAttribute="trailing" secondItem="b37-ZA-0O3" secondAttribute="trailing" constant="5" id="UHf-x4-Zda"/>
                                         <constraint firstItem="b37-ZA-0O3" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="Vpz-mg-CJ1"/>
                                         <constraint firstItem="uQe-Oj-ddS" firstAttribute="top" secondItem="ANF-9u-tIc" secondAttribute="bottom" constant="1" id="Xs9-al-Lzh"/>
                                         <constraint firstAttribute="bottom" secondItem="uQe-Oj-ddS" secondAttribute="bottom" constant="3" id="bso-19-vXV"/>
                                         <constraint firstItem="Egq-TC-aui" firstAttribute="top" secondItem="tMJ-os-qFJ" secondAttribute="bottom" constant="2" id="bxx-FW-4lM"/>
-                                        <constraint firstItem="HGw-zx-gll" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leading" constant="3" id="dqu-ag-pv1"/>
                                         <constraint firstItem="Egq-TC-aui" firstAttribute="leading" secondItem="2SF-9u-pjG" secondAttribute="leadingMargin" constant="-3" id="ecf-dW-Phr"/>
                                         <constraint firstItem="wQV-ao-gcE" firstAttribute="top" secondItem="b37-ZA-0O3" secondAttribute="bottom" constant="1" id="fQX-zQ-9jH"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="top" secondItem="wQV-ao-gcE" secondAttribute="bottom" constant="1" id="gr4-qA-H8T"/>
-                                        <constraint firstAttribute="trailing" secondItem="HGw-zx-gll" secondAttribute="trailing" constant="3" id="hLO-dH-DvS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HGw-zx-gll" secondAttribute="trailing" id="gw2-c0-fQN"/>
                                         <constraint firstItem="tMJ-os-qFJ" firstAttribute="top" secondItem="HGw-zx-gll" secondAttribute="bottom" id="hSr-4x-QpK"/>
                                         <constraint firstItem="ANF-9u-tIc" firstAttribute="leading" secondItem="Egq-TC-aui" secondAttribute="trailing" constant="3" id="hU3-Rf-QGw"/>
                                         <constraint firstItem="hRg-12-4ng" firstAttribute="top" secondItem="fnb-zL-p9Q" secondAttribute="bottom" constant="1" id="mUd-67-S8r"/>
@@ -966,7 +966,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E07-Jk-tl6">
-                                                    <rect key="frame" x="15" y="11.000000000000002" width="384" height="29.666666666666671"/>
+                                                    <rect key="frame" x="15" y="11.000000000000002" width="345" height="29.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Driver Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-kt-kVl">
                                                             <rect key="frame" x="0.0" y="0.0" width="139" height="29.666666666666668"/>
@@ -975,7 +975,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lapnumber" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD7-Lc-zTY">
-                                                            <rect key="frame" x="139" y="0.0" width="245" height="29.666666666666668"/>
+                                                            <rect key="frame" x="139" y="0.0" width="206" height="29.666666666666668"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" name="MainFontColor"/>
                                                             <nil key="highlightedColor"/>
@@ -990,16 +990,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWG-c2-10c">
-                                                    <rect key="frame" x="75" y="45.666666666666664" width="324" height="30.333333333333336"/>
+                                                    <rect key="frame" x="75" y="45.666666666666664" width="285" height="30.333333333333336"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08h-t2-BYo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="198.66666666666666" height="30.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="30.333333333333332"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <color key="textColor" name="MainFontColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Lap Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-Fw-PFU">
-                                                            <rect key="frame" x="198.66666666666671" y="0.0" width="125.33333333333334" height="30.333333333333332"/>
+                                                            <rect key="frame" x="159.66666666666666" y="0.0" width="125.33333333333334" height="30.333333333333332"/>
                                                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="26"/>
                                                             <color key="textColor" name="MainFontColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1393,11 +1393,13 @@
             </objects>
             <point key="canvasLocation" x="310" y="1028"/>
         </scene>
-        <!--Drivers-->
+        <!--Navigation Controller-->
         <scene sceneID="jBc-kK-hdv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HUP-D2-CST" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Drivers" image="tab_bar_driver_selected" selectedImage="tab_bar_driver_selected" id="X3m-sb-pbE"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_driver_selected" selectedImage="tab_bar_driver_selected" id="X3m-sb-pbE">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="8cZ-DW-TZX">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1415,11 +1417,13 @@
             </objects>
             <point key="canvasLocation" x="620" y="-475"/>
         </scene>
-        <!--Tracks-->
+        <!--Navigation Controller-->
         <scene sceneID="z3f-AA-zU4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kuj-8w-7Rd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tracks" image="track" id="mdk-J7-rOZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_track_not_selected" selectedImage="tab_bar_track_selected" id="mdk-J7-rOZ">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Nya-4p-vgQ">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1437,11 +1441,13 @@
             </objects>
             <point key="canvasLocation" x="9" y="-475"/>
         </scene>
-        <!--Raceday-->
+        <!--Navigation Controller-->
         <scene sceneID="yku-BT-oDk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2WK-nN-9Xu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Raceday" image="session" id="SKJ-jl-sfK"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_session_not_selected" selectedImage="tab_bar_session_selected" id="SKJ-jl-sfK">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HU4-F3-t8I">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1554,8 +1560,6 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-h6-Om4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="174"/>
-                                <color key="backgroundColor" name="BackgroundColor"/>
-                                <color key="tintColor" name="TintColor"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -1637,14 +1641,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="session" width="33.333332061767578" height="33.333332061767578"/>
         <image name="tab_bar_driver_selected" width="50" height="50"/>
-        <image name="track" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="tab_bar_session_not_selected" width="50" height="50"/>
+        <image name="tab_bar_session_selected" width="50" height="50"/>
+        <image name="tab_bar_track_not_selected" width="50" height="50"/>
+        <image name="tab_bar_track_selected" width="50" height="50"/>
         <namedColor name="BackgroundColor">
-            <color red="1" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BarColor">
-            <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="BarTint">
             <color red="0.33725490196078434" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1659,7 +1665,7 @@
             <color red="0.36470588235294116" green="0.56470588235294117" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="DeleteColor">
-            <color red="0.64399999380111694" green="0.096000000834465027" blue="0.0060000000521540642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.64313725490196083" green="0.094117647058823528" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.97647058823529409" green="0.97254901960784312" blue="0.92156862745098034" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="displayP3"/>

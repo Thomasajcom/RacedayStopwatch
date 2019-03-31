@@ -39,7 +39,7 @@ class TracksTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        self.title = Constants.TRACKS_TITLE
+        //self.title = Constants.TRACKS_TITLE
         do {
             try fetchedResultsController.performFetch()
         } catch  {
@@ -63,6 +63,10 @@ class TracksTableViewController: UITableViewController {
     }
     
     func setupTheme(){
+        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
         tableView.separatorColor    = Theme.activeTheme.tintColor
         tableView.backgroundColor   = Theme.activeTheme.backgroundColor
         tableView.separatorColor    = Theme.activeTheme.tintColor

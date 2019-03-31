@@ -82,13 +82,14 @@ class AddItemViewController: UIViewController {
             if let driver = driver {
                 itemName.text     = driver.name
                 itemNumber.text   = driver.number
-                itemName.placeholder     = Constants.DRIVER_NAME_PLACEHOLDER
-                itemNumber.placeholder   = Constants.DRIVER_NUMBER_PLACEHOLDER
+                itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
+                itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
                 addItemLabel.text = Constants.EDIT_DRIVER_LABEL
             }else{
                 addItemLabel.text        = Constants.ADD_DRIVER_LABEL
-                itemName.placeholder     = Constants.DRIVER_NAME_PLACEHOLDER
-                itemNumber.placeholder   = Constants.DRIVER_NUMBER_PLACEHOLDER
+                itemName.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NAME_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
+                itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.DRIVER_NUMBER_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
+                
             }
         }else if itemIsTrack{
             pictureOrImageControl.setTitle(Constants.ADD_ITEM_TRACKS_SEGMENT, forSegmentAt: 1)
@@ -104,12 +105,13 @@ class AddItemViewController: UIViewController {
                 addItemLabel.text = Constants.EDIT_TRACK_LABEL
             }else{
                 addItemLabel.text             = Constants.ADD_TRACK_LABEL
-                itemName.placeholder          = Constants.TRACK_NAME_PLACEHOLDER
+                itemName.attributedPlaceholder = NSAttributedString(string: Constants.TRACK_NAME_PLACEHOLDER, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
                 if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
-                    itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_METERS
+                    itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_METERS, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
                     itemNumber.keyboardType = .numberPad
                 }else{
-                    itemNumber.placeholder        = Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_MILES
+                    itemNumber.attributedPlaceholder = NSAttributedString(string: Constants.TRACK_LENGTH_PLACEHOLDER + Constants.LENGTH_UNIT_MILES, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
+
                 }
                 
             }
@@ -127,10 +129,18 @@ class AddItemViewController: UIViewController {
     func setupTheme(){
         popupView.backgroundColor           = Theme.activeTheme.backgroundColor
         addItemLabel.textColor              = Theme.activeTheme.highlightFontColor
-        addItemLabel.backgroundColor        = Theme.activeTheme.highlightColor
+        addItemLabel.backgroundColor        = Theme.activeTheme.foregroundColor
         itemNameLabel.textColor             = Theme.activeTheme.mainFontColor
+        itemName.backgroundColor = Theme.activeTheme.foregroundColor
+        itemName.textColor = Theme.activeTheme.mainFontColor
         itemNumberLabel.textColor           = Theme.activeTheme.mainFontColor
+        itemNumber.backgroundColor = Theme.activeTheme.foregroundColor
+        itemNumber.textColor = Theme.activeTheme.mainFontColor
         pictureOrImageControl.tintColor     = Theme.activeTheme.tintColor
+        cancelButton.setTitleColor(.white, for: .normal)
+        cancelButton.backgroundColor = Theme.activeTheme.deleteColor
+        addItemButton.setTitleColor(.white, for: .normal)
+        addItemButton.backgroundColor = Theme.activeTheme.confirmColor
     }
     //refactor to an extension as it's being used multiple places
     func addDoneButton() {
