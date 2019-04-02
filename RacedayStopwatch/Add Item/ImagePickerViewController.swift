@@ -37,9 +37,8 @@ class ImagePickerViewController: UIViewController {
         view.backgroundColor        = Theme.activeTheme.backgroundColor
         itemPicker.backgroundColor  = Theme.activeTheme.backgroundColor
         itemPicker.tintColor        = Theme.activeTheme.tintColor
-//        itemPicker.color
+        
     }
-    
 }
 
 extension ImagePickerViewController: UIPickerViewDataSource, UIPickerViewDelegate{

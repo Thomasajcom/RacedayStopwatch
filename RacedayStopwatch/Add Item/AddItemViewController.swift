@@ -40,9 +40,11 @@ class AddItemViewController: UIViewController {
     var itemIsTrack = false
     var trackImage: UIImage?
     var tracks: [UIImage] = [
-        UIImage(named: "track_yellow")!,
+        UIImage(named: "track_green")!,
         UIImage(named: "track_red")!,
-        UIImage(named: "track_orange")!
+        UIImage(named: "track_orange")!,
+        UIImage(named: "track_purple")!,
+        UIImage(named: "track_blue")!
     ]
     
     override func viewDidLoad() {
