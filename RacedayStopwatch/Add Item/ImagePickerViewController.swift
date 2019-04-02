@@ -30,10 +30,10 @@ class ImagePickerViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupTheme()
+        delegate?.selectedImage(image: images[0])
     }
     
     func setupTheme() {
-        print("setter farge på picker")
         view.backgroundColor        = Theme.activeTheme.backgroundColor
         itemPicker.backgroundColor  = Theme.activeTheme.backgroundColor
         itemPicker.tintColor        = Theme.activeTheme.tintColor

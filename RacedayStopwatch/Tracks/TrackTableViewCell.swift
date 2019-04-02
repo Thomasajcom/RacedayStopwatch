@@ -22,6 +22,7 @@ class TrackTableViewCell: UITableViewCell {
     func setup(_ track: Track){
         trackName.text      = track.name
         trackImage.image    = UIImage(data: track.image!)
+        trackImage.clipsToBounds = true
         if Constants.defaults.bool(forKey: Constants.defaults_metric_key){
             trackLength.text                = String(track.length.noDecimals) + " " + Constants.LENGTH_UNIT_METERS
         }else{
