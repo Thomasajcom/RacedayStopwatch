@@ -215,7 +215,9 @@ extension NewSessionTableViewController: UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        guard let tracks = tracks, tracks.count > 0 else {return nil}
+        guard let tracks = tracks, tracks.count > 0 else {
+            return NSAttributedString(string: Constants.NEW_SESSION_NO_TRACK, attributes: [NSAttributedString.Key.foregroundColor : Theme.activeTheme.mainFontColor])
+        }
         return NSAttributedString(string: tracks[row].name!, attributes: [NSAttributedString.Key.foregroundColor : Theme.activeTheme.mainFontColor])
     }
 

@@ -149,6 +149,8 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 break
             case .purchasing:
                 break
+            @unknown default:
+                fatalError("unknown SKPaymentTransaction")
             }
         }
     }

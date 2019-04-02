@@ -29,24 +29,21 @@ class AddItemViewController: UIViewController {
     var itemIsDriver = false
     var itemImage: UIImage?
     var helmets: [UIImage] = [
-        UIImage(named: "helmet_red")!,
-        UIImage(named: "helmet_blue")!,
-        UIImage(named: "helmet_yellow")!,
-        UIImage(named: "helmet_purple")!,
-        UIImage(named: "helmet_green")!,
-        UIImage(named: "helmet_cyan")!,
+        UIImage(named: "person_yellow")!,
+        UIImage(named: "person_pink")!,
+        UIImage(named: "person_brown")!,
+        UIImage(named: "person_dark")!,
+        UIImage(named: "person_light")!
         ]
     
     var track: Track?
     var itemIsTrack = false
     var trackImage: UIImage?
     var tracks: [UIImage] = [
-        UIImage(named: "helmet_red")!,
-        UIImage(named: "helmet_blue")!,
-        UIImage(named: "helmet_yellow")!,
-        UIImage(named: "helmet_purple")!,
-        UIImage(named: "helmet_green")!,
-        ]
+        UIImage(named: "track_yellow")!,
+        UIImage(named: "track_red")!,
+        UIImage(named: "track_orange")!
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,6 +166,10 @@ class AddItemViewController: UIViewController {
                 selectPicture.picture = UIImage(data: driver.image!)
             }else if let track = track{
                 selectPicture.picture = UIImage(data: track.image!)
+            }else if itemIsDriver{
+                selectPicture.picture = UIImage(named: "add_item_person_placeholder")!
+            }else if itemIsTrack{
+                selectPicture.picture = UIImage(named: "add_item_track_placeholder")!
             }
         }
     }

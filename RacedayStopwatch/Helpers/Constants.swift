@@ -70,7 +70,7 @@ struct Constants{
     static let EDIT_DRIVER_LABEL                    = "Edit Driver"
     static let ADD_DRIVER_PICTURE_OR_HELMET_LABEL   = "Driver Picture or Helmet"
     static let ADD_ITEM_PICTURE_SEGMENT             = "Picture"
-    static let ADD_ITEM_HELMETS_SEGMENT             = "Helmets"
+    static let ADD_ITEM_HELMETS_SEGMENT             = "Drivers"
     static let SAVE_BUTTON_TITLE                    = "Save"
     static let ITEM_NAME_LABEL                      = "Name"
     static let DRIVER_NAME_PLACEHOLDER              = "Enter a Name"
@@ -124,6 +124,7 @@ struct Constants{
     static let SESSION_DRIVER_ERROR_TITLE       = "Driver Error"
     static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
     static let NEW_SESSION_TIMER_ONLY_TITLE     = "BASIC TIMER"
+    static let NEW_SESSION_NO_TRACK             = "No Tracks found"
     
     static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
     static let SESSION_LAP                      = " laps"

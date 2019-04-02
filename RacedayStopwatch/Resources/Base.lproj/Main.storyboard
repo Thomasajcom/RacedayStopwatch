@@ -725,7 +725,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="392.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gKY-Th-A1q">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gKY-Th-A1q">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="300" id="Q0K-QJ-vwb"/>
@@ -775,7 +775,7 @@
                                         <constraint firstItem="QF0-U8-WW5" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="aSb-CH-mbL"/>
                                         <constraint firstItem="gKY-Th-A1q" firstAttribute="top" secondItem="V1g-zM-Dhb" secondAttribute="top" id="cLM-VG-ZMF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QF0-U8-WW5" secondAttribute="trailing" id="gsE-ub-HSD"/>
-                                        <constraint firstItem="gKY-Th-A1q" firstAttribute="baseline" secondItem="xRK-is-ATK" secondAttribute="firstBaseline" constant="12.5" symbolType="layoutAnchor" id="jf0-w2-pnX"/>
+                                        <constraint firstItem="gKY-Th-A1q" firstAttribute="baseline" secondItem="xRK-is-ATK" secondAttribute="firstBaseline" constant="12.333333333333334" symbolType="layoutAnchor" id="jf0-w2-pnX"/>
                                         <constraint firstItem="xFu-CS-Ucf" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="l1c-Gn-iN5"/>
                                         <constraint firstItem="OeX-C9-ebq" firstAttribute="leading" secondItem="V1g-zM-Dhb" secondAttribute="leadingMargin" id="lef-vG-tjm"/>
                                         <constraint firstAttribute="trailing" secondItem="gKY-Th-A1q" secondAttribute="trailing" id="mH5-3d-PY3"/>
@@ -953,7 +953,7 @@
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <color key="tintColor" name="TintColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LapCell" rowHeight="96" id="I2u-AB-wtN" customClass="LapTableViewCell" customModule="RacedayStopwatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2u-AB-wtN" id="eZh-9E-zVa">
@@ -1014,7 +1014,6 @@
                                                 <constraint firstItem="PWG-c2-10c" firstAttribute="top" secondItem="E07-Jk-tl6" secondAttribute="bottom" constant="5" id="qxP-jn-AoD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="CellBackground"/>
                                         <connections>
                                             <outlet property="driverImage" destination="Fej-Cg-JOH" id="8WW-4c-QSF"/>
                                             <outlet property="driverNameLabel" destination="egH-kt-kVl" id="csx-fb-y7F"/>
@@ -1416,7 +1415,7 @@
         <scene sceneID="z3f-AA-zU4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kuj-8w-7Rd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_bar_track_not_selected" selectedImage="tab_bar_track_selected" id="mdk-J7-rOZ">
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_track_not_selected" selectedImage="tab_bar_track2_selected" id="mdk-J7-rOZ">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1591,18 +1590,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="22s-6X-7T0" userLabel="Button Stack View">
                                 <rect key="frame" x="116.33333333333331" y="54" width="123.66666666666669" height="76"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm4-d4-QlH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm4-d4-QlH">
                                         <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="37.666666666666664"/>
-                                        <color key="backgroundColor" name="HighlightColor"/>
-                                        <color key="tintColor" name="HighlightFontColor"/>
+                                        <state key="normal" image="add_item_camera"/>
                                         <connections>
                                             <action selector="takePhoto:" destination="8h3-RP-NNo" eventType="touchUpInside" id="wLV-PJ-UW2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-FQ-OfX">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-FQ-OfX">
                                         <rect key="frame" x="0.0" y="38.666666666666671" width="123.66666666666667" height="37.333333333333329"/>
-                                        <color key="backgroundColor" name="HighlightColor"/>
-                                        <color key="tintColor" name="HighlightFontColor"/>
+                                        <state key="normal" image="add_item_gallery"/>
                                         <connections>
                                             <action selector="selectFromGallery:" destination="8h3-RP-NNo" eventType="touchUpInside" id="vrx-61-GRd"/>
                                         </connections>
@@ -1636,11 +1633,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_item_camera" width="25" height="25"/>
+        <image name="add_item_gallery" width="50" height="50"/>
         <image name="tab_bar_driver_selected" width="50" height="50"/>
         <image name="tab_bar_session_not_selected" width="50" height="50"/>
         <image name="tab_bar_session_selected" width="50" height="50"/>
+        <image name="tab_bar_track2_selected" width="50" height="50"/>
         <image name="tab_bar_track_not_selected" width="50" height="50"/>
-        <image name="tab_bar_track_selected" width="50" height="50"/>
         <namedColor name="BackgroundColor">
             <color red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1676,6 +1675,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f8O-rH-vMJ"/>
+        <segue reference="JGP-yD-QPe"/>
     </inferredMetricsTieBreakers>
 </document>
