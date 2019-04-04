@@ -30,7 +30,6 @@ class ImagePickerViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupTheme()
-        delegate?.selectedImage(image: images[0])
     }
     
     func setupTheme() {
