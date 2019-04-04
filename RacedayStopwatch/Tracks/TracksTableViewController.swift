@@ -166,7 +166,7 @@ class TracksTableViewController: UITableViewController {
             self.present(editTrack, animated: true, completion: nil)
             completionHandler(true)
         }
-        editAction.backgroundColor  = Theme.activeTheme.tintColor
+        editAction.backgroundColor  = Theme.activeTheme.confirmColor
         editAction.image            = UIImage(named: "swipe_edit")
         resetAction.backgroundColor = Theme.activeTheme.deleteColor
         resetAction.image           = UIImage(named: "swipe_reset")

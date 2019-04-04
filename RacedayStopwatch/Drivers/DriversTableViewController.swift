@@ -149,7 +149,7 @@ class DriversTableViewController: UITableViewController {
             self.present(editDriver, animated: true, completion: nil)
             completionHandler(true)
         }
-        editAction.backgroundColor  = Theme.activeTheme.tintColor
+        editAction.backgroundColor  = Theme.activeTheme.backgroundColor
         editAction.image            = UIImage(named: "swipe_edit")
         return UISwipeActionsConfiguration(actions: [editAction])
     }

@@ -16,6 +16,10 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var measurementUnitsLabel: UILabel!
     @IBOutlet weak var reviewCell: UITableViewCell!
     @IBOutlet weak var reviewButton: UIButton!
+    @IBOutlet weak var schizohybridArtCell: UITableViewCell!
+    @IBOutlet weak var schizohybridArtButton: UIButton!
+    @IBOutlet weak var icons8Cell: UITableViewCell!
+    @IBOutlet weak var icons8Button: UIButton!
     
     @IBOutlet weak var darkModeCell: UITableViewCell!
     @IBOutlet weak var darkModeLabel: UILabel!
@@ -76,6 +80,10 @@ class SettingsTableViewController: UITableViewController {
         reviewButton.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
         measurementCell.backgroundColor = Theme.activeTheme.foregroundColor
         reviewCell.backgroundColor = Theme.activeTheme.foregroundColor
+        schizohybridArtCell.backgroundColor = Theme.activeTheme.foregroundColor
+        schizohybridArtButton.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
+        icons8Cell.backgroundColor = Theme.activeTheme.foregroundColor
+        icons8Button.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
         darkModeCell.backgroundColor = Theme.activeTheme.foregroundColor
         darkModeLabel.textColor = Theme.activeTheme.mainFontColor
         navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
@@ -90,6 +98,18 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func createReview(_ sender: UIButton) {
         SKStoreReviewController.requestReview()
+    }
+    
+    @IBAction func buttonLinkToWeb(_ sender: UIButton) {
+        if sender == schizohybridArtButton{
+            if let url = URL(string: "http://www.schizohybrid.com"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }else{
+            if let url = URL(string: "https://icons8.com"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     func getIAPData() {
