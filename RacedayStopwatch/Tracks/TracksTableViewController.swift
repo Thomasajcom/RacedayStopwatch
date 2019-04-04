@@ -166,8 +166,10 @@ class TracksTableViewController: UITableViewController {
             self.present(editTrack, animated: true, completion: nil)
             completionHandler(true)
         }
-        editAction.backgroundColor  = Theme.activeTheme.foregroundColor
-        editAction.image            = UIImage(named: "delete-50-filled")
+        editAction.backgroundColor  = Theme.activeTheme.tintColor
+        editAction.image            = UIImage(named: "swipe_edit")
+        resetAction.backgroundColor = Theme.activeTheme.deleteColor
+        resetAction.image           = UIImage(named: "swipe_reset")
         return UISwipeActionsConfiguration(actions: [editAction, resetAction])
     }
     
@@ -178,7 +180,7 @@ class TracksTableViewController: UITableViewController {
             self.deleteTrack(track)
             completionHandler(true)
         }
-        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.image              = UIImage(named: "swipe_delete")
         deleteAction.backgroundColor    = Theme.activeTheme.deleteColor
         return UISwipeActionsConfiguration(actions: [deleteAction])
 

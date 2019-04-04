@@ -149,8 +149,8 @@ class DriversTableViewController: UITableViewController {
             self.present(editDriver, animated: true, completion: nil)
             completionHandler(true)
         }
-        editAction.backgroundColor  = Theme.activeTheme.foregroundColor
-        editAction.image            = UIImage(named: "delete-50-filled")
+        editAction.backgroundColor  = Theme.activeTheme.tintColor
+        editAction.image            = UIImage(named: "swipe_edit")
         return UISwipeActionsConfiguration(actions: [editAction])
     }
     
@@ -161,7 +161,7 @@ class DriversTableViewController: UITableViewController {
             self.deleteDriver(driver)
             completionHandler(true)
         }
-        deleteAction.image              = UIImage(named: "delete-50-filled")
+        deleteAction.image              = UIImage(named: "swipe_delete")
         deleteAction.backgroundColor    = Theme.activeTheme.deleteColor
         return UISwipeActionsConfiguration(actions: [deleteAction])
         

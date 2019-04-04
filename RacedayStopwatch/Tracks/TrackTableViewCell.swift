@@ -46,7 +46,7 @@ class TrackTableViewCell: UITableViewCell {
     
     func setupTheme(){
         trackName.textColor         = Theme.activeTheme.highlightFontColor
-        trackName.backgroundColor = Theme.activeTheme.highlightColor
+//        trackName.backgroundColor = Theme.activeTheme.highlightColor
         trackLength.textColor       = Theme.activeTheme.highlightFontColor
         trackLength.backgroundColor = Theme.activeTheme.highlightColor
         backgroundColor             = Theme.activeTheme.foregroundColor
