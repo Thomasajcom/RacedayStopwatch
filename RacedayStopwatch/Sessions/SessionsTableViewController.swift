@@ -11,6 +11,7 @@ import CoreData
 
 class SessionsTableViewController: UITableViewController {
 
+    @IBOutlet weak var devButton: UIBarButtonItem!
     var sessions: [Session] = []
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
         // Create Fetch Request
@@ -30,6 +31,9 @@ class SessionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //this hides the DEV button for relealse, albeit in a kinda hacky way D:
+        devButton.isEnabled = false
+        devButton.tintColor = .clear
         //set the measurement unit correctly, if this is the first launch of the app
         if !Constants.defaults.bool(forKey: Constants.defaults_launched_before){
             let locale = Locale.current

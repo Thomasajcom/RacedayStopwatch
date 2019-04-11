@@ -145,7 +145,7 @@ class TimerViewController: UIViewController {
     }
     
     func createInterstitialAd() -> GADInterstitial {
-        let interstitial        = GADInterstitial(adUnitID: Constants.ADMOB_ID_TEST_INTERSTITIAL)
+        let interstitial        = GADInterstitial(adUnitID: Constants.ADMOB_ID_SESSIONSAVED)
         interstitial.delegate   = self
         let request             = GADRequest()
         request.testDevices     = [kGADSimulatorID]
@@ -225,7 +225,8 @@ class TimerViewController: UIViewController {
         let action = UIAlertAction(title: actionButton.0, style: actionButton.1) {
             (alert: UIAlertAction!) in
             if (actionString == Constants.ALERT_OK){
-                if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || !Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
+                if(Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
+                }else{
                     if self.interstitial.isReady {
                         self.interstitial.present(fromRootViewController: self)
                     } else {

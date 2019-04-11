@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         // Setup for the AdMob ads
-        GADMobileAds.configure(withApplicationID: Constants.ADMOB_ID_TEST) //ADMOB_ID_PRODUCTION
+        GADMobileAds.configure(withApplicationID: Constants.ADMOB_ID_PRODUCTION)//Constants.ADMOB_ID_TEST
         #warning("remember to update the plist when changing from test to production")
         
         return true

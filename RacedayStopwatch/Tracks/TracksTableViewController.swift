@@ -49,10 +49,10 @@ class TracksTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if(!Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || !Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
-            displayAds()
-        }else{
+        if(Constants.store.isProductPurchased(Constants.IAP_REMOVE_ADS_ID) || Constants.store.isProductPurchased(Constants.IAP_REMOVE_ALL_ID)){
             tableView.tableHeaderView = nil
+        }else{
+            displayAds()
         }
         tableView.reloadData()
     }

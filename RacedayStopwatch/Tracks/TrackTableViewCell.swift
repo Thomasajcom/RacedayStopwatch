@@ -45,13 +45,13 @@ class TrackTableViewCell: UITableViewCell {
     }
     
     func setupTheme(){
-        trackName.textColor         = Theme.activeTheme.highlightFontColor
+        trackName.textColor                     = Theme.activeTheme.highlightFontColor
 //        trackName.backgroundColor = Theme.activeTheme.highlightColor
-        trackLength.textColor       = Theme.activeTheme.highlightFontColor
-        trackLength.backgroundColor = Theme.activeTheme.highlightColor
-        backgroundColor             = Theme.activeTheme.foregroundColor
-        lapRecordLabel.textColor = Theme.activeTheme.secondaryFontColor
-        lapRecordHolder.textColor = Theme.activeTheme.mainFontColor
-        lapRecordTime.textColor = Theme.activeTheme.mainFontColor
+        trackLength.textColor                   = Theme.activeTheme.highlightFontColor
+        trackLength.backgroundColor             = Theme.activeTheme.highlightColor
+        backgroundColor                         = Theme.activeTheme.foregroundColor
+        lapRecordLabel.textColor                = Theme.activeTheme.secondaryFontColor
+        lapRecordHolder.textColor               = Theme.activeTheme.mainFontColor
+        lapRecordTime.textColor                 = Theme.activeTheme.mainFontColor
     }
 }

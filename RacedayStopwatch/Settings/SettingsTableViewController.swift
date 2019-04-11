@@ -165,6 +165,7 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func setDarkMode(_ sender: UISwitch) {
         Theme.activeTheme = sender.isOn ? DarkTheme() : LightTheme()
         Constants.defaults.set(sender.isOn, forKey: Constants.defaults_dark_mode)
+        tableView.reloadData()
         setupTheme()
     }
     
@@ -181,7 +182,7 @@ class SettingsTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -192,6 +193,8 @@ class SettingsTableViewController: UITableViewController {
             return Constants.SETTINGS_IAP_HEADER
         case 2:
             return Constants.SETTINGS_THEME_HEADER
+        case 3:
+            return Constants.SETTINGS_ABOUT_HEADER
         default:
             return ""
         }
@@ -210,7 +213,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         //Only one section should have a footer, the last one
-        if section == 2 {
+        if section == 3 {
             guard let dictionary = Bundle.main.infoDictionary else {
                 return "© 2019 Appbryggeriet - 🇳🇴"
             }
