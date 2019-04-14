@@ -126,6 +126,8 @@ struct Constants{
     static let SESSION_DRIVER_ERROR_BODY        = "Either select a Driver, or turn on the No Driver Switch."
     static let NEW_SESSION_TIMER_ONLY_TITLE     = "BASIC TIMER"
     static let NEW_SESSION_NO_TRACK             = "No Tracks found"
+    static let NEW_SESSION_START                = "Go To Track"
+    static let NEW_SESSION_START_NO_TRACK       = "START"
     
     static let SESSION_FASTEST_DRIVER           = "Fastest Driver"
     static let SESSION_LAP                      = " laps"
@@ -185,7 +187,7 @@ struct Constants{
     static let SETTINGS_ABOUT_HEADER            = "About"
     static let SETTINGS_DARK_MODE_LABEL         = "Dark Mode"
     static let SETTINGS_IMP_OR_METRIC_LABEL     = "Measurement Units"
-    static let SETTINGS_DISABLE_SLEEP_LABEL     = "Disable Sleep in Timer"
+    static let SETTINGS_DISABLE_SLEEP_LABEL     = "Turn OFF device Auto-Lock"
     static let SETTINGS_IMPERIAL_LABEL          = "Imperial"
     static let SETTINGS_METRIC_LABEL            = "Metric"
     static let SETTINGS_REVIEW_BUTTON_TITLE     = "Review Raceday Timer"

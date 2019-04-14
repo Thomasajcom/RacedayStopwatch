@@ -24,6 +24,8 @@ class NewSessionTableViewController: UITableViewController {
     @IBOutlet weak var noDriverCell: UITableViewCell!
     @IBOutlet weak var noTrackCell: UITableViewCell!
     @IBOutlet weak var customLengthCell: UITableViewCell!
+    @IBOutlet weak var doneCell: UITableViewCell!
+    @IBOutlet weak var doneButton: UIButton!
     
     var drivers: [Driver]?
     var selectedDrivers = [Driver]()
@@ -47,6 +49,7 @@ class NewSessionTableViewController: UITableViewController {
         driversCollectionView.dataSource    = self
         driversCollectionView.allowsMultipleSelection = true
         noDriversLabel.text                 = Constants.SESSION_WITHOUT_DRIVER
+        doneButton.setTitle(Constants.NEW_SESSION_START, for: .normal)
 
         do {
             tracks = try CoreDataService.context.fetch(trackFetchRequest)
@@ -64,10 +67,11 @@ class NewSessionTableViewController: UITableViewController {
     }
     
     func setupTheme(){
-        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
-        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
-        tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
-        tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
+        navigationController?.navigationBar.barTintColor    = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor       = Theme.activeTheme.tintColor
+        tabBarController?.tabBar.barTintColor               = Theme.activeTheme.barColor
+        tabBarController?.tabBar.tintColor                  = Theme.activeTheme.tintColor
+        
         tableView.separatorColor                = Theme.activeTheme.tintColor
         tableView.backgroundColor               = Theme.activeTheme.backgroundColor
         trackPicker.backgroundColor             = Theme.activeTheme.foregroundColor
@@ -81,6 +85,8 @@ class NewSessionTableViewController: UITableViewController {
         
         trackSelectorCell.backgroundColor       = Theme.activeTheme.foregroundColor
         driverSelectorCell.backgroundColor      = Theme.activeTheme.foregroundColor
+        doneCell.backgroundColor                = Theme.activeTheme.foregroundColor
+        doneButton.setTitleColor(Theme.activeTheme.tintColor, for: .normal)
         driversCollectionView.backgroundColor   = Theme.activeTheme.foregroundColor
         noDriverCell.backgroundColor            = Theme.activeTheme.foregroundColor
         noTrackCell.backgroundColor             = Theme.activeTheme.foregroundColor
@@ -94,6 +100,11 @@ class NewSessionTableViewController: UITableViewController {
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {
         noTrackLength.isEnabled.toggle()
         trackPicker.isHidden.toggle()
+        if trackPicker.isHidden{
+            doneButton.setTitle(Constants.NEW_SESSION_START_NO_TRACK, for: .normal)
+        }else{
+            doneButton.setTitle(Constants.NEW_SESSION_START, for: .normal)
+        }
     }
     @IBAction func noDriversSwitchChanged(_ sender: UISwitch) {
         //driversCollectionView.allowsSelection.toggle()
@@ -103,7 +114,7 @@ class NewSessionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,6 +124,8 @@ class NewSessionTableViewController: UITableViewController {
         case 1:
             return 1
         case 2:
+            return 1
+        case 3:
             return 3
         default:
             return 0
@@ -126,6 +139,8 @@ class NewSessionTableViewController: UITableViewController {
         case 1:
             return Constants.SESSION_DRIVER_SELECT_TITLE
         case 2:
+            return nil
+        case 3:
             return Constants.NEW_SESSION_TIMER_ONLY_TITLE
         default:
             return ""

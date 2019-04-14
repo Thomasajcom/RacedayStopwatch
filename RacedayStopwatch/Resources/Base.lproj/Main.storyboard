@@ -673,10 +673,38 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="vEh-P7-Ea5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ll5-So-403">
+                                        <rect key="frame" x="0.0" y="407.33333333333337" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ll5-So-403" id="mBI-ST-IHf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw3-8E-AWG">
+                                                    <rect key="frame" x="150" y="-0.33333333333333215" width="75" height="44.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <segue destination="V1s-dB-giF" kind="show" identifier="timerSegue" id="Snt-xd-ORL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fw3-8E-AWG" firstAttribute="centerY" secondItem="mBI-ST-IHf" secondAttribute="centerY" id="f87-ut-6bL"/>
+                                                <constraint firstItem="fw3-8E-AWG" firstAttribute="centerX" secondItem="mBI-ST-IHf" secondAttribute="centerX" id="inf-XJ-qI6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="BASIC TIMER" id="PCz-sO-0Gr" userLabel="BASIC TIMER">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="aQO-ev-9Ee">
-                                        <rect key="frame" x="0.0" y="427.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="507.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aQO-ev-9Ee" id="92P-rW-O6W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -713,7 +741,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="U4T-YT-Gjt">
-                                        <rect key="frame" x="0.0" y="471.33333333333337" width="375" height="63"/>
+                                        <rect key="frame" x="0.0" y="551.33333333333337" width="375" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U4T-YT-Gjt" id="AwV-Zf-KSt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="62.666666666666664"/>
@@ -750,7 +778,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="VuO-Nv-kdW">
-                                        <rect key="frame" x="0.0" y="534.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="614.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VuO-Nv-kdW" id="bcp-5t-RIK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -792,6 +820,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="customLengthCell" destination="VuO-Nv-kdW" id="gWP-3B-AOR"/>
+                        <outlet property="doneButton" destination="fw3-8E-AWG" id="QRt-nw-Irv"/>
+                        <outlet property="doneCell" destination="ll5-So-403" id="ILH-rM-7gR"/>
                         <outlet property="driverSelectorCell" destination="u9Z-zV-okz" id="Y4H-qw-oDz"/>
                         <outlet property="driversCollectionView" destination="vkU-eM-8TI" id="U90-YJ-bMA"/>
                         <outlet property="noDriverCell" destination="aQO-ev-9Ee" id="QbV-H7-45q"/>
@@ -1772,5 +1802,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JGP-yD-QPe"/>
+        <segue reference="Snt-xd-ORL"/>
     </inferredMetricsTieBreakers>
 </document>
