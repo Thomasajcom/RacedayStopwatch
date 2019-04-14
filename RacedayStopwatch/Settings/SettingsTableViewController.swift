@@ -14,6 +14,10 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var measurementCell: UITableViewCell!
     @IBOutlet weak var metricImperialSegmentedControl: UISegmentedControl!
     @IBOutlet weak var measurementUnitsLabel: UILabel!
+    @IBOutlet weak var disableSleepCell: UITableViewCell!
+    @IBOutlet weak var disableSleepLabel: UILabel!
+    @IBOutlet weak var disableSleepSwitch: UISwitch!
+    
     @IBOutlet weak var reviewCell: UITableViewCell!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var schizohybridArtCell: UITableViewCell!
@@ -43,6 +47,7 @@ class SettingsTableViewController: UITableViewController {
         
         self.title                  = Constants.SETTINGS_TITLE
         measurementUnitsLabel.text  = Constants.SETTINGS_IMP_OR_METRIC_LABEL
+        disableSleepLabel.text     = Constants.SETTINGS_DISABLE_SLEEP_LABEL
         darkModeLabel.text          = Constants.SETTINGS_DARK_MODE_LABEL
         metricImperialSegmentedControl.addTarget(self, action: #selector(changeMeasurementUnit), for: .valueChanged)
         metricImperialSegmentedControl.setTitle(Constants.SETTINGS_METRIC_LABEL, forSegmentAt: 0)
@@ -62,6 +67,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         getIAPData()
         darkModeSwitch.setOn(Constants.defaults.bool(forKey: Constants.defaults_dark_mode), animated: false)
+        disableSleepSwitch.setOn(Constants.defaults.bool(forKey: Constants.defaults_disable_sleep), animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,27 +79,36 @@ class SettingsTableViewController: UITableViewController {
         setupTheme()
     }
     func setupTheme(){
-        tableView.backgroundColor = Theme.activeTheme.backgroundColor
-        tableView.separatorColor = Theme.activeTheme.tintColor
-        metricImperialSegmentedControl.tintColor = Theme.activeTheme.tintColor
-        measurementUnitsLabel.textColor = Theme.activeTheme.mainFontColor
+        tableView.backgroundColor   = Theme.activeTheme.backgroundColor
+        tableView.separatorColor    = Theme.activeTheme.tintColor
+        
+        measurementCell.backgroundColor             = Theme.activeTheme.foregroundColor
+        measurementUnitsLabel.textColor             = Theme.activeTheme.mainFontColor
+        metricImperialSegmentedControl.tintColor    = Theme.activeTheme.tintColor
+        disableSleepCell.backgroundColor            = Theme.activeTheme.foregroundColor
+        disableSleepLabel.textColor                 = Theme.activeTheme.mainFontColor
+        
+        reviewCell.backgroundColor              = Theme.activeTheme.foregroundColor
+        schizohybridArtCell.backgroundColor     = Theme.activeTheme.foregroundColor
+        icons8Cell.backgroundColor              = Theme.activeTheme.foregroundColor
         reviewButton.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
-        measurementCell.backgroundColor = Theme.activeTheme.foregroundColor
-        reviewCell.backgroundColor = Theme.activeTheme.foregroundColor
-        schizohybridArtCell.backgroundColor = Theme.activeTheme.foregroundColor
         schizohybridArtButton.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
-        icons8Cell.backgroundColor = Theme.activeTheme.foregroundColor
         icons8Button.setTitleColor(Theme.activeTheme.mainFontColor, for: .normal)
-        darkModeCell.backgroundColor = Theme.activeTheme.foregroundColor
-        darkModeLabel.textColor = Theme.activeTheme.mainFontColor
-        navigationController?.navigationBar.barTintColor = Theme.activeTheme.barColor
-        navigationController?.navigationBar.tintColor = Theme.activeTheme.tintColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
-        navigationController?.navigationBar.largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
-        tabBarController?.tabBar.barTintColor = Theme.activeTheme.barColor
-        tabBarController?.tabBar.tintColor = Theme.activeTheme.tintColor
-//        darkModeSwitch.onTintColor = Theme.activeTheme.confirmColor
-//        darkModeSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
+        darkModeCell.backgroundColor        = Theme.activeTheme.foregroundColor
+        darkModeLabel.textColor             = Theme.activeTheme.mainFontColor
+        darkModeSwitch.tintColor            = Theme.activeTheme.tintColor
+        darkModeSwitch.onTintColor          = Theme.activeTheme.confirmColor
+        darkModeSwitch.thumbTintColor       = Theme.activeTheme.mainFontColor
+        disableSleepSwitch.tintColor        = Theme.activeTheme.tintColor
+        disableSleepSwitch.onTintColor      = Theme.activeTheme.confirmColor
+        disableSleepSwitch.thumbTintColor   = Theme.activeTheme.mainFontColor
+        
+        navigationController?.navigationBar.barTintColor                = Theme.activeTheme.barColor
+        navigationController?.navigationBar.tintColor                   = Theme.activeTheme.tintColor
+        navigationController?.navigationBar.titleTextAttributes         = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        navigationController?.navigationBar.largeTitleTextAttributes    = [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor]
+        tabBarController?.tabBar.barTintColor                           = Theme.activeTheme.barColor
+        tabBarController?.tabBar.tintColor                              = Theme.activeTheme.tintColor
     }
     
     @IBAction func createReview(_ sender: UIButton) {
@@ -169,6 +184,10 @@ class SettingsTableViewController: UITableViewController {
         setupTheme()
     }
     
+    @IBAction func disableSleep(_ sender: UISwitch) {
+        Constants.defaults.set(sender.isOn, forKey: Constants.defaults_disable_sleep)
+    }
+    
     
     @objc func changeMeasurementUnit(){
         switch metricImperialSegmentedControl.selectedSegmentIndex {
@@ -180,6 +199,7 @@ class SettingsTableViewController: UITableViewController {
             print("Default metric or imperial switch")
         }
     }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4

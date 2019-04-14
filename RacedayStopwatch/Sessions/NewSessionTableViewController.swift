@@ -72,12 +72,13 @@ class NewSessionTableViewController: UITableViewController {
         tableView.backgroundColor               = Theme.activeTheme.backgroundColor
         trackPicker.backgroundColor             = Theme.activeTheme.foregroundColor
         trackPicker.tintColor                   = Theme.activeTheme.tintColor
-        noDriversSwitch.thumbTintColor          = Theme.activeTheme.tintColor
         noDriversSwitch.tintColor               = Theme.activeTheme.tintColor
         noDriversSwitch.onTintColor             = Theme.activeTheme.confirmColor
-        noTrackSwitch.thumbTintColor            = Theme.activeTheme.tintColor
+        noDriversSwitch.thumbTintColor          = Theme.activeTheme.mainFontColor
         noTrackSwitch.tintColor                 = Theme.activeTheme.tintColor
         noTrackSwitch.onTintColor               = Theme.activeTheme.confirmColor
+        noTrackSwitch.thumbTintColor            = Theme.activeTheme.mainFontColor
+        
         trackSelectorCell.backgroundColor       = Theme.activeTheme.foregroundColor
         driverSelectorCell.backgroundColor      = Theme.activeTheme.foregroundColor
         driversCollectionView.backgroundColor   = Theme.activeTheme.foregroundColor
@@ -87,10 +88,7 @@ class NewSessionTableViewController: UITableViewController {
         noDriversLabel.textColor = Theme.activeTheme.mainFontColor
         noTrackLabel.textColor = Theme.activeTheme.mainFontColor
         noTrackLength.attributedPlaceholder = NSAttributedString(string: Constants.SESSION_CUSTOM_LENGTH, attributes: [NSAttributedString.Key.foregroundColor:Theme.activeTheme.tintColor])
-        noTrackSwitch.onTintColor = Theme.activeTheme.confirmColor
-        noTrackSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
-        noDriversSwitch.onTintColor = Theme.activeTheme.confirmColor
-        noDriversSwitch.thumbTintColor = Theme.activeTheme.mainFontColor
+        
     }
     
     @IBAction func noTrackSwitchChanged(_ sender: UISwitch) {

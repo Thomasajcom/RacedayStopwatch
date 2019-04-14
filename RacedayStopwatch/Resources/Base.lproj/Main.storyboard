@@ -85,12 +85,47 @@
                                         <color key="backgroundColor" name="CellBackground"/>
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fBy-LX-fNB">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fBy-LX-fNB" id="8Ts-mv-ji9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4kv-iU-RIS">
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykP-5B-A8a">
+                                                            <rect key="frame" x="0.0" y="0.0" width="286" height="22"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" name="MainFontColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLv-k3-azD">
+                                                            <rect key="frame" x="294" y="0.0" width="51" height="22"/>
+                                                            <connections>
+                                                                <action selector="disableSleep:" destination="nMG-Uh-yDW" eventType="valueChanged" id="kSk-15-go4"/>
+                                                            </connections>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4kv-iU-RIS" firstAttribute="top" secondItem="8Ts-mv-ji9" secondAttribute="topMargin" id="44L-2D-jdx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4kv-iU-RIS" secondAttribute="bottom" id="EOB-PC-luZ"/>
+                                                <constraint firstItem="4kv-iU-RIS" firstAttribute="leading" secondItem="8Ts-mv-ji9" secondAttribute="leadingMargin" id="OEP-eu-pPc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4kv-iU-RIS" secondAttribute="trailing" id="dmi-2O-jvL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="CellBackground"/>
+                                        <color key="tintColor" name="CellTint"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle=" In-App Purchases" id="8re-P4-HYk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="3Hn-st-NYR" style="IBUITableViewCellStyleDefault" id="6mE-hi-Maw" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mE-hi-Maw" id="dLr-Zm-9w2">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -109,7 +144,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Ypt-OJ-gjC" detailTextLabel="dvE-3B-i9F" style="IBUITableViewCellStyleSubtitle" id="bHF-bJ-CG5" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bHF-bJ-CG5" id="8tu-5c-6c3">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -135,7 +170,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TOv-Xr-NKq" detailTextLabel="3g0-oS-6nm" style="IBUITableViewCellStyleSubtitle" id="fMC-55-RJ2" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fMC-55-RJ2" id="suW-vX-SFE">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -161,7 +196,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="d5N-RZ-dqw" detailTextLabel="WQ9-Tx-4Ib" style="IBUITableViewCellStyleSubtitle" id="aY5-ih-kns" customClass="ProductCell" customModule="RacedayStopwatch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aY5-ih-kns" id="wcf-BX-MrF">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
@@ -191,7 +226,7 @@
                             <tableViewSection headerTitle="Themes" id="2Zv-3c-7BA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="58" id="aix-Ee-fXb">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="348" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aix-Ee-fXb" id="Vjw-Qd-PMX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="57.666666666666664"/>
@@ -236,7 +271,7 @@
                             <tableViewSection headerTitle="About" id="3Mv-7Q-qlv">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="FGQ-mH-9qd">
-                                        <rect key="frame" x="0.0" y="390" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="434" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FGQ-mH-9qd" id="Uc3-e0-Rgt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -262,7 +297,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Fm8-ND-MmV">
-                                        <rect key="frame" x="0.0" y="434" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="478" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fm8-ND-MmV" id="Sru-Ni-hFD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -288,7 +323,7 @@
                                         <color key="tintColor" name="CellTint"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Ovk-og-tdv">
-                                        <rect key="frame" x="0.0" y="478" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="522" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ovk-og-tdv" id="FlA-lK-8mv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -326,6 +361,9 @@
                         <outlet property="darkModeCell" destination="aix-Ee-fXb" id="tnf-A1-WHp"/>
                         <outlet property="darkModeLabel" destination="qNg-Qb-hEX" id="pet-0p-dtf"/>
                         <outlet property="darkModeSwitch" destination="hWd-2g-zQ1" id="rFB-v2-M0H"/>
+                        <outlet property="disableSleepCell" destination="fBy-LX-fNB" id="BIL-GR-Zbz"/>
+                        <outlet property="disableSleepLabel" destination="ykP-5B-A8a" id="oQf-mN-VpR"/>
+                        <outlet property="disableSleepSwitch" destination="VLv-k3-azD" id="4xw-kQ-t2Z"/>
                         <outlet property="icons8Button" destination="Tog-Gb-bOf" id="MLN-Sa-gbB"/>
                         <outlet property="icons8Cell" destination="Ovk-og-tdv" id="J1R-Cu-tgt"/>
                         <outlet property="measurementCell" destination="Q7D-DR-zic" id="lIM-vy-Dco"/>

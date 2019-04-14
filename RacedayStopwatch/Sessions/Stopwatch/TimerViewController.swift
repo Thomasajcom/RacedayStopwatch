@@ -58,7 +58,6 @@ class TimerViewController: UIViewController {
             interstitial = createInterstitialAd()
         }
         
-        
         mainTimerLabel.text = Constants.LAPTIME_NOT_STARTED
         driverCollectionView.delegate   = self
         driverCollectionView.dataSource = self
@@ -122,6 +121,10 @@ class TimerViewController: UIViewController {
                 participatingDrivers.append( (driver,RaceDayTimer()) )
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = Constants.defaults.bool(forKey: Constants.defaults_disable_sleep)
     }
     
     override func viewWillLayoutSubviews() {

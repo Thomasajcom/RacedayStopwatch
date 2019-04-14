@@ -14,7 +14,7 @@ class TracksTableViewController: UITableViewController {
     
     lazy var adBannerView: GADBannerView = {
         let adBannerView = GADBannerView(adSize: kGADAdSizeLargeBanner)
-        adBannerView.adUnitID = Constants.ADMOB_ID_DRIVERS
+        adBannerView.adUnitID = Constants.ADMOB_ID_TRACKS
         adBannerView.delegate = self
         adBannerView.rootViewController = self
         return adBannerView

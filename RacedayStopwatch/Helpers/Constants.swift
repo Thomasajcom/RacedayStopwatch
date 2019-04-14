@@ -20,6 +20,7 @@ struct Constants{
     static let defaults_metric_key      = "Metric"
     static let defaults_launched_before = "LaunchedBefore"
     static let defaults_dark_mode       = "DarkMode"
+    static let defaults_disable_sleep   = "DisableSleep"
     
     //AdMob ID
     static let ADMOB_ID_TEST                = "ca-app-pub-3940256099942544~1458002511"
@@ -184,6 +185,7 @@ struct Constants{
     static let SETTINGS_ABOUT_HEADER            = "About"
     static let SETTINGS_DARK_MODE_LABEL         = "Dark Mode"
     static let SETTINGS_IMP_OR_METRIC_LABEL     = "Measurement Units"
+    static let SETTINGS_DISABLE_SLEEP_LABEL     = "Disable Sleep in Timer"
     static let SETTINGS_IMPERIAL_LABEL          = "Imperial"
     static let SETTINGS_METRIC_LABEL            = "Metric"
     static let SETTINGS_REVIEW_BUTTON_TITLE     = "Review Raceday Timer"
